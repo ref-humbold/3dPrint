@@ -3,6 +3,7 @@
 
 #include <cstdlib>
 #include <cerrno>
+#include <cinttypes>
 #include <cstring>
 #include <exception>
 #include <iostream>
@@ -26,10 +27,10 @@ public:
         close(device);
     }
 
-    uint8_t receive8();
-    uint16_t receive16();
-    void send8(uint8_t data);
-    void send16(uint16_t data);
+    uint8_t receive_8();
+    uint16_t receive_16();
+    void send_8(uint8_t data);
+    void send_16(uint16_t data);
 
 private:
     int device;
