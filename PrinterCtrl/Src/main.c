@@ -122,7 +122,6 @@ int main(void)
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
-
         uint8_t data = uart_recv_8(&huart2);
         HAL_Delay(100);
         uart_send_8(&huart2, data);
