@@ -121,20 +121,14 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef * uartHandle)
 }
 
 /* USER CODE BEGIN 1 */
-uint8_t uart_recv_8(UART_HandleTypeDef * huart)
+HAL_StatusTypeDef uart_recv_8(UART_HandleTypeDef * huart, uint8_t * data)
 {
-    uint8_t data;
-
-    HAL_StatusTypeDef status = HAL_UART_Receive(huart, &data, 1, HAL_MAX_DELAY);
-    // HAL_StatusTypeDef status = HAL_UART_Receive_IT(huart, &data, 1);
-
-    return data;
+    return HAL_UART_Receive_IT(huart, data, 1);
 }
 
-void uart_send_8(UART_HandleTypeDef * huart, uint8_t data)
+HAL_StatusTypeDef uart_send_8(UART_HandleTypeDef * huart, uint8_t data)
 {
-    HAL_StatusTypeDef status = HAL_UART_Transmit(huart, &data, 1, HAL_MAX_DELAY);
-    // HAL_StatusTypeDef status = HAL_UART_Transmit_IT(huart, &data, 1, HAL_MAX_DELAY);
+    return HAL_UART_Transmit_IT(huart, &data, 1);
 }
 /* USER CODE END 1 */
 

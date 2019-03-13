@@ -60,9 +60,8 @@ extern "C"
     void MX_USART2_UART_Init(void);
 
     /* USER CODE BEGIN Prototypes */
-    uint8_t uart_recv_8(UART_HandleTypeDef * huart);
-
-    void uart_send_8(UART_HandleTypeDef * huart, uint8_t data);
+    HAL_StatusTypeDef uart_recv_8(UART_HandleTypeDef * huart, uint8_t * data);
+    HAL_StatusTypeDef uart_send_8(UART_HandleTypeDef * huart, uint8_t data);
     /* USER CODE END Prototypes */
 
 #ifdef __cplusplus
