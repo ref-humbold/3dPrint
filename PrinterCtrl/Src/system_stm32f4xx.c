@@ -95,19 +95,21 @@
     || defined(STM32F412Zx) || defined(STM32F412Vx)
 /* #define DATA_IN_ExtSRAM */
 #endif /* STM32F40xxx || STM32F41xxx || STM32F42xxx || STM32F43xxx || STM32F469xx || STM32F479xx \ \
+          \                                                                                        \
           ||\ STM32F412Zx || STM32F412Vx */
 
 #if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx) \
     || defined(STM32F446xx) || defined(STM32F469xx) || defined(STM32F479xx)
 /* #define DATA_IN_ExtSDRAM */
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F446xx || STM32F469xx \ \
+          \                                                                                        \
           ||\ STM32F479xx */
 
 /*!< Uncomment the following line if you need to relocate your vector Table in
      Internal SRAM. */
 /* #define VECT_TAB_SRAM */
-#define VECT_TAB_OFFSET                         \
-    0x00 /*!< Vector Table base offset field. \ \
+#define VECT_TAB_OFFSET                           \
+    0x00 /*!< Vector Table base offset field. \ \ \
               This value must be a multiple of 0x200. */
 /******************************************************************************/
 
@@ -451,6 +453,7 @@ void SystemInit_ExtMemCtl(void)
     (void)(tmp);
 }
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx \ \
+        * \                                                                                        \
         */
 #elif defined(DATA_IN_ExtSRAM) || defined(DATA_IN_ExtSDRAM)
 /**
@@ -582,6 +585,7 @@ void SystemInit_ExtMemCtl(void)
     /* No pull-up, pull-down for PIx pins */
     GPIOI->PUPDR = 0x00000000;
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx \ \
+        * \                                                                                        \
         */
 
     /*-- FMC Configuration -------------------------------------------------------*/
@@ -656,6 +660,7 @@ void SystemInit_ExtMemCtl(void)
     FMC_Bank5_6->SDCR[0] = (tmpreg & 0xFFFFFDFF);
 #endif /* DATA_IN_ExtSDRAM */
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F446xx || STM32F469xx \ \
+          \                                                                                        \
           || STM32F479xx */
 
 #if defined(STM32F405xx) || defined(STM32F415xx) || defined(STM32F407xx) || defined(STM32F417xx) \
@@ -747,11 +752,13 @@ void SystemInit_ExtMemCtl(void)
     FSMC_Bank1->BTCR[3] = 0x00000201;
     FSMC_Bank1E->BWTR[2] = 0x0FFFFFFF;
 #endif /* STM32F405xx || STM32F415xx || STM32F407xx || STM32F417xx || STM32F412Zx || STM32F412Vx \ \
+        * \                                                                                        \
         */
 
 #endif /* DATA_IN_ExtSRAM */
 #endif /* STM32F405xx || STM32F415xx || STM32F407xx || STM32F417xx || STM32F427xx || STM32F437xx \ \
-          ||\ STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx || STM32F412Zx || \                                                                                                 \
+          \                                                                                        \
+          ||\ STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx || STM32F412Zx || \ \                                                                                                 \
           STM32F412Vx  */
     (void)(tmp);
 }
