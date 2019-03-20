@@ -1,10 +1,12 @@
 #include <cstdlib>
 #include <iostream>
-#include "usart_ctrl.hpp"
+#include "uart_ctrl.hpp"
+
+using namespace std::string_literals;
 
 int main(int argc, char * argv[])
 {
-    usart_ctrl u("/dev/ttyACM0");
+    uart_ctrl u("/dev/ttyACM0"s);
 
     if(argc < 2)
         throw std::logic_error("No data provided.");
