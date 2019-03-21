@@ -11,6 +11,14 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+class uart_exception : std::runtime_error
+{
+public:
+    explicit uart_exception(const std::string & arg) : std::runtime_error(arg)
+    {
+    }
+};
+
 class uart_ctrl
 {
 public:
@@ -23,7 +31,7 @@ public:
         close(device);
     }
 
-    uint8_t receive_8();
+    uint8_t recv_8();
     void send_8(uint8_t data);
 
 private:

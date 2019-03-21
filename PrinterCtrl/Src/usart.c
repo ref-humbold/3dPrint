@@ -126,9 +126,9 @@ HAL_StatusTypeDef uart_recv_8(UART_HandleTypeDef * huart, uint8_t * data)
     return HAL_UART_Receive_IT(huart, data, 1);
 }
 
-HAL_StatusTypeDef uart_send_8(UART_HandleTypeDef * huart, uint8_t * data)
+HAL_StatusTypeDef uart_send_8(UART_HandleTypeDef * huart, uint8_t data)
 {
-    return HAL_UART_Transmit_IT(huart, data, 1);
+    return HAL_UART_Transmit_IT(huart, &data, 1);
 }
 /* USER CODE END 1 */
 

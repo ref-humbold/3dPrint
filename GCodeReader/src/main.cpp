@@ -4,17 +4,26 @@
 
 using namespace std::string_literals;
 
+const char ACK = 'A';
+const char NAK = 'N';
+const char STX = 'S';
+const char FF = 'F';
+
 int main(int argc, char * argv[])
 {
-    uart_ctrl u("/dev/ttyACM0"s);
-
-    if(argc < 2)
-        throw std::logic_error("No data provided.");
+    uart_ctrl uart("/dev/ttyACM0"s);
 
     while(true)
     {
-        u.send_8(static_cast<uint8_t>(atoi(argv[1])));
-        std::cout << "## " << u.receive_8() << "\n";
+        uart.send_8(ACK);
+
+        if(uart.recv_8() != ACK)
+            throw std::runtime_error("ACK not received");
+
+        uart.send_8(STX);
+
+        if(uart.recv_8() != FF)
+            throw std::runtime_error("FF not received");
     }
 
     return 0;
