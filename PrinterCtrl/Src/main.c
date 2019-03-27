@@ -126,12 +126,8 @@ int main(void)
         /* USER CODE BEGIN 3 */
         status = uart_recv_8(&huart2, &data);
         HAL_Delay(1000);
-        status = data == 'A' ? uart_send_8(&huart2, data) : uart_send_8(&huart2, (uint8_t)'N');
+        status = uart_send_8(&huart2, &data);
         HAL_Delay(1000);
-        status = uart_recv_8(&huart2, &data);
-        HAL_Delay(1000);
-        status =
-            data == 'S' ? uart_send_8(&huart2, (uint8_t)'F') : uart_send_8(&huart2, (uint8_t)'N');
     }
     /* USER CODE END 3 */
 }
