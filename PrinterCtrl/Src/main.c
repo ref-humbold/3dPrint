@@ -119,6 +119,8 @@ int main(void)
 
     /* Infinite loop */
     /* USER CODE BEGIN WHILE */
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+
     while(1)
     {
         /* USER CODE END WHILE */
@@ -126,7 +128,7 @@ int main(void)
         /* USER CODE BEGIN 3 */
         status = uart_recv_8(&huart2, &data);
         HAL_Delay(1000);
-        status = uart_send_8(&huart2, &data);
+        status = uart_send_8P(&huart2, &data);
         HAL_Delay(1000);
     }
     /* USER CODE END 3 */
@@ -178,12 +180,12 @@ void SystemClock_Config(void)
 /* USER CODE BEGIN 4 */
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef * huart)
 {
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef * huart)
 {
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 }
 /* USER CODE END 4 */
 

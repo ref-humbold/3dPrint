@@ -2,7 +2,7 @@
 
 using namespace std::string_literals;
 
-uint8_t uart_ctrl::receive_8()
+uint8_t uart_ctrl::recv_8()
 {
     uint8_t recv_data[1] = {255};
     ssize_t res = read(device, recv_data, 1);

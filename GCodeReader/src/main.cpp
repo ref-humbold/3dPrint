@@ -4,17 +4,18 @@
 
 using namespace std::string_literals;
 
+const uint8_t ACK = static_cast<uint8_t>('A');
+
 int main(int argc, char * argv[])
 {
     uart_ctrl u("/dev/ttyACM0"s);
-
-    if(argc < 2)
-        throw std::logic_error("No data provided.");
+    uint8_t data;
 
     while(true)
     {
-        u.send_8(static_cast<uint8_t>(atoi(argv[1])));
-        std::cout << "## " << u.receive_8() << "\n";
+        u.send_8(ACK);
+        data = u.recv_8();
+        std::cout << "## " << data << "\n";
     }
 
     return 0;

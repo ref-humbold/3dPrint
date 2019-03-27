@@ -23,7 +23,7 @@ public:
         close(device);
     }
 
-    uint8_t receive_8();
+    uint8_t recv_8();
     void send_8(uint8_t data);
 
 private:
