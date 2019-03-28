@@ -54,15 +54,17 @@ extern "C"
     extern UART_HandleTypeDef huart2;
 
     /* USER CODE BEGIN Private defines */
-
+    extern HAL_StatusTypeDef uart_status;
     /* USER CODE END Private defines */
 
     void MX_USART2_UART_Init(void);
 
     /* USER CODE BEGIN Prototypes */
-    HAL_StatusTypeDef uart_recv_8(UART_HandleTypeDef * huart, uint8_t * data);
-    HAL_StatusTypeDef uart_send_8P(UART_HandleTypeDef * huart, uint8_t * data);
-    HAL_StatusTypeDef uart_send_8V(UART_HandleTypeDef * huart, uint8_t data);
+    void HAL_UART_TxCpltCallback(UART_HandleTypeDef * huart);
+    void HAL_UART_RxCpltCallback(UART_HandleTypeDef * huart);
+    void uart_recv_8(UART_HandleTypeDef * huart, uint8_t * data);
+    void uart_send_8(UART_HandleTypeDef * huart, uint8_t * data);
+    void uart_send_8Val(UART_HandleTypeDef * huart, uint8_t data);
     /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

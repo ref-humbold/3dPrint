@@ -73,8 +73,7 @@
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-void HAL_UART_TxCpltCallback(UART_HandleTypeDef * huart);
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef * huart);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -114,7 +113,6 @@ int main(void)
     MX_SPI2_Init();
     /* USER CODE BEGIN 2 */
     uint8_t data = 0;
-    HAL_StatusTypeDef status;
     /* USER CODE END 2 */
 
     /* Infinite loop */
@@ -126,9 +124,11 @@ int main(void)
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
-        status = uart_recv_8(&huart2, &data);
+        uart_recv_8(&huart2, &data);
         HAL_Delay(1000);
-        status = uart_send_8P(&huart2, &data);
+        uart_send_8(&huart2, &data);
+        HAL_Delay(1000);
+        uart_send_8Val(&huart2, (uint8_t)'@');
         HAL_Delay(1000);
     }
     /* USER CODE END 3 */
@@ -178,15 +178,7 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-void HAL_UART_TxCpltCallback(UART_HandleTypeDef * huart)
-{
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-}
 
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef * huart)
-{
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-}
 /* USER CODE END 4 */
 
 /**

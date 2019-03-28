@@ -15,7 +15,9 @@ int main(int argc, char * argv[])
     {
         u.send_8(ACK);
         data = u.recv_8();
-        std::cout << "## " << data << "\n";
+        std::cout << "## 1 : " << data << "\n";
+        data = u.recv_8();
+        std::cout << "## 2 : " << data << "\n";
     }
 
     return 0;

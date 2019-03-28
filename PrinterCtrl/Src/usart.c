@@ -41,7 +41,7 @@
 #include "usart.h"
 
 /* USER CODE BEGIN 0 */
-
+HAL_StatusTypeDef uart_status;
 /* USER CODE END 0 */
 
 UART_HandleTypeDef huart2;
@@ -121,19 +121,30 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef * uartHandle)
 }
 
 /* USER CODE BEGIN 1 */
-HAL_StatusTypeDef uart_recv_8(UART_HandleTypeDef * huart, uint8_t * data)
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef * huart)
 {
-    return HAL_UART_Receive_IT(huart, data, 1);
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 }
 
-HAL_StatusTypeDef uart_send_8P(UART_HandleTypeDef * huart, uint8_t * data)
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef * huart)
 {
-    return HAL_UART_Transmit_IT(huart, data, 1);
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 }
 
-HAL_StatusTypeDef uart_send_8V(UART_HandleTypeDef * huart, uint8_t data)
+void uart_recv_8(UART_HandleTypeDef * huart, uint8_t * data)
 {
-    return HAL_UART_Transmit_IT(huart, &data, 1);
+    uart_status = HAL_UART_Receive_IT(huart, data, 1);
+}
+
+void uart_send_8(UART_HandleTypeDef * huart, uint8_t * data)
+{
+    uart_status = HAL_UART_Transmit_IT(huart, data, 1);
+}
+
+void uart_send_8Val(UART_HandleTypeDef * huart, uint8_t data)
+{
+    uint8_t val = data;
+    uart_status = HAL_UART_Transmit_IT(huart, &val, 1);
 }
 /* USER CODE END 1 */
 
