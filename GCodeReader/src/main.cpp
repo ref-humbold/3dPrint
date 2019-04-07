@@ -16,9 +16,9 @@ int main(int argc, char * argv[])
 
         u.send_8(args.ack());
         data = u.recv_8();
-        std::cout << "## 1 : " << data << "\n";
+        std::cout << "## 1 : " << static_cast<int>(data) << "\n";
         data = u.recv_8();
-        std::cout << "## 2 : " << data << "\n";
+        std::cout << "## 2 : " << static_cast<int>(data) << "\n";
     }
 
     return 0;
