@@ -1,19 +1,20 @@
 #include <cstdlib>
 #include <iostream>
+#include "arguments.hpp"
 #include "uart_ctrl.hpp"
 
 using namespace std::string_literals;
 
-const uint8_t ACK = static_cast<uint8_t>('A');
-
 int main(int argc, char * argv[])
 {
-    uart_ctrl u("/dev/ttyACM0"s);
-    uint8_t data;
+    arguments args(argc, argv);
+    uart_ctrl u(args.port());
 
     while(true)
     {
-        u.send_8(ACK);
+        uint8_t data;
+
+        u.send_8(args.ack());
         data = u.recv_8();
         std::cout << "## 1 : " << data << "\n";
         data = u.recv_8();
