@@ -1,2 +1,2 @@
 # 3dPrint
-3d Printer controller using STM32 Nucleo board
+3D Printer controller based on STM32F411 Nucleo board
