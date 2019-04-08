@@ -34,6 +34,7 @@ public:
     void send_8(uint8_t data);
     uint8_t receive_8();
     void receive_expect_8(uint8_t expected);
+    void receive_wait_8(uint8_t expected);
 
 private:
     int device;

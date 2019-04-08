@@ -41,7 +41,6 @@
 #include "usart.h"
 
 /* USER CODE BEGIN 0 */
-const uint8_t uart_error_code = '\x7';
 const int uart_delay = 500;
 HAL_StatusTypeDef uart_status;
 /* USER CODE END 0 */
@@ -150,7 +149,7 @@ void uart_receive_8(UART_HandleTypeDef * huart, uint8_t * data)
     HAL_Delay(uart_delay);
 }
 
-void uart_receive_expect_8(UART_HandleTypeDef * huart, uint8_t expected, uint8_t info)
+void uart_receive_wait_8(UART_HandleTypeDef * huart, uint8_t expected)
 {
     uint8_t data;
 
@@ -161,7 +160,7 @@ void uart_receive_expect_8(UART_HandleTypeDef * huart, uint8_t expected, uint8_t
         if(data == expected)
             break;
 
-        uart_send_value_8(huart, info);
+        uart_send_value_8(huart, 0);
     } while(1);
 }
 /* USER CODE END 1 */

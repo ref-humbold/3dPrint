@@ -24,6 +24,15 @@ uint8_t uart_ctrl::receive_8()
 
 void uart_ctrl::receive_expect_8(uint8_t expected)
 {
+    uint8_t data = receive_8();
+
+    if(data != expected)
+        throw uart_error("Expected "s + std::to_string(static_cast<int>(expected))
+                         + " from UART, got "s + std::to_string(static_cast<int>(data)));
+}
+
+void uart_ctrl::receive_wait_8(uint8_t expected)
+{
     uint8_t data;
 
     do

@@ -122,12 +122,9 @@ int main(void)
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
-        uint8_t res = uart_receive_expect_8(&huart2, (uint8_t)'A');
+        uart_receive_wait_8(&huart2, (uint8_t)'A');
 
-        if(res > 0)
-            uart_send_value_8(&huart2, (uint8_t)'N');
-        else
-            uart_send_value_8(&huart2, (uint8_t)'A');
+        uart_send_value_8(&huart2, (uint8_t)'N');
     }
     /* USER CODE END 3 */
 }
