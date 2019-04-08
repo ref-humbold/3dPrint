@@ -150,13 +150,19 @@ void uart_receive_8(UART_HandleTypeDef * huart, uint8_t * data)
     HAL_Delay(uart_delay);
 }
 
-uint8_t uart_receive_expect_8(UART_HandleTypeDef * huart, uint8_t expected)
+void uart_receive_expect_8(UART_HandleTypeDef * huart, uint8_t expected, uint8_t info)
 {
     uint8_t data;
 
-    uart_receive_8(huart, &data);
+    do
+    {
+        uart_receive_8(huart, &data);
 
-    return data == expected ? 0 : 1;
+        if(data == expected)
+            break;
+
+        uart_send_value_8(huart, info);
+    } while(1);
 }
 /* USER CODE END 1 */
 
