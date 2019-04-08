@@ -112,24 +112,22 @@ int main(void)
     MX_USART2_UART_Init();
     MX_SPI2_Init();
     /* USER CODE BEGIN 2 */
-    uint8_t data = 0;
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
     /* USER CODE END 2 */
 
     /* Infinite loop */
     /* USER CODE BEGIN WHILE */
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-
     while(1)
     {
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
-        uart_recv_8(&huart2, &data);
-        HAL_Delay(1000);
-        uart_send_8(&huart2, &data);
-        HAL_Delay(1000);
-        uart_send_8Val(&huart2, (uint8_t)'@');
-        HAL_Delay(1000);
+        uint8_t res = uart_receive_expect_8(&huart2, (uint8_t)'A');
+
+        if(res > 0)
+            uart_send_value_8(&huart2, (uint8_t)'N');
+        else
+            uart_send_value_8(&huart2, (uint8_t)'A');
     }
     /* USER CODE END 3 */
 }

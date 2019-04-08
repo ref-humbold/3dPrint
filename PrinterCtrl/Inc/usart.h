@@ -48,6 +48,7 @@ extern "C"
 #include "main.h"
 
 /* USER CODE BEGIN Includes */
+#include <stdlib.h>
 #include <stdint.h>
     /* USER CODE END Includes */
 
@@ -62,9 +63,10 @@ extern "C"
     /* USER CODE BEGIN Prototypes */
     void HAL_UART_TxCpltCallback(UART_HandleTypeDef * huart);
     void HAL_UART_RxCpltCallback(UART_HandleTypeDef * huart);
-    void uart_recv_8(UART_HandleTypeDef * huart, uint8_t * data);
-    void uart_send_8(UART_HandleTypeDef * huart, uint8_t * data);
-    void uart_send_8Val(UART_HandleTypeDef * huart, uint8_t data);
+    void uart_send_pointer_8(UART_HandleTypeDef * huart, uint8_t * data);
+    void uart_send_value_8(UART_HandleTypeDef * huart, uint8_t data);
+    void uart_receive_8(UART_HandleTypeDef * huart, uint8_t * data);
+    uint8_t uart_receive_expect_8(UART_HandleTypeDef * huart, uint8_t expected);
     /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

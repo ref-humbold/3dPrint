@@ -41,6 +41,8 @@
 #include "usart.h"
 
 /* USER CODE BEGIN 0 */
+const uint8_t uart_error_code = '\x7';
+const int uart_delay = 500;
 HAL_StatusTypeDef uart_status;
 /* USER CODE END 0 */
 
@@ -123,28 +125,38 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef * uartHandle)
 /* USER CODE BEGIN 1 */
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef * huart)
 {
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef * huart)
 {
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 }
 
-void uart_recv_8(UART_HandleTypeDef * huart, uint8_t * data)
-{
-    uart_status = HAL_UART_Receive_IT(huart, data, 1);
-}
-
-void uart_send_8(UART_HandleTypeDef * huart, uint8_t * data)
+void uart_send_pointer_8(UART_HandleTypeDef * huart, uint8_t * data)
 {
     uart_status = HAL_UART_Transmit_IT(huart, data, 1);
+    HAL_Delay(uart_delay);
 }
 
-void uart_send_8Val(UART_HandleTypeDef * huart, uint8_t data)
+void uart_send_value_8(UART_HandleTypeDef * huart, uint8_t data)
 {
     uint8_t val = data;
     uart_status = HAL_UART_Transmit_IT(huart, &val, 1);
+    HAL_Delay(uart_delay);
+}
+
+void uart_receive_8(UART_HandleTypeDef * huart, uint8_t * data)
+{
+    uart_status = HAL_UART_Receive_IT(huart, data, 1);
+    HAL_Delay(uart_delay);
+}
+
+uint8_t uart_receive_expect_8(UART_HandleTypeDef * huart, uint8_t expected)
+{
+    uint8_t data;
+
+    uart_receive_8(huart, &data);
+
+    return data == expected ? 0 : 1;
 }
 /* USER CODE END 1 */
 
