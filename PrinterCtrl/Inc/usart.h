@@ -56,6 +56,14 @@ extern "C"
 
     /* USER CODE BEGIN Private defines */
     extern HAL_StatusTypeDef uart_status;
+
+    enum uart_code
+    {
+        ack = 0xA0,
+        begin = 0xB0,
+        cont = 0xC0,
+        fail = 0xF0
+    };
     /* USER CODE END Private defines */
 
     void MX_USART2_UART_Init(void);
@@ -63,8 +71,7 @@ extern "C"
     /* USER CODE BEGIN Prototypes */
     void HAL_UART_TxCpltCallback(UART_HandleTypeDef * huart);
     void HAL_UART_RxCpltCallback(UART_HandleTypeDef * huart);
-    void uart_send_pointer_8(UART_HandleTypeDef * huart, uint8_t * data);
-    void uart_send_value_8(UART_HandleTypeDef * huart, uint8_t data);
+    void uart_send_8(UART_HandleTypeDef * huart, uint8_t data);
     void uart_receive_8(UART_HandleTypeDef * huart, uint8_t * data);
     void uart_receive_wait_8(UART_HandleTypeDef * huart, uint8_t expected);
     /* USER CODE END Prototypes */

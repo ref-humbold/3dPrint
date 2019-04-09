@@ -122,9 +122,8 @@ int main(void)
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
-        uart_receive_wait_8(&huart2, (uint8_t)'A');
-
-        uart_send_value_8(&huart2, (uint8_t)'N');
+        uart_receive_wait_8(&huart2, ack);
+        uart_send_8(&huart2, fail);
     }
     /* USER CODE END 3 */
 }

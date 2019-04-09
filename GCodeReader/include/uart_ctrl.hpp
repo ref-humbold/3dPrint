@@ -11,6 +11,14 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+enum uart_code : uint8_t
+{
+    ack = 0xA0,
+    begin = 0xB0,
+    cont = 0xC0,
+    fail = 0xF0
+};
+
 class uart_error : public std::runtime_error
 {
 public:

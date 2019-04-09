@@ -10,10 +10,10 @@ int main(int argc, char * argv[])
     parameters params(argc, argv);
     uart_ctrl u(params.port());
 
-    u.send_8(params.ack());
-    u.receive_expect_8(params.ack());
-    u.send_8(params.stx());
-    u.receive_expect_8(0);
+    u.send_8(ack);
+    u.receive_expect_8(ack);
+    u.send_8(begin);
+    u.receive_expect_8(fail);
 
     return 0;
 }

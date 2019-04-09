@@ -13,7 +13,7 @@ void uart_ctrl::send_8(uint8_t data)
 
 uint8_t uart_ctrl::receive_8()
 {
-    uint8_t recv_data[1] = {255};
+    uint8_t recv_data[1] = {0xFF};
     ssize_t res = read(device, recv_data, 1);
 
     if(res < 0)

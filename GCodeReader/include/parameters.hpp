@@ -16,7 +16,7 @@ public:
 class parameters
 {
 public:
-    parameters(int argc, char * argv[]) : params{"/dev/ttyACM0", "\x6", "\x15", "\x2", "\x3"}
+    parameters(int argc, char * argv[]) : params{"/dev/ttyACM0"}, files{}
     {
         parse(argc, argv);
     }
@@ -28,29 +28,25 @@ public:
         return params[0];
     }
 
-    uint8_t ack()
+    std::string file(size_t i)
     {
-        return static_cast<uint8_t>(params[1].front());
+        return files.at(i);
     }
 
-    uint8_t nak()
+    std::vector<std::string>::const_iterator files_begin()
     {
-        return static_cast<uint8_t>(params[2].front());
+        return files.cbegin();
     }
 
-    uint8_t stx()
+    std::vector<std::string>::const_iterator files_end()
     {
-        return static_cast<uint8_t>(params[3].front());
-    }
-
-    uint8_t etx()
-    {
-        return static_cast<uint8_t>(params[4].front());
+        return files.cend();
     }
 
 private:
     void parse(int argc, char * argv[]);
-    void validate(const std::string & value, char option);
+    void check_gcode(const std::string & value);
 
     std::vector<std::string> params;
+    std::vector<std::string> files;
 };
