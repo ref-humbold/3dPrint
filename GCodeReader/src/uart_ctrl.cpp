@@ -11,6 +11,17 @@ void uart_ctrl::send_8(uint8_t data)
         throw uart_error("WRITE ERROR: "s + strerror(errno));
 }
 
+void uart_ctrl::send_repeat_8(uint8_t data)
+{
+    uint8_t rec;
+
+    do
+    {
+        send_8(data);
+        rec = receive_8();
+    } while(rec != ack);
+}
+
 uint8_t uart_ctrl::receive_8()
 {
     uint8_t recv_data[1] = {0xFF};
@@ -29,14 +40,4 @@ void uart_ctrl::receive_expect_8(uint8_t expected)
     if(data != expected)
         throw uart_error("Expected "s + std::to_string(static_cast<int>(expected))
                          + " from UART, got "s + std::to_string(static_cast<int>(data)));
-}
-
-void uart_ctrl::receive_wait_8(uint8_t expected)
-{
-    uint8_t data;
-
-    do
-    {
-        data = receive_8();
-    } while(data != expected);
 }

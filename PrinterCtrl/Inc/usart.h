@@ -61,7 +61,7 @@ extern "C"
     {
         ack = 0xA0,
         begin = 0xB0,
-        cont = 0xC0,
+        end = 0xE0,
         fail = 0xF0
     };
     /* USER CODE END Private defines */

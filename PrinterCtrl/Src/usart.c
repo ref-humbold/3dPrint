@@ -156,6 +156,8 @@ void uart_receive_wait_8(UART_HandleTypeDef * huart, uint8_t expected)
 
         uart_send_8(huart, fail);
     } while(1);
+
+    uart_send_8(huart, ack);
 }
 /* USER CODE END 1 */
 

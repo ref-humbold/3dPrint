@@ -15,7 +15,7 @@ enum uart_code : uint8_t
 {
     ack = 0xA0,
     begin = 0xB0,
-    cont = 0xC0,
+    end = 0xE0,
     fail = 0xF0
 };
 
@@ -39,10 +39,15 @@ public:
         close(device);
     }
 
+    uart_ctrl(const uart_ctrl &) = delete;
+    uart_ctrl(uart_ctrl &&) = default;
+    uart_ctrl & operator=(const uart_ctrl &) = delete;
+    uart_ctrl & operator=(uart_ctrl &&) = default;
+
     void send_8(uint8_t data);
+    void send_repeat_8(uint8_t data);
     uint8_t receive_8();
     void receive_expect_8(uint8_t expected);
-    void receive_wait_8(uint8_t expected);
 
 private:
     int device;
