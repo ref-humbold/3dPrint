@@ -14,7 +14,7 @@ void parameters::parse(int argc, char * argv[])
         switch(option)
         {
             case 'P':
-                params[0] = optarg;
+                dev_port = optarg;
                 break;
 
             case '?':
@@ -30,6 +30,9 @@ void parameters::parse(int argc, char * argv[])
 
         option = getopt(argc, argv, optstring.c_str());
     }
+
+    if(dev_port == "")
+        throw params_exception("Missing option -P, no port specified"s);
 
     for(int i = optind; i < argc; ++i)
     {

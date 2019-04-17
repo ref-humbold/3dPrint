@@ -61,6 +61,7 @@ extern "C"
     {
         ack = 0xA0,
         begin = 0xB0,
+        conn = 0xC0,
         end = 0xE0,
         fail = 0xF0
     };
@@ -73,7 +74,7 @@ extern "C"
     void HAL_UART_RxCpltCallback(UART_HandleTypeDef * huart);
     void uart_send_8(UART_HandleTypeDef * huart, uint8_t data);
     void uart_receive_8(UART_HandleTypeDef * huart, uint8_t * data);
-    void uart_receive_wait_8(UART_HandleTypeDef * huart, uint8_t expected);
+    void uart_expect_receive_8(UART_HandleTypeDef * huart, uint8_t expected);
     /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

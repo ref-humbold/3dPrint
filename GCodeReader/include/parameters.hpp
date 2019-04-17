@@ -16,7 +16,7 @@ public:
 class parameters
 {
 public:
-    parameters(int argc, char * argv[]) : params{"/dev/ttyACM0"}, files{}
+    parameters(int argc, char * argv[]) : dev_port{""}, files{}
     {
         parse(argc, argv);
     }
@@ -25,7 +25,7 @@ public:
 
     std::string port()
     {
-        return params[0];
+        return dev_port;
     }
 
     std::string file(size_t i)
@@ -47,6 +47,6 @@ private:
     void parse(int argc, char * argv[]);
     void check_gcode(const std::string & value);
 
-    std::vector<std::string> params;
+    std::string dev_port;
     std::vector<std::string> files;
 };

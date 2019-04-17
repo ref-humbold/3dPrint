@@ -113,6 +113,10 @@ int main(void)
     MX_SPI2_Init();
     /* USER CODE BEGIN 2 */
     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+
+    uart_expect_receive_8(&huart2, conn);
+    uart_send_8(&huart2, conn);
+    uart_expect_receive_8(&huart2, ack);
     /* USER CODE END 2 */
 
     /* Infinite loop */
@@ -120,10 +124,8 @@ int main(void)
     while(1)
     {
         /* USER CODE END WHILE */
-
         /* USER CODE BEGIN 3 */
-        uart_receive_wait_8(&huart2, ack);
-        uart_send_8(&huart2, fail);
+        uart_send_8(&huart2, end);
     }
     /* USER CODE END 3 */
 }

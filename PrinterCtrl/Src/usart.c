@@ -143,21 +143,14 @@ void uart_receive_8(UART_HandleTypeDef * huart, uint8_t * data)
     HAL_Delay(uart_delay);
 }
 
-void uart_receive_wait_8(UART_HandleTypeDef * huart, uint8_t expected)
+void uart_expect_receive_8(UART_HandleTypeDef * huart, uint8_t expected)
 {
     uint8_t data;
 
     do
     {
         uart_receive_8(huart, &data);
-
-        if(data == expected)
-            break;
-
-        uart_send_8(huart, fail);
-    } while(1);
-
-    uart_send_8(huart, ack);
+    } while(data != expected);
 }
 /* USER CODE END 1 */
 

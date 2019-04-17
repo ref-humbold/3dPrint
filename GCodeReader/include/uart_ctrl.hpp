@@ -7,6 +7,7 @@
 #include <cstring>
 #include <exception>
 #include <iostream>
+#include <sstream>
 #include <stdexcept>
 #include <fcntl.h>
 #include <unistd.h>
@@ -15,6 +16,7 @@ enum uart_code : uint8_t
 {
     ack = 0xA0,
     begin = 0xB0,
+    conn = 0xC0,
     end = 0xE0,
     fail = 0xF0
 };
@@ -45,12 +47,13 @@ public:
     uart_ctrl & operator=(uart_ctrl &&) = default;
 
     void send_8(uint8_t data);
-    void send_repeat_8(uint8_t data);
     uint8_t receive_8();
-    void receive_expect_8(uint8_t expected);
+    void expect_receive_8(uint8_t expected);
 
 private:
     int device;
 };
+
+std::string hex(uint8_t value);
 
 #endif
