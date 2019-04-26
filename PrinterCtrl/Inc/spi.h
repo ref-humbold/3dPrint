@@ -48,13 +48,15 @@ extern "C"
 #include "main.h"
 
     /* USER CODE BEGIN Includes */
-
+#include <inttypes.h>
     /* USER CODE END Includes */
 
     extern SPI_HandleTypeDef hspi2;
 
     /* USER CODE BEGIN Private defines */
-
+    const GPIO_TypeDef * SPI_Slave_IO GPIOC;
+    const uint16_t SPI_Slave_PinX GPIO_PIN_4;
+    const uint16_t SPI_Slave_PinY GPIO_PIN_5;
     /* USER CODE END Private defines */
 
     void MX_SPI2_Init(void);

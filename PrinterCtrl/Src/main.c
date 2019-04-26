@@ -112,8 +112,6 @@ int main(void)
     MX_USART2_UART_Init();
     MX_SPI2_Init();
     /* USER CODE BEGIN 2 */
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-
     uart_expect_receive_8(&huart2, conn);
     uart_send_8(&huart2, conn);
     uart_expect_receive_8(&huart2, ack);
@@ -124,6 +122,7 @@ int main(void)
     while(1)
     {
         /* USER CODE END WHILE */
+
         /* USER CODE BEGIN 3 */
         uart_send_8(&huart2, end);
     }
@@ -161,7 +160,7 @@ void SystemClock_Config(void)
     /**Initializes the CPU, AHB and APB busses clocks
      */
     RCC_ClkInitStruct.ClockType =
-        RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
+            RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
     RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
     RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
     RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
