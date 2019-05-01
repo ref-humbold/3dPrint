@@ -47,7 +47,7 @@ extern "C"
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
-    /* USER CODE BEGIN Includes */
+/* USER CODE BEGIN Includes */
 #include <inttypes.h>
     /* USER CODE END Includes */
 
@@ -55,8 +55,8 @@ extern "C"
 
     /* USER CODE BEGIN Private defines */
     const GPIO_TypeDef * SPI_Slave_IO GPIOC;
-    const uint16_t SPI_Slave_PinX GPIO_PIN_4;
-    const uint16_t SPI_Slave_PinY GPIO_PIN_5;
+    const uint16_t SPI_nSlave_PinX GPIO_PIN_4;
+    const uint16_t SPI_nSlave_PinY GPIO_PIN_5;
     /* USER CODE END Private defines */
 
     void MX_SPI2_Init(void);
