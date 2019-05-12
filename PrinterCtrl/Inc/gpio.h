@@ -53,13 +53,14 @@ extern "C"
     /* USER CODE END Includes */
 
     /* USER CODE BEGIN Private defines */
-
+    extern pinout laser_pin;
     /* USER CODE END Private defines */
 
     void MX_GPIO_Init(void);
 
     /* USER CODE BEGIN Prototypes */
-
+    void laser_on();
+    void laser_off();
     /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

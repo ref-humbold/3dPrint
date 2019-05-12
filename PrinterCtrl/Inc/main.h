@@ -53,12 +53,16 @@ extern "C"
 
     /* Private includes ----------------------------------------------------------*/
     /* USER CODE BEGIN Includes */
-
+#include <inttypes.h>
     /* USER CODE END Includes */
 
     /* Exported types ------------------------------------------------------------*/
     /* USER CODE BEGIN ET */
-
+    typedef struct
+    {
+        GPIO_TypeDef * gpio;
+        uint16_t pin;
+    } pinout;
     /* USER CODE END ET */
 
     /* Exported constants --------------------------------------------------------*/

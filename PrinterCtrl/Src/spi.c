@@ -41,10 +41,8 @@
 #include "spi.h"
 
 /* USER CODE BEGIN 0 */
-GPIO_TypeDef * spi_slave_IO = GPIOC;
-uint16_t spi_nSlave_pinX = GPIO_PIN_8;
-uint16_t spi_nSlave_pinY = GPIO_PIN_9;
-
+pinout slave_pin_X = {.gpio = GPIOC, .pin = GPIO_PIN_8};
+pinout slave_pin_Y = {.gpio = GPIOC, .pin = GPIO_PIN_9};
 /* USER CODE END 0 */
 
 SPI_HandleTypeDef hspi2;
@@ -102,6 +100,9 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef * spiHandle)
         GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
         HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
+        /* SPI2 interrupt Init */
+        HAL_NVIC_SetPriority(SPI2_IRQn, 0, 0);
+        HAL_NVIC_EnableIRQ(SPI2_IRQn);
         /* USER CODE BEGIN SPI2_MspInit 1 */
 
         /* USER CODE END SPI2_MspInit 1 */
@@ -127,6 +128,8 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef * spiHandle)
 
         HAL_GPIO_DeInit(GPIOB, GPIO_PIN_10);
 
+        /* SPI2 interrupt Deinit */
+        HAL_NVIC_DisableIRQ(SPI2_IRQn);
         /* USER CODE BEGIN SPI2_MspDeInit 1 */
 
         /* USER CODE END SPI2_MspDeInit 1 */
@@ -134,18 +137,15 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef * spiHandle)
 }
 
 /* USER CODE BEGIN 1 */
-void spi_send_X()
+void spi_send_16(SPI_HandleTypeDef * hspi, pinout * slave, uint16_t data)
 {
-    HAL_GPIO_WritePin(spi_slave_IO, spi_nSlave_pinX, GPIO_PIN_RESET);
+    uint8_t lower_data = data & 0x00FF;
+    uint8_t higher_data = data >> 8;
 
-    HAL_GPIO_WritePin(spi_slave_IO, spi_nSlave_pinX, GPIO_PIN_SET);
-}
-
-void spi_send_Y()
-{
-    HAL_GPIO_WritePin(spi_slave_IO, spi_nSlave_pinY, GPIO_PIN_RESET);
-
-    HAL_GPIO_WritePin(spi_slave_IO, spi_nSlave_pinY, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(slave->gpio, slave->pin, GPIO_PIN_RESET);
+    HAL_SPI_Transmit_IT(hspi, &higher_data, 1);
+    HAL_SPI_Transmit_IT(hspi, &lower_data, 1);
+    HAL_GPIO_WritePin(slave->gpio, slave->pin, GPIO_PIN_SET);
 }
 /* USER CODE END 1 */
 

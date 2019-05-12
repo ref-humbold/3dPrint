@@ -54,16 +54,14 @@ extern "C"
     extern SPI_HandleTypeDef hspi2;
 
     /* USER CODE BEGIN Private defines */
-    extern GPIO_TypeDef * spi_slave_IO;
-    extern uint16_t spi_nSlave_pinX;
-    extern uint16_t spi_nSlave_pinY;
+    extern pinout slave_pin_X;
+    extern pinout slave_pin_Y;
     /* USER CODE END Private defines */
 
     void MX_SPI2_Init(void);
 
     /* USER CODE BEGIN Prototypes */
-    void spi_send_X();
-    void spi_send_Y();
+    void spi_send_16(SPI_HandleTypeDef * hspi, pinout * slave, uint16_t data);
     /* USER CODE END Prototypes */
 
 #ifdef __cplusplus
