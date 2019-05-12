@@ -98,6 +98,7 @@
           \                                                                                        \
           \ \                                                                                                 \
           \ \ \                                                                                                 \
+          \ \ \ \                                                                                                 \
           ||\ STM32F412Zx || STM32F412Vx */
 
 #if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx) \
@@ -107,13 +108,14 @@
           \                                                                                        \
           \ \                                                                                                 \
           \ \ \                                                                                                 \
+          \ \ \ \                                                                                                 \
           ||\ STM32F479xx */
 
 /*!< Uncomment the following line if you need to relocate your vector Table in
      Internal SRAM. */
 /* #define VECT_TAB_SRAM */
-#define VECT_TAB_OFFSET                               \
-    0x00 /*!< Vector Table base offset field. \ \ \ \ \
+#define VECT_TAB_OFFSET                                 \
+    0x00 /*!< Vector Table base offset field. \ \ \ \ \ \
               This value must be a multiple of 0x200. */
 /******************************************************************************/
 
@@ -460,6 +462,7 @@ void SystemInit_ExtMemCtl(void)
         * \                                                                                        \
         * \ \                                                                                                 \
         * \ \ \                                                                                                 \
+        * \ \ \ \                                                                                                 \
         */
 #elif defined(DATA_IN_ExtSRAM) || defined(DATA_IN_ExtSDRAM)
 /**
@@ -594,6 +597,7 @@ void SystemInit_ExtMemCtl(void)
         * \                                                                                        \
         * \ \                                                                                                 \
         * \ \ \                                                                                                 \
+        * \ \ \ \                                                                                                 \
         */
 
     /*-- FMC Configuration -------------------------------------------------------*/
@@ -671,6 +675,7 @@ void SystemInit_ExtMemCtl(void)
           \                                                                                        \
           \ \                                                                                                 \
           \ \ \                                                                                                 \
+          \ \ \ \                                                                                                 \
           || STM32F479xx */
 
 #if defined(STM32F405xx) || defined(STM32F415xx) || defined(STM32F407xx) || defined(STM32F417xx) \
@@ -765,6 +770,7 @@ void SystemInit_ExtMemCtl(void)
         * \                                                                                        \
         * \ \                                                                                                 \
         * \ \ \                                                                                                 \
+        * \ \ \ \                                                                                                 \
         */
 
 #endif /* DATA_IN_ExtSRAM */
@@ -772,7 +778,8 @@ void SystemInit_ExtMemCtl(void)
           \                                                                                        \
           \ \                                                                                                 \
           \ \ \                                                                                                 \
-          ||\ STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx || STM32F412Zx || \ \ \ \                                                                                                 \
+          \ \ \ \                                                                                                 \
+          ||\ STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx || STM32F412Zx || \ \ \ \ \                                                                                                 \
           STM32F412Vx  */
     (void)(tmp);
 }

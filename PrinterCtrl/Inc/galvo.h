@@ -4,7 +4,10 @@
 #include <inttypes.h>
 #include "spi.h"
 
-const GPIO_TypeDef * Laser_IO GPIOA;
-const uint16_t Laser_Pin GPIO_PIN_8;
+extern GPIO_TypeDef * laser_IO;
+extern uint16_t laser_pin;
+
+void laser_on();
+void laser_off();
 
 #endif

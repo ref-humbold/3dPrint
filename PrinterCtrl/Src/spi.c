@@ -41,6 +41,9 @@
 #include "spi.h"
 
 /* USER CODE BEGIN 0 */
+GPIO_TypeDef * spi_slave_IO = GPIOC;
+uint16_t spi_nSlave_pinX = GPIO_PIN_8;
+uint16_t spi_nSlave_pinY = GPIO_PIN_9;
 
 /* USER CODE END 0 */
 
@@ -131,7 +134,19 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef * spiHandle)
 }
 
 /* USER CODE BEGIN 1 */
+void spi_send_X()
+{
+    HAL_GPIO_WritePin(spi_slave_IO, spi_nSlave_pinX, GPIO_PIN_RESET);
 
+    HAL_GPIO_WritePin(spi_slave_IO, spi_nSlave_pinX, GPIO_PIN_SET);
+}
+
+void spi_send_Y()
+{
+    HAL_GPIO_WritePin(spi_slave_IO, spi_nSlave_pinY, GPIO_PIN_RESET);
+
+    HAL_GPIO_WritePin(spi_slave_IO, spi_nSlave_pinY, GPIO_PIN_SET);
+}
 /* USER CODE END 1 */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
