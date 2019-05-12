@@ -12,5 +12,5 @@
 + ***PB10*** SPI CLK for galvos
 + ***PC2*** SPI MISO for galvos
 + ***PC3*** SPI MOSI for galvos
-+ ***PC4*** GPIO for \[SPI\] ~SS galvo X axis
-+ ***PC5*** GPIO for \[SPI\] ~SS galvo Y axis
++ ***PC8*** GPIO for \[SPI\] ~SS galvo X axis
++ ***PC9*** GPIO for \[SPI\] ~SS galvo Y axis
