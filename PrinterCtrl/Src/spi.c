@@ -41,8 +41,8 @@
 #include "spi.h"
 
 /* USER CODE BEGIN 0 */
-pinout slave_pin_X = {.gpio = GPIOC, .pin = GPIO_PIN_8};
-pinout slave_pin_Y = {.gpio = GPIOC, .pin = GPIO_PIN_9};
+pinout slave_pin_X = {.gpio = GPIOC, .pin = GPIO_PIN_4};
+pinout slave_pin_Y = {.gpio = GPIOC, .pin = GPIO_PIN_5};
 /* USER CODE END 0 */
 
 SPI_HandleTypeDef hspi2;
