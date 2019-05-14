@@ -112,19 +112,21 @@ int main(void)
     MX_USART2_UART_Init();
     MX_SPI2_Init();
     /* USER CODE BEGIN 2 */
-    uart_expect_receive_8(&huart2, conn);
-    uart_send_8(&huart2, conn);
-    uart_expect_receive_8(&huart2, ack);
+    uint16_t data = 0x415A;
     /* USER CODE END 2 */
 
     /* Infinite loop */
     /* USER CODE BEGIN WHILE */
     while(1)
     {
+        spi_send_16(&hspi2, &slave_pin_X, data);
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+        HAL_Delay(2000);
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
-        uart_send_8(&huart2, end);
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+        HAL_Delay(1000);
     }
     /* USER CODE END 3 */
 }
@@ -138,11 +140,11 @@ void SystemClock_Config(void)
     RCC_OscInitTypeDef RCC_OscInitStruct = {0};
     RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
-    /**Configure the main internal regulator output voltage
+    /** Configure the main internal regulator output voltage
      */
     __HAL_RCC_PWR_CLK_ENABLE();
     __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
-    /**Initializes the CPU, AHB and APB busses clocks
+    /** Initializes the CPU, AHB and APB busses clocks
      */
     RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
     RCC_OscInitStruct.HSIState = RCC_HSI_ON;
@@ -157,7 +159,7 @@ void SystemClock_Config(void)
     {
         Error_Handler();
     }
-    /**Initializes the CPU, AHB and APB busses clocks
+    /** Initializes the CPU, AHB and APB busses clocks
      */
     RCC_ClkInitStruct.ClockType =
             RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
