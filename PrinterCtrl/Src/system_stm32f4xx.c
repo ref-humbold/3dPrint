@@ -68,7 +68,7 @@
 #endif /* HSE_VALUE */
 
 #if !defined(HSI_VALUE)
-#define HSI_VALUE ((uint32_t)16000000) /*!< Value of the Internal oscillator in Hz*/
+#define HSI_VALUE ((uint32_t)16000000) /*!< Value of the Internal oscillator in Hz */
 #endif /* HSI_VALUE */
 
 /**
@@ -449,7 +449,8 @@ void SystemInit_ExtMemCtl(void)
 
     (void)(tmp);
 }
-#endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx*/
+#endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx \
+        */
 #elif defined(DATA_IN_ExtSRAM) || defined(DATA_IN_ExtSDRAM)
 /**
  * @brief  Setup the external memory controller.
@@ -579,7 +580,8 @@ void SystemInit_ExtMemCtl(void)
     GPIOI->OTYPER = 0x00000000;
     /* No pull-up, pull-down for PIx pins */
     GPIOI->PUPDR = 0x00000000;
-#endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx*/
+#endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx \
+        */
 
     /*-- FMC Configuration -------------------------------------------------------*/
     /* Enable the FMC interface clock */
@@ -652,8 +654,7 @@ void SystemInit_ExtMemCtl(void)
     tmpreg = FMC_Bank5_6->SDCR[0];
     FMC_Bank5_6->SDCR[0] = (tmpreg & 0xFFFFFDFF);
 #endif /* DATA_IN_ExtSDRAM */
-#endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F446xx || STM32F469xx \ \
-          \                                                                                        \
+#endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F446xx || STM32F469xx \
           || STM32F479xx */
 
 #if defined(STM32F405xx) || defined(STM32F415xx) || defined(STM32F407xx) || defined(STM32F417xx) \
@@ -744,12 +745,13 @@ void SystemInit_ExtMemCtl(void)
     FSMC_Bank1->BTCR[2] = 0x00001011;
     FSMC_Bank1->BTCR[3] = 0x00000201;
     FSMC_Bank1E->BWTR[2] = 0x0FFFFFFF;
-#endif /* STM32F405xx || STM32F415xx || STM32F407xx || STM32F417xx || STM32F412Zx || STM32F412Vx*/
+#endif /* STM32F405xx || STM32F415xx || STM32F407xx || STM32F417xx || STM32F412Zx || STM32F412Vx \
+        */
 
 #endif /* DATA_IN_ExtSRAM */
 #endif /* STM32F405xx || STM32F415xx || STM32F407xx || STM32F417xx || STM32F427xx || STM32F437xx \
           || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx || STM32F412Zx ||          \
-          STM32F412Vx*/
+          STM32F412Vx */
     (void)(tmp);
 }
 #endif /* DATA_IN_ExtSRAM && DATA_IN_ExtSDRAM */
