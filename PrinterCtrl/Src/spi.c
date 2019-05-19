@@ -124,6 +124,11 @@ void spi_send_16(SPI_HandleTypeDef * hspi, pinout * slave, uint16_t data)
 
     HAL_GPIO_WritePin(slave->gpio, slave->pin, GPIO_PIN_RESET);
     HAL_SPI_Transmit_IT(hspi, &higher_data, 1);
+
+    while(HAL_SPI_GetState(hspi) != HAL_SPI_STATE_READY)
+    {
+    }
+
     HAL_SPI_Transmit_IT(hspi, &lower_data, 1);
     HAL_GPIO_WritePin(slave->gpio, slave->pin, GPIO_PIN_SET);
 }
