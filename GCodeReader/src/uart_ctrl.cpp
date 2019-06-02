@@ -37,7 +37,7 @@ void uart_ctrl::expect_receive_8(uint8_t expected)
 
 void uart_ctrl::send_16(uint16_t data)
 {
-    uint8_t sent_data[2] = {data >> 8, data & 0x00FF};
+    uint8_t sent_data[2] = {static_cast<uint8_t>(data >> 8), static_cast<uint8_t>(data & 0x00FF)};
     ssize_t res = write(device, sent_data, 2);
 
     if(res < 0)
@@ -52,7 +52,7 @@ uint16_t uart_ctrl::receive_16()
     if(res < 0)
         throw uart_error("READ ERROR: "s + strerror(errno));
 
-    return (recv_data[0] << 8) | recv_data[1];
+    return (static_cast<uint16_t>(recv_data[0]) << 8) | static_cast<uint16_t>(recv_data[1]);
 }
 
 std::string hex(uint8_t value)
