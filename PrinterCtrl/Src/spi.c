@@ -119,17 +119,15 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef * spiHandle)
 /* USER CODE BEGIN 1 */
 void spi_send_16(SPI_HandleTypeDef * hspi, pinout * slave, uint16_t data)
 {
-    uint8_t lower_data = data & 0x00FF;
-    uint8_t higher_data = data >> 8;
+    uint8_t val[2] = {data >> 8, data & 0x00FF};
 
     HAL_GPIO_WritePin(slave->gpio, slave->pin, GPIO_PIN_RESET);
-    HAL_SPI_Transmit_IT(hspi, &higher_data, 1);
+    HAL_SPI_Transmit_IT(hspi, val, 2);
 
     while(HAL_SPI_GetState(hspi) != HAL_SPI_STATE_READY)
     {
     }
 
-    HAL_SPI_Transmit_IT(hspi, &lower_data, 1);
     HAL_GPIO_WritePin(slave->gpio, slave->pin, GPIO_PIN_SET);
 }
 /* USER CODE END 1 */

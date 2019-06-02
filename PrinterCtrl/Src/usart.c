@@ -113,6 +113,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef * huart)
 void uart_send_8(UART_HandleTypeDef * huart, uint8_t data)
 {
     uint8_t val = data;
+
     uart_status = HAL_UART_Transmit_IT(huart, &val, 1);
     HAL_Delay(uart_delay);
 }
@@ -131,6 +132,24 @@ void uart_expect_receive_8(UART_HandleTypeDef * huart, uint8_t expected)
     {
         uart_receive_8(huart, &data);
     } while(data != expected);
+}
+
+void uart_send_16(UART_HandleTypeDef * huart, uint16_t data)
+{
+    uint8_t val[2] = {data >> 8, data & 0x00FF};
+
+    uart_status = HAL_UART_Transmit_IT(huart, val, 2);
+    HAL_Delay(uart_delay);
+}
+
+void uart_receive_16(UART_HandleTypeDef * huart, uint16_t * data)
+{
+    uint8_t val[2] = {0xFF, 0xFF};
+
+    uart_status = HAL_UART_Receive_IT(huart, val, 2);
+    HAL_Delay(uart_delay);
+
+    *data = (val[0] << 8) | val[1];
 }
 /* USER CODE END 1 */
 

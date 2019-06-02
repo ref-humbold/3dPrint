@@ -55,6 +55,8 @@ extern "C"
     void uart_send_8(UART_HandleTypeDef * huart, uint8_t data);
     void uart_receive_8(UART_HandleTypeDef * huart, uint8_t * data);
     void uart_expect_receive_8(UART_HandleTypeDef * huart, uint8_t expected);
+    void uart_send_16(UART_HandleTypeDef * huart, uint16_t data);
+    void uart_receive_16(UART_HandleTypeDef * huart, uint16_t * data);
     /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

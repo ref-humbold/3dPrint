@@ -49,6 +49,8 @@ public:
     void send_8(uint8_t data);
     uint8_t receive_8();
     void expect_receive_8(uint8_t expected);
+    void send_16(uint16_t data);
+    uint16_t receive_16();
 
 private:
     int device;
