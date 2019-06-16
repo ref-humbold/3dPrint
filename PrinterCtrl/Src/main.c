@@ -112,7 +112,7 @@ int main(void)
     MX_USART2_UART_Init();
     MX_SPI2_Init();
     /* USER CODE BEGIN 2 */
-    uint16_t data = 0x415A;
+    uint16_t data = 0x3000;
     /* USER CODE END 2 */
 
     /* Infinite loop */
@@ -124,12 +124,21 @@ int main(void)
         /* USER CODE BEGIN 3 */
         spi_send_16(&hspi2, &slave_pin_X, data);
 
-        uint8_t data_all[] = {'%', ' ', data >> 8, ' ', data & 0x00FF, '\n'};
+        uint8_t data_X[] = {'X', ' ', data >> 8, ' ', data & 0x00FF, '\n'};
 
-        HAL_UART_Transmit_IT(&huart2, data_all, 6);
+        HAL_UART_Transmit_IT(&huart2, data_X, 6);
         HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
         HAL_Delay(1000);
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+        HAL_Delay(1000);
 
+        spi_send_16(&hspi2, &slave_pin_Y, data);
+
+        uint8_t data_Y[] = {'Y', ' ', data >> 8, ' ', data & 0x00FF, '\n'};
+
+        HAL_UART_Transmit_IT(&huart2, data_Y, 6);
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+        HAL_Delay(1000);
         HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
         HAL_Delay(1000);
     }
