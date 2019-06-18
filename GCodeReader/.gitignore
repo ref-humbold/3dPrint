@@ -2,3 +2,6 @@
 # C / C++ / CMake output
 bin
 build
+
+# CLion
+.idea
