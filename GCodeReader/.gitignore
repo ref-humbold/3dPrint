@@ -1,7 +1,12 @@
 # [ C / C++ ]
 # C / C++ / CMake output
-bin
-build
+bin/
+build/
+dist/
 
 # CLion
 .idea
+cmake-build-debug/
+
+# Visual Studio Code
+.vscode

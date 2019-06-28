@@ -1,6 +1,9 @@
 # [ C / C++ ]
 # C / GNU Make output
-build
+build/
 
 # STM32CubeMX
 .mxproject
+
+# Visual Studio Code
+.vscode
