@@ -20,7 +20,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "gpio.h"
 /* USER CODE BEGIN 0 */
-pinout laser_pin = {.gpio = GPIOB, .pin = GPIO_PIN_2};
+
 /* USER CODE END 0 */
 
 /*----------------------------------------------------------------------------*/
@@ -85,15 +85,7 @@ void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 2 */
-void laser_on()
-{
-    HAL_GPIO_WritePin(laser_pin.gpio, laser_pin.pin, GPIO_PIN_SET);
-}
 
-void laser_off()
-{
-    HAL_GPIO_WritePin(laser_pin.gpio, laser_pin.pin, GPIO_PIN_RESET);
-}
 /* USER CODE END 2 */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
