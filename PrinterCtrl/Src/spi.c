@@ -117,7 +117,7 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef * spiHandle)
 }
 
 /* USER CODE BEGIN 1 */
-void spi_send_16(SPI_HandleTypeDef * hspi, pinout * slave, uint16_t data)
+void spi_send(SPI_HandleTypeDef * hspi, pinout * slave, const uint16_t data)
 {
     uint8_t val[2] = {data >> 8, data & 0x00FF};
 

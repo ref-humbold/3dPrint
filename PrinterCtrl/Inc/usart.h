@@ -39,11 +39,11 @@ extern "C"
 
     enum uart_code
     {
-        ack = 0xA0,
-        begin = 0xB0,
-        conn = 0xC0,
-        end = 0xE0,
-        fail = 0xF0
+        Ack = 0xA0,
+        Begin = 0xB0,
+        Conn = 0xC0,
+        End = 0xE0,
+        Fail = 0xF0
     };
     /* USER CODE END Private defines */
 
@@ -52,11 +52,10 @@ extern "C"
     /* USER CODE BEGIN Prototypes */
     void HAL_UART_TxCpltCallback(UART_HandleTypeDef * huart);
     void HAL_UART_RxCpltCallback(UART_HandleTypeDef * huart);
-    void uart_send_8(UART_HandleTypeDef * huart, uint8_t data);
-    void uart_receive_8(UART_HandleTypeDef * huart, uint8_t * data);
-    void uart_expect_receive_8(UART_HandleTypeDef * huart, uint8_t expected);
-    void uart_send_16(UART_HandleTypeDef * huart, uint16_t data);
-    void uart_receive_16(UART_HandleTypeDef * huart, uint16_t * data);
+
+    void uart_send(UART_HandleTypeDef * huart, const uint16_t data);
+    void uart_receive(UART_HandleTypeDef * huart, uint16_t * data);
+    void uart_expect_receive(UART_HandleTypeDef * huart, const uint16_t expected);
     /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

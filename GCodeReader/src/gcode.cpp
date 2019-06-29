@@ -13,13 +13,13 @@ int main(int argc, char * argv[])
 
     uart_ctrl u(params.port());
 
-    u.send_8(conn);
-    u.expect_receive_8(conn);
-    u.send_8(ack);
+    u.send(Conn);
+    u.expect_receive(Conn);
+    u.send(Ack);
 
     while(true)
     {
-        std::cout << hex(u.receive_8()) << "\n";
+        std::cout << hex(u.receive()) << "\n";
     }
 
     return 0;

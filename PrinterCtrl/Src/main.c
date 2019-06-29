@@ -122,7 +122,7 @@ int main(void)
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
-        spi_send_16(&hspi2, &slave_pin_X, data);
+        spi_send(&hspi2, &slave_pin_X, data);
 
         uint8_t data_X[] = {'X', ' ', data >> 8, ' ', data & 0x00FF, '\n'};
 
@@ -132,7 +132,7 @@ int main(void)
         HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
         HAL_Delay(1000);
 
-        spi_send_16(&hspi2, &slave_pin_Y, data);
+        spi_send(&hspi2, &slave_pin_Y, data);
 
         uint8_t data_Y[] = {'Y', ' ', data >> 8, ' ', data & 0x00FF, '\n'};
 

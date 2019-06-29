@@ -21,7 +21,6 @@
 #include "usart.h"
 
 /* USER CODE BEGIN 0 */
-const int uart_delay = 500;
 HAL_StatusTypeDef uart_status;
 /* USER CODE END 0 */
 
@@ -102,6 +101,8 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef * uartHandle)
 }
 
 /* USER CODE BEGIN 1 */
+const int uart_delay = 500;
+
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef * huart)
 {
 }
@@ -110,31 +111,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef * huart)
 {
 }
 
-void uart_send_8(UART_HandleTypeDef * huart, uint8_t data)
-{
-    uint8_t val = data;
-
-    uart_status = HAL_UART_Transmit_IT(huart, &val, 1);
-    HAL_Delay(uart_delay);
-}
-
-void uart_receive_8(UART_HandleTypeDef * huart, uint8_t * data)
-{
-    uart_status = HAL_UART_Receive_IT(huart, data, 1);
-    HAL_Delay(uart_delay);
-}
-
-void uart_expect_receive_8(UART_HandleTypeDef * huart, uint8_t expected)
-{
-    uint8_t data;
-
-    do
-    {
-        uart_receive_8(huart, &data);
-    } while(data != expected);
-}
-
-void uart_send_16(UART_HandleTypeDef * huart, uint16_t data)
+void uart_send(UART_HandleTypeDef * huart, const uint16_t data)
 {
     uint8_t val[2] = {data >> 8, data & 0x00FF};
 
@@ -142,7 +119,7 @@ void uart_send_16(UART_HandleTypeDef * huart, uint16_t data)
     HAL_Delay(uart_delay);
 }
 
-void uart_receive_16(UART_HandleTypeDef * huart, uint16_t * data)
+void uart_receive(UART_HandleTypeDef * huart, uint16_t * data)
 {
     uint8_t val[2] = {0xFF, 0xFF};
 
@@ -150,6 +127,16 @@ void uart_receive_16(UART_HandleTypeDef * huart, uint16_t * data)
     HAL_Delay(uart_delay);
 
     *data = (val[0] << 8) | val[1];
+}
+
+void uart_expect_receive(UART_HandleTypeDef * huart, const uint16_t expected)
+{
+    uint16_t data;
+
+    do
+    {
+        uart_receive(huart, &data);
+    } while(data != expected);
 }
 /* USER CODE END 1 */
 

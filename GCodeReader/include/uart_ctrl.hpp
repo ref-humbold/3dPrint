@@ -12,13 +12,13 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-enum uart_code : uint8_t
+enum uart_code : uint16_t
 {
-    ack = 0xA0,
-    begin = 0xB0,
-    conn = 0xC0,
-    end = 0xE0,
-    fail = 0xF0
+    Ack = 0xA0,
+    Begin = 0xB0,
+    Conn = 0xC0,
+    End = 0xE0,
+    Fail = 0xF0
 };
 
 class uart_error : public std::runtime_error
@@ -46,16 +46,14 @@ public:
     uart_ctrl & operator=(const uart_ctrl &) = delete;
     uart_ctrl & operator=(uart_ctrl &&) = default;
 
-    void send_8(uint8_t data);
-    uint8_t receive_8();
-    void expect_receive_8(uint8_t expected);
-    void send_16(uint16_t data);
-    uint16_t receive_16();
+    void send(uint16_t data);
+    uint16_t receive();
+    void expect_receive(uint16_t expected);
 
 private:
     int device;
 };
 
-std::string hex(uint8_t value);
+std::string hex(uint16_t value);
 
 #endif
