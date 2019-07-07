@@ -35,8 +35,6 @@ extern "C"
     extern UART_HandleTypeDef huart2;
 
     /* USER CODE BEGIN Private defines */
-    extern HAL_StatusTypeDef uart_status;
-
     enum uart_code
     {
         Ack = 0xA0,

@@ -21,7 +21,7 @@
 #include "usart.h"
 
 /* USER CODE BEGIN 0 */
-HAL_StatusTypeDef uart_status;
+HAL_StatusTypeDef UartStatus;
 /* USER CODE END 0 */
 
 UART_HandleTypeDef huart2;
@@ -115,7 +115,7 @@ void uart_send(UART_HandleTypeDef * huart, const uint16_t data)
 {
     uint8_t val[2] = {data >> 8, data & 0x00FF};
 
-    uart_status = HAL_UART_Transmit_IT(huart, val, 2);
+    HAL_UART_Transmit_IT(huart, val, 2);
     HAL_Delay(uart_delay);
 }
 
@@ -123,7 +123,7 @@ void uart_receive(UART_HandleTypeDef * huart, uint16_t * data)
 {
     uint8_t val[2] = {0xFF, 0xFF};
 
-    uart_status = HAL_UART_Receive_IT(huart, val, 2);
+    HAL_UART_Receive_IT(huart, val, 2);
     HAL_Delay(uart_delay);
 
     *data = (val[0] << 8) | val[1];
