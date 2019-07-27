@@ -7,9 +7,12 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wno-unknown-pragmas")
 
 # SOURCES
 include_directories("${PROJECT_SOURCE_DIR}/include")
-set(SOURCES "${PROJECT_SOURCE_DIR}/src/parameters.cpp"
-            "${PROJECT_SOURCE_DIR}/src/uart_ctrl.cpp"
-            "${PROJECT_SOURCE_DIR}/src/gcode.cpp")
+set(SOURCES
+    "${PROJECT_SOURCE_DIR}/src/gcode.cpp"
+    "${PROJECT_SOURCE_DIR}/src/parameters.cpp"
+    "${PROJECT_SOURCE_DIR}/src/uart_ctrl.cpp"
+    "${PROJECT_SOURCE_DIR}/src/parser/parser.cpp"
+    "${PROJECT_SOURCE_DIR}/src/parser/instructions.cpp")
 
 # OUTPUT
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin")
