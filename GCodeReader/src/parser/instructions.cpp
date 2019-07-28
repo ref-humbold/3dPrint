@@ -1,5 +1,7 @@
 #include "parser/instructions.hpp"
 
+// region instruction
+
 std::vector<uint16_t> instruction::to_message()
 {
     std::vector<uint16_t> message;
@@ -12,9 +14,19 @@ std::vector<uint16_t> instruction::to_message()
     return message;
 }
 
-void instruction_list::add(const std::vector<std::pair<char, int>> & v)
+// endregion
+// region circle_instruction
+
+vec circle_instruction::count_middle()
 {
-    auto * instr = new instruction(v);
+}
+
+// endregion
+// region instruction_list
+
+void instruction_list::add(const std::map<char, int> & m)
+{
+    auto * instr = instruction_factory(m);
 
     if(begin_list != nullptr && end_list == nullptr)
         return;
@@ -25,7 +37,10 @@ void instruction_list::add(const std::vector<std::pair<char, int>> & v)
         end_list = begin_list;
     }
     else
+    {
+        instr->from_point = end_list->to_point;
         end_list->next = instr;
+    }
 
     end_list = end_list->next;
 
@@ -35,3 +50,15 @@ void instruction_list::add(const std::vector<std::pair<char, int>> & v)
         end_list = nullptr;
     }
 }
+
+instruction * instruction_list::instruction_factory(const std::map<char, int> & m)
+{
+    auto argG = m.find('G');
+
+    if(argG != m.end() && (argG->second == 2 || argG->second == 3))
+        return new circle_instruction(m);
+
+    return new instruction(m);
+}
+
+// endregion

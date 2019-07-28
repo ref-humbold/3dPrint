@@ -2,9 +2,30 @@
 #define INSTRUCTIONS_HPP_
 
 #include <cstdlib>
+#include <cmath>
 #include <map>
 #include <string>
 #include <vector>
+
+struct vec
+{
+public:
+    vec() : x{0}, y{0}
+    {
+    }
+
+    vec(int x, int y) : x{x}, y{y}
+    {
+    }
+
+    double length()
+    {
+        return hypot(x, y);
+    }
+
+    int x;
+    int y;
+};
 
 struct comparator
 {
@@ -29,13 +50,17 @@ struct comparator
 class instruction
 {
 public:
-    explicit instruction(const std::vector<std::pair<char, int>> & v) : next{nullptr}
+    explicit instruction(const std::map<char, int> & m)
+        : from_point{vec()}, to_point{from_point}, next{nullptr}
     {
-        for(const auto & c : v)
+        for(const auto & c : m)
             if(c.first == 'G' || c.first == 'M')
                 type = c;
             else
                 args.insert(c);
+
+        if(args.find('X') != args.end() && args.find('Y') != args.end())
+            to_point = vec(args.at('X'), args.at('Y'));
     }
 
     std::string get_type()
@@ -45,11 +70,28 @@ public:
 
     std::vector<uint16_t> to_message();
 
+    vec from_point;
+    vec to_point;
     instruction * next;
 
-private:
+protected:
     std::pair<char, int> type;
     std::map<char, int, comparator> args;
+};
+
+class circle_instruction : public instruction
+{
+public:
+    explicit circle_instruction(const std::map<char, int> & m) : instruction(m)
+    {
+        vec middle = count_middle();
+
+        args.emplace('I', middle.x);
+        args.emplace('J', middle.y);
+    }
+
+private:
+    vec count_middle();
 };
 
 class instruction_list
@@ -61,11 +103,13 @@ public:
     {
     }
 
-    void add(const std::vector<std::pair<char, int>> & v);
+    void add(const std::map<char, int> & m);
 
 private:
     node_t begin_list;
     node_t end_list;
+
+    instruction * instruction_factory(const std::map<char, int> & m);
 };
 
 #endif
