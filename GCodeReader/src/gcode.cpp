@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "parameters.hpp"
+#include "parser/parser.hpp"
 #include "uart_ctrl.hpp"
 
 using namespace std::string_literals;
@@ -9,18 +10,11 @@ int main(int argc, char * argv[])
 {
     parameters params(argc, argv);
 
-    std::cout << params.port() << "\n";
+    std::cout << params.port() << " -- " << params.file(0) << "\n";
 
-    uart_ctrl u(params.port());
+    instruction_list list = parse(params.file(0));
 
-    u.send(Conn);
-    u.expect_receive(Conn);
-    u.send(Ack);
-
-    while(true)
-    {
-        std::cout << hex(u.receive()) << "\n";
-    }
+    std::cout << list << "\n";
 
     return 0;
 }

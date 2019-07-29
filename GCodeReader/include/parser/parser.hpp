@@ -5,8 +5,13 @@
 #include <algorithm>
 #include <string>
 #include <vector>
+#include "file_reader.hpp"
+#include "instructions.hpp"
 
-std::vector<std::string> split(const std::string & s, const std::string & delimiter);
-std::string prefix(const std::string & s, const std::string & delimiter);
+std::vector<std::string> split(const std::string & s, const std::string & delimiters);
+
+std::string prefix(const std::string & s, char delimiter);
+
+instruction_list parse(const std::string & filename);
 
 #endif

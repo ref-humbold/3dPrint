@@ -2,7 +2,7 @@
 
 // region instruction
 
-std::vector<uint16_t> instruction::to_message()
+std::vector<uint16_t> instruction::to_message() const
 {
     std::vector<uint16_t> message;
 
@@ -14,11 +14,24 @@ std::vector<uint16_t> instruction::to_message()
     return message;
 }
 
+std::ostream & operator<<(std::ostream & os, const instruction & instr)
+{
+    os << "{ " << instr.type.first << instr.type.second;
+
+    for(const auto & a : instr.args)
+        os << " " << a.first << a.second;
+
+    os << " }";
+
+    return os;
+}
+
 // endregion
 // region circle_instruction
 
 vec circle_instruction::count_middle()
 {
+    return vec(0, 0);
 }
 
 // endregion
@@ -35,14 +48,15 @@ void instruction_list::add(const std::map<char, int> & m)
     {
         begin_list = instr;
         end_list = begin_list;
+
+        return;
     }
     else
     {
         instr->from_point = end_list->to_point;
         end_list->next = instr;
+        end_list = end_list->next;
     }
-
-    end_list = end_list->next;
 
     if(end_list->get_type() == "M30")
     {
@@ -59,6 +73,26 @@ instruction * instruction_list::instruction_factory(const std::map<char, int> & 
         return new circle_instruction(m);
 
     return new instruction(m);
+}
+
+std::ostream & operator<<(std::ostream & os, const instruction_list & list)
+{
+    auto it = list.iter();
+
+    os << "[|";
+
+    if(!it.empty())
+        os << " " << *it;
+
+    while(!it.empty())
+    {
+        os << ", " << *it;
+        ++it;
+    }
+
+    os << " |]";
+
+    return os;
 }
 
 // endregion

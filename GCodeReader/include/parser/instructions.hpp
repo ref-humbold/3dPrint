@@ -3,6 +3,7 @@
 
 #include <cstdlib>
 #include <cmath>
+#include <iostream>
 #include <map>
 #include <string>
 #include <vector>
@@ -63,12 +64,14 @@ public:
             to_point = vec(args.at('X'), args.at('Y'));
     }
 
-    std::string get_type()
+    std::string get_type() const
     {
         return std::string(type.first, 1) + std::to_string(type.second);
     }
 
-    std::vector<uint16_t> to_message();
+    std::vector<uint16_t> to_message() const;
+
+    friend std::ostream & operator<<(std::ostream & os, const instruction & instr);
 
     vec from_point;
     vec to_point;
@@ -78,6 +81,8 @@ protected:
     std::pair<char, int> type;
     std::map<char, int, comparator> args;
 };
+
+std::ostream & operator<<(std::ostream & os, const instruction & instr);
 
 class circle_instruction : public instruction
 {
@@ -94,22 +99,84 @@ private:
     vec count_middle();
 };
 
+class instruction_iterator
+{
+public:
+    explicit instruction_iterator(instruction * elem) : current{elem}
+    {
+    }
+
+    ~instruction_iterator() = default;
+
+    instruction_iterator(const instruction_iterator & it) = default;
+
+    instruction_iterator(instruction_iterator && it) noexcept : current{it.current}
+    {
+    }
+
+    instruction_iterator & operator=(const instruction_iterator & it)
+    {
+        this->current = it.current;
+
+        return *this;
+    }
+
+    instruction_iterator & operator=(instruction_iterator && it) noexcept
+    {
+        this->current = it.current;
+
+        return *this;
+    }
+
+    bool empty()
+    {
+        return current == nullptr || current->get_type() == "M30";
+    }
+
+    const instruction & operator*() const
+    {
+        return *current;
+    }
+
+    const instruction * operator->() const
+    {
+        return &(operator*());
+    }
+
+    instruction_iterator & operator++()
+    {
+        current = current->next;
+
+        return *this;
+    }
+
+private:
+    const instruction * current;
+};
+
 class instruction_list
 {
 public:
-    using node_t = instruction *;
-
     instruction_list() : begin_list{nullptr}, end_list{nullptr}
     {
     }
 
+    instruction_iterator iter() const
+    {
+        return instruction_iterator(begin_list);
+    }
+
     void add(const std::map<char, int> & m);
 
+    friend std::ostream & operator<<(std::ostream & os, const instruction_list & list);
+
 private:
-    node_t begin_list;
-    node_t end_list;
+    instruction * begin_list;
+    instruction * end_list;
 
     instruction * instruction_factory(const std::map<char, int> & m);
 };
+
+std::ostream & operator<<(std::ostream & os, const instruction_list & list);
 
 #endif
