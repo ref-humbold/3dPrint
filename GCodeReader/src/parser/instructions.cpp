@@ -33,6 +33,9 @@ std::ostream & operator<<(std::ostream & os, const instruction & instr)
 
 vec circle_instruction::count_middle()
 {
+    if(from_point == to_point)
+        return from_point;
+
     double dl = hypot((from_point.x - to_point.x) / 2, (from_point.y - to_point.y) / 2);
     vec h = (type.second == 2 && args.at('R') >= 0) || (type.second == 3 && args.at('R') < 0)
                     ? vec(-(from_point.y - to_point.y) / 2, (from_point.x - to_point.x) / 2)
