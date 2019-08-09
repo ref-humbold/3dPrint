@@ -13,8 +13,20 @@ int main(int argc, char * argv[])
     std::cout << params.port() << " -- " << params.file(0) << "\n";
 
     instruction_list list = parse(params.file(0));
+    auto runner = list.run();
 
     std::cout << list << "\n";
+
+    while(!runner.empty())
+    {
+        auto msg = runner->to_message();
+
+        for(auto m : msg)
+            std::cout << std::hex << m << " ";
+
+        std::cout << "\n";
+        ++runner;
+    }
 
     return 0;
 }

@@ -13,7 +13,8 @@ set(SOURCES
     "${PROJECT_SOURCE_DIR}/src/uart_ctrl.cpp"
     "${PROJECT_SOURCE_DIR}/src/parser/parser.cpp"
     "${PROJECT_SOURCE_DIR}/src/parser/instructions.cpp"
-    "${PROJECT_SOURCE_DIR}/src/parser/file_reader.cpp")
+    "${PROJECT_SOURCE_DIR}/src/parser/file_reader.cpp"
+    "${PROJECT_SOURCE_DIR}/src/parser/vec.cpp")
 
 # OUTPUT
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin")

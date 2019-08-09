@@ -7,26 +7,7 @@
 #include <map>
 #include <string>
 #include <vector>
-
-struct vec
-{
-public:
-    vec() : x{0}, y{0}
-    {
-    }
-
-    vec(int x, int y) : x{x}, y{y}
-    {
-    }
-
-    double length()
-    {
-        return hypot(x, y);
-    }
-
-    int x;
-    int y;
-};
+#include "vec.hpp"
 
 struct comparator
 {
@@ -51,8 +32,8 @@ struct comparator
 class instruction
 {
 public:
-    explicit instruction(const std::map<char, int> & m)
-        : from_point{vec()}, to_point{from_point}, next{nullptr}
+    explicit instruction(const std::map<char, int> & m, const vec & from)
+        : from_point{from}, to_point{from}, next{nullptr}
     {
         for(const auto & c : m)
             if(c.first == 'G' || c.first == 'M')
@@ -60,8 +41,8 @@ public:
             else
                 args.insert(c);
 
-        if(args.find('X') != args.end() && args.find('Y') != args.end())
-            to_point = vec(args.at('X'), args.at('Y'));
+        if(m.find('X') != m.end() && m.find('Y') != m.end())
+            to_point = vec(m.at('X'), m.at('Y'));
     }
 
     std::string get_type() const
@@ -87,50 +68,35 @@ std::ostream & operator<<(std::ostream & os, const instruction & instr);
 class circle_instruction : public instruction
 {
 public:
-    explicit circle_instruction(const std::map<char, int> & m) : instruction(m)
+    explicit circle_instruction(const std::map<char, int> & m, const vec & from)
+        : instruction(m, from)
     {
         vec middle = count_middle();
 
-        args.emplace('I', middle.x);
-        args.emplace('J', middle.y);
+        args.emplace('I', round(middle.x));
+        args.emplace('J', round(middle.y));
     }
 
 private:
     vec count_middle();
 };
 
-class instruction_iterator
+class instruction_runner
 {
 public:
-    explicit instruction_iterator(instruction * elem) : current{elem}
+    explicit instruction_runner(instruction * elem) : current{elem}
     {
     }
 
-    ~instruction_iterator() = default;
+    ~instruction_runner() = default;
+    instruction_runner(const instruction_runner & it) = default;
+    instruction_runner(instruction_runner && it) noexcept = default;
+    instruction_runner & operator=(const instruction_runner & it) = default;
+    instruction_runner & operator=(instruction_runner && it) noexcept = default;
 
-    instruction_iterator(const instruction_iterator & it) = default;
-
-    instruction_iterator(instruction_iterator && it) noexcept : current{it.current}
+    virtual bool empty()
     {
-    }
-
-    instruction_iterator & operator=(const instruction_iterator & it)
-    {
-        this->current = it.current;
-
-        return *this;
-    }
-
-    instruction_iterator & operator=(instruction_iterator && it) noexcept
-    {
-        this->current = it.current;
-
-        return *this;
-    }
-
-    bool empty()
-    {
-        return current == nullptr || current->get_type() == "M30";
+        return current == nullptr;
     }
 
     const instruction & operator*() const
@@ -143,15 +109,35 @@ public:
         return &(operator*());
     }
 
-    instruction_iterator & operator++()
+    instruction_runner & operator++()
     {
-        current = current->next;
+        if(!empty())
+            current = current->next;
 
         return *this;
     }
 
-private:
+protected:
     const instruction * current;
+};
+
+class instruction_iterator : public instruction_runner
+{
+public:
+    explicit instruction_iterator(instruction * elem) : instruction_runner(elem)
+    {
+    }
+
+    ~instruction_iterator() = default;
+    instruction_iterator(const instruction_iterator & it) = default;
+    instruction_iterator(instruction_iterator && it) noexcept = default;
+    instruction_iterator & operator=(const instruction_iterator & it) = default;
+    instruction_iterator & operator=(instruction_iterator && it) noexcept = default;
+
+    bool empty() override
+    {
+        return current == nullptr || current->get_type() == "M30";
+    }
 };
 
 class instruction_list
@@ -159,6 +145,11 @@ class instruction_list
 public:
     instruction_list() : begin_list{nullptr}, end_list{nullptr}
     {
+    }
+
+    instruction_runner run() const
+    {
+        return instruction_runner(begin_list);
     }
 
     instruction_iterator iter() const
@@ -173,10 +164,10 @@ public:
 private:
     instruction * begin_list;
     instruction * end_list;
-
-    instruction * instruction_factory(const std::map<char, int> & m);
 };
 
 std::ostream & operator<<(std::ostream & os, const instruction_list & list);
+
+instruction * instruction_factory(const std::map<char, int> & m, const vec & from);
 
 #endif
