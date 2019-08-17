@@ -1,4 +1,4 @@
-#include "parser/file_reader.hpp"
+#include "file_reader.hpp"
 
 const size_t file_reader::MAX_LINE_LENGTH;
 

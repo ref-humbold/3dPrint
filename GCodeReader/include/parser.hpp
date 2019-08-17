@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 #include "file_reader.hpp"
-#include "instructions.hpp"
+#include "instruction_list.hpp"
 
 std::vector<std::string> split(const std::string & s, const std::string & delimiters);
 

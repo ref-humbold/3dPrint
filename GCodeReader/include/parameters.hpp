@@ -45,7 +45,6 @@ public:
 
 private:
     void parse(int argc, char * argv[]);
-    void check_gcode(const std::string & value);
 
     std::string dev_port;
     std::vector<std::string> files;

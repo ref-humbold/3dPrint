@@ -6,16 +6,17 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wno-unknown-pragmas")
 
 # SOURCES
-include_directories("${PROJECT_SOURCE_DIR}/include")
+include_directories(include)
 set(SOURCES
-    "${PROJECT_SOURCE_DIR}/src/gcode.cpp"
-    "${PROJECT_SOURCE_DIR}/src/parameters.cpp"
-    "${PROJECT_SOURCE_DIR}/src/uart_ctrl.cpp"
-    "${PROJECT_SOURCE_DIR}/src/parser/parser.cpp"
-    "${PROJECT_SOURCE_DIR}/src/parser/instructions.cpp"
-    "${PROJECT_SOURCE_DIR}/src/parser/file_reader.cpp"
-    "${PROJECT_SOURCE_DIR}/src/parser/vec.cpp")
+    src/gcode.cpp
+    src/parameters.cpp
+    src/uart_ctrl.cpp
+    src/parser.cpp
+    src/instructions.cpp
+    src/instruction_list.cpp
+    src/file_reader.cpp
+    src/vec.cpp)
 
 # OUTPUT
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "bin")
 add_executable(gcode ${SOURCES})

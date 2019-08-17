@@ -8,11 +8,21 @@
 #include <stdexcept>
 #include <string>
 
+class file_exception : public std::runtime_error
+{
+public:
+    explicit file_exception(const std::string & s) : std::runtime_error(s)
+    {
+    }
+};
+
 class file_reader
 {
 public:
     explicit file_reader(const std::string & filename) : desc{fopen(filename.c_str(), "r")}
     {
+        if(desc == nullptr)
+            throw file_exception(strerror(errno));
     }
 
     ~file_reader()

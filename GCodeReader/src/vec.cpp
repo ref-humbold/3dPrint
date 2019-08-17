@@ -1,4 +1,4 @@
-#include "parser/vec.hpp"
+#include "vec.hpp"
 
 void vec::operator+=(const vec & v)
 {

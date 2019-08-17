@@ -1,4 +1,4 @@
-#include "parser/parser.hpp"
+#include "parser.hpp"
 
 std::vector<std::string> split(const std::string & s, const std::string & delimiters)
 {
