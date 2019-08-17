@@ -10,8 +10,7 @@ using namespace std::string_literals;
 int main(int argc, char * argv[])
 {
     parameters params(argc, argv);
-
-    std::cout << params.port() << " -- " << params.file(0) << "\n";
+    uart_ctrl uart(params.port());
 
     instruction_list list = parse(params.file(0));
     auto iterator = list.iter();
