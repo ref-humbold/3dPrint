@@ -14,11 +14,12 @@
 
 enum uart_code : uint16_t
 {
-    Ack = 0xA0,
-    Begin = 0xB0,
-    Conn = 0xC0,
-    End = 0xE0,
-    Fail = 0xF0
+    Acknowledge = 0xA000,
+    BeginTransmit = 0xB000,
+    Connect = 0xC000,
+    DataExpect = 0xD000,
+    EndTransmit = 0xE000,
+    Failure = 0xF000
 };
 
 class uart_error : public std::runtime_error

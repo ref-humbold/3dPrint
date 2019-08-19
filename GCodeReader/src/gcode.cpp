@@ -15,16 +15,30 @@ int main(int argc, char * argv[])
     instruction_list list = parse(params.file(0));
     auto iterator = list.iter();
 
-    std::cout << list << "\n";
+    uart.send(Connect);
+    uart.expect_receive(Connect);
 
     while(!iterator.empty())
     {
+        uart.expect_receive(DataExpect);
+
         auto msg = iterator->to_message();
 
-        for(auto m : msg)
-            std::cout << std::hex << m << " ";
+        uart.send(BeginTransmit);
+        uart.send(static_cast<uint16_t>(msg.size()));
 
-        std::cout << "\n";
+        for(auto m : msg)
+            uart.send(m);
+
+        uart.send(EndTransmit);
+        uart.expect_receive(Acknowledge);
+
+        uint16_t data_received = uart.receive();
+
+        if(data_received != msg.size())
+            std::cerr << "Sent " << msg.size() << "frames, printer received " << data_received
+                      << "\n";
+
         ++iterator;
     }
 

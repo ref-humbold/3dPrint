@@ -85,7 +85,15 @@ void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 2 */
+void builtin_led_on()
+{
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+}
 
+void builtin_led_off()
+{
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+}
 /* USER CODE END 2 */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

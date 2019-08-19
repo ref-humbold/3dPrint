@@ -111,35 +111,35 @@ int main(void)
     MX_USART2_UART_Init();
     MX_SPI2_Init();
     /* USER CODE BEGIN 2 */
-    uint16_t data = 0x0030;
+    uint16_t data_size;
+
+    uart_expect_receive(&huart2, Connect);
+    uart_send(&huart2, Connect);
     /* USER CODE END 2 */
 
     /* Infinite loop */
     /* USER CODE BEGIN WHILE */
     while(1)
     {
+        HAL_Delay(1000);
+        uart_send(&huart2, DataExpect);
+        builtin_led_on();
+        uart_expect_receive(&huart2, BeginTransmit);
+        uart_receive(&huart2, &data_size);
+
+        uint16_t command[data_size];
+
+        for(size_t i = 0; i < data_size; ++i)
+            uart_receive(&huart2, command + i);
+
+        uart_expect_receive(&huart2, EndTransmit);
+        builtin_led_off();
+        HAL_Delay(3000);
+        uart_send(&huart2, Acknowledge);
+        uart_send(&huart2, data_size);
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
-        dac_write(&hspi2, &SlavePinX, data);
-
-        uint8_t data_X[] = {'X', ' ', data >> 8, ' ', data & 0x00FF, '\n'};
-
-        HAL_UART_Transmit_IT(&huart2, data_X, 6);
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-        HAL_Delay(1000);
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-        HAL_Delay(4000);
-
-        spi_send(&hspi2, &SlavePinY, data);
-
-        uint8_t data_Y[] = {'Y', ' ', data >> 8, ' ', data & 0x00FF, '\n'};
-
-        HAL_UART_Transmit_IT(&huart2, data_Y, 6);
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-        HAL_Delay(1000);
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-        HAL_Delay(4000);
     }
     /* USER CODE END 3 */
 }
