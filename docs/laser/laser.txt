@@ -1,0 +1,14 @@
+Układ okazał się mocno prostacki, a miejscami trochę dziwny. 555 jest użyty zupełnie bez sensu, 
+wydaje się tworzyć układ soft-start (opóźnia włączenie zasilania do lasera). 358 tworzy precyzyjne 
+źródło prądowe do zasilania lasera. Układ z zaklejonym potencjometrem ustawia prąd pracy lasera. 
+Natomiast układ z tranzystorem Q2 pozwala zapalać i gasić laser bez odłączania zasilania, 
+jednak z powodu obecności kondensatora C7 wyłączanie i włączanie może działać z opóźnieniem oraz 
+raczej nie będzie działać sterowanie PWM.
+
+Dla waszego zastosowania układ raczej wystarczy, potencjalnie będzie trzeba zmniejszyć/wyrzucić 
+C7 dla szybszego sterowania laserem.
+
+Laser (lub samą diodę laserową) o właściwej długości fali można pewnie dostać w miarę tanio od Chińczyków, 
+można będzie go podłączyć do tego samego układu sterującego. Dłubiąc przy dzielniku R7-R9-VR2 można 
+zmieniać prąd płynący przez diodę laserową, i tym samym moc lasera (być może warto zmniejszyć moc 
+na czas testów, byście przypadkiem nie oślepli).
