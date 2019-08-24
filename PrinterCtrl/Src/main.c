@@ -43,6 +43,12 @@
 #include "controller.h"
 #include "usart.h"
 
+#ifdef TEST
+#include "Test/galvo_test.h"
+#include "Test/laser_test.h"
+#include "Test/usart_test.h"
+#endif
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -111,16 +117,20 @@ int main(void)
     MX_USART2_UART_Init();
     MX_SPI2_Init();
     /* USER CODE BEGIN 2 */
+    /*
     uint16_t data_size;
 
     uart_expect_receive(&huart2, Connect);
     uart_send(&huart2, Connect);
+    */
     /* USER CODE END 2 */
 
     /* Infinite loop */
     /* USER CODE BEGIN WHILE */
     while(1)
     {
+        laser_test();
+        /*
         HAL_Delay(1000);
         uart_send(&huart2, DataExpect);
         builtin_led_on();
@@ -137,6 +147,7 @@ int main(void)
         HAL_Delay(3000);
         uart_send(&huart2, Acknowledge);
         uart_send(&huart2, data_size);
+        */
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */

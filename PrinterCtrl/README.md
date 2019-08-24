@@ -8,7 +8,7 @@ STM32F411 Nucleo board controller
 + ***PA2*** USART Tx
 + ***PA3*** USART Rx
 + ***PA5*** GPIO for built-in LED
-+ ***PB2*** GPIO for laser on/off
++ ***PB2*** GPIO for laser
 + ***PB10*** SPI CLK for galvos
 + ***PC2*** SPI MISO for galvos
 + ***PC3*** SPI MOSI for galvos

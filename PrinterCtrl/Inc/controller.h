@@ -1,5 +1,5 @@
-#ifndef CONTROLLER_H_
-#define CONTROLLER_H_
+#ifndef __controller_H
+#define __controller_H
 #ifdef __cplusplus
 extern "C"
 {
