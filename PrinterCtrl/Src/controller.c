@@ -12,10 +12,10 @@ void dac_write(SPI_HandleTypeDef * hspi, pinout * device, uint16_t data)
 
 void laser_on()
 {
-    HAL_GPIO_WritePin(LaserPin.gpio, LaserPin.pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(LaserPin.gpio, LaserPin.pin, GPIO_PIN_RESET);
 }
 
 void laser_off()
 {
-    HAL_GPIO_WritePin(LaserPin.gpio, LaserPin.pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(LaserPin.gpio, LaserPin.pin, GPIO_PIN_SET);
 }
