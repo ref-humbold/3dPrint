@@ -138,6 +138,16 @@ void uart_expect_receive(UART_HandleTypeDef * huart, const uint16_t expected)
         uart_receive(huart, &data);
     } while(data != expected);
 }
+
+void uart_assert_receive(UART_HandleTypeDef * huart, const uint16_t expected)
+{
+    uint16_t data;
+
+    uart_receive(huart, &data);
+
+    if(data != expected)
+        uart_send(huart, Failure);
+}
 /* USER CODE END 1 */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

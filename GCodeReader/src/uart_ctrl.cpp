@@ -36,6 +36,14 @@ void uart_ctrl::expect_receive(uint16_t expected)
     } while(true);
 }
 
+void uart_ctrl::assert_receive(uint16_t expected)
+{
+    uint16_t data = receive();
+
+    if(data != expected)
+        throw std::runtime_error("Expected receive " + hex(expected) + ", got " + hex(data));
+}
+
 std::string hex(uint16_t value)
 {
     std::stringstream stream;

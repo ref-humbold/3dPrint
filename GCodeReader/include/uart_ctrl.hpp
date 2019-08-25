@@ -50,6 +50,7 @@ public:
     void send(uint16_t data);
     uint16_t receive();
     void expect_receive(uint16_t expected);
+    void assert_receive(uint16_t expected);
 
 private:
     int device;

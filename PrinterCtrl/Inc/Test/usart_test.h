@@ -14,8 +14,7 @@ void usart_test()
     uart_receive(&huart2, &data);
     uart_send(&huart2, data);
     uart_send(&huart2, Acknowledge);
-    uart_expect_receive(&huart2, Acknowledge);
-    uart_send(&huart2, Failure);
+    uart_assert_receive(&huart2, Acknowledge);
 };
 
 #endif

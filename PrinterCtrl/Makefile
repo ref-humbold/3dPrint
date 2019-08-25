@@ -23,8 +23,6 @@ TARGET = PrinterCtrl
 DEBUG = 1
 # optimization
 OPT = -Og
-# test
-TEST = 1
 
 
 #######################################
@@ -112,10 +110,6 @@ AS_DEFS =
 C_DEFS =  \
 -DUSE_HAL_DRIVER \
 -DSTM32F411xE
-
-ifeq ($(TEST), 1)
-C_DEFS += -DTEST
-endif
 
 # AS includes
 AS_INCLUDES =
