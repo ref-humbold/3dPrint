@@ -25,7 +25,7 @@
   [..]
   During and just after reset, the alternate functions and external interrupt
   lines are not active and the I/O ports are configured in input floating mode.
-  
+  
   [..]
   All GPIO pins have weak internal pull-up and pull-down resistors, which can be
   activated or not.
@@ -38,7 +38,7 @@
   All ports have external interrupt/event capability. To use external interrupt
   lines, the port must be configured in input mode. All available GPIO pins are
   connected to the 16 external interrupt/event lines from EXTI0 to EXTI15.
-  
+  
   [..]
   The external interrupt/event controller consists of up to 23 edge detectors
   (16 lines are connected to GPIO) for generating event/interrupt requests (each
@@ -68,27 +68,27 @@
     (#) In case of external interrupt/event mode selection, configure NVIC IRQ priority
         mapped to the EXTI line using HAL_NVIC_SetPriority() and enable it using
         HAL_NVIC_EnableIRQ().
-         
+         
     (#) To get the level of a pin configured in input mode use HAL_GPIO_ReadPin().
-            
+            
     (#) To set/reset the level of a pin configured in output mode use
         HAL_GPIO_WritePin()/HAL_GPIO_TogglePin().
-    
+    
     (#) To lock pin configuration until next reset use HAL_GPIO_LockPin().
 
-                 
+                 
     (#) During and just after reset, the alternate functions are not
         active and the GPIO pins are configured in input floating mode (except JTAG
         pins).
-  
+  
     (#) The LSE oscillator pins OSC32_IN and OSC32_OUT can be used as general purpose
         (PC14 and PC15, respectively) when the LSE oscillator is off. The LSE has
         priority over the GPIO function.
-  
+  
     (#) The HSE oscillator pins OSC_IN/OSC_OUT can be used as
         general purpose PH0 and PH1, respectively, when the HSE oscillator is off.
         The HSE has priority over the GPIO function.
-  
+  
   @endverbatim
   ******************************************************************************
   * @attention
@@ -154,7 +154,7 @@
   [..]
     This section provides functions allowing to initialize and de-initialize the GPIOs
     to be ready for use.
- 
+ 
 @endverbatim
   * @{
   */

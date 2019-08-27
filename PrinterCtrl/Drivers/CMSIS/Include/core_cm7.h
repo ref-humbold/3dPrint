@@ -695,7 +695,7 @@ extern "C"
     (0xFFUL << SCB_CFSR_BUSFAULTSR_Pos) /*!< SCB CFSR: Bus Fault Status Register Mask */
 
 #define SCB_CFSR_MEMFAULTSR_Pos 0U /*!< SCB CFSR: Memory Manage Fault Status Register Position */
-#define SCB_CFSR_MEMFAULTSR_Msk                                                                \
+#define SCB_CFSR_MEMFAULTSR_Msk                                                                    \
     (0xFFUL /*<< SCB_CFSR_MEMFAULTSR_Pos*/) /*!< SCB CFSR: Memory Manage Fault Status Register \
                                                Mask */
 
@@ -720,8 +720,9 @@ extern "C"
 
 #define SCB_CFSR_DACCVIOL_Pos \
     (SCB_SHCSR_MEMFAULTACT_Pos + 1U) /*!< SCB CFSR (MMFSR): DACCVIOL Position */
-#define SCB_CFSR_DACCVIOL_Msk (1UL << SCB_CFSR_DACCVIOL_Pos) /*!< SCB CFSR (MMFSR): DACCVIOL Mask \
-                                                              */
+#define SCB_CFSR_DACCVIOL_Msk                                               \
+    (1UL << SCB_CFSR_DACCVIOL_Pos) /*!< SCB CFSR (MMFSR): DACCVIOL Mask \
+                                    */
 
 #define SCB_CFSR_IACCVIOL_Pos \
     (SCB_SHCSR_MEMFAULTACT_Pos + 0U) /*!< SCB CFSR (MMFSR): IACCVIOL Position */
@@ -734,18 +735,21 @@ extern "C"
 #define SCB_CFSR_BFARVALID_Msk \
     (1UL << SCB_CFSR_BFARVALID_Pos) /*!< SCB CFSR (BFSR): BFARVALID Mask */
 
-#define SCB_CFSR_LSPERR_Pos (SCB_CFSR_BUSFAULTSR_Pos + 5U) /*!< SCB CFSR (BFSR): LSPERR Position \
-                                                            */
+#define SCB_CFSR_LSPERR_Pos                                                  \
+    (SCB_CFSR_BUSFAULTSR_Pos + 5U) /*!< SCB CFSR (BFSR): LSPERR Position \
+                                    */
 #define SCB_CFSR_LSPERR_Msk (1UL << SCB_CFSR_LSPERR_Pos) /*!< SCB CFSR (BFSR): LSPERR Mask */
 
-#define SCB_CFSR_STKERR_Pos (SCB_CFSR_BUSFAULTSR_Pos + 4U) /*!< SCB CFSR (BFSR): STKERR Position \
-                                                            */
+#define SCB_CFSR_STKERR_Pos                                                  \
+    (SCB_CFSR_BUSFAULTSR_Pos + 4U) /*!< SCB CFSR (BFSR): STKERR Position \
+                                    */
 #define SCB_CFSR_STKERR_Msk (1UL << SCB_CFSR_STKERR_Pos) /*!< SCB CFSR (BFSR): STKERR Mask */
 
 #define SCB_CFSR_UNSTKERR_Pos \
     (SCB_CFSR_BUSFAULTSR_Pos + 3U) /*!< SCB CFSR (BFSR): UNSTKERR Position */
-#define SCB_CFSR_UNSTKERR_Msk (1UL << SCB_CFSR_UNSTKERR_Pos) /*!< SCB CFSR (BFSR): UNSTKERR Mask \
-                                                              */
+#define SCB_CFSR_UNSTKERR_Msk                                              \
+    (1UL << SCB_CFSR_UNSTKERR_Pos) /*!< SCB CFSR (BFSR): UNSTKERR Mask \
+                                    */
 
 #define SCB_CFSR_IMPRECISERR_Pos \
     (SCB_CFSR_BUSFAULTSR_Pos + 2U) /*!< SCB CFSR (BFSR): IMPRECISERR Position */
@@ -780,8 +784,9 @@ extern "C"
 
 #define SCB_CFSR_INVSTATE_Pos \
     (SCB_CFSR_USGFAULTSR_Pos + 1U) /*!< SCB CFSR (UFSR): INVSTATE Position */
-#define SCB_CFSR_INVSTATE_Msk (1UL << SCB_CFSR_INVSTATE_Pos) /*!< SCB CFSR (UFSR): INVSTATE Mask \
-                                                              */
+#define SCB_CFSR_INVSTATE_Msk                                              \
+    (1UL << SCB_CFSR_INVSTATE_Pos) /*!< SCB CFSR (UFSR): INVSTATE Mask \
+                                    */
 
 #define SCB_CFSR_UNDEFINSTR_Pos \
     (SCB_CFSR_USGFAULTSR_Pos + 0U) /*!< SCB CFSR (UFSR): UNDEFINSTR Position */
@@ -851,8 +856,9 @@ extern "C"
 #define SCB_CCSIDR_WA_Msk (1UL << SCB_CCSIDR_WA_Pos) /*!< SCB CCSIDR: WA Mask */
 
 #define SCB_CCSIDR_NUMSETS_Pos 13U /*!< SCB CCSIDR: NumSets Position */
-#define SCB_CCSIDR_NUMSETS_Msk (0x7FFFUL << SCB_CCSIDR_NUMSETS_Pos) /*!< SCB CCSIDR: NumSets Mask \
-                                                                     */
+#define SCB_CCSIDR_NUMSETS_Msk                                             \
+    (0x7FFFUL << SCB_CCSIDR_NUMSETS_Pos) /*!< SCB CCSIDR: NumSets Mask \
+                                          */
 
 #define SCB_CCSIDR_ASSOCIATIVITY_Pos 3U /*!< SCB CCSIDR: Associativity Position */
 #define SCB_CCSIDR_ASSOCIATIVITY_Msk \
@@ -997,12 +1003,14 @@ extern "C"
     (1UL << SCnSCB_ACTLR_DISITMATBFLUSH_Pos) /*!< ACTLR: DISITMATBFLUSH Mask */
 
 #define SCnSCB_ACTLR_DISRAMODE_Pos 11U /*!< ACTLR: DISRAMODE Position */
-#define SCnSCB_ACTLR_DISRAMODE_Msk (1UL << SCnSCB_ACTLR_DISRAMODE_Pos) /*!< ACTLR: DISRAMODE Mask \
-                                                                        */
+#define SCnSCB_ACTLR_DISRAMODE_Msk                                     \
+    (1UL << SCnSCB_ACTLR_DISRAMODE_Pos) /*!< ACTLR: DISRAMODE Mask \
+                                         */
 
 #define SCnSCB_ACTLR_FPEXCODIS_Pos 10U /*!< ACTLR: FPEXCODIS Position */
-#define SCnSCB_ACTLR_FPEXCODIS_Msk (1UL << SCnSCB_ACTLR_FPEXCODIS_Pos) /*!< ACTLR: FPEXCODIS Mask \
-                                                                        */
+#define SCnSCB_ACTLR_FPEXCODIS_Msk                                     \
+    (1UL << SCnSCB_ACTLR_FPEXCODIS_Pos) /*!< ACTLR: FPEXCODIS Mask \
+                                         */
 
 #define SCnSCB_ACTLR_DISFOLD_Pos 2U /*!< ACTLR: DISFOLD Position */
 #define SCnSCB_ACTLR_DISFOLD_Msk (1UL << SCnSCB_ACTLR_DISFOLD_Pos) /*!< ACTLR: DISFOLD Mask */
@@ -1235,8 +1243,9 @@ extern "C"
 #define DWT_CTRL_CYCEVTENA_Msk (0x1UL << DWT_CTRL_CYCEVTENA_Pos) /*!< DWT CTRL: CYCEVTENA Mask */
 
 #define DWT_CTRL_FOLDEVTENA_Pos 21U /*!< DWT CTRL: FOLDEVTENA Position */
-#define DWT_CTRL_FOLDEVTENA_Msk (0x1UL << DWT_CTRL_FOLDEVTENA_Pos) /*!< DWT CTRL: FOLDEVTENA Mask \
-                                                                    */
+#define DWT_CTRL_FOLDEVTENA_Msk                                           \
+    (0x1UL << DWT_CTRL_FOLDEVTENA_Pos) /*!< DWT CTRL: FOLDEVTENA Mask \
+                                        */
 
 #define DWT_CTRL_LSUEVTENA_Pos 20U /*!< DWT CTRL: LSUEVTENA Position */
 #define DWT_CTRL_LSUEVTENA_Msk (0x1UL << DWT_CTRL_LSUEVTENA_Pos) /*!< DWT CTRL: LSUEVTENA Mask */
@@ -1255,8 +1264,9 @@ extern "C"
 #define DWT_CTRL_EXCTRCENA_Msk (0x1UL << DWT_CTRL_EXCTRCENA_Pos) /*!< DWT CTRL: EXCTRCENA Mask */
 
 #define DWT_CTRL_PCSAMPLENA_Pos 12U /*!< DWT CTRL: PCSAMPLENA Position */
-#define DWT_CTRL_PCSAMPLENA_Msk (0x1UL << DWT_CTRL_PCSAMPLENA_Pos) /*!< DWT CTRL: PCSAMPLENA Mask \
-                                                                    */
+#define DWT_CTRL_PCSAMPLENA_Msk                                           \
+    (0x1UL << DWT_CTRL_PCSAMPLENA_Pos) /*!< DWT CTRL: PCSAMPLENA Mask \
+                                        */
 
 #define DWT_CTRL_SYNCTAP_Pos 10U /*!< DWT CTRL: SYNCTAP Position */
 #define DWT_CTRL_SYNCTAP_Msk (0x3UL << DWT_CTRL_SYNCTAP_Pos) /*!< DWT CTRL: SYNCTAP Mask */
@@ -1268,8 +1278,9 @@ extern "C"
 #define DWT_CTRL_POSTINIT_Msk (0xFUL << DWT_CTRL_POSTINIT_Pos) /*!< DWT CTRL: POSTINIT Mask */
 
 #define DWT_CTRL_POSTPRESET_Pos 1U /*!< DWT CTRL: POSTPRESET Position */
-#define DWT_CTRL_POSTPRESET_Msk (0xFUL << DWT_CTRL_POSTPRESET_Pos) /*!< DWT CTRL: POSTPRESET Mask \
-                                                                    */
+#define DWT_CTRL_POSTPRESET_Msk                                           \
+    (0xFUL << DWT_CTRL_POSTPRESET_Pos) /*!< DWT CTRL: POSTPRESET Mask \
+                                        */
 
 #define DWT_CTRL_CYCCNTENA_Pos 0U /*!< DWT CTRL: CYCCNTENA Position */
 #define DWT_CTRL_CYCCNTENA_Msk \
@@ -1277,13 +1288,15 @@ extern "C"
 
 /* DWT CPI Count Register Definitions */
 #define DWT_CPICNT_CPICNT_Pos 0U /*!< DWT CPICNT: CPICNT Position */
-#define DWT_CPICNT_CPICNT_Msk (0xFFUL /*<< DWT_CPICNT_CPICNT_Pos*/) /*!< DWT CPICNT: CPICNT Mask \
-                                                                     */
+#define DWT_CPICNT_CPICNT_Msk                                              \
+    (0xFFUL /*<< DWT_CPICNT_CPICNT_Pos*/) /*!< DWT CPICNT: CPICNT Mask \
+                                           */
 
 /* DWT Exception Overhead Count Register Definitions */
 #define DWT_EXCCNT_EXCCNT_Pos 0U /*!< DWT EXCCNT: EXCCNT Position */
-#define DWT_EXCCNT_EXCCNT_Msk (0xFFUL /*<< DWT_EXCCNT_EXCCNT_Pos*/) /*!< DWT EXCCNT: EXCCNT Mask \
-                                                                     */
+#define DWT_EXCCNT_EXCCNT_Msk                                              \
+    (0xFFUL /*<< DWT_EXCCNT_EXCCNT_Pos*/) /*!< DWT EXCCNT: EXCCNT Mask \
+                                           */
 
 /* DWT Sleep Count Register Definitions */
 #define DWT_SLEEPCNT_SLEEPCNT_Pos 0U /*!< DWT SLEEPCNT: SLEEPCNT Position */
@@ -1292,8 +1305,9 @@ extern "C"
 
 /* DWT LSU Count Register Definitions */
 #define DWT_LSUCNT_LSUCNT_Pos 0U /*!< DWT LSUCNT: LSUCNT Position */
-#define DWT_LSUCNT_LSUCNT_Msk (0xFFUL /*<< DWT_LSUCNT_LSUCNT_Pos*/) /*!< DWT LSUCNT: LSUCNT Mask \
-                                                                     */
+#define DWT_LSUCNT_LSUCNT_Msk                                              \
+    (0xFFUL /*<< DWT_LSUCNT_LSUCNT_Pos*/) /*!< DWT LSUCNT: LSUCNT Mask \
+                                           */
 
 /* DWT Folded-instruction Count Register Definitions */
 #define DWT_FOLDCNT_FOLDCNT_Pos 0U /*!< DWT FOLDCNT: FOLDCNT Position */
@@ -1494,19 +1508,22 @@ extern "C"
 #define TPI_DEVID_NRZVALID_Msk (0x1UL << TPI_DEVID_NRZVALID_Pos) /*!< TPI DEVID: NRZVALID Mask */
 
 #define TPI_DEVID_MANCVALID_Pos 10U /*!< TPI DEVID: MANCVALID Position */
-#define TPI_DEVID_MANCVALID_Msk (0x1UL << TPI_DEVID_MANCVALID_Pos) /*!< TPI DEVID: MANCVALID Mask \
-                                                                    */
+#define TPI_DEVID_MANCVALID_Msk                                           \
+    (0x1UL << TPI_DEVID_MANCVALID_Pos) /*!< TPI DEVID: MANCVALID Mask \
+                                        */
 
 #define TPI_DEVID_PTINVALID_Pos 9U /*!< TPI DEVID: PTINVALID Position */
-#define TPI_DEVID_PTINVALID_Msk (0x1UL << TPI_DEVID_PTINVALID_Pos) /*!< TPI DEVID: PTINVALID Mask \
-                                                                    */
+#define TPI_DEVID_PTINVALID_Msk                                           \
+    (0x1UL << TPI_DEVID_PTINVALID_Pos) /*!< TPI DEVID: PTINVALID Mask \
+                                        */
 
 #define TPI_DEVID_MinBufSz_Pos 6U /*!< TPI DEVID: MinBufSz Position */
 #define TPI_DEVID_MinBufSz_Msk (0x7UL << TPI_DEVID_MinBufSz_Pos) /*!< TPI DEVID: MinBufSz Mask */
 
 #define TPI_DEVID_AsynClkIn_Pos 5U /*!< TPI DEVID: AsynClkIn Position */
-#define TPI_DEVID_AsynClkIn_Msk (0x1UL << TPI_DEVID_AsynClkIn_Pos) /*!< TPI DEVID: AsynClkIn Mask \
-                                                                    */
+#define TPI_DEVID_AsynClkIn_Msk                                           \
+    (0x1UL << TPI_DEVID_AsynClkIn_Pos) /*!< TPI DEVID: AsynClkIn Mask \
+                                        */
 
 #define TPI_DEVID_NrTraceInput_Pos 0U /*!< TPI DEVID: NrTraceInput Position */
 #define TPI_DEVID_NrTraceInput_Msk \
@@ -1995,20 +2012,21 @@ extern "C"
 #define NVIC_USER_IRQ_OFFSET 16
 
 /* The following EXC_RETURN values are saved the LR on exception entry */
-#define EXC_RETURN_HANDLER \
-    (0xFFFFFFF1UL) /* return to Handler mode, uses MSP after return */
-#define EXC_RETURN_THREAD_MSP \
-    (0xFFFFFFF9UL) /* return to Thread mode, uses MSP after return */
-#define EXC_RETURN_THREAD_PSP \
-    (0xFFFFFFFDUL) /* return to Thread mode, uses PSP after return */
+#define EXC_RETURN_HANDLER (0xFFFFFFF1UL) /* return to Handler mode, uses MSP after return */
+#define EXC_RETURN_THREAD_MSP (0xFFFFFFF9UL) /* return to Thread mode, uses MSP after return */
+#define EXC_RETURN_THREAD_PSP (0xFFFFFFFDUL) /* return to Thread mode, uses PSP after return */
 #define EXC_RETURN_HANDLER_FPU                                                                    \
     (0xFFFFFFE1UL) /* return to Handler mode, uses MSP after return, restore floating-point state \
+                    * \                                                                           \
+                    * \                                                                                                \
                     */
-#define EXC_RETURN_THREAD_MSP_FPU                                                                \
+#define EXC_RETURN_THREAD_MSP_FPU                                                                  \
     (0xFFFFFFE9UL) /* return to Thread mode, uses MSP after return, restore floating-point state \
+                    * \                                                                            \
                     */
-#define EXC_RETURN_THREAD_PSP_FPU                                                                \
+#define EXC_RETURN_THREAD_PSP_FPU                                                                  \
     (0xFFFFFFEDUL) /* return to Thread mode, uses PSP after return, restore floating-point state \
+                    * \                                                                            \
                     */
 
     /**
@@ -2762,8 +2780,9 @@ extern "C"
      */
 
     extern volatile int32_t ITM_RxBuffer; /*!< External variable to receive characters. */
-#define ITM_RXBUFFER_EMPTY                                                                       \
+#define ITM_RXBUFFER_EMPTY                                                                         \
     ((int32_t)0x5AA55AA5U) /*!< Value identifying \ref ITM_RxBuffer is ready for next character. \
+                            * \                                                                    \
                             */
 
     /**

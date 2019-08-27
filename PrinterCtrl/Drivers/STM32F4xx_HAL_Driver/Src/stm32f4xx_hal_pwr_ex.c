@@ -91,7 +91,9 @@
           performance and power consumption when the device does not operate at
           the maximum frequency. This is done through __HAL_PWR_MAINREGULATORMODE_CONFIG()
           macro which configure VOS bit in PWR_CR register
-          
+
+
+
         Refer to the product datasheets for more details.
 
     *** FLASH Power Down configuration ****
@@ -102,7 +104,9 @@
           down mode when the device enters Stop mode. When the Flash memory
           is in power down mode, an additional startup delay is incurred when
           waking up from Stop mode.
-          
+
+
+
            (+) For STM32F42xxx/43xxx/446xx/469xx/479xx Devices, the scale can be modified only when
 the PLL is OFF and the HSI or HSE clock source is selected as system clock. The new value programmed
 is active only when the PLL is ON. When the PLL is OFF, the voltage scale 3 is automatically
@@ -120,7 +124,9 @@ selected. Refer to the datasheets for more details.
             scale 2 or scale 3). This mode is enabled through HAL_PWREx_EnableOverDrive() function
 and disabled by HAL_PWREx_DisableOverDrive() function, to enter or exit from Over-drive mode please
 follow the sequence described in Reference manual.
-             
+
+
+
        (+) For STM32F42xxx/43xxx/446xx/469xx/479xx Devices, in Stop mode: the main regulator or low
 power regulator supplies a low power voltage to the 1.2V domain, thus preserving the content of
 registers and internal SRAM. 2 operating modes are available:
@@ -395,7 +401,7 @@ void HAL_PWREx_EnableLowRegulatorLowVoltage(void)
  * STM32F401xx/STM32F410xx/STM32F411xx/STM32F412Zx/STM32F412Rx/STM32F412Vx/STM32F412Cx/
  *        STM32F413xx/STM32F423xx  devices.
  * @retval None
- */
+ */\
 void HAL_PWREx_DisableLowRegulatorLowVoltage(void)
 {
     *(__IO uint32_t *)CR_LPLVDS_BB = (uint32_t)DISABLE;
@@ -585,7 +591,7 @@ HAL_StatusTypeDef HAL_PWREx_EnterUnderDriveSTOPMode(uint32_t Regulator, uint8_t 
         /* Request Wait For Event */
         __WFE();
     }
-    /* Reset SLEEPDEEP bit of Cortex System Control Register */
+    /* Reset SLEEPDEEP bit of Cortex System Control Register */\
     SCB->SCR &= (uint32_t) ~((uint32_t)SCB_SCR_SLEEPDEEP_Msk);
 
     return HAL_OK;

@@ -80,7 +80,7 @@
         (+) Enable the Power Controller (PWR) APB1 interface clock using the
             __HAL_RCC_PWR_CLK_ENABLE() macro.
         (+) Enable access to RTC domain using the HAL_PWR_EnableBkUpAccess() function.
- 
+ 
 @endverbatim
   * @{
   */
@@ -131,7 +131,7 @@ void HAL_PWR_DisableBkUpAccess(void)
  ===============================================================================
                  ##### Peripheral Control functions #####
  ===============================================================================
-     
+     
     *** PVD configuration ***
     =========================
     [..]
@@ -161,7 +161,7 @@ Pin1 on PA.00, Pin2 on PC.00 and Pin3 on PC.01
       (+) Stop mode: all clocks are stopped, regulator running, regulator
           in low power mode
       (+) Standby mode: 1.2V domain powered off.
-   
+   
    *** Sleep mode ***
    ==================
     [..]
@@ -170,7 +170,7 @@ Pin1 on PA.00, Pin2 on PC.00 and Pin3 on PC.01
 PWR_SLEEPENTRY_WFI) functions with
           (++) PWR_SLEEPENTRY_WFI: enter SLEEP mode with WFI instruction
           (++) PWR_SLEEPENTRY_WFE: enter SLEEP mode with WFE instruction
-      
+      
       -@@- The Regulator parameter is not used for the STM32F4 family
               and is kept as parameter just to maintain compatibility with the
               lower power families (STM32L).
@@ -208,9 +208,9 @@ PWR_SLEEPENTRY_WFI) functions with
       the HSE oscillator are also switched off. SRAM and register contents are lost
       except for the RTC registers, RTC backup registers, backup SRAM and Standby
       circuitry.
-   
+   
       The voltage regulator is OFF.
-      
+      
       (++) Entry:
         (+++) The Standby mode is entered using the HAL_PWR_EnterSTANDBYMode() function.
       (++) Exit:
@@ -220,20 +220,20 @@ PWR_SLEEPENTRY_WFI) functions with
    *** Auto-wake-up (AWU) from low-power mode ***
    =============================================
     [..]
-    
+    
      (+) The MCU can be woken up from low-power mode by an RTC Alarm event, an RTC
       Wake-up event, a tamper event or a time-stamp event, without depending on
       an external interrupt (Auto-wake-up mode).
 
       (+) RTC auto-wake-up (AWU) from the Stop and Standby modes
-       
+       
         (++) To wake up from the Stop mode with an RTC alarm event, it is necessary to
               configure the RTC to generate the RTC alarm using the HAL_RTC_SetAlarm_IT() function.
 
         (++) To wake up from the Stop mode with an RTC Tamper or time stamp event, it
              is necessary to configure the RTC to detect the tamper or time stamp event using the
                 HAL_RTCEx_SetTimeStamp_IT() or HAL_RTCEx_SetTamper_IT() functions.
-                  
+                  
         (++) To wake up from the Stop mode with an RTC Wake-up event, it is necessary to
               configure the RTC to generate the RTC Wake-up event using the
 HAL_RTCEx_SetWakeUpTimer_IT() function.

@@ -71,6 +71,7 @@ extern "C"
      */
 
 #endif /* STM32F410xx || STM32F411xE || STM32F446xx || STM32F412Zx || STM32F412Vx || STM32F412Rx \
+          \                                                                                        \
           || STM32F412Cx */
 #ifdef __cplusplus
 }

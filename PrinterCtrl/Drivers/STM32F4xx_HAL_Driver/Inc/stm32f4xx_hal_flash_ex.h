@@ -121,6 +121,7 @@ extern "C"
                                This parameter can be a value of @ref
                              FLASHEx_Option_Bytes_PC_ReadWrite_Protection */
 #endif /* STM32F401xC || STM32F401xE || STM32F410xx || STM32F411xE || STM32F446xx || STM32F412Zx \
+          \                                                                                        \
           || STM32F412Vx || STM32F412Rx ||\ STM32F412Cx || STM32F413xx || STM32F423xx */
 
 #if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx) \
@@ -142,8 +143,10 @@ extern "C"
 #endif /*STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx */
     } FLASH_AdvOBProgramInitTypeDef;
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F401xC || STM32F401xE \
-          || STM32F410xx || STM32F411xE || STM32F446xx || STM32F469xx || STM32F479xx ||                                                                   \
+          \                                                                                        \
+          || STM32F410xx || STM32F411xE || STM32F446xx || STM32F469xx || STM32F479xx || \                                                                                                 \
           STM32F412Zx || STM32F412Vx || STM32F412Rx || STM32F412Cx || STM32F413xx || STM32F423xx \
+          \                                                                                        \
         */
 /**
  * @}
@@ -206,7 +209,7 @@ extern "C"
  */
 #define OB_RDP_LEVEL_0 ((uint8_t)0xAA)
 #define OB_RDP_LEVEL_1 ((uint8_t)0x55)
-#define OB_RDP_LEVEL_2                                                  \
+#define OB_RDP_LEVEL_2                                                      \
     ((uint8_t)0xCC) /*!< Warning: When enabling read protection level 2 \
                          it s no more possible to go back to level 1 or 0 */
 /**
@@ -266,8 +269,11 @@ extern "C"
  * @}
  */
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F401xC || STM32F401xE \
+          \                                                                                        \
           ||\                                                                                    \
+          \                                                                                        \
           STM32F410xx || STM32F411xE || STM32F446xx || STM32F469xx || STM32F479xx || STM32F412Zx \
+          \                                                                                        \
           ||\ STM32F412Vx || STM32F412Rx || STM32F412Cx || STM32F413xx || STM32F423xx */
 
 /** @defgroup FLASHEx_Advanced_Option_Type FLASH Advanced Option Type
@@ -278,6 +284,7 @@ extern "C"
 #define OPTIONBYTE_PCROP 0x00000001U /*!< PCROP option byte configuration      */
 #define OPTIONBYTE_BOOTCONFIG 0x00000002U /*!< BOOTConfig option byte configuration */
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx \
+        * \                                                                                        \
         */
 
 #if defined(STM32F401xC) || defined(STM32F401xE) || defined(STM32F410Tx) || defined(STM32F410Cx) \
@@ -286,6 +293,7 @@ extern "C"
         || defined(STM32F412Cx) || defined(STM32F413xx) || defined(STM32F423xx)
 #define OPTIONBYTE_PCROP 0x00000001U /*!<PCROP option byte configuration */
 #endif /* STM32F401xC || STM32F401xE || STM32F410xx || STM32F411xE || STM32F446xx || STM32F412Zx \
+          \                                                                                        \
           || STM32F412Vx || STM32F412Rx || STM32F412Cx || STM32F413xx || STM32F423xx */
 /**
  * @}
@@ -315,7 +323,7 @@ extern "C"
 #define FLASH_LATENCY_14 FLASH_ACR_LATENCY_14WS /*!< FLASH Fourteen Latency cycles */
 #define FLASH_LATENCY_15 FLASH_ACR_LATENCY_15WS /*!< FLASH Fifteen Latency cycles  */
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx|| STM32F439xx || STM32F446xx || STM32F469xx || \
-          STM32F479xx */
+          \ STM32F479xx */
 /*--------------------------------------------------------------------------------------------------------------*/
 
 /*-------------------------- STM32F40xxx/STM32F41xxx/STM32F401xx/STM32F411xx/STM32F423xx
@@ -335,6 +343,7 @@ extern "C"
 #define FLASH_LATENCY_6 FLASH_ACR_LATENCY_6WS /*!< FLASH Six Latency cycles      */
 #define FLASH_LATENCY_7 FLASH_ACR_LATENCY_7WS /*!< FLASH Seven Latency cycles    */
 #endif /* STM32F40xxx || STM32F41xxx || STM32F401xx || STM32F410xx || STM32F411xE || STM32F412Zx \
+          \                                                                                        \
           || STM32F412Vx || STM32F412Rx || STM32F412Cx || STM32F413xx || STM32F423xx */
 /*--------------------------------------------------------------------------------------------------------------*/
 
@@ -360,7 +369,9 @@ extern "C"
         || defined(STM32F423xx)
 #define FLASH_BANK_1 1U /*!< Bank 1   */
 #endif /* STM32F40xxx || STM32F41xxx || STM32F401xx || STM32F410xx || STM32F411xE || STM32F446xx \
-          || STM32F412Zx || STM32F412Vx || STM32F412Rx || STM32F412Cx STM32F413xx || STM32F423xx                                                                      \
+          \                                                                                        \
+          || STM32F412Zx || STM32F412Vx || STM32F412Rx || STM32F412Cx STM32F413xx || STM32F423xx \
+          \                                                                                        \
         */
 /**
  * @}
@@ -382,7 +393,9 @@ extern "C"
         || defined(STM32F423xx)
 #define FLASH_MER_BIT (FLASH_CR_MER) /*!< only 1 MER Bit */
 #endif /* STM32F40xxx || STM32F41xxx || STM32F401xx || STM32F410xx || STM32F411xE || STM32F446xx \
-          || STM32F412Zx || STM32F412Vx || STM32F412Rx || STM32F412Cx STM32F413xx || STM32F423xx                                                                      \
+          \                                                                                        \
+          || STM32F412Zx || STM32F412Vx || STM32F412Rx || STM32F412Cx STM32F413xx || STM32F423xx \
+          \                                                                                        \
         */
 /**
  * @}
@@ -462,6 +475,7 @@ extern "C"
 #define FLASH_SECTOR_10 10U /*!< Sector Number 10  */
 #define FLASH_SECTOR_11 11U /*!< Sector Number 11  */
 #endif /* STM32F405xx || STM32F415xx || STM32F407xx || STM32F417xx || STM32F412Zx || STM32F412Vx \
+          \                                                                                        \
           || STM32F412Rx || STM32F412Cx */
 /*-----------------------------------------------------------------------------------------------------*/
 
@@ -583,6 +597,7 @@ extern "C"
 #define OB_WRP_SECTOR_11 0x00000800U /*!< Write protection of Sector11    */
 #define OB_WRP_SECTOR_All 0x00000FFFU /*!< Write protection of all Sectors */
 #endif /* STM32F405xx || STM32F415xx || STM32F407xx || STM32F417xx || STM32F412Zx || STM32F412Vx \
+          \                                                                                        \
           || STM32F412Rx || STM32F412Cx */
 /*-----------------------------------------------------------------------------------------------------*/
 
@@ -727,6 +742,7 @@ extern "C"
 #define OB_PCROP_SECTOR_7 0x00000080U /*!< PC Read/Write protection of Sector7      */
 #define OB_PCROP_SECTOR_All 0x00000FFFU /*!< PC Read/Write protection of all Sectors  */
 #endif /* STM32F401xE || STM32F411xE || STM32F446xx || STM32F412Zx || STM32F412Vx || STM32F412Rx \
+          \                                                                                        \
           || STM32F412Cx */
 /*-----------------------------------------------------------------------------------------------------*/
 
@@ -762,8 +778,11 @@ extern "C"
 #define OB_PCROP_SELECTED \
     ((uint8_t)0x80) /*!< Enable PcROP, nWPRi bits used for PCRoP Protection on sector i   */
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F401xC || STM32F401xE \
+          \                                                                                        \
           ||\                                                                                    \
+          \                                                                                        \
           STM32F410xx || STM32F411xE || STM32F446xx || STM32F469xx || STM32F479xx || STM32F412Zx \
+          \                                                                                        \
           ||\ STM32F412Vx || STM32F412Rx || STM32F412Cx || STM32F413xx || STM32F423xx */
     /**
      * @}
@@ -801,8 +820,11 @@ extern "C"
     HAL_StatusTypeDef HAL_FLASHEx_OB_SelectPCROP(void);
     HAL_StatusTypeDef HAL_FLASHEx_OB_DeSelectPCROP(void);
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F401xC || STM32F401xE \
+          \                                                                                        \
           ||\                                                                                    \
+          \                                                                                        \
           STM32F410xx || STM32F411xE || STM32F446xx || STM32F469xx || STM32F479xx || STM32F412Zx \
+          \                                                                                        \
           ||\ STM32F412Vx || STM32F412Rx || STM32F412Cx || STM32F413xx || STM32F423xx */
 
 #if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx) \
@@ -828,6 +850,7 @@ extern "C"
         || defined(STM32F469xx) || defined(STM32F479xx)
 #define FLASH_SECTOR_TOTAL 24U
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx \
+        * \                                                                                        \
         */
 
 /*-------------------------------------- STM32F413xx/STM32F423xx
@@ -843,6 +866,7 @@ extern "C"
         || defined(STM32F412Cx)
 #define FLASH_SECTOR_TOTAL 12U
 #endif /* STM32F405xx || STM32F415xx || STM32F407xx || STM32F417xx || STM32F412Zx || STM32F412Vx \
+          \                                                                                        \
           || STM32F412Rx || STM32F412Cx */
 
 /*--------------------------------------------- STM32F401xC
@@ -870,6 +894,7 @@ extern "C"
         || defined(STM32F469xx) || defined(STM32F479xx)
 #define OPTCR1_BYTE2_ADDRESS 0x40023C1AU
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx \
+        * \                                                                                        \
         */
 
     /**
@@ -919,14 +944,18 @@ extern "C"
 #define IS_PCROPSTATE(VALUE) \
     (((VALUE) == OB_PCROP_STATE_DISABLE) || ((VALUE) == OB_PCROP_STATE_ENABLE))
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F401xC || STM32F401xE \
+          \                                                                                        \
           ||\                                                                                    \
+          \                                                                                        \
           STM32F410xx || STM32F411xE || STM32F446xx || STM32F469xx || STM32F479xx || STM32F412Zx \
+          \                                                                                        \
           ||\ STM32F412Vx || STM32F412Rx || STM32F412Cx || STM32F413xx || STM32F423xx */
 
 #if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx) \
         || defined(STM32F469xx) || defined(STM32F479xx)
 #define IS_OBEX(VALUE) (((VALUE) == OPTIONBYTE_PCROP) || ((VALUE) == OPTIONBYTE_BOOTCONFIG))
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx \
+        * \                                                                                        \
         */
 
 #if defined(STM32F401xC) || defined(STM32F401xE) || defined(STM32F410Tx) || defined(STM32F410Cx) \
@@ -935,6 +964,7 @@ extern "C"
         || defined(STM32F412Cx) || defined(STM32F413xx) || defined(STM32F423xx)
 #define IS_OBEX(VALUE) (((VALUE) == OPTIONBYTE_PCROP))
 #endif /* STM32F401xC || STM32F401xE || STM32F410xx || STM32F411xE || STM32F446xx || STM32F412Zx \
+          \                                                                                        \
           ||\ STM32F412Vx || STM32F412Rx || STM32F412Cx || STM32F413xx || STM32F423xx */
 
 #if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx) \
@@ -949,6 +979,7 @@ extern "C"
      || ((LATENCY) == FLASH_LATENCY_12) || ((LATENCY) == FLASH_LATENCY_13) \
      || ((LATENCY) == FLASH_LATENCY_14) || ((LATENCY) == FLASH_LATENCY_15))
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F446xx || STM32F469xx \
+          \                                                                                        \
           || STM32F479xx */
 
 #if defined(STM32F405xx) || defined(STM32F415xx) || defined(STM32F407xx) || defined(STM32F417xx) \
@@ -962,7 +993,8 @@ extern "C"
      || ((LATENCY) == FLASH_LATENCY_4) || ((LATENCY) == FLASH_LATENCY_5) \
      || ((LATENCY) == FLASH_LATENCY_6) || ((LATENCY) == FLASH_LATENCY_7))
 #endif /* STM32F405xx || STM32F415xx || STM32F407xx || STM32F417xx || STM32F401xC || STM32F401xE \
-          || STM32F410xx || STM32F411xE || STM32F412Zx || STM32F412Vx ||\ STM32F412Rx ||                                                                                  \
+          \                                                                                        \
+          || STM32F410xx || STM32F411xE || STM32F412Zx || STM32F412Vx ||\ STM32F412Rx || \                                                                                                 \
           STM32F412Cx || STM32F413xx || STM32F423xx */
 
 #if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx) \
@@ -979,8 +1011,9 @@ extern "C"
         || defined(STM32F423xx)
 #define IS_FLASH_BANK(BANK) (((BANK) == FLASH_BANK_1))
 #endif /* STM32F405xx || STM32F415xx || STM32F407xx || STM32F417xx || STM32F401xC || STM32F401xE \
+          \                                                                                        \
           || STM32F410xx || STM32F411xE || STM32F446xx || STM32F412Zx || STM32F412Vx ||\         \
-          STM32F412Rx || STM32F412Cx || STM32F413xx || STM32F423xx */
+          \ STM32F412Rx || STM32F412Cx || STM32F413xx || STM32F423xx */
 
 #if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx) \
         || defined(STM32F469xx) || defined(STM32F479xx)
@@ -998,6 +1031,7 @@ extern "C"
      || ((SECTOR) == FLASH_SECTOR_21) || ((SECTOR) == FLASH_SECTOR_22)                            \
      || ((SECTOR) == FLASH_SECTOR_23))
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx \
+        * \                                                                                        \
         */
 
 #if defined(STM32F413xx) || defined(STM32F423xx)
@@ -1023,6 +1057,7 @@ extern "C"
      || ((SECTOR) == FLASH_SECTOR_9) || ((SECTOR) == FLASH_SECTOR_10)                             \
      || ((SECTOR) == FLASH_SECTOR_11))
 #endif /* STM32F405xx || STM32F415xx || STM32F407xx || STM32F417xx || STM32F412Zx || STM32F412Vx \
+          \                                                                                        \
           || STM32F412Rx || STM32F412Cx */
 
 #if defined(STM32F401xC)
@@ -1057,6 +1092,7 @@ extern "C"
 #define IS_OB_WRP_SECTOR(SECTOR) \
     ((((SECTOR)&0xFF000000U) == 0x00000000U) && ((SECTOR) != 0x00000000U))
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx \
+        * \                                                                                        \
         */
 
 #if defined(STM32F413xx) || defined(STM32F423xx)
@@ -1084,12 +1120,14 @@ extern "C"
 #define IS_OB_WRP_SECTOR(SECTOR) \
     ((((SECTOR)&0xFFFFF000U) == 0x00000000U) && ((SECTOR) != 0x00000000U))
 #endif /* STM32F401xE || STM32F411xE || STM32F446xx || STM32F412Zx || STM32F412Vx || STM32F412Rx \
+          \                                                                                        \
           || STM32F412Cx */
 
 #if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx) \
         || defined(STM32F469xx) || defined(STM32F479xx)
 #define IS_OB_PCROP(SECTOR) ((((SECTOR)&0xFFFFF000U) == 0x00000000U) && ((SECTOR) != 0x00000000U))
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx \
+        * \                                                                                        \
         */
 
 #if defined(STM32F413xx) || defined(STM32F423xx)
@@ -1108,12 +1146,14 @@ extern "C"
         || defined(STM32F412Vx) || defined(STM32F412Rx) || defined(STM32F412Cx)
 #define IS_OB_PCROP(SECTOR) ((((SECTOR)&0xFFFFF000U) == 0x00000000U) && ((SECTOR) != 0x00000000U))
 #endif /* STM32F401xE || STM32F411xE || STM32F446xx || STM32F412Zx || STM32F412Vx || STM32F412Rx \
+          \                                                                                        \
           || STM32F412Cx */
 
 #if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx) \
         || defined(STM32F469xx) || defined(STM32F479xx)
 #define IS_OB_BOOT(BOOT) (((BOOT) == OB_DUAL_BOOT_ENABLE) || ((BOOT) == OB_DUAL_BOOT_DISABLE))
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx \
+        * \                                                                                        \
         */
 
 #if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx) \
@@ -1125,8 +1165,11 @@ extern "C"
 #define IS_OB_PCROP_SELECT(PCROP) \
     (((PCROP) == OB_PCROP_SELECTED) || ((PCROP) == OB_PCROP_DESELECTED))
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F401xC || STM32F401xE \
+          \                                                                                        \
           ||\                                                                                    \
+          \                                                                                        \
           STM32F410xx || STM32F411xE || STM32F446xx || STM32F469xx || STM32F479xx || STM32F412Zx \
+          \                                                                                        \
           ||\ STM32F412Vx || STM32F412Rx || STM32F412Cx || STM32F413xx || STM32F423xx */
     /**
      * @}

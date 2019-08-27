@@ -71,14 +71,14 @@ extern "C"
         || defined(STM32F469xx) || defined(STM32F479xx) || defined(STM32F412Zx)                  \
         || defined(STM32F412Vx) || defined(STM32F412Rx) || defined(STM32F412Cx)                  \
         || defined(STM32F413xx) || defined(STM32F423xx)
-        uint32_t
-                PLLR; /*!< PLLR: PLL division factor for I2S, SAI, SYSTEM, SPDIFRX clocks.
-                           This parameter is only available in
-                         STM32F410xx/STM32F446xx/STM32F469xx/STM32F479xx and
-                         STM32F412Zx/STM32F412Vx/STM32F412Rx/STM32F412Cx/STM32F413xx/STM32F423xx
-                         devices.
-                           This parameter must be a number between Min_Data = 2 and Max_Data = 7 */
+        uint32_t PLLR; /*!< PLLR: PLL division factor for I2S, SAI, SYSTEM, SPDIFRX clocks.
+                            This parameter is only available in
+                          STM32F410xx/STM32F446xx/STM32F469xx/STM32F479xx and
+                          STM32F412Zx/STM32F412Vx/STM32F412Rx/STM32F412Cx/STM32F413xx/STM32F423xx
+                          devices.
+                            This parameter must be a number between Min_Data = 2 and Max_Data = 7 */
 #endif /* STM32F410xx || STM32F446xx || STM32F469xx || STM32F479xx || STM32F412Zx || STM32F412Vx \
+          \                                                                                        \
           || STM32F412Rx || STM32F412Cx || STM32F413xx || STM32F423xx */
     } RCC_PLLInitTypeDef;
 
@@ -96,9 +96,8 @@ extern "C"
                                This parameter must be a number between Min_Data = 50 and Max_Data =
                              432    */
 
-        uint32_t
-                PLLI2SP; /*!< Specifies division factor for SPDIFRX Clock.
-                              This parameter must be a value of @ref RCCEx_PLLI2SP_Clock_Divider */
+        uint32_t PLLI2SP; /*!< Specifies division factor for SPDIFRX Clock.
+                               This parameter must be a value of @ref RCCEx_PLLI2SP_Clock_Divider */
 
         uint32_t PLLI2SQ; /*!< Specifies the division factor for SAI clock.
                                This parameter must be a number between Min_Data = 2 and Max_Data
@@ -106,11 +105,10 @@ extern "C"
                                This parameter will be used only when PLLI2S is selected as Clock
                              Source SAI */
 
-        uint32_t
-                PLLI2SR; /*!< Specifies the division factor for I2S clock.
-                              This parameter must be a number between Min_Data = 2 and Max_Data = 7.
-                              This parameter will be used only when PLLI2S is selected as Clock
-                            Source I2S */
+        uint32_t PLLI2SR; /*!< Specifies the division factor for I2S clock.
+                               This parameter must be a number between Min_Data = 2 and Max_Data
+                             = 7. This parameter will be used only when PLLI2S is selected as Clock
+                             Source I2S */
     } RCC_PLLI2SInitTypeDef;
 
     /**
@@ -126,9 +124,8 @@ extern "C"
                                This parameter must be a number between Min_Data = 50 and Max_Data =
                              432    */
 
-        uint32_t
-                PLLSAIP; /*!< Specifies division factor for OTG FS, SDIO and RNG clocks.
-                              This parameter must be a value of @ref RCCEx_PLLSAIP_Clock_Divider */
+        uint32_t PLLSAIP; /*!< Specifies division factor for OTG FS, SDIO and RNG clocks.
+                               This parameter must be a value of @ref RCCEx_PLLSAIP_Clock_Divider */
 
         uint32_t PLLSAIQ; /*!< Specifies the division factor for SAI clock.
                                This parameter must be a number between Min_Data = 2 and Max_Data
@@ -261,11 +258,10 @@ extern "C"
                                This parameter will be used only when PLLI2S is selected as Clock
                              Source SAI */
 
-        uint32_t
-                PLLI2SR; /*!< Specifies the division factor for I2S clock.
-                              This parameter must be a number between Min_Data = 2 and Max_Data = 7.
-                              This parameter will be used only when PLLI2S is selected as Clock
-                            Source I2S */
+        uint32_t PLLI2SR; /*!< Specifies the division factor for I2S clock.
+                               This parameter must be a number between Min_Data = 2 and Max_Data
+                             = 7. This parameter will be used only when PLLI2S is selected as Clock
+                             Source I2S */
     } RCC_PLLI2SInitTypeDef;
 
     /**
@@ -355,6 +351,7 @@ extern "C"
                                      RCCEx_TIM_PRescaler_Selection */
     } RCC_PeriphCLKInitTypeDef;
 #endif /* STM32F412Zx || STM32F412Vx || STM32F412Rx || STM32F412Cx || STM32F413xx || STM32F423xx \
+        * \                                                                                        \
         */
 
 #if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx) \
@@ -365,17 +362,15 @@ extern "C"
      */
     typedef struct
     {
-        uint32_t
-                PLLI2SN; /*!< Specifies the multiplication factor for PLLI2S VCO output clock.
-                              This parameter must be a number between Min_Data = 50 and Max_Data =
-                            432. This parameter will be used only when PLLI2S is selected as Clock
-                            Source I2S or SAI */
+        uint32_t PLLI2SN; /*!< Specifies the multiplication factor for PLLI2S VCO output clock.
+                               This parameter must be a number between Min_Data = 50 and Max_Data =
+                             432. This parameter will be used only when PLLI2S is selected as Clock
+                             Source I2S or SAI */
 
-        uint32_t
-                PLLI2SR; /*!< Specifies the division factor for I2S clock.
-                              This parameter must be a number between Min_Data = 2 and Max_Data = 7.
-                              This parameter will be used only when PLLI2S is selected as Clock
-                            Source I2S or SAI */
+        uint32_t PLLI2SR; /*!< Specifies the division factor for I2S clock.
+                               This parameter must be a number between Min_Data = 2 and Max_Data
+                             = 7. This parameter will be used only when PLLI2S is selected as Clock
+                             Source I2S or SAI */
 
         uint32_t PLLI2SQ; /*!< Specifies the division factor for SAI1 clock.
                                This parameter must be a number between Min_Data = 2 and Max_Data
@@ -389,11 +384,10 @@ extern "C"
      */
     typedef struct
     {
-        uint32_t
-                PLLSAIN; /*!< Specifies the multiplication factor for PLLI2S VCO output clock.
-                              This parameter must be a number between Min_Data = 50 and Max_Data =
-                            432. This parameter will be used only when PLLSAI is selected as Clock
-                            Source SAI or LTDC */
+        uint32_t PLLSAIN; /*!< Specifies the multiplication factor for PLLI2S VCO output clock.
+                               This parameter must be a number between Min_Data = 50 and Max_Data =
+                             432. This parameter will be used only when PLLSAI is selected as Clock
+                             Source SAI or LTDC */
 #if defined(STM32F469xx) || defined(STM32F479xx)
         uint32_t
                 PLLSAIP; /*!< Specifies division factor for OTG FS and SDIO clocks.
@@ -407,11 +401,10 @@ extern "C"
                                This parameter will be used only when PLLSAI is selected as Clock
                              Source SAI or LTDC */
 
-        uint32_t
-                PLLSAIR; /*!< specifies the division factor for LTDC clock
-                              This parameter must be a number between Min_Data = 2 and Max_Data = 7.
-                              This parameter will be used only when PLLSAI is selected as Clock
-                            Source LTDC */
+        uint32_t PLLSAIR; /*!< specifies the division factor for LTDC clock
+                               This parameter must be a number between Min_Data = 2 and Max_Data
+                             = 7. This parameter will be used only when PLLSAI is selected as Clock
+                             Source LTDC */
 
     } RCC_PLLSAIInitTypeDef;
 
@@ -452,10 +445,9 @@ extern "C"
                                        This parameter can be a value of @ref
                                      RCCEx_TIM_PRescaler_Selection */
 #if defined(STM32F469xx) || defined(STM32F479xx)
-        uint32_t
-                Clk48ClockSelection; /*!< Specifies CLK48 Clock Selection this clock used OTG FS,
-                                        SDIO and RNG clocks. This parameter can be a value of @ref
-                                        RCCEx_CLK48_Clock_Source */
+        uint32_t Clk48ClockSelection; /*!< Specifies CLK48 Clock Selection this clock used OTG FS,
+                                         SDIO and RNG clocks. This parameter can be a value of @ref
+                                         RCCEx_CLK48_Clock_Source */
 
         uint32_t SdioClockSelection; /*!< Specifies SDIO Clock Source Selection.
                                           This parameter can be a value of @ref
@@ -464,6 +456,7 @@ extern "C"
     } RCC_PeriphCLKInitTypeDef;
 
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx \
+        * \                                                                                        \
         */
 
 #if defined(STM32F405xx) || defined(STM32F415xx) || defined(STM32F407xx) || defined(STM32F417xx) \
@@ -485,11 +478,10 @@ extern "C"
                              parameter will be used only when PLLI2S is selected as Clock Source I2S
                              or SAI */
 
-        uint32_t
-                PLLI2SR; /*!< Specifies the division factor for I2S clock.
-                              This parameter must be a number between Min_Data = 2 and Max_Data = 7.
-                              This parameter will be used only when PLLI2S is selected as Clock
-                            Source I2S or SAI */
+        uint32_t PLLI2SR; /*!< Specifies the division factor for I2S clock.
+                               This parameter must be a number between Min_Data = 2 and Max_Data
+                             = 7. This parameter will be used only when PLLI2S is selected as Clock
+                             Source I2S or SAI */
 
     } RCC_PLLI2SInitTypeDef;
 
@@ -516,6 +508,7 @@ extern "C"
 #endif /* STM32F401xC || STM32F401xE || STM32F411xE */
     } RCC_PeriphCLKInitTypeDef;
 #endif /* STM32F405xx || STM32F415xx || STM32F407xx || STM32F417xx || STM32F401xC || STM32F401xE \
+          \                                                                                        \
           || STM32F411xE */
 /**
  * @}
@@ -612,6 +605,7 @@ extern "C"
 #define RCC_PERIPHCLK_RTC 0x00000002U
 #define RCC_PERIPHCLK_PLLI2S 0x00000004U
 #endif /* STM32F405xx || STM32F415xx || STM32F407xx || STM32F417xx || STM32F401xC || STM32F401xE \
+          \                                                                                        \
           || STM32F411xE */
 #if defined(STM32F401xC) || defined(STM32F401xE) || defined(STM32F411xE)
 #define RCC_PERIPHCLK_TIM 0x00000008U
@@ -633,7 +627,8 @@ extern "C"
  * @}
  */
 #endif /* STM32F405xx || STM32F415xx || STM32F407xx || STM32F417xx || STM32F427xx || STM32F437xx \
-          || STM32F429xx || STM32F439xx || STM32F401xC || STM32F401xE || STM32F411xE ||                                                    \
+          \                                                                                        \
+          || STM32F429xx || STM32F439xx || STM32F401xC || STM32F401xE || STM32F411xE || \                                                                                                 \
           STM32F469xx || STM32F479xx */
 
 /** @defgroup RCCEx_PLLSAI_DIVR RCC PLLSAI DIVR
@@ -646,6 +641,7 @@ extern "C"
 #define RCC_PLLSAIDIVR_8 0x00020000U
 #define RCC_PLLSAIDIVR_16 0x00030000U
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F446xx || STM32F469xx \
+          \                                                                                        \
           || STM32F479xx */
 /**
  * @}
@@ -700,6 +696,7 @@ extern "C"
  * @}
  */
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx \
+        * \                                                                                        \
         */
 
 #if defined(STM32F469xx) || defined(STM32F479xx)
@@ -957,6 +954,7 @@ extern "C"
  * @}
  */
 #endif /* STM32F412Zx || STM32F412Vx || STM32F412Rx || STM32F412Cx || STM32F413xx || STM32F423xx \
+        * \                                                                                        \
         */
 
 #if defined(STM32F410Tx) || defined(STM32F410Cx) || defined(STM32F410Rx)
@@ -1008,8 +1006,11 @@ extern "C"
  * @}
  */
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F401xC || STM32F401xE \
+          \                                                                                        \
           ||\                                                                                    \
+          \                                                                                        \
           STM32F410xx || STM32F411xE || STM32F446xx || STM32F469xx || STM32F479xx || STM32F412Zx \
+          \                                                                                        \
           ||\ STM32F412Vx || STM32F412Rx || STM32F412Cx || STM32F413xx || STM32F423xx */
 
 #if defined(STM32F410Tx) || defined(STM32F410Cx) || defined(STM32F410Rx) || defined(STM32F411xE) \
@@ -1025,6 +1026,7 @@ extern "C"
  * @}
  */
 #endif /* STM32F410xx || STM32F411xE || STM32F446xx || STM32F469xx || STM32F479xx || STM32F412Zx \
+          \                                                                                        \
           || STM32F412Vx ||\ STM32F412Rx || STM32F412Cx */
 
 #if defined(STM32F405xx) || defined(STM32F415xx) || defined(STM32F407xx) || defined(STM32F417xx) \
@@ -1044,8 +1046,10 @@ extern "C"
  * @}
  */
 #endif /* STM32F405xx || STM32F415xx || STM32F407xx || STM32F417xx || STM32F427xx || STM32F437xx \
-          || STM32F429xx || STM32F439xx || STM32F401xC || STM32F401xE || STM32F411xE ||                                                    \
-          STM32F446xx || STM32F469xx || STM32F479xx || STM32F412Zx || STM32F412Vx || STM32F412Rx                                                                                     \
+          \                                                                                        \
+          || STM32F429xx || STM32F439xx || STM32F401xC || STM32F401xE || STM32F411xE || \                                                                                                 \
+          STM32F446xx || STM32F469xx || STM32F479xx || STM32F412Zx || STM32F412Vx || STM32F412Rx \
+          \                                                                                        \
           || STM32F413xx | STM32F423xx */
 
 #if defined(STM32F410Tx) || defined(STM32F410Cx) || defined(STM32F410Rx)
@@ -6359,6 +6363,7 @@ extern "C"
  * @}
  */
 #endif /* STM32F412Zx || STM32F412Vx || STM32F412Rx || STM32F412Cx || STM32F413xx || STM32F423xx \
+        * \                                                                                        \
         */
 /*----------------------------------------------------------------------------*/
 
@@ -6441,6 +6446,7 @@ extern "C"
                      | ((((__PLLP__) >> 1U) - 1U) << RCC_PLLCFGR_PLLP_Pos)              \
                      | ((__PLLQ__) << RCC_PLLCFGR_PLLQ_Pos)))
 #endif /* STM32F410xx || STM32F446xx || STM32F469xx || STM32F479xx || STM32F412Zx || STM32F412Vx \
+          \                                                                                        \
           || STM32F412Rx || STM32F412Cx */
 /*----------------------------------------------------------------------------*/
 
@@ -6460,8 +6466,10 @@ extern "C"
 #define __HAL_RCC_PLLI2S_DISABLE() (*(__IO uint32_t *)RCC_CR_PLLI2SON_BB = DISABLE)
 
 #endif /* STM32F405xx || STM32F415xx || STM32F407xx || STM32F417xx || STM32F427xx || STM32F437xx \
-          || STM32F429xx || STM32F439xx || STM32F401xC || STM32F401xE || STM32F411xE ||                                                    \
-          STM32F446xx || STM32F469xx || STM32F479xx || STM32F412Zx || STM32F412Vx || STM32F412Rx                                                                                     \
+          \                                                                                        \
+          || STM32F429xx || STM32F439xx || STM32F401xC || STM32F401xE || STM32F411xE || \                                                                                                 \
+          STM32F446xx || STM32F469xx || STM32F479xx || STM32F412Zx || STM32F412Vx || STM32F412Rx \
+          \                                                                                        \
           || STM32F412Cx */
 #if defined(STM32F446xx)
 /** @brief  Macro to configure the PLLI2S clock multiplication and division factors .
@@ -6595,6 +6603,7 @@ extern "C"
 #define __HAL_RCC_PLLI2S_SAICLK_CONFIG(__PLLI2SN__, __PLLI2SQ__, __PLLI2SR__) \
     (RCC->PLLI2SCFGR = ((__PLLI2SN__) << 6U) | ((__PLLI2SQ__) << 24U) | ((__PLLI2SR__) << 28U))
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx \
+        * \                                                                                        \
         */
 /*----------------------------------------------------------------------------*/
 
@@ -6686,6 +6695,7 @@ extern "C"
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx */
 
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F446xx || STM32F469xx \
+          \                                                                                        \
           || STM32F479xx */
 /*----------------------------------------------------------------------------*/
 
@@ -6729,6 +6739,7 @@ extern "C"
 #define __HAL_RCC_PLLSAI_PLLSAICLKDIVQ_CONFIG(__PLLSAIDivQ__) \
     (MODIFY_REG(RCC->DCKCFGR, RCC_DCKCFGR_PLLSAIDIVQ, ((__PLLSAIDivQ__)-1U) << 8U))
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F446xx || STM32F469xx \
+          \                                                                                        \
           || STM32F479xx */
 
 #if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx) \
@@ -6744,6 +6755,7 @@ extern "C"
 #define __HAL_RCC_PLLSAI_PLLSAICLKDIVR_CONFIG(__PLLSAIDivR__) \
     (MODIFY_REG(RCC->DCKCFGR, RCC_DCKCFGR_PLLSAIDIVR, (__PLLSAIDivR__)))
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx \
+        * \                                                                                        \
         */
 /*----------------------------------------------------------------------------*/
 
@@ -6770,6 +6782,7 @@ extern "C"
  */
 #define __HAL_RCC_GET_I2S_SOURCE() ((uint32_t)(READ_BIT(RCC->CFGR, RCC_CFGR_I2SSRC)))
 #endif /* STM32F40xxx || STM32F41xxx || STM32F42xxx || STM32F43xxx || STM32F469xx || STM32F479xx \
+        * \                                                                                        \
         */
 
 #if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx) \
@@ -6807,6 +6820,7 @@ extern "C"
 #define __HAL_RCC_SAI_BLOCKBCLKSOURCE_CONFIG(__SOURCE__) \
     (MODIFY_REG(RCC->DCKCFGR, RCC_DCKCFGR_SAI1BSRC, (__SOURCE__)))
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx \
+        * \                                                                                        \
         */
 
 #if defined(STM32F446xx)
@@ -7398,8 +7412,12 @@ extern "C"
 #define __HAL_RCC_TIMCLKPRESCALER(__PRESC__) (*(__IO uint32_t *)RCC_DCKCFGR_TIMPRE_BB = (__PRESC__))
 
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx) || STM32F401xC || STM32F401xE \
-          || STM32F410xx || STM32F411xE ||\                                                       \
+          \                                                                                       \
+          \                                                                                                \
+          || STM32F410xx || STM32F411xE ||\                                                                                                \
           STM32F446xx || STM32F469xx || STM32F479xx || STM32F412Zx  || STM32F412Vx || STM32F412Rx \
+          \                                                                                       \
+          \                                                                                                \
           || STM32F412Cx || STM32F413xx ||\ STM32F423xx */
 
     /*----------------------------------------------------------------------------*/
@@ -7429,6 +7447,7 @@ extern "C"
 #define __HAL_RCC_PLLSAI_GET_FLAG() ((RCC->CR & (RCC_CR_PLLSAIRDY)) == (RCC_CR_PLLSAIRDY))
 
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F446xx || STM32F469xx \
+          \                                                                                        \
           || STM32F479xx */
 
 #if defined(STM32F410Tx) || defined(STM32F410Cx) || defined(STM32F410Rx)
@@ -7467,6 +7486,7 @@ extern "C"
         || defined(STM32F412Cx) || defined(STM32F413xx) || defined(STM32F423xx)
     void HAL_RCCEx_SelectLSEMode(uint8_t Mode);
 #endif /* STM32F410xx || STM32F411xE || STM32F446xx || STM32F469xx || STM32F479xx || STM32F412Zx \
+          \                                                                                        \
           || STM32F412Vx || STM32F412Rx || STM32F412Cx || STM32F413xx || STM32F423xx */
 #if defined(RCC_PLLI2S_SUPPORT)
     HAL_StatusTypeDef HAL_RCCEx_EnablePLLI2S(RCC_PLLI2SInitTypeDef * PLLI2SInit);
@@ -7503,6 +7523,7 @@ extern "C"
 
 #define PLLSAI_TIMEOUT_VALUE 2U /* Timeout value fixed to 2 ms  */
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F446xx || STM32F469xx \
+          \                                                                                        \
           || STM32F479xx */
 
 #if defined(STM32F405xx) || defined(STM32F415xx) || defined(STM32F407xx) || defined(STM32F417xx) \
@@ -7516,8 +7537,10 @@ extern "C"
 #define RCC_PLLI2SON_BIT_NUMBER 0x1AU
 #define RCC_CR_PLLI2SON_BB (PERIPH_BB_BASE + (RCC_CR_OFFSET * 32U) + (RCC_PLLI2SON_BIT_NUMBER * 4U))
 #endif /* STM32F405xx || STM32F415xx || STM32F407xx || STM32F417xx || STM32F427xx || STM32F437xx \
-          || STM32F429xx || STM32F439xx || STM32F401xC || STM32F401xE || STM32F411xE ||                                                    \
-          STM32F446xx || STM32F469xx || STM32F479xx || STM32F412Zx || STM32F412Vx || STM32F412Rx                                                                                     \
+          \                                                                                        \
+          || STM32F429xx || STM32F439xx || STM32F401xC || STM32F401xE || STM32F411xE || \                                                                                                 \
+          STM32F446xx || STM32F469xx || STM32F479xx || STM32F412Zx || STM32F412Vx || STM32F412Rx \
+          \                                                                                        \
           || STM32F412Cx || STM32F413xx || STM32F423xx */
 
 /* --- DCKCFGR Register ---*/
@@ -7533,8 +7556,11 @@ extern "C"
 #define RCC_DCKCFGR_TIMPRE_BB \
     (PERIPH_BB_BASE + (RCC_DCKCFGR_OFFSET * 32U) + (RCC_TIMPRE_BIT_NUMBER * 4U))
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F410xx || STM32F401xC \
+          \                                                                                        \
           ||\                                                                                    \
+          \                                                                                        \
           STM32F401xE || STM32F411xE || STM32F446xx || STM32F469xx || STM32F479xx || STM32F412Zx \
+          \                                                                                        \
           ||\ STM32F412Vx || STM32F412Rx || STM32F412Cx || STM32F413xx || STM32F423xx */
 
 /* --- CFGR Register ---*/
@@ -7550,7 +7576,8 @@ extern "C"
 
 #define PLLI2S_TIMEOUT_VALUE 2U /* Timeout value fixed to 2 ms  */
 #endif /* STM32F405xx || STM32F415xx || STM32F407xx || STM32F417xx || STM32F427xx || STM32F437xx \
-          || STM32F429xx || STM32F439xx || STM32F401xC || STM32F401xE || STM32F411xE ||                                                    \
+          \                                                                                        \
+          || STM32F429xx || STM32F439xx || STM32F401xC || STM32F401xE || STM32F411xE || \                                                                                                 \
           STM32F446xx || STM32F469xx || STM32F479xx */
 
 #if defined(STM32F412Zx) || defined(STM32F412Vx) || defined(STM32F412Rx) || defined(STM32F412Cx) \
@@ -7595,9 +7622,13 @@ extern "C"
 #define IS_RCC_PLLN_VALUE(VALUE) ((192U <= (VALUE)) && ((VALUE) <= 432U))
 #define IS_RCC_PLLI2SN_VALUE(VALUE) ((192U <= (VALUE)) && ((VALUE) <= 432U))
 #else /* STM32F405xx || STM32F415xx || STM32F407xx || STM32F417xx || STM32F427xx || STM32F437xx || \
+         \                                                                                         \
+         \                                                                                                 \
          STM32F429xx || STM32F439xx || STM32F401xC || STM32F401xE || STM32F410Tx || STM32F410Cx || \
+         \                                                                                         \
+         \                                                                                                 \
          STM32F410Rx || STM32F446xx || STM32F469xx || STM32F479xx || STM32F412Cx || STM32F412Rx || \
-         STM32F412Vx || STM32F412Zx || STM32F413xx || STM32F423xx */
+         \ STM32F412Vx || STM32F412Zx || STM32F413xx || STM32F423xx */
 #define IS_RCC_PLLN_VALUE(VALUE) ((50U <= (VALUE)) && ((VALUE) <= 432U))
 #define IS_RCC_PLLI2SN_VALUE(VALUE) ((50U <= (VALUE)) && ((VALUE) <= 432U))
 #endif /* STM32F411xE */
@@ -7654,6 +7685,7 @@ extern "C"
     (((VALUE) == RCC_PLLSAIDIVR_2) || ((VALUE) == RCC_PLLSAIDIVR_4) \
      || ((VALUE) == RCC_PLLSAIDIVR_8) || ((VALUE) == RCC_PLLSAIDIVR_16))
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F446xx || STM32F469xx \
+          \                                                                                        \
           || STM32F479xx */
 
 #if defined(STM32F411xE) || defined(STM32F446xx) || defined(STM32F412Zx) || defined(STM32F412Vx) \
@@ -7664,6 +7696,7 @@ extern "C"
 #define IS_RCC_LSE_MODE(MODE) \
     (((MODE) == RCC_LSE_LOWPOWER_MODE) || ((MODE) == RCC_LSE_HIGHDRIVE_MODE))
 #endif /* STM32F411xE || STM32F446xx || STM32F412Zx || STM32F412Vx || STM32F412Rx || STM32F412Cx \
+          \                                                                                        \
           || STM32F413xx || STM32F423xx  */
 
 #if defined(STM32F410Tx) || defined(STM32F410Cx) || defined(STM32F410Rx)
@@ -7811,6 +7844,7 @@ extern "C"
 
 #endif /* STM32F413xx || STM32F423xx */
 #endif /* STM32F412Zx || STM32F412Vx || STM32F412Rx || STM32F412Cx || STM32F413xx || STM32F423xx \
+        * \                                                                                        \
         */
 
 #if defined(STM32F405xx) || defined(STM32F415xx) || defined(STM32F407xx) || defined(STM32F417xx) \
@@ -7825,8 +7859,11 @@ extern "C"
      || ((SOURCE) == RCC_MCO2SOURCE_HSE) || ((SOURCE) == RCC_MCO2SOURCE_PLLCLK))
 
 #endif /* STM32F405xx || STM32F415xx || STM32F407xx || STM32F417xx || STM32F427xx || STM32F437xx \
+          \                                                                                        \
           || STM32F429xx || STM32F439xx ||                                                       \
+          \                                                                                        \
           STM32F401xC || STM32F401xE || STM32F411xE || STM32F446xx || STM32F469xx || STM32F479xx \
+          \                                                                                        \
           || STM32F412Zx || STM32F412Vx || \ STM32F412Rx */
 
 #if defined(STM32F410Tx) || defined(STM32F410Cx) || defined(STM32F410Rx)

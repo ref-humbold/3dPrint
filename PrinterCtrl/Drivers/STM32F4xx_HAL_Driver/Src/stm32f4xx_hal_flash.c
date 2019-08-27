@@ -13,11 +13,11 @@
   ==============================================================================
                         ##### FLASH peripheral features #####
   ==============================================================================
-           
+           
   [..] The Flash memory interface manages CPU AHB I-Code and D-Code accesses
        to the Flash memory. It implements the erase and program Flash memory operations
        and the read and write protection mechanisms.
-      
+      
   [..] The Flash memory interface accelerates code execution with a system of instruction
        prefetch and cache lines.
 
@@ -28,14 +28,14 @@
       (+) Prefetch on I-Code
       (+) 64 cache lines of 128 bits on I-Code
       (+) 8 cache lines of 128 bits on D-Code
-      
-      
+      
+      
                      ##### How to use this driver #####
   ==============================================================================
     [..]
       This driver provides functions and macros to configure and program the FLASH
       memory of all STM32F4xx devices.
-    
+    
       (#) FLASH Memory IO Programming functions:
            (++) Lock and Unlock the FLASH interface using HAL_FLASH_Unlock() and
                 HAL_FLASH_Lock() functions
@@ -43,7 +43,7 @@
            (++) There Two modes of programming :
             (+++) Polling mode using HAL_FLASH_Program() function
             (+++) Interrupt mode using HAL_FLASH_Program_IT() function
-    
+    
       (#) Interrupts and flags management functions :
            (++) Handle FLASH interrupts by calling HAL_FLASH_IRQHandler()
            (++) Wait for last FLASH operation according to its status
@@ -58,7 +58,7 @@
        (+) Reset the Instruction cache and the Data cache
        (+) Enable/Disable the FLASH interrupts
        (+) Monitor the FLASH flags status
-          
+          
   @endverbatim
   ******************************************************************************
   * @attention

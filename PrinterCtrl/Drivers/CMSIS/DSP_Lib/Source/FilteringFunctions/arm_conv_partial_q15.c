@@ -765,7 +765,7 @@ arm_status arm_conv_partial_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, 
     }
     return (status);
 
-#endif /* #if (defined(ARM_MATH_CM4) || defined(ARM_MATH_CM3)) && \ \
+#endif /* #if (defined(ARM_MATH_CM4) || defined(ARM_MATH_CM3)) && \
           !defined(UNALIGNED_SUPPORT_DISABLE)  */
 }
 

@@ -15,12 +15,12 @@
   The DMA Extension HAL driver can be used as follows:
    (#) Start a multi buffer transfer using the HAL_DMA_MultiBufferStart() function
        for polling mode or HAL_DMA_MultiBufferStart_IT() for interrupt mode.
-                   
+                   
      -@-  In Memory-to-Memory transfer mode, Multi (Double) Buffer mode is not allowed.
      -@-  When Multi (Double) Buffer mode is enabled the, transfer is circular by default.
      -@-  In Multi (Double) buffer mode, it is possible to update the base address for
           the AHB memory port on the fly (DMA_SxM0AR or DMA_SxM1AR) when the stream is enabled.
-  
+  
   @endverbatim
   ******************************************************************************
   * @attention
@@ -82,7 +82,7 @@ static void DMA_MultiBufferSetConfig(DMA_HandleTypeDef * hdma, uint32_t SrcAddre
       (+) Configure the source, destination address and data length and
           Start MultiBuffer DMA transfer with interrupt
       (+) Change on the fly the memory0 or memory1 address.
-      
+      
 @endverbatim
   * @{
   */

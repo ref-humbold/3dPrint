@@ -545,8 +545,8 @@ __STATIC_FORCEINLINE void __TZ_set_FAULTMASK_NS(uint32_t faultMask)
 }
 #endif
 
-#endif /* ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \ \
-           (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \ \
+#endif /* ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
+           (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
            (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1))    ) */
 
 #if((defined(__ARM_ARCH_8M_MAIN__) && (__ARM_ARCH_8M_MAIN__ == 1)) \
@@ -557,7 +557,10 @@ __STATIC_FORCEINLINE void __TZ_set_FAULTMASK_NS(uint32_t faultMask)
   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
   Stack Pointer Limit register hence zero is returned always in non-secure
   mode.
-  
+
+
+
+
   \details Returns the current value of the Process Stack Pointer Limit (PSPLIM).
   \return               PSPLIM Register value
  */
@@ -602,7 +605,10 @@ __STATIC_FORCEINLINE uint32_t __TZ_get_PSPLIM_NS(void)
   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
   Stack Pointer Limit register hence the write is silently ignored in non-secure
   mode.
-  
+
+
+
+
   \details Assigns the given value to the Process Stack Pointer Limit (PSPLIM).
   \param [in]    ProcStackPtrLimit  Process Stack Pointer Limit value to set
  */
@@ -714,13 +720,13 @@ __STATIC_FORCEINLINE void __TZ_set_MSPLIM_NS(uint32_t MainStackPtrLimit)
 #if(!(defined(__ARM_ARCH_8M_MAIN__) && (__ARM_ARCH_8M_MAIN__ == 1)))
     // without main extensions, the non-secure MSPLIM is RAZ/WI
     (void)MainStackPtrLimit;
-#else
+#else\
     __ASM volatile("MSR msplim_ns, %0" : : "r"(MainStackPtrLimit));
 #endif
 }
 #endif
 
-#endif /* ((defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \ \
+#endif /* ((defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
            (defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    ) */
 
 /**
@@ -934,15 +940,15 @@ __STATIC_FORCEINLINE uint32_t __ROR(uint32_t op1, uint32_t op2)
  */
 #define __STREXW (uint32_t) __builtin_arm_strex
 
-/**
-  \brief   Remove the exclusive lock
-  \details Removes the exclusive lock which is created by LDREX.
+/**\
+  \brief   Remove the exclusive lock\
+  \details Removes the exclusive lock which is created by LDREX.\
  */
 #define __CLREX __builtin_arm_clrex
 
-#endif /* ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \ \
-           (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \ \
-           (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \ \
+#endif /* ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
+           (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
+           (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
            (defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    ) */
 
 #if((defined(__ARM_ARCH_7M__) && (__ARM_ARCH_7M__ == 1))      \
@@ -1051,14 +1057,14 @@ __STATIC_FORCEINLINE void __STRHT(uint16_t value, volatile uint16_t * ptr)
   \details Executes a Unprivileged STRT instruction for 32 bit values.
   \param [in]  value  Value to store
   \param [in]    ptr  Pointer to location
- */
-__STATIC_FORCEINLINE void __STRT(uint32_t value, volatile uint32_t * ptr)
+ */\
+__STATIC_FORCEINLINE void __STRT(uint32_t value, volatile uint32_t * ptr)\
 {
     __ASM volatile("strt %1, %0" : "=Q"(*ptr) : "r"(value));
 }
 
-#else /* ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \ \
-          (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \ \
+#else /* ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
+          (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
           (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1))    ) */
 
 /**
@@ -1104,14 +1110,14 @@ __STATIC_FORCEINLINE uint32_t __USAT(int32_t val, uint32_t sat)
         }
         else if(val < 0)
         {
-            return 0U;
-        }
+            return 0U;\
+        }\
     }
     return (uint32_t)val;
 }
 
-#endif /* ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \ \
-           (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \ \
+#endif /* ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
+           (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
            (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1))    ) */
 
 #if((defined(__ARM_ARCH_8M_MAIN__) && (__ARM_ARCH_8M_MAIN__ == 1)) \
@@ -1239,13 +1245,13 @@ __STATIC_FORCEINLINE void __STL(uint32_t value, volatile uint32_t * ptr)
   \brief   Store-Release Exclusive (32 bit)
   \details Executes a STL exclusive instruction for 32 bit values.
   \param [in]  value  Value to store
-  \param [in]    ptr  Pointer to location
+  \param [in]    ptr  Pointer to location\
   \return          0  Function succeeded
   \return          1  Function failed
  */
 #define __STLEX (uint32_t) __builtin_arm_stlex
 
-#endif /* ((defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \ \
+#endif /* ((defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
            (defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    ) */
 
 /*@}*/ /* end of group CMSIS_Core_InstructionInterface */

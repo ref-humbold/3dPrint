@@ -55,7 +55,7 @@
  * of input and output data and each call to the function processes
  * <code>blockSize</code> samples through the filter.  <code>pSrc</code> and
  * <code>pDst</code> point to input and output arrays containing <code>blockSize</code> values.
-    
+    
  * \par Algorithm:
  * \image html IIRLattice.gif "Infinite Impulse Response Lattice filter"
  * <pre>

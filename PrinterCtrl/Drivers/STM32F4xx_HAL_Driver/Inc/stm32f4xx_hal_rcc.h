@@ -82,9 +82,8 @@ extern "C"
         uint32_t ClockType; /*!< The clock to be configured.
                                  This parameter can be a value of @ref RCC_System_Clock_Type      */
 
-        uint32_t
-                SYSCLKSource; /*!< The clock source (SYSCLKS) used as system clock.
-                                   This parameter can be a value of @ref RCC_System_Clock_Source */
+        uint32_t SYSCLKSource; /*!< The clock source (SYSCLKS) used as system clock.
+                                    This parameter can be a value of @ref RCC_System_Clock_Source */
 
         uint32_t AHBCLKDivider; /*!< The AHB clock (HCLK) divider. This clock is derived from the
                                    system clock (SYSCLK). This parameter can be a value of @ref

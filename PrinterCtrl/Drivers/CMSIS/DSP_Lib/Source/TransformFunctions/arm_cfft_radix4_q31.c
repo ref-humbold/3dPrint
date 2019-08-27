@@ -781,7 +781,7 @@ void arm_radix4_butterfly_q31(q31_t * pSrc, uint32_t fftLen, q31_t * pCoef,
 * Wn = co1 + j * (si1)
 * W2n = co2 + j * (si2)
 * W3n = co3 + j * (si3)
-    
+    
 * The real and imaginary output values for the radix-4 butterfly are
 * xa' = xa + xb + xc + xd
 * ya' = ya + yb + yc + yd

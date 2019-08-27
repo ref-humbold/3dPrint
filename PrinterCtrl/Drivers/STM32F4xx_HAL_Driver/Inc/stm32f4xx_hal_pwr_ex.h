@@ -64,6 +64,7 @@ extern "C"
  * @}
  */
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F446xx || STM32F469xx \
+          \                                                                                        \
           || STM32F479xx */
 
 /** @defgroup PWREx_Regulator_Voltage_Scale PWREx Regulator Voltage Scale
@@ -77,8 +78,8 @@ extern "C"
 #else
 #define PWR_REGULATOR_VOLTAGE_SCALE1                                                              \
     PWR_CR_VOS /* Scale 1 mode(default value at reset): the maximum value of fHCLK is 168 MHz. It \
-                  can be extended to 180 MHz by activating the over-drive mode. */
-#define PWR_REGULATOR_VOLTAGE_SCALE2                                                           \
+                  \ can be extended to 180 MHz by activating the over-drive mode. */
+#define PWR_REGULATOR_VOLTAGE_SCALE2                                                               \
     PWR_CR_VOS_1 /* Scale 2 mode: the maximum value of fHCLK is 144 MHz. It can be extended to \
                     168 MHz by activating the over-drive mode. */
 #define PWR_REGULATOR_VOLTAGE_SCALE3 \
@@ -99,11 +100,13 @@ extern "C"
         || defined(STM32F413xx) || defined(STM32F423xx)
 #define PWR_WAKEUP_PIN3 0x00000040U
 #endif /* STM32F410xx || STM32F412Zx || STM32F412Vx || STM32F412Rx || STM32F412Zx || STM32F412Vx \
+          \                                                                                        \
           || \ STM32F412Rx || STM32F412Cx || STM32F413xx || STM32F423xx */
 /**
  * @}
  */
 #endif /* STM32F410xx || STM32F446xx || STM32F412Zx || STM32F412Vx || STM32F412Rx || STM32F412Cx \
+          \                                                                                        \
           || STM32F413xx || STM32F423xx */
 
     /**
@@ -203,6 +206,7 @@ extern "C"
 #define __HAL_PWR_CLEAR_ODRUDR_FLAG() (PWR->CSR |= PWR_FLAG_UDRDY)
 
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F446xx || STM32F469xx \
+          \                                                                                        \
           || STM32F479xx */
     /**
      * @}
@@ -232,6 +236,7 @@ extern "C"
     void HAL_PWREx_EnableLowRegulatorLowVoltage(void);
     void HAL_PWREx_DisableLowRegulatorLowVoltage(void);
 #endif /* STM32F410xx || STM32F401xC || STM32F401xE || STM32F411xE || STM32F412Zx || STM32F412Vx \
+          \                                                                                        \
           ||\ STM32F412Rx || STM32F412Cx || STM32F413xx || STM32F423xx */
 
 #if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx) \
@@ -240,6 +245,7 @@ extern "C"
     HAL_StatusTypeDef HAL_PWREx_DisableOverDrive(void);
     HAL_StatusTypeDef HAL_PWREx_EnterUnderDriveSTOPMode(uint32_t Regulator, uint8_t STOPEntry);
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F446xx || STM32F469xx \
+          \                                                                                        \
           || STM32F479xx */
 
 /**
@@ -318,6 +324,7 @@ extern "C"
     (((REGULATOR) == PWR_MAINREGULATOR_UNDERDRIVE_ON) \
      || ((REGULATOR) == PWR_LOWPOWERREGULATOR_UNDERDRIVE_ON))
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F446xx || STM32F469xx \
+          \                                                                                        \
           || STM32F479xx */
 
 #if defined(STM32F405xx) || defined(STM32F407xx) || defined(STM32F415xx) || defined(STM32F417xx)

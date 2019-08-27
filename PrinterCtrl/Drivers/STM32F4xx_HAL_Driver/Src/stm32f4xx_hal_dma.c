@@ -71,7 +71,7 @@
      =============================================
      [..]
        Below the list of most used macros in DMA HAL driver.
-       
+       
       (+) __HAL_DMA_ENABLE: Enable the specified DMA Stream.
       (+) __HAL_DMA_DISABLE: Disable the specified DMA Stream.
       (+) __HAL_DMA_GET_IT_SOURCE: Check whether the specified DMA Stream interrupt has occurred or

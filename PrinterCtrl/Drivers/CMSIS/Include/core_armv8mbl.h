@@ -728,8 +728,9 @@ extern "C"
     (0x3UL << DWT_FUNCTION_DATAVSIZE_Pos) /*!< DWT FUNCTION: DATAVSIZE Mask */
 
 #define DWT_FUNCTION_ACTION_Pos 4U /*!< DWT FUNCTION: ACTION Position */
-#define DWT_FUNCTION_ACTION_Msk (0x3UL << DWT_FUNCTION_ACTION_Pos) /*!< DWT FUNCTION: ACTION Mask \
-                                                                    */
+#define DWT_FUNCTION_ACTION_Msk                                           \
+    (0x3UL << DWT_FUNCTION_ACTION_Pos) /*!< DWT FUNCTION: ACTION Mask \
+                                        */
 
 #define DWT_FUNCTION_MATCH_Pos 0U /*!< DWT FUNCTION: MATCH Position */
 #define DWT_FUNCTION_MATCH_Msk \
@@ -819,12 +820,14 @@ extern "C"
 #define TPI_DEVID_NRZVALID_Msk (0x1UL << TPI_DEVID_NRZVALID_Pos) /*!< TPI DEVID: NRZVALID Mask */
 
 #define TPI_DEVID_MANCVALID_Pos 10U /*!< TPI DEVID: MANCVALID Position */
-#define TPI_DEVID_MANCVALID_Msk (0x1UL << TPI_DEVID_MANCVALID_Pos) /*!< TPI DEVID: MANCVALID Mask \
-                                                                    */
+#define TPI_DEVID_MANCVALID_Msk                                           \
+    (0x1UL << TPI_DEVID_MANCVALID_Pos) /*!< TPI DEVID: MANCVALID Mask \
+                                        */
 
 #define TPI_DEVID_PTINVALID_Pos 9U /*!< TPI DEVID: PTINVALID Position */
-#define TPI_DEVID_PTINVALID_Msk (0x1UL << TPI_DEVID_PTINVALID_Pos) /*!< TPI DEVID: PTINVALID Mask \
-                                                                    */
+#define TPI_DEVID_PTINVALID_Msk                                           \
+    (0x1UL << TPI_DEVID_PTINVALID_Pos) /*!< TPI DEVID: PTINVALID Mask \
+                                        */
 
 #define TPI_DEVID_FIFOSZ_Pos 6U /*!< TPI DEVID: FIFO depth Position */
 #define TPI_DEVID_FIFOSZ_Msk (0x7UL << TPI_DEVID_FIFOSZ_Pos) /*!< TPI DEVID: FIFO depth Mask */
@@ -1206,10 +1209,11 @@ extern "C"
 #define SysTick_NS    \
     ((SysTick_Type *) \
              SysTick_BASE_NS) /*!< SysTick configuration struct      (non-secure address space) */
-#define NVIC_NS                                                                                   \
-    ((NVIC_Type *)NVIC_BASE_NS) /*!< NVIC configuration struct         (non-secure address space) \
-                                 */
-#define CoreDebug_NS                                                                         \
+#define NVIC_NS                                                                                  \
+    ((NVIC_Type *)                                                                               \
+             NVIC_BASE_NS) /*!< NVIC configuration struct         (non-secure address space) \
+                            */
+#define CoreDebug_NS                                                                             \
     ((CoreDebug_Type *)CoreDebug_BASE_NS) /*!< Core Debug configuration struct   (non-secure \
                                              address space) */
 

@@ -700,9 +700,9 @@ typedef struct
     TIM_INPUTCHANNELPOLARITY_RISING /*!< Capture triggered by rising edge on timer input */
 #define TIM_ICPOLARITY_FALLING \
     TIM_INPUTCHANNELPOLARITY_FALLING /*!< Capture triggered by falling edge on timer input */
-#define TIM_ICPOLARITY_BOTHEDGE                                                                  \
+#define TIM_ICPOLARITY_BOTHEDGE                                                                    \
     TIM_INPUTCHANNELPOLARITY_BOTHEDGE /*!< Capture triggered by both rising and falling edges on \
-                                         timer input*/
+                                         \ timer input*/
 /**
  * @}
  */
@@ -710,10 +710,10 @@ typedef struct
 /** @defgroup TIM_Input_Capture_Selection TIM Input Capture Selection
  * @{
  */
-#define TIM_ICSELECTION_DIRECTTI                                   \
+#define TIM_ICSELECTION_DIRECTTI                                       \
     TIM_CCMR1_CC1S_0 /*!< TIM Input 1, 2, 3 or 4 is selected to be \
                           connected to IC1, IC2, IC3 or IC4, respectively */
-#define TIM_ICSELECTION_INDIRECTTI                                 \
+#define TIM_ICSELECTION_INDIRECTTI                                     \
     TIM_CCMR1_CC1S_1 /*!< TIM Input 1, 2, 3 or 4 is selected to be \
                           connected to IC2, IC1, IC4 or IC3, respectively */
 #define TIM_ICSELECTION_TRC \
@@ -727,10 +727,8 @@ typedef struct
  */
 #define TIM_ICPSC_DIV1 \
     0x00000000U /*!< Capture performed each time an edge is detected on the capture input */
-#define TIM_ICPSC_DIV2 \
-    TIM_CCMR1_IC1PSC_0 /*!< Capture performed once every 2 events */
-#define TIM_ICPSC_DIV4 \
-    TIM_CCMR1_IC1PSC_1 /*!< Capture performed once every 4 events */
+#define TIM_ICPSC_DIV2 TIM_CCMR1_IC1PSC_0 /*!< Capture performed once every 2 events */
+#define TIM_ICPSC_DIV4 TIM_CCMR1_IC1PSC_1 /*!< Capture performed once every 4 events */
 #define TIM_ICPSC_DIV8 \
     TIM_CCMR1_IC1PSC /*!< Capture performed once every 8 events                                */
 /**
@@ -749,16 +747,16 @@ typedef struct
 /** @defgroup TIM_Encoder_Mode TIM Encoder Mode
  * @{
  */
-#define TIM_ENCODERMODE_TI1                                                               \
+#define TIM_ENCODERMODE_TI1                                                                   \
     TIM_SMCR_SMS_0 /*!< Quadrature encoder mode 1, x2 mode, counts up/down on TI1FP1 edge \
                       depending on TI2FP2 level  */
-#define TIM_ENCODERMODE_TI2                                                               \
+#define TIM_ENCODERMODE_TI2                                                                   \
     TIM_SMCR_SMS_1 /*!< Quadrature encoder mode 2, x2 mode, counts up/down on TI2FP2 edge \
                       depending on TI1FP1 level. */
 #define TIM_ENCODERMODE_TI12                                                                      \
     (TIM_SMCR_SMS_1                                                                               \
      | TIM_SMCR_SMS_0) /*!< Quadrature encoder mode 3, x4 mode, counts up/down on both TI1FP1 and \
-                          TI2FP2 edges depending on the level of the other input. */
+                          \ TI2FP2 edges depending on the level of the other input. */
 /**
  * @}
  */
@@ -783,10 +781,10 @@ typedef struct
  */
 #define TIM_COMMUTATION_TRGI                                                                       \
     TIM_CR2_CCUS /*!< When Capture/compare control bits are preloaded, they are updated by setting \
-                    the COMG bit or when an rising edge occurs on trigger input */
+                    \ the COMG bit or when an rising edge occurs on trigger input */
 #define TIM_COMMUTATION_SOFTWARE                                                                  \
     0x00000000U /*!< When Capture/compare control bits are preloaded, they are updated by setting \
-                   the COMG bit */
+                   \ the COMG bit */
 /**
  * @}
  */
@@ -870,8 +868,9 @@ typedef struct
 /** @defgroup TIM_Clock_Polarity TIM Clock Polarity
  * @{
  */
-#define TIM_CLOCKPOLARITY_INVERTED TIM_ETRPOLARITY_INVERTED /*!< Polarity for ETRx clock sources \
-                                                             */
+#define TIM_CLOCKPOLARITY_INVERTED                                    \
+    TIM_ETRPOLARITY_INVERTED /*!< Polarity for ETRx clock sources \
+                              */
 #define TIM_CLOCKPOLARITY_NONINVERTED \
     TIM_ETRPOLARITY_NONINVERTED /*!< Polarity for ETRx clock sources */
 #define TIM_CLOCKPOLARITY_RISING \
@@ -887,17 +886,16 @@ typedef struct
 /** @defgroup TIM_Clock_Prescaler TIM Clock Prescaler
  * @{
  */
-#define TIM_CLOCKPRESCALER_DIV1 \
-    TIM_ETRPRESCALER_DIV1 /*!< No prescaler is used */
-#define TIM_CLOCKPRESCALER_DIV2                                                                 \
+#define TIM_CLOCKPRESCALER_DIV1 TIM_ETRPRESCALER_DIV1 /*!< No prescaler is used */
+#define TIM_CLOCKPRESCALER_DIV2                                                                   \
     TIM_ETRPRESCALER_DIV2 /*!< Prescaler for External ETR Clock: Capture performed once every 2 \
-                             events. */
-#define TIM_CLOCKPRESCALER_DIV4                                                                 \
+                             \ events. */
+#define TIM_CLOCKPRESCALER_DIV4                                                                   \
     TIM_ETRPRESCALER_DIV4 /*!< Prescaler for External ETR Clock: Capture performed once every 4 \
-                             events. */
-#define TIM_CLOCKPRESCALER_DIV8                                                                 \
+                             \ events. */
+#define TIM_CLOCKPRESCALER_DIV8                                                                   \
     TIM_ETRPRESCALER_DIV8 /*!< Prescaler for External ETR Clock: Capture performed once every 8 \
-                             events. */
+                             \ events. */
 /**
  * @}
  */
@@ -906,8 +904,9 @@ typedef struct
  * @{
  */
 #define TIM_CLEARINPUTPOLARITY_INVERTED TIM_ETRPOLARITY_INVERTED /*!< Polarity for ETRx pin */
-#define TIM_CLEARINPUTPOLARITY_NONINVERTED TIM_ETRPOLARITY_NONINVERTED /*!< Polarity for ETRx pin \
-                                                                        */
+#define TIM_CLEARINPUTPOLARITY_NONINVERTED                     \
+    TIM_ETRPOLARITY_NONINVERTED /*!< Polarity for ETRx pin \
+                                 */
 /**
  * @}
  */
@@ -915,15 +914,14 @@ typedef struct
 /** @defgroup TIM_ClearInput_Prescaler TIM Clear Input Prescaler
  * @{
  */
-#define TIM_CLEARINPUTPRESCALER_DIV1 \
-    TIM_ETRPRESCALER_DIV1 /*!< No prescaler is used */
-#define TIM_CLEARINPUTPRESCALER_DIV2                                                          \
+#define TIM_CLEARINPUTPRESCALER_DIV1 TIM_ETRPRESCALER_DIV1 /*!< No prescaler is used */
+#define TIM_CLEARINPUTPRESCALER_DIV2                                                              \
     TIM_ETRPRESCALER_DIV2 /*!< Prescaler for External ETR pin: Capture performed once every 2 \
                              events. */
-#define TIM_CLEARINPUTPRESCALER_DIV4                                                          \
+#define TIM_CLEARINPUTPRESCALER_DIV4                                                              \
     TIM_ETRPRESCALER_DIV4 /*!< Prescaler for External ETR pin: Capture performed once every 4 \
                              events. */
-#define TIM_CLEARINPUTPRESCALER_DIV8                                                          \
+#define TIM_CLEARINPUTPRESCALER_DIV8                                                              \
     TIM_ETRPRESCALER_DIV8 /*!< Prescaler for External ETR pin: Capture performed once every 8 \
                              events. */
 /**
@@ -934,12 +932,13 @@ typedef struct
  * mode state
  * @{
  */
-#define TIM_OSSR_ENABLE                                                                          \
+#define TIM_OSSR_ENABLE                                                                            \
     TIM_BDTR_OSSR /*!< When inactive, OC/OCN outputs are enabled (still controlled by the timer) \
+                   * \                                                                             \
                    */
 #define TIM_OSSR_DISABLE                                                                          \
     0x00000000U /*!< When inactive, OC/OCN outputs are disabled (not controlled any longer by the \
-                   timer) */
+                   \ timer) */
 /**
  * @}
  */
@@ -948,12 +947,13 @@ typedef struct
  * mode state
  * @{
  */
-#define TIM_OSSI_ENABLE                                                                          \
+#define TIM_OSSI_ENABLE                                                                            \
     TIM_BDTR_OSSI /*!< When inactive, OC/OCN outputs are enabled (still controlled by the timer) \
+                   * \                                                                             \
                    */
 #define TIM_OSSI_DISABLE                                                                          \
     0x00000000U /*!< When inactive, OC/OCN outputs are disabled (not controlled any longer by the \
-                   timer) */
+                   \ timer) */
 /**
  * @}
  */
@@ -990,7 +990,7 @@ typedef struct
  * @{
  */
 #define TIM_AUTOMATICOUTPUT_DISABLE 0x00000000U /*!< MOE can be set only by software */
-#define TIM_AUTOMATICOUTPUT_ENABLE                                                         \
+#define TIM_AUTOMATICOUTPUT_ENABLE                                                             \
     TIM_BDTR_AOE /*!< MOE can be set by software or automatically at the next update event \
                      (if none of the break inputs BRK and BRK2 is active) */
 /**
@@ -1055,8 +1055,9 @@ typedef struct
     (TIM_CCMR1_OC1M_1 | TIM_CCMR1_OC1M_0) /*!< Toggle                                 */
 #define TIM_OCMODE_PWM1 \
     (TIM_CCMR1_OC1M_2 | TIM_CCMR1_OC1M_1) /*!< PWM mode 1                             */
-#define TIM_OCMODE_PWM2 \
-    (TIM_CCMR1_OC1M_2 | TIM_CCMR1_OC1M_1 | TIM_CCMR1_OC1M_0) /*!< PWM mode 2 */
+#define TIM_OCMODE_PWM2                                                        \
+    (TIM_CCMR1_OC1M_2 | TIM_CCMR1_OC1M_1 | TIM_CCMR1_OC1M_0) /*!< PWM mode 2 \
+                                                              */
 #define TIM_OCMODE_FORCED_ACTIVE \
     (TIM_CCMR1_OC1M_2 | TIM_CCMR1_OC1M_0) /*!< Force active level                     */
 #define TIM_OCMODE_FORCED_INACTIVE TIM_CCMR1_OC1M_2 /*!< Force inactive level                   */
@@ -1101,17 +1102,16 @@ typedef struct
 /** @defgroup TIM_Trigger_Prescaler TIM Trigger Prescaler
  * @{
  */
-#define TIM_TRIGGERPRESCALER_DIV1 \
-    TIM_ETRPRESCALER_DIV1 /*!< No prescaler is used */
+#define TIM_TRIGGERPRESCALER_DIV1 TIM_ETRPRESCALER_DIV1 /*!< No prescaler is used */
 #define TIM_TRIGGERPRESCALER_DIV2                                                                 \
     TIM_ETRPRESCALER_DIV2 /*!< Prescaler for External ETR Trigger: Capture performed once every 2 \
-                             events. */
+                             \ events. */
 #define TIM_TRIGGERPRESCALER_DIV4                                                                 \
     TIM_ETRPRESCALER_DIV4 /*!< Prescaler for External ETR Trigger: Capture performed once every 4 \
-                             events. */
+                             \ events. */
 #define TIM_TRIGGERPRESCALER_DIV8                                                                 \
     TIM_ETRPRESCALER_DIV8 /*!< Prescaler for External ETR Trigger: Capture performed once every 8 \
-                             events. */
+                             \ events. */
 /**
  * @}
  */
@@ -1120,7 +1120,7 @@ typedef struct
  * @{
  */
 #define TIM_TI1SELECTION_CH1 0x00000000U /*!< The TIMx_CH1 pin is connected to TI1 input */
-#define TIM_TI1SELECTION_XORCOMBINATION                                                  \
+#define TIM_TI1SELECTION_XORCOMBINATION                                                      \
     TIM_CR2_TI1S /*!< The TIMx_CH1, CH2 and CH3 pins are connected to the TI1 input (XOR \
                     combination) */
 /**

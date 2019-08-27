@@ -91,9 +91,10 @@ extern "C"
 #define TIM_TIM5_GPIO 0x00000000U /*!< TIM5 TI4 is connected to GPIO */
 #define TIM_TIM5_LSI TIM_OR_TI4_RMP_0 /*!< TIM5 TI4 is connected to LSI */
 #define TIM_TIM5_LSE TIM_OR_TI4_RMP_1 /*!< TIM5 TI4 is connected to LSE */
-#define TIM_TIM5_RTC                                                                             \
-    (TIM_OR_TI4_RMP_1 | TIM_OR_TI4_RMP_0) /*!< TIM5 TI4 is connected to the RTC wakeup interrupt \
-                                           */
+#define TIM_TIM5_RTC                                                                \
+    (TIM_OR_TI4_RMP_1                                                               \
+     | TIM_OR_TI4_RMP_0) /*!< TIM5 TI4 is connected to the RTC wakeup interrupt \
+                          */
 
 #define TIM_TIM11_GPIO 0x00000000U /*!< TIM11 TI1 is connected to GPIO */
 #define TIM_TIM11_HSE TIM_OR_TI1_RMP_1 /*!< TIM11 TI1 is connected to HSE_RTC clock */

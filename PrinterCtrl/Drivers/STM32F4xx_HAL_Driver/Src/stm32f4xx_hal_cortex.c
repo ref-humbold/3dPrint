@@ -19,27 +19,27 @@
     [..]
     This section provides functions allowing to configure the NVIC interrupts (IRQ).
     The Cortex-M4 exceptions are managed by CMSIS functions.
-   
+   
     (#) Configure the NVIC Priority Grouping using HAL_NVIC_SetPriorityGrouping()
         function according to the following table.
     (#) Configure the priority of the selected IRQ Channels using HAL_NVIC_SetPriority().
     (#) Enable the selected IRQ Channels using HAL_NVIC_EnableIRQ().
     (#) please refer to programming manual for details in how to configure priority.
-      
+      
      -@- When the NVIC_PRIORITYGROUP_0 is selected, IRQ preemption is no more possible.
          The pending IRQ priority will be managed only by the sub priority.
-   
+   
      -@- IRQ priority order (sorted by highest to lowest priority):
         (+@) Lowest preemption priority
         (+@) Lowest sub priority
         (+@) Lowest hardware priority (IRQ number)
- 
+ 
     [..]
     *** How to configure Systick using CORTEX HAL driver ***
     ========================================================
     [..]
     Setup SysTick Timer for time base.
-           
+           
    (+) The HAL_SYSTICK_Config() function calls the SysTick_Config() function which
        is a CMSIS function that:
         (++) Configures the SysTick Reload register with value passed as function parameter.
@@ -48,7 +48,7 @@
         (++) Configures the SysTick Counter clock source to be Core Clock Source (HCLK).
         (++) Enables the SysTick Interrupt.
         (++) Starts the SysTick Counter.
-    
+    
    (+) You can change the SysTick Clock source to be HCLK_Div8 by calling the macro
        __HAL_CORTEX_SYSTICKCLK_CONFIG(SYSTICK_CLKSOURCE_HCLK_DIV8) just after the
        HAL_SYSTICK_Config() function call. The __HAL_CORTEX_SYSTICKCLK_CONFIG() macro is defined
@@ -60,11 +60,11 @@
  function.
 
    (+) To adjust the SysTick time base, use the following formula:
-                            
+                            
        Reload Value = SysTick Counter Clock (Hz) x  Desired Time base (s)
        (++) Reload Value is the parameter to be passed for HAL_SYSTICK_Config() function
        (++) Reload Value should not exceed 0xFFFFFF
-   
+   
   @endverbatim
   ******************************************************************************
   * @attention
@@ -246,8 +246,8 @@ uint32_t HAL_SYSTICK_Config(uint32_t TicksNumb)
     [..]
       This subsection provides a set of functions allowing to control the CORTEX
       (NVIC, SYSTICK, MPU) functionalities.
- 
-      
+ 
+      
 @endverbatim
   * @{
   */

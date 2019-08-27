@@ -29,7 +29,9 @@
     --------------------
     [..] RAM functions are defined using a specific toolchain attribute
          "__attribute__((section(".RamFunc")))".
-  
+
+
+
   @endverbatim
   ******************************************************************************
   * @attention
@@ -83,7 +85,9 @@ internal RAM
     [..]
     This subsection provides a set of functions that should be executed from RAM
     transfers.
-    
+
+
+
 @endverbatim
   * @{
   */
@@ -160,7 +164,7 @@ __RAM_FUNC HAL_StatusTypeDef HAL_FLASHEx_DisableFlashSleepMode(void)
  * @}
  */
 
-/**
+/**\
  * @}
  */
 

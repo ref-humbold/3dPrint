@@ -126,7 +126,7 @@ extern "C"
 #define COMP_EXTI_LINE_COMP6_EVENT COMP_EXTI_LINE_COMP6
 #define COMP_EXTI_LINE_COMP7_EVENT COMP_EXTI_LINE_COMP7
 #if defined(STM32L0)
-#define COMP_LPTIMCONNECTION_ENABLED                                                         \
+#define COMP_LPTIMCONNECTION_ENABLED                                                             \
     ((uint32_t)0x00000003U) /*!< COMPX output generic naming: connected to LPTIM input 1 for \
                                COMP1, LPTIM input 2 for COMP2 */
 #endif
@@ -1101,10 +1101,10 @@ extern "C"
     0x00300000U /* Tx FIFO read status: Writing the received TxStatus or flushing the TxFIFO */
 #define ETH_MAC_TRANSMISSION_PAUSE 0x00080000U /* MAC transmitter in pause */
 #define ETH_MAC_TRANSMITFRAMECONTROLLER_IDLE 0x00000000U /* MAC transmit frame controller: Idle */
-#define ETH_MAC_TRANSMITFRAMECONTROLLER_WAITING                                           \
+#define ETH_MAC_TRANSMITFRAMECONTROLLER_WAITING                                               \
     0x00020000U /* MAC transmit frame controller: Waiting for Status of previous frame or \
                    IFG/backoff period to be over */
-#define ETH_MAC_TRANSMITFRAMECONTROLLER_GENRATING_PCF                                         \
+#define ETH_MAC_TRANSMITFRAMECONTROLLER_GENRATING_PCF                                             \
     0x00040000U /* MAC transmit frame controller: Generating and transmitting a Pause control \
                    frame (in full duplex mode) */
 #define ETH_MAC_TRANSMITFRAMECONTROLLER_TRANSFERRING \
@@ -1133,8 +1133,9 @@ extern "C"
 #define ETH_MAC_SMALL_FIFO_WRITE_ACTIVE 0x00000004U /* MAC small FIFO write controller active */
 #define ETH_MAC_SMALL_FIFO_RW_ACTIVE \
     0x00000006U /* MAC small FIFO read / write controllers active */
-#define ETH_MAC_MII_RECEIVE_PROTOCOL_ACTIVE 0x00000001U /* MAC MII receive protocol engine active \
-                                                         */
+#define ETH_MAC_MII_RECEIVE_PROTOCOL_ACTIVE                   \
+    0x00000001U /* MAC MII receive protocol engine active \
+                 */
 
 /**
  * @}
@@ -1935,10 +1936,10 @@ extern "C"
  */
 #define HAL_COMP_Start_IT                                                                          \
     HAL_COMP_Start /* Function considered as legacy as EXTI event or IT configuration is done into \
-                      HAL_COMP_Init() */
+                      \ HAL_COMP_Init() */
 #define HAL_COMP_Stop_IT                                                                          \
     HAL_COMP_Stop /* Function considered as legacy as EXTI event or IT configuration is done into \
-                     HAL_COMP_Init() */
+                     \ HAL_COMP_Init() */
 /**
  * @}
  */

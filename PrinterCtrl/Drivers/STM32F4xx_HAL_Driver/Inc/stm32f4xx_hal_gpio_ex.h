@@ -1353,6 +1353,7 @@ extern "C"
                                                                                                               ? 9U \
                                                                                                               : 10U)
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx \
+        * \                                                                                        \
         */
 
 #if defined(STM32F410Tx) || defined(STM32F410Cx) || defined(STM32F410Rx)

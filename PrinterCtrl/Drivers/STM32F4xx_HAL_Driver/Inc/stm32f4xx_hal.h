@@ -175,6 +175,7 @@ extern "C"
         SYSCFG->MEMRMP |= (SYSCFG_MEMRMP_MEM_MODE_2); \
     } while(0);
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx \
+        * \                                                                                        \
         */
 
 #if defined(STM32F410Tx) || defined(STM32F410Cx) || defined(STM32F410Rx) || defined(STM32F413xx) \
@@ -276,6 +277,7 @@ extern "C"
     void HAL_EnableMemorySwappingBank(void);
     void HAL_DisableMemorySwappingBank(void);
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx \
+        * \                                                                                        \
         */
     /**
      * @}

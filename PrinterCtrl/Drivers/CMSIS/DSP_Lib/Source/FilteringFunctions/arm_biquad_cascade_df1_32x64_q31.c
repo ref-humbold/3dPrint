@@ -169,7 +169,7 @@
 
 /**
  * @details
-    
+    
  * @param[in]  *S points to an instance of the high precision Q31 Biquad cascade filter.
  * @param[in]  *pSrc points to the block of input data.
  * @param[out] *pDst points to the block of output data.

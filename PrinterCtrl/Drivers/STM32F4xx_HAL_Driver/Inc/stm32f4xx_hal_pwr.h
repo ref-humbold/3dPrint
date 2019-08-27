@@ -82,7 +82,7 @@ extern "C"
 #define PWR_PVDLEVEL_4 PWR_CR_PLS_LEV4
 #define PWR_PVDLEVEL_5 PWR_CR_PLS_LEV5
 #define PWR_PVDLEVEL_6 PWR_CR_PLS_LEV6
-#define PWR_PVDLEVEL_7                               \
+#define PWR_PVDLEVEL_7                                   \
     PWR_CR_PLS_LEV7 /* External input analog voltage \
                        (Compare internally to VREFINT) */
 /**
@@ -99,8 +99,9 @@ extern "C"
     0x00010002U /*!< External Interrupt Mode with Falling edge trigger detection */
 #define PWR_PVD_MODE_IT_RISING_FALLING \
     0x00010003U /*!< External Interrupt Mode with Rising/Falling edge trigger detection */
-#define PWR_PVD_MODE_EVENT_RISING 0x00020001U /*!< Event Mode with Rising edge trigger detection \
-                                               */
+#define PWR_PVD_MODE_EVENT_RISING                                      \
+    0x00020001U /*!< Event Mode with Rising edge trigger detection \
+                 */
 #define PWR_PVD_MODE_EVENT_FALLING \
     0x00020002U /*!< Event Mode with Falling edge trigger detection */
 #define PWR_PVD_MODE_EVENT_RISING_FALLING \
