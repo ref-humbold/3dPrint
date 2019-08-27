@@ -711,7 +711,7 @@ void arm_correlate_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, uint32_t 
             *pDst++ = (q15_t)__SSAT((sum >> 15u), 16u);
     }
 
-#endif /*#if (defined(ARM_MATH_CM4) || defined(ARM_MATH_CM3)) && \
+#endif /*#if (defined(ARM_MATH_CM4) || defined(ARM_MATH_CM3)) && \ \
           !defined(UNALIGNED_SUPPORT_DISABLE) */
 }
 

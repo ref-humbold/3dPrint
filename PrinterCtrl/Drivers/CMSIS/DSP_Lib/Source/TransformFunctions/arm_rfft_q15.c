@@ -117,8 +117,8 @@ void arm_rfft_q15(const arm_rfft_instance_q15 * S, q15_t * pSrc, q15_t * pDst)
  * @param  *pATable 			points to the A twiddle Coef buffer.
  * @param  *pBTable 			points to the B twiddle Coef buffer.
  * @param  *pDst 				points to the output buffer.
- * @param  modifier 	        twiddle coefficient modifier that supports different size FFTs with the
- * same twiddle factor table.
+ * @param  modifier 	        twiddle coefficient modifier that supports different size FFTs with
+ * the same twiddle factor table.
  * @return none.
  * The function implements a Real FFT
  */

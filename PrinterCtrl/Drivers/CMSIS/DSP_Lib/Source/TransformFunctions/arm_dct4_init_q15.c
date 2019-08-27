@@ -2080,7 +2080,7 @@ static const q15_t ALIGN4 WeightsQ15_8192[16384] = {
 <code>pi/(2*N)</code>
 * \par
 * Then converted to q15 format by multiplying with 2^31 and saturated if required.
-    
+    
 */
 
 static const q15_t ALIGN4 cos_factorsQ15_128[128] = {

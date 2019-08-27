@@ -59,9 +59,9 @@
  *
  * \par Description:
  * \par
- * The parameter <code>fftLen</code>	Specifies length of RFFT/CIFFT process. Supported FFT Lengths
- * are 32, 64, 128, 256, 512, 1024, 2048, 4096. \par This Function also initializes Twiddle factor
- * table pointer and Bit reversal table pointer.
+ * The parameter <code>fftLen</code>	Specifies length of RFFT/CIFFT process. Supported FFT
+ * Lengths are 32, 64, 128, 256, 512, 1024, 2048, 4096. \par This Function also initializes Twiddle
+ * factor table pointer and Bit reversal table pointer.
  */
 arm_status arm_rfft_fast_init_f32(arm_rfft_fast_instance_f32 * S, uint16_t fftLen)
 {
