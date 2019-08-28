@@ -21,8 +21,7 @@
 #include "spi.h"
 
 /* USER CODE BEGIN 0 */
-pinout SlavePinX = {.gpio = GPIOC, .pin = GPIO_PIN_4};
-pinout SlavePinY = {.gpio = GPIOC, .pin = GPIO_PIN_5};
+
 /* USER CODE END 0 */
 
 SPI_HandleTypeDef hspi2;
@@ -126,6 +125,7 @@ void spi_send(SPI_HandleTypeDef * hspi, pinout * slave, const uint16_t data)
 
     while(HAL_SPI_GetState(hspi) != HAL_SPI_STATE_READY)
     {
+        HAL_Delay(100);
     }
 
     HAL_GPIO_WritePin(slave->gpio, slave->pin, GPIO_PIN_SET);

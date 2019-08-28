@@ -10,6 +10,8 @@ extern "C"
 
     extern uint8_t DacConfig;
     extern pinout LaserPin;
+    extern pinout DacPinX;
+    extern pinout DacPinY;
 
     /**
      * MCP 4921 Digital-Analog Converter

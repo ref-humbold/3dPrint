@@ -2,6 +2,8 @@
 
 uint8_t DacConfig = 0x03;
 pinout LaserPin = {.gpio = GPIOB, .pin = GPIO_PIN_2};
+pinout DacPinX = {.gpio = GPIOC, .pin = GPIO_PIN_4};
+pinout DacPinY = {.gpio = GPIOC, .pin = GPIO_PIN_5};
 
 void dac_write(SPI_HandleTypeDef * hspi, pinout * device, uint16_t data)
 {
@@ -13,9 +15,10 @@ void dac_write(SPI_HandleTypeDef * hspi, pinout * device, uint16_t data)
 void laser_on()
 {
     HAL_GPIO_WritePin(LaserPin.gpio, LaserPin.pin, GPIO_PIN_RESET);
+    HAL_Delay(3000);
 }
-
 void laser_off()
 {
     HAL_GPIO_WritePin(LaserPin.gpio, LaserPin.pin, GPIO_PIN_SET);
+    HAL_Delay(3000);
 }

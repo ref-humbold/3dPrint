@@ -34,8 +34,7 @@ extern "C"
     extern SPI_HandleTypeDef hspi2;
 
     /* USER CODE BEGIN Private defines */
-    extern pinout SlavePinX;
-    extern pinout SlavePinY;
+
     /* USER CODE END Private defines */
 
     void MX_SPI2_Init(void);
