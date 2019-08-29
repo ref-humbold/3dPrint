@@ -48,6 +48,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #ifdef TEST
+#include "Test/dac_test.h"
 #include "Test/galvo_test.h"
 #include "Test/laser_test.h"
 #include "Test/usart_test.h"
@@ -123,13 +124,13 @@ int main(void)
     uart_expect_receive(&huart2, Connect);
     uart_send(&huart2, Connect);
     */
+    dac_test();
     /* USER CODE END 2 */
 
     /* Infinite loop */
     /* USER CODE BEGIN WHILE */
     while(1)
     {
-        laser_test();
         /*
         HAL_Delay(1000);
         uart_send(&huart2, DataExpect);
