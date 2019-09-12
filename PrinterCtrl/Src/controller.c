@@ -12,14 +12,14 @@ void dac_write(SPI_HandleTypeDef * hspi, pinout * device, uint16_t data)
     spi_send(hspi, device, data_dac);
 }
 
-void laser_on()
+void laser_on(uint8_t delay)
 {
     HAL_GPIO_WritePin(LaserPin.gpio, LaserPin.pin, GPIO_PIN_RESET);
-    HAL_Delay(5000);
+    HAL_Delay(delay * 1000);
 }
 
-void laser_off()
+void laser_off(uint8_t delay)
 {
     HAL_GPIO_WritePin(LaserPin.gpio, LaserPin.pin, GPIO_PIN_SET);
-    HAL_Delay(5000);
+    HAL_Delay(delay * 1000);
 }

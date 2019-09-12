@@ -8,10 +8,10 @@
 void laser_test()
 {
     HAL_Delay(10000);
-    laser_on();
+    laser_on(3);
     builtin_led_on();
     HAL_Delay(20000);
-    laser_off();
+    laser_off(3);
     builtin_led_off();
 }
 
