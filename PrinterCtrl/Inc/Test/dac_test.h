@@ -7,6 +7,7 @@
 
 void dac_test()
 {
+    HAL_Delay(10000);
     laser_on(3);
 
     dac_write(&hspi2, &DacPinX, 0x0000);
