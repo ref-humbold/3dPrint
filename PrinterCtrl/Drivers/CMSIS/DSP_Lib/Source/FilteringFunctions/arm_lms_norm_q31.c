@@ -94,7 +94,8 @@ void arm_lms_norm_q31(arm_lms_norm_instance_q31 * S, q31_t * pSrc, q31_t * pRef,
     q31_t x0; /* temporary variable to hold input sample */
     //  uint32_t shift = 32u - ((uint32_t) S->postShift + 1u);        /* Shift to be applied to the
     //  output */
-    q31_t errorXmu, oneByEnergy; /* Temporary variables to store error and mu product and reciprocal
+    q31_t errorXmu,
+            oneByEnergy; /* Temporary variables to store error and mu product and reciprocal
                                     of energy */
     q31_t postShift; /* Post shift to be applied to weight after reciprocal calculation */
     q31_t coef; /* Temporary variable for coef */

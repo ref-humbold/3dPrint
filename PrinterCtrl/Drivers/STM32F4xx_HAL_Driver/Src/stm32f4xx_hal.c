@@ -11,9 +11,9 @@
   ==============================================================================
     [..]
     The common HAL driver contains a set of generic and common APIs that can be
-    used by the PPP peripheral drivers and the user to start using the HAL.
+    used by the PPP peripheral drivers and the user to start using the HAL. 
     [..]
-    The HAL contains two APIs' categories:
+    The HAL contains two APIs' categories: 
          (+) Common HAL APIs
          (+) Services HAL APIs
 
@@ -36,27 +36,27 @@
 #include "stm32f4xx_hal.h"
 
 /** @addtogroup STM32F4xx_HAL_Driver
- * @{
- */
+  * @{
+  */
 
 /** @defgroup HAL HAL
- * @brief HAL module driver.
- * @{
- */
+  * @brief HAL module driver.
+  * @{
+  */
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /** @addtogroup HAL_Private_Constants
- * @{
- */
+  * @{
+  */
 /**
- * @brief STM32F4xx HAL Driver version number V1.7.6
- */
+  * @brief STM32F4xx HAL Driver version number V1.7.6
+  */
 #define __STM32F4xx_HAL_VERSION_MAIN (0x01U) /*!< [31:24] main version */
 #define __STM32F4xx_HAL_VERSION_SUB1 (0x07U) /*!< [23:16] sub1 version */
 #define __STM32F4xx_HAL_VERSION_SUB2 (0x06U) /*!< [15:8]  sub2 version */
 #define __STM32F4xx_HAL_VERSION_RC (0x00U) /*!< [7:0]  release candidate */
-#define __STM32F4xx_HAL_VERSION                                                    \
+#define __STM32F4xx_HAL_VERSION \
     ((__STM32F4xx_HAL_VERSION_MAIN << 24U) | (__STM32F4xx_HAL_VERSION_SUB1 << 16U) \
      | (__STM32F4xx_HAL_VERSION_SUB2 << 8U) | (__STM32F4xx_HAL_VERSION_RC))
 
@@ -83,77 +83,77 @@
 #define MCHDLYCR_BSCKSEL_BB \
     (uint32_t)(PERIPH_BB_BASE + (MCHDLYCR_OFFSET * 32U) + (BSCKSEL_BIT_NUMBER * 4U))
 /**
- * @}
- */
+  * @}
+  */
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 /** @addtogroup HAL_Private_Variables
- * @{
- */
+  * @{
+  */
 __IO uint32_t uwTick;
 uint32_t uwTickPrio = (1UL << __NVIC_PRIO_BITS); /* Invalid PRIO */
 HAL_TickFreqTypeDef uwTickFreq = HAL_TICK_FREQ_DEFAULT; /* 1KHz */
 /**
- * @}
- */
+  * @}
+  */
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 
 /** @defgroup HAL_Exported_Functions HAL Exported Functions
- * @{
- */
+  * @{
+  */
 
-/** @defgroup HAL_Exported_Functions_Group1 Initialization and de-initialization Functions
+/** @defgroup HAL_Exported_Functions_Group1 Initialization and de-initialization Functions 
  *  @brief    Initialization and de-initialization functions
  *
-@verbatim
+@verbatim    
  ===============================================================================
               ##### Initialization and Configuration functions #####
  ===============================================================================
     [..]  This section provides functions allowing to:
-      (+) Initializes the Flash interface the NVIC allocation and initial clock
-          configuration. It initializes the systick also when timeout is needed
+      (+) Initializes the Flash interface the NVIC allocation and initial clock 
+          configuration. It initializes the systick also when timeout is needed 
           and the backup domain when enabled.
       (+) De-Initializes common part of the HAL.
-      (+) Configure the time base source to have 1ms time base with a dedicated
-          Tick interrupt priority.
+      (+) Configure the time base source to have 1ms time base with a dedicated 
+          Tick interrupt priority. 
         (++) SysTick timer is used by default as source of time base, but user
-             can eventually implement his proper time base source (a general purpose
-             timer for example or other time source), keeping in mind that Time base
-             duration should be kept 1ms since PPP_TIMEOUT_VALUEs are defined and
+             can eventually implement his proper time base source (a general purpose 
+             timer for example or other time source), keeping in mind that Time base 
+             duration should be kept 1ms since PPP_TIMEOUT_VALUEs are defined and 
              handled in milliseconds basis.
-        (++) Time base configuration function (HAL_InitTick ()) is called automatically
-             at the beginning of the program after reset by HAL_Init() or at any time
-             when clock is configured, by HAL_RCC_ClockConfig().
-        (++) Source of time base is configured  to generate interrupts at regular
-             time intervals. Care must be taken if HAL_Delay() is called from a
-             peripheral ISR process, the Tick interrupt line must have higher priority
-            (numerically lower) than the peripheral interrupt. Otherwise the caller
-            ISR process will be blocked.
-       (++) functions affecting time base configurations are declared as __weak
+        (++) Time base configuration function (HAL_InitTick ()) is called automatically 
+             at the beginning of the program after reset by HAL_Init() or at any time 
+             when clock is configured, by HAL_RCC_ClockConfig(). 
+        (++) Source of time base is configured  to generate interrupts at regular 
+             time intervals. Care must be taken if HAL_Delay() is called from a 
+             peripheral ISR process, the Tick interrupt line must have higher priority 
+            (numerically lower) than the peripheral interrupt. Otherwise the caller 
+            ISR process will be blocked. 
+       (++) functions affecting time base configurations are declared as __weak  
              to make  override possible  in case of other  implementations in user file.
 @endverbatim
   * @{
   */
 
 /**
- * @brief  This function is used to initialize the HAL Library; it must be the first
- *         instruction to be executed in the main program (before to call any other
- *         HAL function), it performs the following:
- *           Configure the Flash prefetch, instruction and Data caches.
- *           Configures the SysTick to generate an interrupt each 1 millisecond,
- *           which is clocked by the HSI (at this stage, the clock is not yet
- *           configured and thus the system is running from the internal HSI at 16 MHz).
- *           Set NVIC Group Priority to 4.
- *           Calls the HAL_MspInit() callback function defined in user file
- *           "stm32f4xx_hal_msp.c" to do the global low level hardware initialization
- *
- * @note   SysTick is used as time base for the HAL_Delay() function, the application
- *         need to ensure that the SysTick time base is always set to 1 millisecond
- *         to have correct HAL operation.
- * @retval HAL status
- */
+  * @brief  This function is used to initialize the HAL Library; it must be the first 
+  *         instruction to be executed in the main program (before to call any other
+  *         HAL function), it performs the following:
+  *           Configure the Flash prefetch, instruction and Data caches.
+  *           Configures the SysTick to generate an interrupt each 1 millisecond,
+  *           which is clocked by the HSI (at this stage, the clock is not yet
+  *           configured and thus the system is running from the internal HSI at 16 MHz).
+  *           Set NVIC Group Priority to 4.
+  *           Calls the HAL_MspInit() callback function defined in user file 
+  *           "stm32f4xx_hal_msp.c" to do the global low level hardware initialization 
+  *            
+  * @note   SysTick is used as time base for the HAL_Delay() function, the application
+  *         need to ensure that the SysTick time base is always set to 1 millisecond
+  *         to have correct HAL operation.
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_Init(void)
 {
     /* Configure Flash prefetch, Instruction cache, Data cache */
@@ -183,10 +183,10 @@ HAL_StatusTypeDef HAL_Init(void)
 }
 
 /**
- * @brief  This function de-Initializes common part of the HAL and stops the systick.
- *         This function is optional.
- * @retval HAL status
- */
+  * @brief  This function de-Initializes common part of the HAL and stops the systick.
+  *         This function is optional.   
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_DeInit(void)
 {
     /* Reset of all peripherals */
@@ -213,43 +213,43 @@ HAL_StatusTypeDef HAL_DeInit(void)
 }
 
 /**
- * @brief  Initialize the MSP.
- * @retval None
- */
+  * @brief  Initialize the MSP.
+  * @retval None
+  */
 __weak void HAL_MspInit(void)
 {
     /* NOTE : This function should not be modified, when the callback is needed,
-              the HAL_MspInit could be implemented in the user file
-     */
+            the HAL_MspInit could be implemented in the user file
+   */
 }
 
 /**
- * @brief  DeInitializes the MSP.
- * @retval None
- */
+  * @brief  DeInitializes the MSP.
+  * @retval None
+  */
 __weak void HAL_MspDeInit(void)
 {
     /* NOTE : This function should not be modified, when the callback is needed,
-              the HAL_MspDeInit could be implemented in the user file
-     */
+            the HAL_MspDeInit could be implemented in the user file
+   */
 }
 
 /**
- * @brief This function configures the source of the time base.
- *        The time source is configured  to have 1ms time base with a dedicated
- *        Tick interrupt priority.
- * @note This function is called  automatically at the beginning of program after
- *       reset by HAL_Init() or at any time when clock is reconfigured  by HAL_RCC_ClockConfig().
- * @note In the default implementation, SysTick timer is the source of time base.
- *       It is used to generate interrupts at regular time intervals.
- *       Care must be taken if HAL_Delay() is called from a peripheral ISR process,
- *       The SysTick interrupt must have higher priority (numerically lower)
- *       than the peripheral interrupt. Otherwise the caller ISR process will be blocked.
- *       The function is declared as __weak  to be overwritten  in case of other
- *       implementation  in user file.
- * @param TickPriority Tick interrupt priority.
- * @retval HAL status
- */
+  * @brief This function configures the source of the time base.
+  *        The time source is configured  to have 1ms time base with a dedicated 
+  *        Tick interrupt priority.
+  * @note This function is called  automatically at the beginning of program after
+  *       reset by HAL_Init() or at any time when clock is reconfigured  by HAL_RCC_ClockConfig().
+  * @note In the default implementation, SysTick timer is the source of time base. 
+  *       It is used to generate interrupts at regular time intervals. 
+  *       Care must be taken if HAL_Delay() is called from a peripheral ISR process, 
+  *       The SysTick interrupt must have higher priority (numerically lower)
+  *       than the peripheral interrupt. Otherwise the caller ISR process will be blocked.
+  *       The function is declared as __weak  to be overwritten  in case of other
+  *       implementation  in user file.
+  * @param TickPriority Tick interrupt priority.
+  * @retval HAL status
+  */
 __weak HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority)
 {
     /* Configure the SysTick to have interrupt in 1ms time basis*/
@@ -274,10 +274,10 @@ __weak HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority)
 }
 
 /**
- * @}
- */
+  * @}
+  */
 
-/** @defgroup HAL_Exported_Functions_Group2 HAL Control functions
+/** @defgroup HAL_Exported_Functions_Group2 HAL Control functions 
  *  @brief    HAL Control functions
  *
 @verbatim
@@ -301,43 +301,43 @@ __weak HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority)
   */
 
 /**
- * @brief This function is called to increment  a global variable "uwTick"
- *        used as application time base.
- * @note In the default implementation, this variable is incremented each 1ms
- *       in SysTick ISR.
- * @note This function is declared as __weak to be overwritten in case of other
- *      implementations in user file.
- * @retval None
- */
+  * @brief This function is called to increment  a global variable "uwTick"
+  *        used as application time base.
+  * @note In the default implementation, this variable is incremented each 1ms
+  *       in SysTick ISR.
+ * @note This function is declared as __weak to be overwritten in case of other 
+  *      implementations in user file.
+  * @retval None
+  */
 __weak void HAL_IncTick(void)
 {
     uwTick += uwTickFreq;
 }
 
 /**
- * @brief Provides a tick value in millisecond.
- * @note This function is declared as __weak to be overwritten in case of other
- *       implementations in user file.
- * @retval tick value
- */
+  * @brief Provides a tick value in millisecond.
+  * @note This function is declared as __weak to be overwritten in case of other 
+  *       implementations in user file.
+  * @retval tick value
+  */
 __weak uint32_t HAL_GetTick(void)
 {
     return uwTick;
 }
 
 /**
- * @brief This function returns a tick priority.
- * @retval tick priority
- */
+  * @brief This function returns a tick priority.
+  * @retval tick priority
+  */
 uint32_t HAL_GetTickPrio(void)
 {
     return uwTickPrio;
 }
 
 /**
- * @brief Set new tick Freq.
- * @retval Status
- */
+  * @brief Set new tick Freq.
+  * @retval Status
+  */
 HAL_StatusTypeDef HAL_SetTickFreq(HAL_TickFreqTypeDef Freq)
 {
     HAL_StatusTypeDef status = HAL_OK;
@@ -355,25 +355,25 @@ HAL_StatusTypeDef HAL_SetTickFreq(HAL_TickFreqTypeDef Freq)
 }
 
 /**
- * @brief Return tick frequency.
- * @retval tick period in Hz
- */
+  * @brief Return tick frequency.
+  * @retval tick period in Hz
+  */
 HAL_TickFreqTypeDef HAL_GetTickFreq(void)
 {
     return uwTickFreq;
 }
 
 /**
- * @brief This function provides minimum delay (in milliseconds) based
- *        on variable incremented.
- * @note In the default implementation , SysTick timer is the source of time base.
- *       It is used to generate interrupts at regular time intervals where uwTick
- *       is incremented.
- * @note This function is declared as __weak to be overwritten in case of other
- *       implementations in user file.
- * @param Delay specifies the delay time length, in milliseconds.
- * @retval None
- */
+  * @brief This function provides minimum delay (in milliseconds) based 
+  *        on variable incremented.
+  * @note In the default implementation , SysTick timer is the source of time base.
+  *       It is used to generate interrupts at regular time intervals where uwTick
+  *       is incremented.
+  * @note This function is declared as __weak to be overwritten in case of other
+  *       implementations in user file.
+  * @param Delay specifies the delay time length, in milliseconds.
+  * @retval None
+  */
 __weak void HAL_Delay(uint32_t Delay)
 {
     uint32_t tickstart = HAL_GetTick();
@@ -391,15 +391,15 @@ __weak void HAL_Delay(uint32_t Delay)
 }
 
 /**
- * @brief Suspend Tick increment.
- * @note In the default implementation , SysTick timer is the source of time base. It is
- *       used to generate interrupts at regular time intervals. Once HAL_SuspendTick()
- *       is called, the SysTick interrupt will be disabled and so Tick increment
- *       is suspended.
- * @note This function is declared as __weak to be overwritten in case of other
- *       implementations in user file.
- * @retval None
- */
+  * @brief Suspend Tick increment.
+  * @note In the default implementation , SysTick timer is the source of time base. It is
+  *       used to generate interrupts at regular time intervals. Once HAL_SuspendTick()
+  *       is called, the SysTick interrupt will be disabled and so Tick increment 
+  *       is suspended.
+  * @note This function is declared as __weak to be overwritten in case of other
+  *       implementations in user file.
+  * @retval None
+  */
 __weak void HAL_SuspendTick(void)
 {
     /* Disable SysTick Interrupt */
@@ -407,15 +407,15 @@ __weak void HAL_SuspendTick(void)
 }
 
 /**
- * @brief Resume Tick increment.
- * @note In the default implementation , SysTick timer is the source of time base. It is
- *       used to generate interrupts at regular time intervals. Once HAL_ResumeTick()
- *       is called, the SysTick interrupt will be enabled and so Tick increment
- *       is resumed.
- * @note This function is declared as __weak to be overwritten in case of other
- *       implementations in user file.
- * @retval None
- */
+  * @brief Resume Tick increment.
+  * @note In the default implementation , SysTick timer is the source of time base. It is
+  *       used to generate interrupts at regular time intervals. Once HAL_ResumeTick()
+  *       is called, the SysTick interrupt will be enabled and so Tick increment 
+  *       is resumed.
+  * @note This function is declared as __weak to be overwritten in case of other
+  *       implementations in user file.
+  * @retval None
+  */
 __weak void HAL_ResumeTick(void)
 {
     /* Enable SysTick Interrupt */
@@ -423,130 +423,130 @@ __weak void HAL_ResumeTick(void)
 }
 
 /**
- * @brief  Returns the HAL revision
- * @retval version : 0xXYZR (8bits for each decimal, R for RC)
- */
+  * @brief  Returns the HAL revision
+  * @retval version : 0xXYZR (8bits for each decimal, R for RC)
+  */
 uint32_t HAL_GetHalVersion(void)
 {
     return __STM32F4xx_HAL_VERSION;
 }
 
 /**
- * @brief  Returns the device revision identifier.
- * @retval Device revision identifier
- */
+  * @brief  Returns the device revision identifier.
+  * @retval Device revision identifier
+  */
 uint32_t HAL_GetREVID(void)
 {
     return ((DBGMCU->IDCODE) >> 16U);
 }
 
 /**
- * @brief  Returns the device identifier.
- * @retval Device identifier
- */
+  * @brief  Returns the device identifier.
+  * @retval Device identifier
+  */
 uint32_t HAL_GetDEVID(void)
 {
     return ((DBGMCU->IDCODE) & IDCODE_DEVID_MASK);
 }
 
 /**
- * @brief  Enable the Debug Module during SLEEP mode
- * @retval None
- */
+  * @brief  Enable the Debug Module during SLEEP mode
+  * @retval None
+  */
 void HAL_DBGMCU_EnableDBGSleepMode(void)
 {
     SET_BIT(DBGMCU->CR, DBGMCU_CR_DBG_SLEEP);
 }
 
 /**
- * @brief  Disable the Debug Module during SLEEP mode
- * @retval None
- */
+  * @brief  Disable the Debug Module during SLEEP mode
+  * @retval None
+  */
 void HAL_DBGMCU_DisableDBGSleepMode(void)
 {
     CLEAR_BIT(DBGMCU->CR, DBGMCU_CR_DBG_SLEEP);
 }
 
 /**
- * @brief  Enable the Debug Module during STOP mode
- * @retval None
- */
+  * @brief  Enable the Debug Module during STOP mode
+  * @retval None
+  */
 void HAL_DBGMCU_EnableDBGStopMode(void)
 {
     SET_BIT(DBGMCU->CR, DBGMCU_CR_DBG_STOP);
 }
 
 /**
- * @brief  Disable the Debug Module during STOP mode
- * @retval None
- */
+  * @brief  Disable the Debug Module during STOP mode
+  * @retval None
+  */
 void HAL_DBGMCU_DisableDBGStopMode(void)
 {
     CLEAR_BIT(DBGMCU->CR, DBGMCU_CR_DBG_STOP);
 }
 
 /**
- * @brief  Enable the Debug Module during STANDBY mode
- * @retval None
- */
+  * @brief  Enable the Debug Module during STANDBY mode
+  * @retval None
+  */
 void HAL_DBGMCU_EnableDBGStandbyMode(void)
 {
     SET_BIT(DBGMCU->CR, DBGMCU_CR_DBG_STANDBY);
 }
 
 /**
- * @brief  Disable the Debug Module during STANDBY mode
- * @retval None
- */
+  * @brief  Disable the Debug Module during STANDBY mode
+  * @retval None
+  */
 void HAL_DBGMCU_DisableDBGStandbyMode(void)
 {
     CLEAR_BIT(DBGMCU->CR, DBGMCU_CR_DBG_STANDBY);
 }
 
 /**
- * @brief  Enables the I/O Compensation Cell.
- * @note   The I/O compensation cell can be used only when the device supply
- *         voltage ranges from 2.4 to 3.6 V.
- * @retval None
- */
+  * @brief  Enables the I/O Compensation Cell.
+  * @note   The I/O compensation cell can be used only when the device supply
+  *         voltage ranges from 2.4 to 3.6 V.  
+  * @retval None
+  */
 void HAL_EnableCompensationCell(void)
 {
     *(__IO uint32_t *)CMPCR_CMP_PD_BB = (uint32_t)ENABLE;
 }
 
 /**
- * @brief  Power-down the I/O Compensation Cell.
- * @note   The I/O compensation cell can be used only when the device supply
- *         voltage ranges from 2.4 to 3.6 V.
- * @retval None
- */
+  * @brief  Power-down the I/O Compensation Cell.
+  * @note   The I/O compensation cell can be used only when the device supply
+  *         voltage ranges from 2.4 to 3.6 V.  
+  * @retval None
+  */
 void HAL_DisableCompensationCell(void)
 {
     *(__IO uint32_t *)CMPCR_CMP_PD_BB = (uint32_t)DISABLE;
 }
 
 /**
- * @brief  Returns first word of the unique device identifier (UID based on 96 bits)
- * @retval Device identifier
- */
+  * @brief  Returns first word of the unique device identifier (UID based on 96 bits)
+  * @retval Device identifier
+  */
 uint32_t HAL_GetUIDw0(void)
 {
     return (READ_REG(*((uint32_t *)UID_BASE)));
 }
 
 /**
- * @brief  Returns second word of the unique device identifier (UID based on 96 bits)
- * @retval Device identifier
- */
+  * @brief  Returns second word of the unique device identifier (UID based on 96 bits)
+  * @retval Device identifier
+  */
 uint32_t HAL_GetUIDw1(void)
 {
     return (READ_REG(*((uint32_t *)(UID_BASE + 4U))));
 }
 
 /**
- * @brief  Returns third word of the unique device identifier (UID based on 96 bits)
- * @retval Device identifier
- */
+  * @brief  Returns third word of the unique device identifier (UID based on 96 bits)
+  * @retval Device identifier
+  */
 uint32_t HAL_GetUIDw2(void)
 {
     return (READ_REG(*((uint32_t *)(UID_BASE + 8U))));
@@ -555,50 +555,49 @@ uint32_t HAL_GetUIDw2(void)
 #if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx) \
         || defined(STM32F469xx) || defined(STM32F479xx)
 /**
- * @brief  Enables the Internal FLASH Bank Swapping.
- *
- * @note   This function can be used only for STM32F42xxx/43xxx devices.
- *
- * @note   Flash Bank2 mapped at 0x08000000 (and aliased @0x00000000)
- *         and Flash Bank1 mapped at 0x08100000 (and aliased at 0x00100000)
- *
- * @retval None
- */
+  * @brief  Enables the Internal FLASH Bank Swapping.
+  *   
+  * @note   This function can be used only for STM32F42xxx/43xxx devices. 
+  *
+  * @note   Flash Bank2 mapped at 0x08000000 (and aliased @0x00000000) 
+  *         and Flash Bank1 mapped at 0x08100000 (and aliased at 0x00100000)   
+  *
+  * @retval None
+  */
 void HAL_EnableMemorySwappingBank(void)
 {
     *(__IO uint32_t *)UFB_MODE_BB = (uint32_t)ENABLE;
 }
 
 /**
- * @brief  Disables the Internal FLASH Bank Swapping.
- *
- * @note   This function can be used only for STM32F42xxx/43xxx devices.
- *
- * @note   The default state : Flash Bank1 mapped at 0x08000000 (and aliased @0x00000000)
- *         and Flash Bank2 mapped at 0x08100000 (and aliased at 0x00100000)
- *
- * @retval None
- */
+  * @brief  Disables the Internal FLASH Bank Swapping.
+  *   
+  * @note   This function can be used only for STM32F42xxx/43xxx devices. 
+  *
+  * @note   The default state : Flash Bank1 mapped at 0x08000000 (and aliased @0x00000000) 
+  *         and Flash Bank2 mapped at 0x08100000 (and aliased at 0x00100000) 
+  *           
+  * @retval None
+  */
 void HAL_DisableMemorySwappingBank(void)
 {
     *(__IO uint32_t *)UFB_MODE_BB = (uint32_t)DISABLE;
 }
-#endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx \
-        */
+#endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx */
 /**
- * @}
- */
+  * @}
+  */
 
 /**
- * @}
- */
+  * @}
+  */
 
 /**
- * @}
- */
+  * @}
+  */
 
 /**
- * @}
- */
+  * @}
+  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

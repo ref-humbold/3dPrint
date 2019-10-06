@@ -1,13 +1,9 @@
 /**************************************************************************/ /**
-                                                                              * @file cmsis_armcc.h
-                                                                              * @brief    CMSIS
-                                                                              *compiler ARMCC (Arm
-                                                                              *Compiler 5) header
-                                                                              *file
-                                                                              * @version  V5.0.4
-                                                                              * @date     10.
-                                                                              *January 2018
-                                                                              ******************************************************************************/
+ * @file     cmsis_armcc.h
+ * @brief    CMSIS compiler ARMCC (Arm Compiler 5) header file
+ * @version  V5.0.4
+ * @date     10. January 2018
+ ******************************************************************************/
 /*
  * Copyright (c) 2009-2018 Arm Limited. All rights reserved.
  *
@@ -285,9 +281,9 @@ __STATIC_INLINE void __set_BASEPRI(uint32_t basePri)
 
 /**
   \brief   Set Base Priority with condition
-  \details Assigns the given value to the Base Priority register only if BASEPRI masking is
-  disabled, or the new value increases the BASEPRI priority level. \param [in]    basePri  Base
-  Priority value to set
+  \details Assigns the given value to the Base Priority register only if BASEPRI masking is disabled,
+           or the new value increases the BASEPRI priority level.
+  \param [in]    basePri  Base Priority value to set
  */
 __STATIC_INLINE void __set_BASEPRI_MAX(uint32_t basePri)
 {
@@ -368,8 +364,7 @@ __STATIC_INLINE void __set_FPSCR(uint32_t fpscr)
 
 /**
   \brief   Wait For Interrupt
-  \details Wait For Interrupt is a hint instruction that suspends execution until one of a number of
-  events occurs.
+  \details Wait For Interrupt is a hint instruction that suspends execution until one of a number of events occurs.
  */
 #define __WFI __wfi
 
@@ -392,11 +387,11 @@ __STATIC_INLINE void __set_FPSCR(uint32_t fpscr)
            so that all instructions following the ISB are fetched from cache or memory,
            after the instruction has been completed.
  */
-#define __ISB()               \
-    do                        \
-    {                         \
+#define __ISB() \
+    do \
+    { \
         __schedule_barrier(); \
-        __isb(0xF);           \
+        __isb(0xF); \
         __schedule_barrier(); \
     } while(0U)
 
@@ -405,11 +400,11 @@ __STATIC_INLINE void __set_FPSCR(uint32_t fpscr)
   \details Acts as a special kind of Data Memory Barrier.
            It completes when all explicit memory accesses before this instruction complete.
  */
-#define __DSB()               \
-    do                        \
-    {                         \
+#define __DSB() \
+    do \
+    { \
         __schedule_barrier(); \
-        __dsb(0xF);           \
+        __dsb(0xF); \
         __schedule_barrier(); \
     } while(0U)
 
@@ -418,25 +413,27 @@ __STATIC_INLINE void __set_FPSCR(uint32_t fpscr)
   \details Ensures the apparent order of the explicit memory operations before
            and after the instruction, without ensuring their completion.
  */
-#define __DMB()               \
-    do                        \
-    {                         \
+#define __DMB() \
+    do \
+    { \
         __schedule_barrier(); \
-        __dmb(0xF);           \
+        __dmb(0xF); \
         __schedule_barrier(); \
     } while(0U)
 
 /**
   \brief   Reverse byte order (32 bit)
-  \details Reverses the byte order in unsigned integer value. For example, 0x12345678 becomes
-  0x78563412. \param [in]    value  Value to reverse \return               Reversed value
+  \details Reverses the byte order in unsigned integer value. For example, 0x12345678 becomes 0x78563412.
+  \param [in]    value  Value to reverse
+  \return               Reversed value
  */
 #define __REV __rev
 
 /**
   \brief   Reverse byte order (16 bit)
-  \details Reverses the byte order within each halfword of a word. For example, 0x12345678 becomes
-  0x34127856. \param [in]    value  Value to reverse \return               Reversed value
+  \details Reverses the byte order within each halfword of a word. For example, 0x12345678 becomes 0x34127856.
+  \param [in]    value  Value to reverse
+  \return               Reversed value
  */
 #ifndef __NO_EMBEDDED_ASM
 __attribute__((section(".rev16_text"))) __STATIC_INLINE __ASM uint32_t __REV16(uint32_t value)
@@ -447,8 +444,9 @@ __attribute__((section(".rev16_text"))) __STATIC_INLINE __ASM uint32_t __REV16(u
 
 /**
   \brief   Reverse byte order (16 bit)
-  \details Reverses the byte order in a 16-bit value and returns the signed 16-bit result. For
-  example, 0x0080 becomes 0x8000. \param [in]    value  Value to reverse \return Reversed value
+  \details Reverses the byte order in a 16-bit value and returns the signed 16-bit result. For example, 0x0080 becomes 0x8000.
+  \param [in]    value  Value to reverse
+  \return               Reversed value
  */
 #ifndef __NO_EMBEDDED_ASM
 __attribute__((section(".revsh_text"))) __STATIC_INLINE __ASM int16_t __REVSH(int16_t value)
@@ -459,18 +457,19 @@ __attribute__((section(".revsh_text"))) __STATIC_INLINE __ASM int16_t __REVSH(in
 
 /**
   \brief   Rotate Right in unsigned value (32 bit)
-  \details Rotate Right (immediate) provides the value of the contents of a register rotated by a
-  variable number of bits. \param [in]    op1  Value to rotate \param [in]    op2  Number of Bits to
-  rotate \return               Rotated value
+  \details Rotate Right (immediate) provides the value of the contents of a register rotated by a variable number of bits.
+  \param [in]    op1  Value to rotate
+  \param [in]    op2  Number of Bits to rotate
+  \return               Rotated value
  */
 #define __ROR __ror
 
 /**
   \brief   Breakpoint
   \details Causes the processor to enter Debug state.
-           Debug tools can use this to investigate system state when the instruction at a particular
-  address is reached. \param [in]    value  is ignored by the processor. If required, a debugger can
-  use it to store additional information about the breakpoint.
+           Debug tools can use this to investigate system state when the instruction at a particular address is reached.
+  \param [in]    value  is ignored by the processor.
+                 If required, a debugger can use it to store additional information about the breakpoint.
  */
 #define __BKPT(value) __breakpoint(value)
 
@@ -683,7 +682,7 @@ __attribute__((section(".rrx_text"))) __STATIC_INLINE __ASM uint32_t __RRX(uint3
 #define __STRT(value, ptr) __strt(value, ptr)
 
 #else /* ((defined (__ARM_ARCH_7M__ ) && (__ARM_ARCH_7M__  == 1)) || \
-          (defined (__ARM_ARCH_7EM__) && (__ARM_ARCH_7EM__ == 1))     ) */
+           (defined (__ARM_ARCH_7EM__) && (__ARM_ARCH_7EM__ == 1))     ) */
 
 /**
   \brief   Signed Saturate

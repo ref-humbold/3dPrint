@@ -1,12 +1,9 @@
 /**************************************************************************/ /**
-                                                                              * @file cmsis_gcc.h
-                                                                              * @brief    CMSIS
-                                                                              *compiler GCC header
-                                                                              *file
-                                                                              * @version  V5.0.4
-                                                                              * @date     09. April
-                                                                              *2018
-                                                                              ******************************************************************************/
+ * @file     cmsis_gcc.h
+ * @brief    CMSIS compiler GCC header file
+ * @version  V5.0.4
+ * @date     09. April 2018
+ ******************************************************************************/
 /*
  * Copyright (c) 2009-2018 Arm Limited. All rights reserved.
  *
@@ -265,8 +262,8 @@ __STATIC_FORCEINLINE uint32_t __get_PSP(void)
 #if(defined(__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3))
 /**
   \brief   Get Process Stack Pointer (non-secure)
-  \details Returns the current value of the non-secure Process Stack Pointer (PSP) when in secure
-  state. \return               PSP Register value
+  \details Returns the current value of the non-secure Process Stack Pointer (PSP) when in secure state.
+  \return               PSP Register value
  */
 __STATIC_FORCEINLINE uint32_t __TZ_get_PSP_NS(void)
 {
@@ -290,8 +287,8 @@ __STATIC_FORCEINLINE void __set_PSP(uint32_t topOfProcStack)
 #if(defined(__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3))
 /**
   \brief   Set Process Stack Pointer (non-secure)
-  \details Assigns the given value to the non-secure Process Stack Pointer (PSP) when in secure
-  state. \param [in]    topOfProcStack  Process Stack Pointer value to set
+  \details Assigns the given value to the non-secure Process Stack Pointer (PSP) when in secure state.
+  \param [in]    topOfProcStack  Process Stack Pointer value to set
  */
 __STATIC_FORCEINLINE void __TZ_set_PSP_NS(uint32_t topOfProcStack)
 {
@@ -315,8 +312,8 @@ __STATIC_FORCEINLINE uint32_t __get_MSP(void)
 #if(defined(__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3))
 /**
   \brief   Get Main Stack Pointer (non-secure)
-  \details Returns the current value of the non-secure Main Stack Pointer (MSP) when in secure
-  state. \return               MSP Register value
+  \details Returns the current value of the non-secure Main Stack Pointer (MSP) when in secure state.
+  \return               MSP Register value
  */
 __STATIC_FORCEINLINE uint32_t __TZ_get_MSP_NS(void)
 {
@@ -390,8 +387,8 @@ __STATIC_FORCEINLINE uint32_t __get_PRIMASK(void)
 #if(defined(__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3))
 /**
   \brief   Get Priority Mask (non-secure)
-  \details Returns the current state of the non-secure priority mask bit from the Priority Mask
-  Register when in secure state. \return               Priority Mask value
+  \details Returns the current state of the non-secure priority mask bit from the Priority Mask Register when in secure state.
+  \return               Priority Mask value
  */
 __STATIC_FORCEINLINE uint32_t __TZ_get_PRIMASK_NS(void)
 {
@@ -424,7 +421,7 @@ __STATIC_FORCEINLINE void __TZ_set_PRIMASK_NS(uint32_t priMask)
 }
 #endif
 
-#if((defined(__ARM_ARCH_7M__) && (__ARM_ARCH_7M__ == 1))      \
+#if((defined(__ARM_ARCH_7M__) && (__ARM_ARCH_7M__ == 1)) \
     || (defined(__ARM_ARCH_7EM__) && (__ARM_ARCH_7EM__ == 1)) \
     || (defined(__ARM_ARCH_8M_MAIN__) && (__ARM_ARCH_8M_MAIN__ == 1)))
 /**
@@ -499,9 +496,9 @@ __STATIC_FORCEINLINE void __TZ_set_BASEPRI_NS(uint32_t basePri)
 
 /**
   \brief   Set Base Priority with condition
-  \details Assigns the given value to the Base Priority register only if BASEPRI masking is
-  disabled, or the new value increases the BASEPRI priority level. \param [in]    basePri  Base
-  Priority value to set
+  \details Assigns the given value to the Base Priority register only if BASEPRI masking is disabled,
+           or the new value increases the BASEPRI priority level.
+  \param [in]    basePri  Base Priority value to set
  */
 __STATIC_FORCEINLINE void __set_BASEPRI_MAX(uint32_t basePri)
 {
@@ -570,10 +567,7 @@ __STATIC_FORCEINLINE void __TZ_set_FAULTMASK_NS(uint32_t faultMask)
   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
   Stack Pointer Limit register hence zero is returned always in non-secure
   mode.
-
-
-
-
+  
   \details Returns the current value of the Process Stack Pointer Limit (PSPLIM).
   \return               PSPLIM Register value
  */
@@ -596,8 +590,8 @@ __STATIC_FORCEINLINE uint32_t __get_PSPLIM(void)
   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
   Stack Pointer Limit register hence zero is returned always.
 
-  \details Returns the current value of the non-secure Process Stack Pointer Limit (PSPLIM) when in
-  secure state. \return               PSPLIM Register value
+  \details Returns the current value of the non-secure Process Stack Pointer Limit (PSPLIM) when in secure state.
+  \return               PSPLIM Register value
  */
 __STATIC_FORCEINLINE uint32_t __TZ_get_PSPLIM_NS(void)
 {
@@ -617,10 +611,7 @@ __STATIC_FORCEINLINE uint32_t __TZ_get_PSPLIM_NS(void)
   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
   Stack Pointer Limit register hence the write is silently ignored in non-secure
   mode.
-
-
-
-
+  
   \details Assigns the given value to the Process Stack Pointer Limit (PSPLIM).
   \param [in]    ProcStackPtrLimit  Process Stack Pointer Limit value to set
  */
@@ -641,8 +632,8 @@ __STATIC_FORCEINLINE void __set_PSPLIM(uint32_t ProcStackPtrLimit)
   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
   Stack Pointer Limit register hence the write is silently ignored.
 
-  \details Assigns the given value to the non-secure Process Stack Pointer Limit (PSPLIM) when in
-  secure state. \param [in]    ProcStackPtrLimit  Process Stack Pointer Limit value to set
+  \details Assigns the given value to the non-secure Process Stack Pointer Limit (PSPLIM) when in secure state.
+  \param [in]    ProcStackPtrLimit  Process Stack Pointer Limit value to set
  */
 __STATIC_FORCEINLINE void __TZ_set_PSPLIM_NS(uint32_t ProcStackPtrLimit)
 {
@@ -683,8 +674,8 @@ __STATIC_FORCEINLINE uint32_t __get_MSPLIM(void)
   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
   Stack Pointer Limit register hence zero is returned always.
 
-  \details Returns the current value of the non-secure Main Stack Pointer Limit(MSPLIM) when in
-  secure state. \return               MSPLIM Register value
+  \details Returns the current value of the non-secure Main Stack Pointer Limit(MSPLIM) when in secure state.
+  \return               MSPLIM Register value
  */
 __STATIC_FORCEINLINE uint32_t __TZ_get_MSPLIM_NS(void)
 {
@@ -725,15 +716,15 @@ __STATIC_FORCEINLINE void __set_MSPLIM(uint32_t MainStackPtrLimit)
   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
   Stack Pointer Limit register hence the write is silently ignored.
 
-  \details Assigns the given value to the non-secure Main Stack Pointer Limit (MSPLIM) when in
-  secure state. \param [in]    MainStackPtrLimit  Main Stack Pointer value to set
+  \details Assigns the given value to the non-secure Main Stack Pointer Limit (MSPLIM) when in secure state.
+  \param [in]    MainStackPtrLimit  Main Stack Pointer value to set
  */
 __STATIC_FORCEINLINE void __TZ_set_MSPLIM_NS(uint32_t MainStackPtrLimit)
 {
 #if(!(defined(__ARM_ARCH_8M_MAIN__) && (__ARM_ARCH_8M_MAIN__ == 1)))
     // without main extensions, the non-secure MSPLIM is RAZ/WI
     (void)MainStackPtrLimit;
-#else\
+#else
     __ASM volatile("MSR msplim_ns, %0" : : "r"(MainStackPtrLimit));
 #endif
 }
@@ -818,8 +809,7 @@ __STATIC_FORCEINLINE void __set_FPSCR(uint32_t fpscr)
 
 /**
   \brief   Wait For Interrupt
-  \details Wait For Interrupt is a hint instruction that suspends execution until one of a number of
-  events occurs.
+  \details Wait For Interrupt is a hint instruction that suspends execution until one of a number of events occurs.
  */
 #define __WFI() __ASM volatile("wfi")
 
@@ -869,8 +859,9 @@ __STATIC_FORCEINLINE void __DMB(void)
 
 /**
   \brief   Reverse byte order (32 bit)
-  \details Reverses the byte order in unsigned integer value. For example, 0x12345678 becomes
-  0x78563412. \param [in]    value  Value to reverse \return               Reversed value
+  \details Reverses the byte order in unsigned integer value. For example, 0x12345678 becomes 0x78563412.
+  \param [in]    value  Value to reverse
+  \return               Reversed value
  */
 __STATIC_FORCEINLINE uint32_t __REV(uint32_t value)
 {
@@ -886,8 +877,9 @@ __STATIC_FORCEINLINE uint32_t __REV(uint32_t value)
 
 /**
   \brief   Reverse byte order (16 bit)
-  \details Reverses the byte order within each halfword of a word. For example, 0x12345678 becomes
-  0x34127856. \param [in]    value  Value to reverse \return               Reversed value
+  \details Reverses the byte order within each halfword of a word. For example, 0x12345678 becomes 0x34127856.
+  \param [in]    value  Value to reverse
+  \return               Reversed value
  */
 __STATIC_FORCEINLINE uint32_t __REV16(uint32_t value)
 {
@@ -899,8 +891,9 @@ __STATIC_FORCEINLINE uint32_t __REV16(uint32_t value)
 
 /**
   \brief   Reverse byte order (16 bit)
-  \details Reverses the byte order in a 16-bit value and returns the signed 16-bit result. For
-  example, 0x0080 becomes 0x8000. \param [in]    value  Value to reverse \return Reversed value
+  \details Reverses the byte order in a 16-bit value and returns the signed 16-bit result. For example, 0x0080 becomes 0x8000.
+  \param [in]    value  Value to reverse
+  \return               Reversed value
  */
 __STATIC_FORCEINLINE int16_t __REVSH(int16_t value)
 {
@@ -916,9 +909,10 @@ __STATIC_FORCEINLINE int16_t __REVSH(int16_t value)
 
 /**
   \brief   Rotate Right in unsigned value (32 bit)
-  \details Rotate Right (immediate) provides the value of the contents of a register rotated by a
-  variable number of bits. \param [in]    op1  Value to rotate \param [in]    op2  Number of Bits to
-  rotate \return               Rotated value
+  \details Rotate Right (immediate) provides the value of the contents of a register rotated by a variable number of bits.
+  \param [in]    op1  Value to rotate
+  \param [in]    op2  Number of Bits to rotate
+  \return               Rotated value
  */
 __STATIC_FORCEINLINE uint32_t __ROR(uint32_t op1, uint32_t op2)
 {
@@ -933,9 +927,9 @@ __STATIC_FORCEINLINE uint32_t __ROR(uint32_t op1, uint32_t op2)
 /**
   \brief   Breakpoint
   \details Causes the processor to enter Debug state.
-           Debug tools can use this to investigate system state when the instruction at a particular
-  address is reached. \param [in]    value  is ignored by the processor. If required, a debugger can
-  use it to store additional information about the breakpoint.
+           Debug tools can use this to investigate system state when the instruction at a particular address is reached.
+  \param [in]    value  is ignored by the processor.
+                 If required, a debugger can use it to store additional information about the breakpoint.
  */
 #define __BKPT(value) __ASM volatile("bkpt " #value)
 
@@ -949,7 +943,7 @@ __STATIC_FORCEINLINE uint32_t __RBIT(uint32_t value)
 {
     uint32_t result;
 
-#if((defined(__ARM_ARCH_7M__) && (__ARM_ARCH_7M__ == 1))      \
+#if((defined(__ARM_ARCH_7M__) && (__ARM_ARCH_7M__ == 1)) \
     || (defined(__ARM_ARCH_7EM__) && (__ARM_ARCH_7EM__ == 1)) \
     || (defined(__ARM_ARCH_8M_MAIN__) && (__ARM_ARCH_8M_MAIN__ == 1)))
     __ASM volatile("rbit %0, %1" : "=r"(result) : "r"(value));
@@ -976,8 +970,8 @@ __STATIC_FORCEINLINE uint32_t __RBIT(uint32_t value)
  */
 #define __CLZ (uint8_t) __builtin_clz
 
-#if((defined(__ARM_ARCH_7M__) && (__ARM_ARCH_7M__ == 1))              \
-    || (defined(__ARM_ARCH_7EM__) && (__ARM_ARCH_7EM__ == 1))         \
+#if((defined(__ARM_ARCH_7M__) && (__ARM_ARCH_7M__ == 1)) \
+    || (defined(__ARM_ARCH_7EM__) && (__ARM_ARCH_7EM__ == 1)) \
     || (defined(__ARM_ARCH_8M_MAIN__) && (__ARM_ARCH_8M_MAIN__ == 1)) \
     || (defined(__ARM_ARCH_8M_BASE__) && (__ARM_ARCH_8M_BASE__ == 1)))
 /**
@@ -1087,9 +1081,9 @@ __STATIC_FORCEINLINE uint32_t __STREXW(uint32_t value, volatile uint32_t * addr)
 /**
   \brief   Remove the exclusive lock
   \details Removes the exclusive lock which is created by LDREX.
- */\
-__STATIC_FORCEINLINE void __CLREX(void)\
-{\
+ */
+__STATIC_FORCEINLINE void __CLREX(void)
+{
     __ASM volatile("clrex" ::: "memory");
 }
 
@@ -1098,7 +1092,7 @@ __STATIC_FORCEINLINE void __CLREX(void)\
            (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
            (defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    ) */
 
-#if((defined(__ARM_ARCH_7M__) && (__ARM_ARCH_7M__ == 1))      \
+#if((defined(__ARM_ARCH_7M__) && (__ARM_ARCH_7M__ == 1)) \
     || (defined(__ARM_ARCH_7EM__) && (__ARM_ARCH_7EM__ == 1)) \
     || (defined(__ARM_ARCH_8M_MAIN__) && (__ARM_ARCH_8M_MAIN__ == 1)))
 /**
@@ -1108,11 +1102,11 @@ __STATIC_FORCEINLINE void __CLREX(void)\
   \param [in]  ARG2  Bit position to saturate to (1..32)
   \return             Saturated value
  */
-#define __SSAT(ARG1, ARG2)                                               \
-    __extension__({                                                      \
-        int32_t __RES, __ARG1 = (ARG1);                                  \
+#define __SSAT(ARG1, ARG2) \
+    __extension__({ \
+        int32_t __RES, __ARG1 = (ARG1); \
         __ASM("ssat %0, %1, %2" : "=r"(__RES) : "I"(ARG2), "r"(__ARG1)); \
-        __RES;                                                           \
+        __RES; \
     })
 
 /**
@@ -1122,11 +1116,11 @@ __STATIC_FORCEINLINE void __CLREX(void)\
   \param [in]  ARG2  Bit position to saturate to (0..31)
   \return             Saturated value
  */
-#define __USAT(ARG1, ARG2)                                               \
-    __extension__({                                                      \
-        uint32_t __RES, __ARG1 = (ARG1);                                 \
+#define __USAT(ARG1, ARG2) \
+    __extension__({ \
+        uint32_t __RES, __ARG1 = (ARG1); \
         __ASM("usat %0, %1, %2" : "=r"(__RES) : "I"(ARG2), "r"(__ARG1)); \
-        __RES;                                                           \
+        __RES; \
     })
 
 /**
@@ -1227,15 +1221,15 @@ __STATIC_FORCEINLINE void __STRHT(uint16_t value, volatile uint16_t * ptr)
   \details Executes a Unprivileged STRT instruction for 32 bit values.
   \param [in]  value  Value to store
   \param [in]    ptr  Pointer to location
- */\
-__STATIC_FORCEINLINE void __STRT(uint32_t value, volatile uint32_t * ptr)\
+ */
+__STATIC_FORCEINLINE void __STRT(uint32_t value, volatile uint32_t * ptr)
 {
     __ASM volatile("strt %1, %0" : "=Q"(*ptr) : "r"(value));
 }
 
 #else /* ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
-          (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
-          (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1))    ) */
+           (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
+           (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1))    ) */
 
 /**
   \brief   Signed Saturate
@@ -1280,8 +1274,8 @@ __STATIC_FORCEINLINE uint32_t __USAT(int32_t val, uint32_t sat)
         }
         else if(val < 0)
         {
-            return 0U;\
-        }\
+            return 0U;
+        }
     }
     return (uint32_t)val;
 }
@@ -1451,7 +1445,7 @@ __STATIC_FORCEINLINE uint32_t __STLEXH(uint16_t value, volatile uint16_t * ptr)
  */
 __STATIC_FORCEINLINE uint32_t __STLEX(uint32_t value, volatile uint32_t * ptr)
 {
-    uint32_t result;\
+    uint32_t result;
 
     __ASM volatile("stlex %0, %2, %1" : "=&r"(result), "=Q"(*ptr) : "r"((uint32_t)value));
     return (result);
@@ -1774,18 +1768,18 @@ __STATIC_FORCEINLINE uint32_t __USADA8(uint32_t op1, uint32_t op2, uint32_t op3)
     return (result);
 }
 
-#define __SSAT16(ARG1, ARG2)                                               \
-    ({                                                                     \
-        int32_t __RES, __ARG1 = (ARG1);                                    \
+#define __SSAT16(ARG1, ARG2) \
+    ({ \
+        int32_t __RES, __ARG1 = (ARG1); \
         __ASM("ssat16 %0, %1, %2" : "=r"(__RES) : "I"(ARG2), "r"(__ARG1)); \
-        __RES;                                                             \
+        __RES; \
     })
 
-#define __USAT16(ARG1, ARG2)                                               \
-    ({                                                                     \
-        uint32_t __RES, __ARG1 = (ARG1);                                   \
+#define __USAT16(ARG1, ARG2) \
+    ({ \
+        uint32_t __RES, __ARG1 = (ARG1); \
         __ASM("usat16 %0, %1, %2" : "=r"(__RES) : "I"(ARG2), "r"(__ARG1)); \
-        __RES;                                                             \
+        __RES; \
     })
 
 __STATIC_FORCEINLINE uint32_t __UXTB16(uint32_t op1)
@@ -1993,21 +1987,21 @@ __STATIC_FORCEINLINE int32_t __QSUB(int32_t op1, int32_t op2)
 }
 
 #if 0
-#define __PKHBT(ARG1, ARG2, ARG3)                                                              \
-    ({                                                                                         \
-        uint32_t __RES, __ARG1 = (ARG1), __ARG2 = (ARG2);                                      \
+#define __PKHBT(ARG1, ARG2, ARG3) \
+    ({ \
+        uint32_t __RES, __ARG1 = (ARG1), __ARG2 = (ARG2); \
         __ASM("pkhbt %0, %1, %2, lsl %3" : "=r"(__RES) : "r"(__ARG1), "r"(__ARG2), "I"(ARG3)); \
-        __RES;                                                                                 \
+        __RES; \
     })
 
-#define __PKHTB(ARG1, ARG2, ARG3)                                                                  \
-    ({                                                                                             \
-        uint32_t __RES, __ARG1 = (ARG1), __ARG2 = (ARG2);                                          \
-        if(ARG3 == 0)                                                                              \
-            __ASM("pkhtb %0, %1, %2" : "=r"(__RES) : "r"(__ARG1), "r"(__ARG2));                    \
-        else                                                                                       \
+#define __PKHTB(ARG1, ARG2, ARG3) \
+    ({ \
+        uint32_t __RES, __ARG1 = (ARG1), __ARG2 = (ARG2); \
+        if(ARG3 == 0) \
+            __ASM("pkhtb %0, %1, %2" : "=r"(__RES) : "r"(__ARG1), "r"(__ARG2)); \
+        else \
             __ASM("pkhtb %0, %1, %2, asr %3" : "=r"(__RES) : "r"(__ARG1), "r"(__ARG2), "I"(ARG3)); \
-        __RES;                                                                                     \
+        __RES; \
     })
 #endif
 

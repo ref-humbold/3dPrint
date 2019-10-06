@@ -1,22 +1,22 @@
 /**
- ******************************************************************************
- * @file    stm32f4xx_hal_conf_template.h
- * @author  MCD Application Team
- * @brief   HAL configuration template file.
- *          This file should be copied to the application folder and renamed
- *          to stm32f4xx_hal_conf.h.
- ******************************************************************************
- * @attention
- *
- * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
- * All rights reserved.</center></h2>
- *
- * This software component is licensed by ST under BSD 3-Clause license,
- * the "License"; You may not use this file except in compliance with the
- * License. You may obtain a copy of the License at:
- *                        opensource.org/licenses/BSD-3-Clause
- *
- ******************************************************************************
+  ******************************************************************************
+  * @file    stm32f4xx_hal_conf_template.h
+  * @author  MCD Application Team
+  * @brief   HAL configuration template file.
+  *          This file should be copied to the application folder and renamed
+  *          to stm32f4xx_hal_conf.h.
+  ******************************************************************************
+  * @attention
+  *
+  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.</center></h2>
+  *
+  * This software component is licensed by ST under BSD 3-Clause license,
+  * the "License"; You may not use this file except in compliance with the
+  * License. You may obtain a copy of the License at:
+  *                        opensource.org/licenses/BSD-3-Clause
+  *
+  ******************************************************************************
  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
@@ -33,52 +33,52 @@ extern "C"
 
 /* ########################## Module Selection ############################## */
 /**
- * @brief This is the list of modules to be used in the HAL driver
+  * @brief This is the list of modules to be used in the HAL driver
  */
 #define HAL_MODULE_ENABLED
 
-    /* #define HAL_ADC_MODULE_ENABLED   */
-/* #define HAL_CRYP_MODULE_ENABLED   */
-/* #define HAL_CAN_MODULE_ENABLED   */
-/* #define HAL_CRC_MODULE_ENABLED   */
-/* #define HAL_CRYP_MODULE_ENABLED   */
-/* #define HAL_DAC_MODULE_ENABLED   */
-/* #define HAL_DCMI_MODULE_ENABLED   */
-/* #define HAL_DMA2D_MODULE_ENABLED   */
-/* #define HAL_ETH_MODULE_ENABLED   */
-/* #define HAL_NAND_MODULE_ENABLED   */
-/* #define HAL_NOR_MODULE_ENABLED   */
-/* #define HAL_PCCARD_MODULE_ENABLED   */
-/* #define HAL_SRAM_MODULE_ENABLED   */
-/* #define HAL_SDRAM_MODULE_ENABLED   */
-/* #define HAL_HASH_MODULE_ENABLED   */
-/* #define HAL_I2C_MODULE_ENABLED   */
-/* #define HAL_I2S_MODULE_ENABLED   */
-/* #define HAL_IWDG_MODULE_ENABLED   */
-/* #define HAL_LTDC_MODULE_ENABLED   */
-/* #define HAL_RNG_MODULE_ENABLED   */
-/* #define HAL_RTC_MODULE_ENABLED   */
-/* #define HAL_SAI_MODULE_ENABLED   */
-/* #define HAL_SD_MODULE_ENABLED   */
-/* #define HAL_MMC_MODULE_ENABLED   */
+/* #define HAL_ADC_MODULE_ENABLED */
+/* #define HAL_CRYP_MODULE_ENABLED */
+/* #define HAL_CAN_MODULE_ENABLED */
+/* #define HAL_CRC_MODULE_ENABLED */
+/* #define HAL_CRYP_MODULE_ENABLED */
+/* #define HAL_DAC_MODULE_ENABLED */
+/* #define HAL_DCMI_MODULE_ENABLED */
+/* #define HAL_DMA2D_MODULE_ENABLED */
+/* #define HAL_ETH_MODULE_ENABLED */
+/* #define HAL_NAND_MODULE_ENABLED */
+/* #define HAL_NOR_MODULE_ENABLED */
+/* #define HAL_PCCARD_MODULE_ENABLED */
+/* #define HAL_SRAM_MODULE_ENABLED */
+/* #define HAL_SDRAM_MODULE_ENABLED */
+/* #define HAL_HASH_MODULE_ENABLED */
+/* #define HAL_I2C_MODULE_ENABLED */
+/* #define HAL_I2S_MODULE_ENABLED */
+/* #define HAL_IWDG_MODULE_ENABLED */
+/* #define HAL_LTDC_MODULE_ENABLED */
+/* #define HAL_RNG_MODULE_ENABLED */
+/* #define HAL_RTC_MODULE_ENABLED */
+/* #define HAL_SAI_MODULE_ENABLED */
+/* #define HAL_SD_MODULE_ENABLED */
+/* #define HAL_MMC_MODULE_ENABLED */
 #define HAL_SPI_MODULE_ENABLED
-/* #define HAL_TIM_MODULE_ENABLED   */
+/* #define HAL_TIM_MODULE_ENABLED */
 #define HAL_UART_MODULE_ENABLED
-/* #define HAL_USART_MODULE_ENABLED   */
-/* #define HAL_IRDA_MODULE_ENABLED   */
-/* #define HAL_SMARTCARD_MODULE_ENABLED   */
-/* #define HAL_WWDG_MODULE_ENABLED   */
-/* #define HAL_PCD_MODULE_ENABLED   */
-/* #define HAL_HCD_MODULE_ENABLED   */
-/* #define HAL_DSI_MODULE_ENABLED   */
-/* #define HAL_QSPI_MODULE_ENABLED   */
-/* #define HAL_QSPI_MODULE_ENABLED   */
-/* #define HAL_CEC_MODULE_ENABLED   */
-/* #define HAL_FMPI2C_MODULE_ENABLED   */
-/* #define HAL_SPDIFRX_MODULE_ENABLED   */
-/* #define HAL_DFSDM_MODULE_ENABLED   */
-/* #define HAL_LPTIM_MODULE_ENABLED   */
-/* #define HAL_EXTI_MODULE_ENABLED   */
+/* #define HAL_USART_MODULE_ENABLED */
+/* #define HAL_IRDA_MODULE_ENABLED */
+/* #define HAL_SMARTCARD_MODULE_ENABLED */
+/* #define HAL_WWDG_MODULE_ENABLED */
+/* #define HAL_PCD_MODULE_ENABLED */
+/* #define HAL_HCD_MODULE_ENABLED */
+/* #define HAL_DSI_MODULE_ENABLED */
+/* #define HAL_QSPI_MODULE_ENABLED */
+/* #define HAL_QSPI_MODULE_ENABLED */
+/* #define HAL_CEC_MODULE_ENABLED */
+/* #define HAL_FMPI2C_MODULE_ENABLED */
+/* #define HAL_SPDIFRX_MODULE_ENABLED */
+/* #define HAL_DFSDM_MODULE_ENABLED */
+/* #define HAL_LPTIM_MODULE_ENABLED */
+/* #define HAL_EXTI_MODULE_ENABLED */
 #define HAL_GPIO_MODULE_ENABLED
 #define HAL_EXTI_MODULE_ENABLED
 #define HAL_DMA_MODULE_ENABLED
@@ -89,9 +89,9 @@ extern "C"
 
 /* ########################## HSE/HSI Values adaptation ##################### */
 /**
- * @brief Adjust the value of External High Speed oscillator (HSE) used in your application.
- *        This value is used by the RCC HAL module to compute the system frequency
- *        (when HSE is used as system clock source, directly or through the PLL).
+  * @brief Adjust the value of External High Speed oscillator (HSE) used in your application.
+  *        This value is used by the RCC HAL module to compute the system frequency
+  *        (when HSE is used as system clock source, directly or through the PLL).
  */
 #if !defined(HSE_VALUE)
 #define HSE_VALUE ((uint32_t)8000000U) /*!< Value of the External oscillator in Hz */
@@ -102,24 +102,24 @@ extern "C"
 #endif /* HSE_STARTUP_TIMEOUT */
 
 /**
- * @brief Internal High Speed oscillator (HSI) value.
- *        This value is used by the RCC HAL module to compute the system frequency
- *        (when HSI is used as system clock source, directly or through the PLL).
+  * @brief Internal High Speed oscillator (HSI) value.
+  *        This value is used by the RCC HAL module to compute the system frequency
+  *        (when HSI is used as system clock source, directly or through the PLL).
  */
 #if !defined(HSI_VALUE)
-#define HSI_VALUE ((uint32_t)16000000U) /*!< Value of the Internal oscillator in Hz*/
+#define HSI_VALUE ((uint32_t)16000000U) /*!< Value of the Internal oscillator in Hz */
 #endif /* HSI_VALUE */
 
 /**
- * @brief Internal Low Speed oscillator (LSI) value.
+  * @brief Internal Low Speed oscillator (LSI) value.
  */
 #if !defined(LSI_VALUE)
 #define LSI_VALUE ((uint32_t)32000U) /*!< LSI Typical Value in Hz*/
-#endif /* LSI_VALUE */ /*!< Value of the Internal Low Speed oscillator in Hz \
-                        The real value may vary depending on the variations  \
+#endif /* LSI_VALUE */ /*!< Value of the Internal Low Speed oscillator in Hz
+                        The real value may vary depending on the variations
                         in voltage and temperature.*/
 /**
- * @brief External Low Speed oscillator (LSE) value.
+  * @brief External Low Speed oscillator (LSE) value.
  */
 #if !defined(LSE_VALUE)
 #define LSE_VALUE ((uint32_t)32768U) /*!< Value of the External Low Speed oscillator in Hz */
@@ -130,9 +130,9 @@ extern "C"
 #endif /* LSE_STARTUP_TIMEOUT */
 
 /**
- * @brief External clock source for I2S peripheral
- *        This value is used by the I2S HAL module to compute the I2S clock source
- *        frequency, this source is inserted directly through I2S_CKIN pad.
+  * @brief External clock source for I2S peripheral
+  *        This value is used by the I2S HAL module to compute the I2S clock source
+  *        frequency, this source is inserted directly through I2S_CKIN pad.
  */
 #if !defined(EXTERNAL_CLOCK_VALUE)
 #define EXTERNAL_CLOCK_VALUE \
@@ -144,7 +144,7 @@ extern "C"
 
 /* ########################### System Configuration ######################### */
 /**
- * @brief This is the HAL system configuration section
+  * @brief This is the HAL system configuration section
  */
 #define VDD_VALUE ((uint32_t)3300U) /*!< Value of VDD in mv */
 #define TICK_INT_PRIORITY ((uint32_t)0U) /*!< tick interrupt priority */
@@ -155,8 +155,8 @@ extern "C"
 
 /* ########################## Assert Selection ############################## */
 /**
- * @brief Uncomment the line below to expanse the "assert_param" macro in the
- *        HAL drivers code
+  * @brief Uncomment the line below to expanse the "assert_param" macro in the
+  *        HAL drivers code
  */
 /* #define USE_FULL_ASSERT    1U */
 
@@ -173,10 +173,10 @@ extern "C"
 #define MAC_ADDR5 0U
 
 /* Definition of the Ethernet driver buffers size and count */
-#define ETH_RX_BUF_SIZE ETH_MAX_PACKET_SIZE /* buffer size for receive               */
-#define ETH_TX_BUF_SIZE ETH_MAX_PACKET_SIZE /* buffer size for transmit              */
-#define ETH_RXBUFNB ((uint32_t)4U) /* 4 Rx buffers of size ETH_RX_BUF_SIZE  */
-#define ETH_TXBUFNB ((uint32_t)4U) /* 4 Tx buffers of size ETH_TX_BUF_SIZE  */
+#define ETH_RX_BUF_SIZE ETH_MAX_PACKET_SIZE /* buffer size for receive */
+#define ETH_TX_BUF_SIZE ETH_MAX_PACKET_SIZE /* buffer size for transmit */
+#define ETH_RXBUFNB ((uint32_t)4U) /* 4 Rx buffers of size ETH_RX_BUF_SIZE */
+#define ETH_TXBUFNB ((uint32_t)4U) /* 4 Tx buffers of size ETH_TX_BUF_SIZE */
 
 /* Section 2: PHY configuration section */
 
@@ -192,30 +192,29 @@ extern "C"
 
     /* Section 3: Common PHY Registers */
 
-#define PHY_BCR ((uint16_t)0x0000U) /*!< Transceiver Basic Control Register   */
-#define PHY_BSR ((uint16_t)0x0001U) /*!< Transceiver Basic Status Register    */
+#define PHY_BCR ((uint16_t)0x0000U) /*!< Transceiver Basic Control Register */
+#define PHY_BSR ((uint16_t)0x0001U) /*!< Transceiver Basic Status Register */
 
 #define PHY_RESET ((uint16_t)0x8000U) /*!< PHY Reset */
 #define PHY_LOOPBACK ((uint16_t)0x4000U) /*!< Select loop-back mode */
 #define PHY_FULLDUPLEX_100M ((uint16_t)0x2100U) /*!< Set the full-duplex mode at 100 Mb/s */
 #define PHY_HALFDUPLEX_100M ((uint16_t)0x2000U) /*!< Set the half-duplex mode at 100 Mb/s */
-#define PHY_FULLDUPLEX_10M ((uint16_t)0x0100U) /*!< Set the full-duplex mode at 10 Mb/s  */
-#define PHY_HALFDUPLEX_10M ((uint16_t)0x0000U) /*!< Set the half-duplex mode at 10 Mb/s  */
-#define PHY_AUTONEGOTIATION ((uint16_t)0x1000U) /*!< Enable auto-negotiation function     */
+#define PHY_FULLDUPLEX_10M ((uint16_t)0x0100U) /*!< Set the full-duplex mode at 10 Mb/s */
+#define PHY_HALFDUPLEX_10M ((uint16_t)0x0000U) /*!< Set the half-duplex mode at 10 Mb/s */
+#define PHY_AUTONEGOTIATION ((uint16_t)0x1000U) /*!< Enable auto-negotiation function */
 #define PHY_RESTART_AUTONEGOTIATION ((uint16_t)0x0200U) /*!< Restart auto-negotiation function */
-#define PHY_POWERDOWN ((uint16_t)0x0800U) /*!< Select the power down mode           */
-#define PHY_ISOLATE ((uint16_t)0x0400U) /*!< Isolate PHY from MII                 */
+#define PHY_POWERDOWN ((uint16_t)0x0800U) /*!< Select the power down mode */
+#define PHY_ISOLATE ((uint16_t)0x0400U) /*!< Isolate PHY from MII */
 
-#define PHY_AUTONEGO_COMPLETE ((uint16_t)0x0020U) /*!< Auto-Negotiation process completed   */
-#define PHY_LINKED_STATUS ((uint16_t)0x0004U) /*!< Valid link established               */
-#define PHY_JABBER_DETECTION ((uint16_t)0x0002U) /*!< Jabber condition detected            */
+#define PHY_AUTONEGO_COMPLETE ((uint16_t)0x0020U) /*!< Auto-Negotiation process completed */
+#define PHY_LINKED_STATUS ((uint16_t)0x0004U) /*!< Valid link established */
+#define PHY_JABBER_DETECTION ((uint16_t)0x0002U) /*!< Jabber condition detected */
 
 /* Section 4: Extended PHY Registers */
-#define PHY_SR ((uint16_t)0x10U) /*!< PHY status register Offset                      */
+#define PHY_SR ((uint16_t)0x10U) /*!< PHY status register Offset */
 
 #define PHY_SPEED_STATUS ((uint16_t)0x0002U) /*!< PHY Speed mask */
-#define PHY_DUPLEX_STATUS \
-    ((uint16_t)0x0004U) /*!< PHY Duplex mask                                 */
+#define PHY_DUPLEX_STATUS ((uint16_t)0x0004U) /*!< PHY Duplex mask */
 
     /* ################## SPI peripheral configuration ########################## */
 

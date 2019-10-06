@@ -83,16 +83,13 @@
             in One Pulse Mode.
        (++) HAL_TIM_Encoder_Init: to use the Timer Encoder Interface.
 
-     (#) Activate the TIM peripheral using one of the start functions depending from the feature
-used:
+     (#) Activate the TIM peripheral using one of the start functions depending from the feature used:
            (++) Time Base : HAL_TIM_Base_Start(), HAL_TIM_Base_Start_DMA(), HAL_TIM_Base_Start_IT()
            (++) Input Capture :  HAL_TIM_IC_Start(), HAL_TIM_IC_Start_DMA(), HAL_TIM_IC_Start_IT()
            (++) Output Compare : HAL_TIM_OC_Start(), HAL_TIM_OC_Start_DMA(), HAL_TIM_OC_Start_IT()
-           (++) PWM generation : HAL_TIM_PWM_Start(), HAL_TIM_PWM_Start_DMA(),
-HAL_TIM_PWM_Start_IT()
+           (++) PWM generation : HAL_TIM_PWM_Start(), HAL_TIM_PWM_Start_DMA(), HAL_TIM_PWM_Start_IT()
            (++) One-pulse mode output : HAL_TIM_OnePulse_Start(), HAL_TIM_OnePulse_Start_IT()
-           (++) Encoder mode output : HAL_TIM_Encoder_Start(), HAL_TIM_Encoder_Start_DMA(),
-HAL_TIM_Encoder_Start_IT().
+           (++) Encoder mode output : HAL_TIM_Encoder_Start(), HAL_TIM_Encoder_Start_DMA(), HAL_TIM_Encoder_Start_IT().
 
      (#) The DMA Burst is managed with the two following functions:
          HAL_TIM_DMABurst_WriteStart()
@@ -181,13 +178,13 @@ all interrupt callbacks are set to the corresponding weak functions:
 #include "stm32f4xx_hal.h"
 
 /** @addtogroup STM32F4xx_HAL_Driver
- * @{
- */
+  * @{
+  */
 
 /** @defgroup TIM TIM
- * @brief TIM HAL module driver
- * @{
- */
+  * @brief TIM HAL module driver
+  * @{
+  */
 
 #ifdef HAL_TIM_MODULE_ENABLED
 
@@ -197,8 +194,8 @@ all interrupt callbacks are set to the corresponding weak functions:
 /* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
 /** @addtogroup TIM_Private_Functions
- * @{
- */
+  * @{
+  */
 static void TIM_OC1_SetConfig(TIM_TypeDef * TIMx, TIM_OC_InitTypeDef * OC_Config);
 static void TIM_OC3_SetConfig(TIM_TypeDef * TIMx, TIM_OC_InitTypeDef * OC_Config);
 static void TIM_OC4_SetConfig(TIM_TypeDef * TIMx, TIM_OC_InitTypeDef * OC_Config);
@@ -220,13 +217,13 @@ static void TIM_DMATriggerHalfCplt(DMA_HandleTypeDef * hdma);
 static HAL_StatusTypeDef TIM_SlaveTimer_SetConfig(TIM_HandleTypeDef * htim,
                                                   TIM_SlaveConfigTypeDef * sSlaveConfig);
 /**
- * @}
- */
+  * @}
+  */
 /* Exported functions --------------------------------------------------------*/
 
 /** @defgroup TIM_Exported_Functions TIM Exported Functions
- * @{
- */
+  * @{
+  */
 
 /** @defgroup TIM_Exported_Functions_Group1 TIM Time Base functions
  *  @brief    Time Base functions
@@ -250,15 +247,15 @@ static HAL_StatusTypeDef TIM_SlaveTimer_SetConfig(TIM_HandleTypeDef * htim,
   * @{
   */
 /**
- * @brief  Initializes the TIM Time base Unit according to the specified
- *         parameters in the TIM_HandleTypeDef and initialize the associated handle.
- * @note   Switching from Center Aligned counter mode to Edge counter mode (or reverse)
- *         requires a timer reset to avoid unexpected direction
- *         due to DIR bit readonly in center aligned mode.
- *         Ex: call @ref HAL_TIM_Base_DeInit() before HAL_TIM_Base_Init()
- * @param  htim TIM Base handle
- * @retval HAL status
- */
+  * @brief  Initializes the TIM Time base Unit according to the specified
+  *         parameters in the TIM_HandleTypeDef and initialize the associated handle.
+  * @note   Switching from Center Aligned counter mode to Edge counter mode (or reverse)
+  *         requires a timer reset to avoid unexpected direction
+  *         due to DIR bit readonly in center aligned mode.
+  *         Ex: call @ref HAL_TIM_Base_DeInit() before HAL_TIM_Base_Init()
+  * @param  htim TIM Base handle
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_Base_Init(TIM_HandleTypeDef * htim)
 {
     /* Check the TIM handle allocation */
@@ -307,10 +304,10 @@ HAL_StatusTypeDef HAL_TIM_Base_Init(TIM_HandleTypeDef * htim)
 }
 
 /**
- * @brief  DeInitializes the TIM Base peripheral
- * @param  htim TIM Base handle
- * @retval HAL status
- */
+  * @brief  DeInitializes the TIM Base peripheral
+  * @param  htim TIM Base handle
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_Base_DeInit(TIM_HandleTypeDef * htim)
 {
     /* Check the parameters */
@@ -343,40 +340,40 @@ HAL_StatusTypeDef HAL_TIM_Base_DeInit(TIM_HandleTypeDef * htim)
 }
 
 /**
- * @brief  Initializes the TIM Base MSP.
- * @param  htim TIM Base handle
- * @retval None
- */
+  * @brief  Initializes the TIM Base MSP.
+  * @param  htim TIM Base handle
+  * @retval None
+  */
 __weak void HAL_TIM_Base_MspInit(TIM_HandleTypeDef * htim)
 {
     /* Prevent unused argument(s) compilation warning */
     UNUSED(htim);
 
     /* NOTE : This function should not be modified, when the callback is needed,
-              the HAL_TIM_Base_MspInit could be implemented in the user file
-     */
+            the HAL_TIM_Base_MspInit could be implemented in the user file
+   */
 }
 
 /**
- * @brief  DeInitializes TIM Base MSP.
- * @param  htim TIM Base handle
- * @retval None
- */
+  * @brief  DeInitializes TIM Base MSP.
+  * @param  htim TIM Base handle
+  * @retval None
+  */
 __weak void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef * htim)
 {
     /* Prevent unused argument(s) compilation warning */
     UNUSED(htim);
 
     /* NOTE : This function should not be modified, when the callback is needed,
-              the HAL_TIM_Base_MspDeInit could be implemented in the user file
-     */
+            the HAL_TIM_Base_MspDeInit could be implemented in the user file
+   */
 }
 
 /**
- * @brief  Starts the TIM Base generation.
- * @param  htim TIM Base handle
- * @retval HAL status
- */
+  * @brief  Starts the TIM Base generation.
+  * @param  htim TIM Base handle
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_Base_Start(TIM_HandleTypeDef * htim)
 {
     uint32_t tmpsmcr;
@@ -387,8 +384,7 @@ HAL_StatusTypeDef HAL_TIM_Base_Start(TIM_HandleTypeDef * htim)
     /* Set the TIM state */
     htim->State = HAL_TIM_STATE_BUSY;
 
-    /* Enable the Peripheral, except in trigger mode where enable is automatically done with trigger
-     */
+    /* Enable the Peripheral, except in trigger mode where enable is automatically done with trigger */
     tmpsmcr = htim->Instance->SMCR & TIM_SMCR_SMS;
     if(!IS_TIM_SLAVEMODE_TRIGGER_ENABLED(tmpsmcr))
     {
@@ -403,10 +399,10 @@ HAL_StatusTypeDef HAL_TIM_Base_Start(TIM_HandleTypeDef * htim)
 }
 
 /**
- * @brief  Stops the TIM Base generation.
- * @param  htim TIM Base handle
- * @retval HAL status
- */
+  * @brief  Stops the TIM Base generation.
+  * @param  htim TIM Base handle
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_Base_Stop(TIM_HandleTypeDef * htim)
 {
     /* Check the parameters */
@@ -426,10 +422,10 @@ HAL_StatusTypeDef HAL_TIM_Base_Stop(TIM_HandleTypeDef * htim)
 }
 
 /**
- * @brief  Starts the TIM Base generation in interrupt mode.
- * @param  htim TIM Base handle
- * @retval HAL status
- */
+  * @brief  Starts the TIM Base generation in interrupt mode.
+  * @param  htim TIM Base handle
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_Base_Start_IT(TIM_HandleTypeDef * htim)
 {
     uint32_t tmpsmcr;
@@ -440,8 +436,7 @@ HAL_StatusTypeDef HAL_TIM_Base_Start_IT(TIM_HandleTypeDef * htim)
     /* Enable the TIM Update interrupt */
     __HAL_TIM_ENABLE_IT(htim, TIM_IT_UPDATE);
 
-    /* Enable the Peripheral, except in trigger mode where enable is automatically done with trigger
-     */
+    /* Enable the Peripheral, except in trigger mode where enable is automatically done with trigger */
     tmpsmcr = htim->Instance->SMCR & TIM_SMCR_SMS;
     if(!IS_TIM_SLAVEMODE_TRIGGER_ENABLED(tmpsmcr))
     {
@@ -453,10 +448,10 @@ HAL_StatusTypeDef HAL_TIM_Base_Start_IT(TIM_HandleTypeDef * htim)
 }
 
 /**
- * @brief  Stops the TIM Base generation in interrupt mode.
- * @param  htim TIM Base handle
- * @retval HAL status
- */
+  * @brief  Stops the TIM Base generation in interrupt mode.
+  * @param  htim TIM Base handle
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_Base_Stop_IT(TIM_HandleTypeDef * htim)
 {
     /* Check the parameters */
@@ -472,12 +467,12 @@ HAL_StatusTypeDef HAL_TIM_Base_Stop_IT(TIM_HandleTypeDef * htim)
 }
 
 /**
- * @brief  Starts the TIM Base generation in DMA mode.
- * @param  htim TIM Base handle
- * @param  pData The source Buffer address.
- * @param  Length The length of data to be transferred from memory to peripheral.
- * @retval HAL status
- */
+  * @brief  Starts the TIM Base generation in DMA mode.
+  * @param  htim TIM Base handle
+  * @param  pData The source Buffer address.
+  * @param  Length The length of data to be transferred from memory to peripheral.
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_Base_Start_DMA(TIM_HandleTypeDef * htim, uint32_t * pData,
                                          uint16_t Length)
 {
@@ -524,8 +519,7 @@ HAL_StatusTypeDef HAL_TIM_Base_Start_DMA(TIM_HandleTypeDef * htim, uint32_t * pD
     /* Enable the TIM Update DMA request */
     __HAL_TIM_ENABLE_DMA(htim, TIM_DMA_UPDATE);
 
-    /* Enable the Peripheral, except in trigger mode where enable is automatically done with trigger
-     */
+    /* Enable the Peripheral, except in trigger mode where enable is automatically done with trigger */
     tmpsmcr = htim->Instance->SMCR & TIM_SMCR_SMS;
     if(!IS_TIM_SLAVEMODE_TRIGGER_ENABLED(tmpsmcr))
     {
@@ -537,10 +531,10 @@ HAL_StatusTypeDef HAL_TIM_Base_Start_DMA(TIM_HandleTypeDef * htim, uint32_t * pD
 }
 
 /**
- * @brief  Stops the TIM Base generation in DMA mode.
- * @param  htim TIM Base handle
- * @retval HAL status
- */
+  * @brief  Stops the TIM Base generation in DMA mode.
+  * @param  htim TIM Base handle
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_Base_Stop_DMA(TIM_HandleTypeDef * htim)
 {
     /* Check the parameters */
@@ -562,8 +556,8 @@ HAL_StatusTypeDef HAL_TIM_Base_Stop_DMA(TIM_HandleTypeDef * htim)
 }
 
 /**
- * @}
- */
+  * @}
+  */
 
 /** @defgroup TIM_Exported_Functions_Group2 TIM Output Compare functions
  *  @brief    TIM Output Compare functions
@@ -587,15 +581,15 @@ HAL_StatusTypeDef HAL_TIM_Base_Stop_DMA(TIM_HandleTypeDef * htim)
   * @{
   */
 /**
- * @brief  Initializes the TIM Output Compare according to the specified
- *         parameters in the TIM_HandleTypeDef and initializes the associated handle.
- * @note   Switching from Center Aligned counter mode to Edge counter mode (or reverse)
- *         requires a timer reset to avoid unexpected direction
- *         due to DIR bit readonly in center aligned mode.
- *         Ex: call @ref HAL_TIM_OC_DeInit() before HAL_TIM_OC_Init()
- * @param  htim TIM Output Compare handle
- * @retval HAL status
- */
+  * @brief  Initializes the TIM Output Compare according to the specified
+  *         parameters in the TIM_HandleTypeDef and initializes the associated handle.
+  * @note   Switching from Center Aligned counter mode to Edge counter mode (or reverse)
+  *         requires a timer reset to avoid unexpected direction
+  *         due to DIR bit readonly in center aligned mode.
+  *         Ex: call @ref HAL_TIM_OC_DeInit() before HAL_TIM_OC_Init()
+  * @param  htim TIM Output Compare handle
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_OC_Init(TIM_HandleTypeDef * htim)
 {
     /* Check the TIM handle allocation */
@@ -644,10 +638,10 @@ HAL_StatusTypeDef HAL_TIM_OC_Init(TIM_HandleTypeDef * htim)
 }
 
 /**
- * @brief  DeInitializes the TIM peripheral
- * @param  htim TIM Output Compare handle
- * @retval HAL status
- */
+  * @brief  DeInitializes the TIM peripheral
+  * @param  htim TIM Output Compare handle
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_OC_DeInit(TIM_HandleTypeDef * htim)
 {
     /* Check the parameters */
@@ -680,46 +674,46 @@ HAL_StatusTypeDef HAL_TIM_OC_DeInit(TIM_HandleTypeDef * htim)
 }
 
 /**
- * @brief  Initializes the TIM Output Compare MSP.
- * @param  htim TIM Output Compare handle
- * @retval None
- */
+  * @brief  Initializes the TIM Output Compare MSP.
+  * @param  htim TIM Output Compare handle
+  * @retval None
+  */
 __weak void HAL_TIM_OC_MspInit(TIM_HandleTypeDef * htim)
 {
     /* Prevent unused argument(s) compilation warning */
     UNUSED(htim);
 
     /* NOTE : This function should not be modified, when the callback is needed,
-              the HAL_TIM_OC_MspInit could be implemented in the user file
-     */
+            the HAL_TIM_OC_MspInit could be implemented in the user file
+   */
 }
 
 /**
- * @brief  DeInitializes TIM Output Compare MSP.
- * @param  htim TIM Output Compare handle
- * @retval None
- */
+  * @brief  DeInitializes TIM Output Compare MSP.
+  * @param  htim TIM Output Compare handle
+  * @retval None
+  */
 __weak void HAL_TIM_OC_MspDeInit(TIM_HandleTypeDef * htim)
 {
     /* Prevent unused argument(s) compilation warning */
     UNUSED(htim);
 
     /* NOTE : This function should not be modified, when the callback is needed,
-              the HAL_TIM_OC_MspDeInit could be implemented in the user file
-     */
+            the HAL_TIM_OC_MspDeInit could be implemented in the user file
+   */
 }
 
 /**
- * @brief  Starts the TIM Output Compare signal generation.
- * @param  htim TIM Output Compare handle
- * @param  Channel TIM Channel to be enabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
- *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
- * @retval HAL status
- */
+  * @brief  Starts the TIM Output Compare signal generation.
+  * @param  htim TIM Output Compare handle
+  * @param  Channel TIM Channel to be enabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
+  *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_OC_Start(TIM_HandleTypeDef * htim, uint32_t Channel)
 {
     uint32_t tmpsmcr;
@@ -736,8 +730,7 @@ HAL_StatusTypeDef HAL_TIM_OC_Start(TIM_HandleTypeDef * htim, uint32_t Channel)
         __HAL_TIM_MOE_ENABLE(htim);
     }
 
-    /* Enable the Peripheral, except in trigger mode where enable is automatically done with trigger
-     */
+    /* Enable the Peripheral, except in trigger mode where enable is automatically done with trigger */
     tmpsmcr = htim->Instance->SMCR & TIM_SMCR_SMS;
     if(!IS_TIM_SLAVEMODE_TRIGGER_ENABLED(tmpsmcr))
     {
@@ -749,16 +742,16 @@ HAL_StatusTypeDef HAL_TIM_OC_Start(TIM_HandleTypeDef * htim, uint32_t Channel)
 }
 
 /**
- * @brief  Stops the TIM Output Compare signal generation.
- * @param  htim TIM Output Compare handle
- * @param  Channel TIM Channel to be disabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
- *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
- * @retval HAL status
- */
+  * @brief  Stops the TIM Output Compare signal generation.
+  * @param  htim TIM Output Compare handle
+  * @param  Channel TIM Channel to be disabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
+  *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_OC_Stop(TIM_HandleTypeDef * htim, uint32_t Channel)
 {
     /* Check the parameters */
@@ -781,16 +774,16 @@ HAL_StatusTypeDef HAL_TIM_OC_Stop(TIM_HandleTypeDef * htim, uint32_t Channel)
 }
 
 /**
- * @brief  Starts the TIM Output Compare signal generation in interrupt mode.
- * @param  htim TIM Output Compare handle
- * @param  Channel TIM Channel to be enabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
- *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
- * @retval HAL status
- */
+  * @brief  Starts the TIM Output Compare signal generation in interrupt mode.
+  * @param  htim TIM Output Compare handle
+  * @param  Channel TIM Channel to be enabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
+  *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_OC_Start_IT(TIM_HandleTypeDef * htim, uint32_t Channel)
 {
     uint32_t tmpsmcr;
@@ -841,8 +834,7 @@ HAL_StatusTypeDef HAL_TIM_OC_Start_IT(TIM_HandleTypeDef * htim, uint32_t Channel
         __HAL_TIM_MOE_ENABLE(htim);
     }
 
-    /* Enable the Peripheral, except in trigger mode where enable is automatically done with trigger
-     */
+    /* Enable the Peripheral, except in trigger mode where enable is automatically done with trigger */
     tmpsmcr = htim->Instance->SMCR & TIM_SMCR_SMS;
     if(!IS_TIM_SLAVEMODE_TRIGGER_ENABLED(tmpsmcr))
     {
@@ -854,16 +846,16 @@ HAL_StatusTypeDef HAL_TIM_OC_Start_IT(TIM_HandleTypeDef * htim, uint32_t Channel
 }
 
 /**
- * @brief  Stops the TIM Output Compare signal generation in interrupt mode.
- * @param  htim TIM Output Compare handle
- * @param  Channel TIM Channel to be disabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
- *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
- * @retval HAL status
- */
+  * @brief  Stops the TIM Output Compare signal generation in interrupt mode.
+  * @param  htim TIM Output Compare handle
+  * @param  Channel TIM Channel to be disabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
+  *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_OC_Stop_IT(TIM_HandleTypeDef * htim, uint32_t Channel)
 {
     /* Check the parameters */
@@ -920,18 +912,18 @@ HAL_StatusTypeDef HAL_TIM_OC_Stop_IT(TIM_HandleTypeDef * htim, uint32_t Channel)
 }
 
 /**
- * @brief  Starts the TIM Output Compare signal generation in DMA mode.
- * @param  htim TIM Output Compare handle
- * @param  Channel TIM Channel to be enabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
- *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
- * @param  pData The source Buffer address.
- * @param  Length The length of data to be transferred from memory to TIM peripheral
- * @retval HAL status
- */
+  * @brief  Starts the TIM Output Compare signal generation in DMA mode.
+  * @param  htim TIM Output Compare handle
+  * @param  Channel TIM Channel to be enabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
+  *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
+  * @param  pData The source Buffer address.
+  * @param  Length The length of data to be transferred from memory to TIM peripheral
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_OC_Start_DMA(TIM_HandleTypeDef * htim, uint32_t Channel, uint32_t * pData,
                                        uint16_t Length)
 {
@@ -1061,8 +1053,7 @@ HAL_StatusTypeDef HAL_TIM_OC_Start_DMA(TIM_HandleTypeDef * htim, uint32_t Channe
         __HAL_TIM_MOE_ENABLE(htim);
     }
 
-    /* Enable the Peripheral, except in trigger mode where enable is automatically done with trigger
-     */
+    /* Enable the Peripheral, except in trigger mode where enable is automatically done with trigger */
     tmpsmcr = htim->Instance->SMCR & TIM_SMCR_SMS;
     if(!IS_TIM_SLAVEMODE_TRIGGER_ENABLED(tmpsmcr))
     {
@@ -1074,16 +1065,16 @@ HAL_StatusTypeDef HAL_TIM_OC_Start_DMA(TIM_HandleTypeDef * htim, uint32_t Channe
 }
 
 /**
- * @brief  Stops the TIM Output Compare signal generation in DMA mode.
- * @param  htim TIM Output Compare handle
- * @param  Channel TIM Channel to be disabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
- *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
- * @retval HAL status
- */
+  * @brief  Stops the TIM Output Compare signal generation in DMA mode.
+  * @param  htim TIM Output Compare handle
+  * @param  Channel TIM Channel to be disabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
+  *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_OC_Stop_DMA(TIM_HandleTypeDef * htim, uint32_t Channel)
 {
     /* Check the parameters */
@@ -1147,8 +1138,8 @@ HAL_StatusTypeDef HAL_TIM_OC_Stop_DMA(TIM_HandleTypeDef * htim, uint32_t Channel
 }
 
 /**
- * @}
- */
+  * @}
+  */
 
 /** @defgroup TIM_Exported_Functions_Group3 TIM PWM functions
  *  @brief    TIM PWM functions
@@ -1172,15 +1163,15 @@ HAL_StatusTypeDef HAL_TIM_OC_Stop_DMA(TIM_HandleTypeDef * htim, uint32_t Channel
   * @{
   */
 /**
- * @brief  Initializes the TIM PWM Time Base according to the specified
- *         parameters in the TIM_HandleTypeDef and initializes the associated handle.
- * @note   Switching from Center Aligned counter mode to Edge counter mode (or reverse)
- *         requires a timer reset to avoid unexpected direction
- *         due to DIR bit readonly in center aligned mode.
- *         Ex: call @ref HAL_TIM_PWM_DeInit() before HAL_TIM_PWM_Init()
- * @param  htim TIM PWM handle
- * @retval HAL status
- */
+  * @brief  Initializes the TIM PWM Time Base according to the specified
+  *         parameters in the TIM_HandleTypeDef and initializes the associated handle.
+  * @note   Switching from Center Aligned counter mode to Edge counter mode (or reverse)
+  *         requires a timer reset to avoid unexpected direction
+  *         due to DIR bit readonly in center aligned mode.
+  *         Ex: call @ref HAL_TIM_PWM_DeInit() before HAL_TIM_PWM_Init()
+  * @param  htim TIM PWM handle
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_PWM_Init(TIM_HandleTypeDef * htim)
 {
     /* Check the TIM handle allocation */
@@ -1229,10 +1220,10 @@ HAL_StatusTypeDef HAL_TIM_PWM_Init(TIM_HandleTypeDef * htim)
 }
 
 /**
- * @brief  DeInitializes the TIM peripheral
- * @param  htim TIM PWM handle
- * @retval HAL status
- */
+  * @brief  DeInitializes the TIM peripheral
+  * @param  htim TIM PWM handle
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_PWM_DeInit(TIM_HandleTypeDef * htim)
 {
     /* Check the parameters */
@@ -1265,46 +1256,46 @@ HAL_StatusTypeDef HAL_TIM_PWM_DeInit(TIM_HandleTypeDef * htim)
 }
 
 /**
- * @brief  Initializes the TIM PWM MSP.
- * @param  htim TIM PWM handle
- * @retval None
- */
+  * @brief  Initializes the TIM PWM MSP.
+  * @param  htim TIM PWM handle
+  * @retval None
+  */
 __weak void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef * htim)
 {
     /* Prevent unused argument(s) compilation warning */
     UNUSED(htim);
 
     /* NOTE : This function should not be modified, when the callback is needed,
-              the HAL_TIM_PWM_MspInit could be implemented in the user file
-     */
+            the HAL_TIM_PWM_MspInit could be implemented in the user file
+   */
 }
 
 /**
- * @brief  DeInitializes TIM PWM MSP.
- * @param  htim TIM PWM handle
- * @retval None
- */
+  * @brief  DeInitializes TIM PWM MSP.
+  * @param  htim TIM PWM handle
+  * @retval None
+  */
 __weak void HAL_TIM_PWM_MspDeInit(TIM_HandleTypeDef * htim)
 {
     /* Prevent unused argument(s) compilation warning */
     UNUSED(htim);
 
     /* NOTE : This function should not be modified, when the callback is needed,
-              the HAL_TIM_PWM_MspDeInit could be implemented in the user file
-     */
+            the HAL_TIM_PWM_MspDeInit could be implemented in the user file
+   */
 }
 
 /**
- * @brief  Starts the PWM signal generation.
- * @param  htim TIM handle
- * @param  Channel TIM Channels to be enabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
- *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
- * @retval HAL status
- */
+  * @brief  Starts the PWM signal generation.
+  * @param  htim TIM handle
+  * @param  Channel TIM Channels to be enabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
+  *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_PWM_Start(TIM_HandleTypeDef * htim, uint32_t Channel)
 {
     uint32_t tmpsmcr;
@@ -1321,8 +1312,7 @@ HAL_StatusTypeDef HAL_TIM_PWM_Start(TIM_HandleTypeDef * htim, uint32_t Channel)
         __HAL_TIM_MOE_ENABLE(htim);
     }
 
-    /* Enable the Peripheral, except in trigger mode where enable is automatically done with trigger
-     */
+    /* Enable the Peripheral, except in trigger mode where enable is automatically done with trigger */
     tmpsmcr = htim->Instance->SMCR & TIM_SMCR_SMS;
     if(!IS_TIM_SLAVEMODE_TRIGGER_ENABLED(tmpsmcr))
     {
@@ -1334,16 +1324,16 @@ HAL_StatusTypeDef HAL_TIM_PWM_Start(TIM_HandleTypeDef * htim, uint32_t Channel)
 }
 
 /**
- * @brief  Stops the PWM signal generation.
- * @param  htim TIM PWM handle
- * @param  Channel TIM Channels to be disabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
- *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
- * @retval HAL status
- */
+  * @brief  Stops the PWM signal generation.
+  * @param  htim TIM PWM handle
+  * @param  Channel TIM Channels to be disabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
+  *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_PWM_Stop(TIM_HandleTypeDef * htim, uint32_t Channel)
 {
     /* Check the parameters */
@@ -1369,16 +1359,16 @@ HAL_StatusTypeDef HAL_TIM_PWM_Stop(TIM_HandleTypeDef * htim, uint32_t Channel)
 }
 
 /**
- * @brief  Starts the PWM signal generation in interrupt mode.
- * @param  htim TIM PWM handle
- * @param  Channel TIM Channel to be enabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
- *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
- * @retval HAL status
- */
+  * @brief  Starts the PWM signal generation in interrupt mode.
+  * @param  htim TIM PWM handle
+  * @param  Channel TIM Channel to be enabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
+  *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_PWM_Start_IT(TIM_HandleTypeDef * htim, uint32_t Channel)
 {
     uint32_t tmpsmcr;
@@ -1428,8 +1418,7 @@ HAL_StatusTypeDef HAL_TIM_PWM_Start_IT(TIM_HandleTypeDef * htim, uint32_t Channe
         __HAL_TIM_MOE_ENABLE(htim);
     }
 
-    /* Enable the Peripheral, except in trigger mode where enable is automatically done with trigger
-     */
+    /* Enable the Peripheral, except in trigger mode where enable is automatically done with trigger */
     tmpsmcr = htim->Instance->SMCR & TIM_SMCR_SMS;
     if(!IS_TIM_SLAVEMODE_TRIGGER_ENABLED(tmpsmcr))
     {
@@ -1441,16 +1430,16 @@ HAL_StatusTypeDef HAL_TIM_PWM_Start_IT(TIM_HandleTypeDef * htim, uint32_t Channe
 }
 
 /**
- * @brief  Stops the PWM signal generation in interrupt mode.
- * @param  htim TIM PWM handle
- * @param  Channel TIM Channels to be disabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
- *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
- * @retval HAL status
- */
+  * @brief  Stops the PWM signal generation in interrupt mode.
+  * @param  htim TIM PWM handle
+  * @param  Channel TIM Channels to be disabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
+  *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_PWM_Stop_IT(TIM_HandleTypeDef * htim, uint32_t Channel)
 {
     /* Check the parameters */
@@ -1507,18 +1496,18 @@ HAL_StatusTypeDef HAL_TIM_PWM_Stop_IT(TIM_HandleTypeDef * htim, uint32_t Channel
 }
 
 /**
- * @brief  Starts the TIM PWM signal generation in DMA mode.
- * @param  htim TIM PWM handle
- * @param  Channel TIM Channels to be enabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
- *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
- * @param  pData The source Buffer address.
- * @param  Length The length of data to be transferred from memory to TIM peripheral
- * @retval HAL status
- */
+  * @brief  Starts the TIM PWM signal generation in DMA mode.
+  * @param  htim TIM PWM handle
+  * @param  Channel TIM Channels to be enabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
+  *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
+  * @param  pData The source Buffer address.
+  * @param  Length The length of data to be transferred from memory to TIM peripheral
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_PWM_Start_DMA(TIM_HandleTypeDef * htim, uint32_t Channel,
                                         uint32_t * pData, uint16_t Length)
 {
@@ -1647,8 +1636,7 @@ HAL_StatusTypeDef HAL_TIM_PWM_Start_DMA(TIM_HandleTypeDef * htim, uint32_t Chann
         __HAL_TIM_MOE_ENABLE(htim);
     }
 
-    /* Enable the Peripheral, except in trigger mode where enable is automatically done with trigger
-     */
+    /* Enable the Peripheral, except in trigger mode where enable is automatically done with trigger */
     tmpsmcr = htim->Instance->SMCR & TIM_SMCR_SMS;
     if(!IS_TIM_SLAVEMODE_TRIGGER_ENABLED(tmpsmcr))
     {
@@ -1660,16 +1648,16 @@ HAL_StatusTypeDef HAL_TIM_PWM_Start_DMA(TIM_HandleTypeDef * htim, uint32_t Chann
 }
 
 /**
- * @brief  Stops the TIM PWM signal generation in DMA mode.
- * @param  htim TIM PWM handle
- * @param  Channel TIM Channels to be disabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
- *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
- * @retval HAL status
- */
+  * @brief  Stops the TIM PWM signal generation in DMA mode.
+  * @param  htim TIM PWM handle
+  * @param  Channel TIM Channels to be disabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
+  *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_PWM_Stop_DMA(TIM_HandleTypeDef * htim, uint32_t Channel)
 {
     /* Check the parameters */
@@ -1733,8 +1721,8 @@ HAL_StatusTypeDef HAL_TIM_PWM_Stop_DMA(TIM_HandleTypeDef * htim, uint32_t Channe
 }
 
 /**
- * @}
- */
+  * @}
+  */
 
 /** @defgroup TIM_Exported_Functions_Group4 TIM Input Capture functions
  *  @brief    TIM Input Capture functions
@@ -1758,15 +1746,15 @@ HAL_StatusTypeDef HAL_TIM_PWM_Stop_DMA(TIM_HandleTypeDef * htim, uint32_t Channe
   * @{
   */
 /**
- * @brief  Initializes the TIM Input Capture Time base according to the specified
- *         parameters in the TIM_HandleTypeDef and initializes the associated handle.
- * @note   Switching from Center Aligned counter mode to Edge counter mode (or reverse)
- *         requires a timer reset to avoid unexpected direction
- *         due to DIR bit readonly in center aligned mode.
- *         Ex: call @ref HAL_TIM_IC_DeInit() before HAL_TIM_IC_Init()
- * @param  htim TIM Input Capture handle
- * @retval HAL status
- */
+  * @brief  Initializes the TIM Input Capture Time base according to the specified
+  *         parameters in the TIM_HandleTypeDef and initializes the associated handle.
+  * @note   Switching from Center Aligned counter mode to Edge counter mode (or reverse)
+  *         requires a timer reset to avoid unexpected direction
+  *         due to DIR bit readonly in center aligned mode.
+  *         Ex: call @ref HAL_TIM_IC_DeInit() before HAL_TIM_IC_Init()
+  * @param  htim TIM Input Capture handle
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_IC_Init(TIM_HandleTypeDef * htim)
 {
     /* Check the TIM handle allocation */
@@ -1815,10 +1803,10 @@ HAL_StatusTypeDef HAL_TIM_IC_Init(TIM_HandleTypeDef * htim)
 }
 
 /**
- * @brief  DeInitializes the TIM peripheral
- * @param  htim TIM Input Capture handle
- * @retval HAL status
- */
+  * @brief  DeInitializes the TIM peripheral
+  * @param  htim TIM Input Capture handle
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_IC_DeInit(TIM_HandleTypeDef * htim)
 {
     /* Check the parameters */
@@ -1851,46 +1839,46 @@ HAL_StatusTypeDef HAL_TIM_IC_DeInit(TIM_HandleTypeDef * htim)
 }
 
 /**
- * @brief  Initializes the TIM Input Capture MSP.
- * @param  htim TIM Input Capture handle
- * @retval None
- */
+  * @brief  Initializes the TIM Input Capture MSP.
+  * @param  htim TIM Input Capture handle
+  * @retval None
+  */
 __weak void HAL_TIM_IC_MspInit(TIM_HandleTypeDef * htim)
 {
     /* Prevent unused argument(s) compilation warning */
     UNUSED(htim);
 
     /* NOTE : This function should not be modified, when the callback is needed,
-              the HAL_TIM_IC_MspInit could be implemented in the user file
-     */
+            the HAL_TIM_IC_MspInit could be implemented in the user file
+   */
 }
 
 /**
- * @brief  DeInitializes TIM Input Capture MSP.
- * @param  htim TIM handle
- * @retval None
- */
+  * @brief  DeInitializes TIM Input Capture MSP.
+  * @param  htim TIM handle
+  * @retval None
+  */
 __weak void HAL_TIM_IC_MspDeInit(TIM_HandleTypeDef * htim)
 {
     /* Prevent unused argument(s) compilation warning */
     UNUSED(htim);
 
     /* NOTE : This function should not be modified, when the callback is needed,
-              the HAL_TIM_IC_MspDeInit could be implemented in the user file
-     */
+            the HAL_TIM_IC_MspDeInit could be implemented in the user file
+   */
 }
 
 /**
- * @brief  Starts the TIM Input Capture measurement.
- * @param  htim TIM Input Capture handle
- * @param  Channel TIM Channels to be enabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
- *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
- * @retval HAL status
- */
+  * @brief  Starts the TIM Input Capture measurement.
+  * @param  htim TIM Input Capture handle
+  * @param  Channel TIM Channels to be enabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
+  *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_IC_Start(TIM_HandleTypeDef * htim, uint32_t Channel)
 {
     uint32_t tmpsmcr;
@@ -1901,8 +1889,7 @@ HAL_StatusTypeDef HAL_TIM_IC_Start(TIM_HandleTypeDef * htim, uint32_t Channel)
     /* Enable the Input Capture channel */
     TIM_CCxChannelCmd(htim->Instance, Channel, TIM_CCx_ENABLE);
 
-    /* Enable the Peripheral, except in trigger mode where enable is automatically done with trigger
-     */
+    /* Enable the Peripheral, except in trigger mode where enable is automatically done with trigger */
     tmpsmcr = htim->Instance->SMCR & TIM_SMCR_SMS;
     if(!IS_TIM_SLAVEMODE_TRIGGER_ENABLED(tmpsmcr))
     {
@@ -1914,16 +1901,16 @@ HAL_StatusTypeDef HAL_TIM_IC_Start(TIM_HandleTypeDef * htim, uint32_t Channel)
 }
 
 /**
- * @brief  Stops the TIM Input Capture measurement.
- * @param  htim TIM Input Capture handle
- * @param  Channel TIM Channels to be disabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
- *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
- * @retval HAL status
- */
+  * @brief  Stops the TIM Input Capture measurement.
+  * @param  htim TIM Input Capture handle
+  * @param  Channel TIM Channels to be disabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
+  *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_IC_Stop(TIM_HandleTypeDef * htim, uint32_t Channel)
 {
     /* Check the parameters */
@@ -1940,16 +1927,16 @@ HAL_StatusTypeDef HAL_TIM_IC_Stop(TIM_HandleTypeDef * htim, uint32_t Channel)
 }
 
 /**
- * @brief  Starts the TIM Input Capture measurement in interrupt mode.
- * @param  htim TIM Input Capture handle
- * @param  Channel TIM Channels to be enabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
- *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
- * @retval HAL status
- */
+  * @brief  Starts the TIM Input Capture measurement in interrupt mode.
+  * @param  htim TIM Input Capture handle
+  * @param  Channel TIM Channels to be enabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
+  *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_IC_Start_IT(TIM_HandleTypeDef * htim, uint32_t Channel)
 {
     uint32_t tmpsmcr;
@@ -1993,8 +1980,7 @@ HAL_StatusTypeDef HAL_TIM_IC_Start_IT(TIM_HandleTypeDef * htim, uint32_t Channel
     /* Enable the Input Capture channel */
     TIM_CCxChannelCmd(htim->Instance, Channel, TIM_CCx_ENABLE);
 
-    /* Enable the Peripheral, except in trigger mode where enable is automatically done with trigger
-     */
+    /* Enable the Peripheral, except in trigger mode where enable is automatically done with trigger */
     tmpsmcr = htim->Instance->SMCR & TIM_SMCR_SMS;
     if(!IS_TIM_SLAVEMODE_TRIGGER_ENABLED(tmpsmcr))
     {
@@ -2006,16 +1992,16 @@ HAL_StatusTypeDef HAL_TIM_IC_Start_IT(TIM_HandleTypeDef * htim, uint32_t Channel
 }
 
 /**
- * @brief  Stops the TIM Input Capture measurement in interrupt mode.
- * @param  htim TIM Input Capture handle
- * @param  Channel TIM Channels to be disabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
- *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
- * @retval HAL status
- */
+  * @brief  Stops the TIM Input Capture measurement in interrupt mode.
+  * @param  htim TIM Input Capture handle
+  * @param  Channel TIM Channels to be disabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
+  *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_IC_Stop_IT(TIM_HandleTypeDef * htim, uint32_t Channel)
 {
     /* Check the parameters */
@@ -2066,18 +2052,18 @@ HAL_StatusTypeDef HAL_TIM_IC_Stop_IT(TIM_HandleTypeDef * htim, uint32_t Channel)
 }
 
 /**
- * @brief  Starts the TIM Input Capture measurement in DMA mode.
- * @param  htim TIM Input Capture handle
- * @param  Channel TIM Channels to be enabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
- *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
- * @param  pData The destination Buffer address.
- * @param  Length The length of data to be transferred from TIM peripheral to memory.
- * @retval HAL status
- */
+  * @brief  Starts the TIM Input Capture measurement in DMA mode.
+  * @param  htim TIM Input Capture handle
+  * @param  Channel TIM Channels to be enabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
+  *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
+  * @param  pData The destination Buffer address.
+  * @param  Length The length of data to be transferred from TIM peripheral to memory.
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_IC_Start_DMA(TIM_HandleTypeDef * htim, uint32_t Channel, uint32_t * pData,
                                        uint16_t Length)
 {
@@ -2200,8 +2186,7 @@ HAL_StatusTypeDef HAL_TIM_IC_Start_DMA(TIM_HandleTypeDef * htim, uint32_t Channe
     /* Enable the Input Capture channel */
     TIM_CCxChannelCmd(htim->Instance, Channel, TIM_CCx_ENABLE);
 
-    /* Enable the Peripheral, except in trigger mode where enable is automatically done with trigger
-     */
+    /* Enable the Peripheral, except in trigger mode where enable is automatically done with trigger */
     tmpsmcr = htim->Instance->SMCR & TIM_SMCR_SMS;
     if(!IS_TIM_SLAVEMODE_TRIGGER_ENABLED(tmpsmcr))
     {
@@ -2213,16 +2198,16 @@ HAL_StatusTypeDef HAL_TIM_IC_Start_DMA(TIM_HandleTypeDef * htim, uint32_t Channe
 }
 
 /**
- * @brief  Stops the TIM Input Capture measurement in DMA mode.
- * @param  htim TIM Input Capture handle
- * @param  Channel TIM Channels to be disabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
- *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
- * @retval HAL status
- */
+  * @brief  Stops the TIM Input Capture measurement in DMA mode.
+  * @param  htim TIM Input Capture handle
+  * @param  Channel TIM Channels to be disabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
+  *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_IC_Stop_DMA(TIM_HandleTypeDef * htim, uint32_t Channel)
 {
     /* Check the parameters */
@@ -2280,8 +2265,8 @@ HAL_StatusTypeDef HAL_TIM_IC_Stop_DMA(TIM_HandleTypeDef * htim, uint32_t Channel
     return HAL_OK;
 }
 /**
- * @}
- */
+  * @}
+  */
 
 /** @defgroup TIM_Exported_Functions_Group5 TIM One Pulse functions
  *  @brief    TIM One Pulse functions
@@ -2305,19 +2290,19 @@ HAL_StatusTypeDef HAL_TIM_IC_Stop_DMA(TIM_HandleTypeDef * htim, uint32_t Channel
   * @{
   */
 /**
- * @brief  Initializes the TIM One Pulse Time Base according to the specified
- *         parameters in the TIM_HandleTypeDef and initializes the associated handle.
- * @note   Switching from Center Aligned counter mode to Edge counter mode (or reverse)
- *         requires a timer reset to avoid unexpected direction
- *         due to DIR bit readonly in center aligned mode.
- *         Ex: call @ref HAL_TIM_OnePulse_DeInit() before HAL_TIM_OnePulse_Init()
- * @param  htim TIM One Pulse handle
- * @param  OnePulseMode Select the One pulse mode.
- *         This parameter can be one of the following values:
- *            @arg TIM_OPMODE_SINGLE: Only one pulse will be generated.
- *            @arg TIM_OPMODE_REPETITIVE: Repetitive pulses will be generated.
- * @retval HAL status
- */
+  * @brief  Initializes the TIM One Pulse Time Base according to the specified
+  *         parameters in the TIM_HandleTypeDef and initializes the associated handle.
+  * @note   Switching from Center Aligned counter mode to Edge counter mode (or reverse)
+  *         requires a timer reset to avoid unexpected direction
+  *         due to DIR bit readonly in center aligned mode.
+  *         Ex: call @ref HAL_TIM_OnePulse_DeInit() before HAL_TIM_OnePulse_Init()
+  * @param  htim TIM One Pulse handle
+  * @param  OnePulseMode Select the One pulse mode.
+  *         This parameter can be one of the following values:
+  *            @arg TIM_OPMODE_SINGLE: Only one pulse will be generated.
+  *            @arg TIM_OPMODE_REPETITIVE: Repetitive pulses will be generated.
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_OnePulse_Init(TIM_HandleTypeDef * htim, uint32_t OnePulseMode)
 {
     /* Check the TIM handle allocation */
@@ -2373,10 +2358,10 @@ HAL_StatusTypeDef HAL_TIM_OnePulse_Init(TIM_HandleTypeDef * htim, uint32_t OnePu
 }
 
 /**
- * @brief  DeInitializes the TIM One Pulse
- * @param  htim TIM One Pulse handle
- * @retval HAL status
- */
+  * @brief  DeInitializes the TIM One Pulse
+  * @param  htim TIM One Pulse handle
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_OnePulse_DeInit(TIM_HandleTypeDef * htim)
 {
     /* Check the parameters */
@@ -2409,57 +2394,57 @@ HAL_StatusTypeDef HAL_TIM_OnePulse_DeInit(TIM_HandleTypeDef * htim)
 }
 
 /**
- * @brief  Initializes the TIM One Pulse MSP.
- * @param  htim TIM One Pulse handle
- * @retval None
- */
+  * @brief  Initializes the TIM One Pulse MSP.
+  * @param  htim TIM One Pulse handle
+  * @retval None
+  */
 __weak void HAL_TIM_OnePulse_MspInit(TIM_HandleTypeDef * htim)
 {
     /* Prevent unused argument(s) compilation warning */
     UNUSED(htim);
 
     /* NOTE : This function should not be modified, when the callback is needed,
-              the HAL_TIM_OnePulse_MspInit could be implemented in the user file
-     */
+            the HAL_TIM_OnePulse_MspInit could be implemented in the user file
+   */
 }
 
 /**
- * @brief  DeInitializes TIM One Pulse MSP.
- * @param  htim TIM One Pulse handle
- * @retval None
- */
+  * @brief  DeInitializes TIM One Pulse MSP.
+  * @param  htim TIM One Pulse handle
+  * @retval None
+  */
 __weak void HAL_TIM_OnePulse_MspDeInit(TIM_HandleTypeDef * htim)
 {
     /* Prevent unused argument(s) compilation warning */
     UNUSED(htim);
 
     /* NOTE : This function should not be modified, when the callback is needed,
-              the HAL_TIM_OnePulse_MspDeInit could be implemented in the user file
-     */
+            the HAL_TIM_OnePulse_MspDeInit could be implemented in the user file
+   */
 }
 
 /**
- * @brief  Starts the TIM One Pulse signal generation.
- * @param  htim TIM One Pulse handle
- * @param  OutputChannel TIM Channels to be enabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- * @retval HAL status
- */
+  * @brief  Starts the TIM One Pulse signal generation.
+  * @param  htim TIM One Pulse handle
+  * @param  OutputChannel TIM Channels to be enabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_OnePulse_Start(TIM_HandleTypeDef * htim, uint32_t OutputChannel)
 {
     /* Prevent unused argument(s) compilation warning */
     UNUSED(OutputChannel);
 
     /* Enable the Capture compare and the Input Capture channels
-      (in the OPM Mode the two possible channels that can be used are TIM_CHANNEL_1 and
-      TIM_CHANNEL_2) if TIM_CHANNEL_1 is used as output, the TIM_CHANNEL_2 will be used as input and
-      if TIM_CHANNEL_1 is used as input, the TIM_CHANNEL_2 will be used as output
-      in all combinations, the TIM_CHANNEL_1 and TIM_CHANNEL_2 should be enabled together
+    (in the OPM Mode the two possible channels that can be used are TIM_CHANNEL_1 and TIM_CHANNEL_2)
+    if TIM_CHANNEL_1 is used as output, the TIM_CHANNEL_2 will be used as input and
+    if TIM_CHANNEL_1 is used as input, the TIM_CHANNEL_2 will be used as output
+    in all combinations, the TIM_CHANNEL_1 and TIM_CHANNEL_2 should be enabled together
 
-      No need to enable the counter, it's enabled automatically by hardware
-      (the counter starts in response to a stimulus and generate a pulse */
+    No need to enable the counter, it's enabled automatically by hardware
+    (the counter starts in response to a stimulus and generate a pulse */
 
     TIM_CCxChannelCmd(htim->Instance, TIM_CHANNEL_1, TIM_CCx_ENABLE);
     TIM_CCxChannelCmd(htim->Instance, TIM_CHANNEL_2, TIM_CCx_ENABLE);
@@ -2475,24 +2460,24 @@ HAL_StatusTypeDef HAL_TIM_OnePulse_Start(TIM_HandleTypeDef * htim, uint32_t Outp
 }
 
 /**
- * @brief  Stops the TIM One Pulse signal generation.
- * @param  htim TIM One Pulse handle
- * @param  OutputChannel TIM Channels to be disable
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- * @retval HAL status
- */
+  * @brief  Stops the TIM One Pulse signal generation.
+  * @param  htim TIM One Pulse handle
+  * @param  OutputChannel TIM Channels to be disable
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_OnePulse_Stop(TIM_HandleTypeDef * htim, uint32_t OutputChannel)
 {
     /* Prevent unused argument(s) compilation warning */
     UNUSED(OutputChannel);
 
     /* Disable the Capture compare and the Input Capture channels
-    (in the OPM Mode the two possible channels that can be used are TIM_CHANNEL_1 and TIM_CHANNEL_2)
-    if TIM_CHANNEL_1 is used as output, the TIM_CHANNEL_2 will be used as input and
-    if TIM_CHANNEL_1 is used as input, the TIM_CHANNEL_2 will be used as output
-    in all combinations, the TIM_CHANNEL_1 and TIM_CHANNEL_2 should be disabled together */
+  (in the OPM Mode the two possible channels that can be used are TIM_CHANNEL_1 and TIM_CHANNEL_2)
+  if TIM_CHANNEL_1 is used as output, the TIM_CHANNEL_2 will be used as input and
+  if TIM_CHANNEL_1 is used as input, the TIM_CHANNEL_2 will be used as output
+  in all combinations, the TIM_CHANNEL_1 and TIM_CHANNEL_2 should be disabled together */
 
     TIM_CCxChannelCmd(htim->Instance, TIM_CHANNEL_1, TIM_CCx_DISABLE);
     TIM_CCxChannelCmd(htim->Instance, TIM_CHANNEL_2, TIM_CCx_DISABLE);
@@ -2511,27 +2496,27 @@ HAL_StatusTypeDef HAL_TIM_OnePulse_Stop(TIM_HandleTypeDef * htim, uint32_t Outpu
 }
 
 /**
- * @brief  Starts the TIM One Pulse signal generation in interrupt mode.
- * @param  htim TIM One Pulse handle
- * @param  OutputChannel TIM Channels to be enabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- * @retval HAL status
- */
+  * @brief  Starts the TIM One Pulse signal generation in interrupt mode.
+  * @param  htim TIM One Pulse handle
+  * @param  OutputChannel TIM Channels to be enabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_OnePulse_Start_IT(TIM_HandleTypeDef * htim, uint32_t OutputChannel)
 {
     /* Prevent unused argument(s) compilation warning */
     UNUSED(OutputChannel);
 
     /* Enable the Capture compare and the Input Capture channels
-      (in the OPM Mode the two possible channels that can be used are TIM_CHANNEL_1 and
-      TIM_CHANNEL_2) if TIM_CHANNEL_1 is used as output, the TIM_CHANNEL_2 will be used as input and
-      if TIM_CHANNEL_1 is used as input, the TIM_CHANNEL_2 will be used as output
-      in all combinations, the TIM_CHANNEL_1 and TIM_CHANNEL_2 should be enabled together
+    (in the OPM Mode the two possible channels that can be used are TIM_CHANNEL_1 and TIM_CHANNEL_2)
+    if TIM_CHANNEL_1 is used as output, the TIM_CHANNEL_2 will be used as input and
+    if TIM_CHANNEL_1 is used as input, the TIM_CHANNEL_2 will be used as output
+    in all combinations, the TIM_CHANNEL_1 and TIM_CHANNEL_2 should be enabled together
 
-      No need to enable the counter, it's enabled automatically by hardware
-      (the counter starts in response to a stimulus and generate a pulse */
+    No need to enable the counter, it's enabled automatically by hardware
+    (the counter starts in response to a stimulus and generate a pulse */
 
     /* Enable the TIM Capture/Compare 1 interrupt */
     __HAL_TIM_ENABLE_IT(htim, TIM_IT_CC1);
@@ -2553,14 +2538,14 @@ HAL_StatusTypeDef HAL_TIM_OnePulse_Start_IT(TIM_HandleTypeDef * htim, uint32_t O
 }
 
 /**
- * @brief  Stops the TIM One Pulse signal generation in interrupt mode.
- * @param  htim TIM One Pulse handle
- * @param  OutputChannel TIM Channels to be enabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- * @retval HAL status
- */
+  * @brief  Stops the TIM One Pulse signal generation in interrupt mode.
+  * @param  htim TIM One Pulse handle
+  * @param  OutputChannel TIM Channels to be enabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_OnePulse_Stop_IT(TIM_HandleTypeDef * htim, uint32_t OutputChannel)
 {
     /* Prevent unused argument(s) compilation warning */
@@ -2573,10 +2558,10 @@ HAL_StatusTypeDef HAL_TIM_OnePulse_Stop_IT(TIM_HandleTypeDef * htim, uint32_t Ou
     __HAL_TIM_DISABLE_IT(htim, TIM_IT_CC2);
 
     /* Disable the Capture compare and the Input Capture channels
-    (in the OPM Mode the two possible channels that can be used are TIM_CHANNEL_1 and TIM_CHANNEL_2)
-    if TIM_CHANNEL_1 is used as output, the TIM_CHANNEL_2 will be used as input and
-    if TIM_CHANNEL_1 is used as input, the TIM_CHANNEL_2 will be used as output
-    in all combinations, the TIM_CHANNEL_1 and TIM_CHANNEL_2 should be disabled together */
+  (in the OPM Mode the two possible channels that can be used are TIM_CHANNEL_1 and TIM_CHANNEL_2)
+  if TIM_CHANNEL_1 is used as output, the TIM_CHANNEL_2 will be used as input and
+  if TIM_CHANNEL_1 is used as input, the TIM_CHANNEL_2 will be used as output
+  in all combinations, the TIM_CHANNEL_1 and TIM_CHANNEL_2 should be disabled together */
     TIM_CCxChannelCmd(htim->Instance, TIM_CHANNEL_1, TIM_CCx_DISABLE);
     TIM_CCxChannelCmd(htim->Instance, TIM_CHANNEL_2, TIM_CCx_DISABLE);
 
@@ -2594,8 +2579,8 @@ HAL_StatusTypeDef HAL_TIM_OnePulse_Stop_IT(TIM_HandleTypeDef * htim, uint32_t Ou
 }
 
 /**
- * @}
- */
+  * @}
+  */
 
 /** @defgroup TIM_Exported_Functions_Group6 TIM Encoder functions
  *  @brief    TIM Encoder functions
@@ -2619,18 +2604,18 @@ HAL_StatusTypeDef HAL_TIM_OnePulse_Stop_IT(TIM_HandleTypeDef * htim, uint32_t Ou
   * @{
   */
 /**
- * @brief  Initializes the TIM Encoder Interface and initialize the associated handle.
- * @note   Switching from Center Aligned counter mode to Edge counter mode (or reverse)
- *         requires a timer reset to avoid unexpected direction
- *         due to DIR bit readonly in center aligned mode.
- *         Ex: call @ref HAL_TIM_Encoder_DeInit() before HAL_TIM_Encoder_Init()
- * @note   Encoder mode and External clock mode 2 are not compatible and must not be selected
- * together Ex: A call for @ref HAL_TIM_Encoder_Init will erase the settings of @ref
- * HAL_TIM_ConfigClockSource using TIM_CLOCKSOURCE_ETRMODE2 and vice versa
- * @param  htim TIM Encoder Interface handle
- * @param  sConfig TIM Encoder Interface configuration structure
- * @retval HAL status
- */
+  * @brief  Initializes the TIM Encoder Interface and initialize the associated handle.
+  * @note   Switching from Center Aligned counter mode to Edge counter mode (or reverse)
+  *         requires a timer reset to avoid unexpected direction
+  *         due to DIR bit readonly in center aligned mode.
+  *         Ex: call @ref HAL_TIM_Encoder_DeInit() before HAL_TIM_Encoder_Init()
+  * @note   Encoder mode and External clock mode 2 are not compatible and must not be selected together
+  *         Ex: A call for @ref HAL_TIM_Encoder_Init will erase the settings of @ref HAL_TIM_ConfigClockSource
+  *         using TIM_CLOCKSOURCE_ETRMODE2 and vice versa
+  * @param  htim TIM Encoder Interface handle
+  * @param  sConfig TIM Encoder Interface configuration structure
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_Encoder_Init(TIM_HandleTypeDef * htim, TIM_Encoder_InitTypeDef * sConfig)
 {
     uint32_t tmpsmcr;
@@ -2731,10 +2716,10 @@ HAL_StatusTypeDef HAL_TIM_Encoder_Init(TIM_HandleTypeDef * htim, TIM_Encoder_Ini
 }
 
 /**
- * @brief  DeInitializes the TIM Encoder interface
- * @param  htim TIM Encoder Interface handle
- * @retval HAL status
- */
+  * @brief  DeInitializes the TIM Encoder interface
+  * @param  htim TIM Encoder Interface handle
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_Encoder_DeInit(TIM_HandleTypeDef * htim)
 {
     /* Check the parameters */
@@ -2767,45 +2752,45 @@ HAL_StatusTypeDef HAL_TIM_Encoder_DeInit(TIM_HandleTypeDef * htim)
 }
 
 /**
- * @brief  Initializes the TIM Encoder Interface MSP.
- * @param  htim TIM Encoder Interface handle
- * @retval None
- */
+  * @brief  Initializes the TIM Encoder Interface MSP.
+  * @param  htim TIM Encoder Interface handle
+  * @retval None
+  */
 __weak void HAL_TIM_Encoder_MspInit(TIM_HandleTypeDef * htim)
 {
     /* Prevent unused argument(s) compilation warning */
     UNUSED(htim);
 
     /* NOTE : This function should not be modified, when the callback is needed,
-              the HAL_TIM_Encoder_MspInit could be implemented in the user file
-     */
+            the HAL_TIM_Encoder_MspInit could be implemented in the user file
+   */
 }
 
 /**
- * @brief  DeInitializes TIM Encoder Interface MSP.
- * @param  htim TIM Encoder Interface handle
- * @retval None
- */
+  * @brief  DeInitializes TIM Encoder Interface MSP.
+  * @param  htim TIM Encoder Interface handle
+  * @retval None
+  */
 __weak void HAL_TIM_Encoder_MspDeInit(TIM_HandleTypeDef * htim)
 {
     /* Prevent unused argument(s) compilation warning */
     UNUSED(htim);
 
     /* NOTE : This function should not be modified, when the callback is needed,
-              the HAL_TIM_Encoder_MspDeInit could be implemented in the user file
-     */
+            the HAL_TIM_Encoder_MspDeInit could be implemented in the user file
+   */
 }
 
 /**
- * @brief  Starts the TIM Encoder Interface.
- * @param  htim TIM Encoder Interface handle
- * @param  Channel TIM Channels to be enabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_ALL: TIM Channel 1 and TIM Channel 2 are selected
- * @retval HAL status
- */
+  * @brief  Starts the TIM Encoder Interface.
+  * @param  htim TIM Encoder Interface handle
+  * @param  Channel TIM Channels to be enabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_ALL: TIM Channel 1 and TIM Channel 2 are selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_Encoder_Start(TIM_HandleTypeDef * htim, uint32_t Channel)
 {
     /* Check the parameters */
@@ -2841,23 +2826,22 @@ HAL_StatusTypeDef HAL_TIM_Encoder_Start(TIM_HandleTypeDef * htim, uint32_t Chann
 }
 
 /**
- * @brief  Stops the TIM Encoder Interface.
- * @param  htim TIM Encoder Interface handle
- * @param  Channel TIM Channels to be disabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_ALL: TIM Channel 1 and TIM Channel 2 are selected
- * @retval HAL status
- */
+  * @brief  Stops the TIM Encoder Interface.
+  * @param  htim TIM Encoder Interface handle
+  * @param  Channel TIM Channels to be disabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_ALL: TIM Channel 1 and TIM Channel 2 are selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_Encoder_Stop(TIM_HandleTypeDef * htim, uint32_t Channel)
 {
     /* Check the parameters */
     assert_param(IS_TIM_CC2_INSTANCE(htim->Instance));
 
     /* Disable the Input Capture channels 1 and 2
-      (in the EncoderInterface the two possible channels that can be used are TIM_CHANNEL_1 and
-      TIM_CHANNEL_2) */
+    (in the EncoderInterface the two possible channels that can be used are TIM_CHANNEL_1 and TIM_CHANNEL_2) */
     switch(Channel)
     {
         case TIM_CHANNEL_1:
@@ -2888,15 +2872,15 @@ HAL_StatusTypeDef HAL_TIM_Encoder_Stop(TIM_HandleTypeDef * htim, uint32_t Channe
 }
 
 /**
- * @brief  Starts the TIM Encoder Interface in interrupt mode.
- * @param  htim TIM Encoder Interface handle
- * @param  Channel TIM Channels to be enabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_ALL: TIM Channel 1 and TIM Channel 2 are selected
- * @retval HAL status
- */
+  * @brief  Starts the TIM Encoder Interface in interrupt mode.
+  * @param  htim TIM Encoder Interface handle
+  * @param  Channel TIM Channels to be enabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_ALL: TIM Channel 1 and TIM Channel 2 are selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_Encoder_Start_IT(TIM_HandleTypeDef * htim, uint32_t Channel)
 {
     /* Check the parameters */
@@ -2938,23 +2922,22 @@ HAL_StatusTypeDef HAL_TIM_Encoder_Start_IT(TIM_HandleTypeDef * htim, uint32_t Ch
 }
 
 /**
- * @brief  Stops the TIM Encoder Interface in interrupt mode.
- * @param  htim TIM Encoder Interface handle
- * @param  Channel TIM Channels to be disabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_ALL: TIM Channel 1 and TIM Channel 2 are selected
- * @retval HAL status
- */
+  * @brief  Stops the TIM Encoder Interface in interrupt mode.
+  * @param  htim TIM Encoder Interface handle
+  * @param  Channel TIM Channels to be disabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_ALL: TIM Channel 1 and TIM Channel 2 are selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_Encoder_Stop_IT(TIM_HandleTypeDef * htim, uint32_t Channel)
 {
     /* Check the parameters */
     assert_param(IS_TIM_CC2_INSTANCE(htim->Instance));
 
     /* Disable the Input Capture channels 1 and 2
-      (in the EncoderInterface the two possible channels that can be used are TIM_CHANNEL_1 and
-      TIM_CHANNEL_2) */
+    (in the EncoderInterface the two possible channels that can be used are TIM_CHANNEL_1 and TIM_CHANNEL_2) */
     if(Channel == TIM_CHANNEL_1)
     {
         TIM_CCxChannelCmd(htim->Instance, TIM_CHANNEL_1, TIM_CCx_DISABLE);
@@ -2990,18 +2973,18 @@ HAL_StatusTypeDef HAL_TIM_Encoder_Stop_IT(TIM_HandleTypeDef * htim, uint32_t Cha
 }
 
 /**
- * @brief  Starts the TIM Encoder Interface in DMA mode.
- * @param  htim TIM Encoder Interface handle
- * @param  Channel TIM Channels to be enabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_ALL: TIM Channel 1 and TIM Channel 2 are selected
- * @param  pData1 The destination Buffer address for IC1.
- * @param  pData2 The destination Buffer address for IC2.
- * @param  Length The length of data to be transferred from TIM peripheral to memory.
- * @retval HAL status
- */
+  * @brief  Starts the TIM Encoder Interface in DMA mode.
+  * @param  htim TIM Encoder Interface handle
+  * @param  Channel TIM Channels to be enabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_ALL: TIM Channel 1 and TIM Channel 2 are selected
+  * @param  pData1 The destination Buffer address for IC1.
+  * @param  pData2 The destination Buffer address for IC2.
+  * @param  Length The length of data to be transferred from TIM peripheral to memory.
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_Encoder_Start_DMA(TIM_HandleTypeDef * htim, uint32_t Channel,
                                             uint32_t * pData1, uint32_t * pData2, uint16_t Length)
 {
@@ -3136,23 +3119,22 @@ HAL_StatusTypeDef HAL_TIM_Encoder_Start_DMA(TIM_HandleTypeDef * htim, uint32_t C
 }
 
 /**
- * @brief  Stops the TIM Encoder Interface in DMA mode.
- * @param  htim TIM Encoder Interface handle
- * @param  Channel TIM Channels to be enabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_ALL: TIM Channel 1 and TIM Channel 2 are selected
- * @retval HAL status
- */
+  * @brief  Stops the TIM Encoder Interface in DMA mode.
+  * @param  htim TIM Encoder Interface handle
+  * @param  Channel TIM Channels to be enabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_ALL: TIM Channel 1 and TIM Channel 2 are selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_Encoder_Stop_DMA(TIM_HandleTypeDef * htim, uint32_t Channel)
 {
     /* Check the parameters */
     assert_param(IS_TIM_DMA_CC_INSTANCE(htim->Instance));
 
     /* Disable the Input Capture channels 1 and 2
-      (in the EncoderInterface the two possible channels that can be used are TIM_CHANNEL_1 and
-      TIM_CHANNEL_2) */
+    (in the EncoderInterface the two possible channels that can be used are TIM_CHANNEL_1 and TIM_CHANNEL_2) */
     if(Channel == TIM_CHANNEL_1)
     {
         TIM_CCxChannelCmd(htim->Instance, TIM_CHANNEL_1, TIM_CCx_DISABLE);
@@ -3192,8 +3174,8 @@ HAL_StatusTypeDef HAL_TIM_Encoder_Stop_DMA(TIM_HandleTypeDef * htim, uint32_t Ch
 }
 
 /**
- * @}
- */
+  * @}
+  */
 /** @defgroup TIM_Exported_Functions_Group7 TIM IRQ handler management
  *  @brief    TIM IRQ handler management
  *
@@ -3208,10 +3190,10 @@ HAL_StatusTypeDef HAL_TIM_Encoder_Stop_DMA(TIM_HandleTypeDef * htim, uint32_t Ch
   * @{
   */
 /**
- * @brief  This function handles TIM interrupts requests.
- * @param  htim TIM  handle
- * @retval None
- */
+  * @brief  This function handles TIM interrupts requests.
+  * @param  htim TIM  handle
+  * @retval None
+  */
 void HAL_TIM_IRQHandler(TIM_HandleTypeDef * htim)
 {
     /* Capture compare 1 event */
@@ -3392,8 +3374,8 @@ void HAL_TIM_IRQHandler(TIM_HandleTypeDef * htim)
 }
 
 /**
- * @}
- */
+  * @}
+  */
 
 /** @defgroup TIM_Exported_Functions_Group8 TIM Peripheral Control functions
  *  @brief    TIM Peripheral Control functions
@@ -3415,18 +3397,18 @@ void HAL_TIM_IRQHandler(TIM_HandleTypeDef * htim)
   */
 
 /**
- * @brief  Initializes the TIM Output Compare Channels according to the specified
- *         parameters in the TIM_OC_InitTypeDef.
- * @param  htim TIM Output Compare handle
- * @param  sConfig TIM Output Compare configuration structure
- * @param  Channel TIM Channels to configure
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
- *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
- * @retval HAL status
- */
+  * @brief  Initializes the TIM Output Compare Channels according to the specified
+  *         parameters in the TIM_OC_InitTypeDef.
+  * @param  htim TIM Output Compare handle
+  * @param  sConfig TIM Output Compare configuration structure
+  * @param  Channel TIM Channels to configure
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
+  *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_OC_ConfigChannel(TIM_HandleTypeDef * htim, TIM_OC_InitTypeDef * sConfig,
                                            uint32_t Channel)
 {
@@ -3494,18 +3476,18 @@ HAL_StatusTypeDef HAL_TIM_OC_ConfigChannel(TIM_HandleTypeDef * htim, TIM_OC_Init
 }
 
 /**
- * @brief  Initializes the TIM Input Capture Channels according to the specified
- *         parameters in the TIM_IC_InitTypeDef.
- * @param  htim TIM IC handle
- * @param  sConfig TIM Input Capture configuration structure
- * @param  Channel TIM Channel to configure
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
- *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
- * @retval HAL status
- */
+  * @brief  Initializes the TIM Input Capture Channels according to the specified
+  *         parameters in the TIM_IC_InitTypeDef.
+  * @param  htim TIM IC handle
+  * @param  sConfig TIM Input Capture configuration structure
+  * @param  Channel TIM Channel to configure
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
+  *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_IC_ConfigChannel(TIM_HandleTypeDef * htim, TIM_IC_InitTypeDef * sConfig,
                                            uint32_t Channel)
 {
@@ -3584,18 +3566,18 @@ HAL_StatusTypeDef HAL_TIM_IC_ConfigChannel(TIM_HandleTypeDef * htim, TIM_IC_Init
 }
 
 /**
- * @brief  Initializes the TIM PWM  channels according to the specified
- *         parameters in the TIM_OC_InitTypeDef.
- * @param  htim TIM PWM handle
- * @param  sConfig TIM PWM configuration structure
- * @param  Channel TIM Channels to be configured
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
- *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
- * @retval HAL status
- */
+  * @brief  Initializes the TIM PWM  channels according to the specified
+  *         parameters in the TIM_OC_InitTypeDef.
+  * @param  htim TIM PWM handle
+  * @param  sConfig TIM PWM configuration structure
+  * @param  Channel TIM Channels to be configured
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
+  *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_PWM_ConfigChannel(TIM_HandleTypeDef * htim, TIM_OC_InitTypeDef * sConfig,
                                             uint32_t Channel)
 {
@@ -3692,20 +3674,20 @@ HAL_StatusTypeDef HAL_TIM_PWM_ConfigChannel(TIM_HandleTypeDef * htim, TIM_OC_Ini
 }
 
 /**
- * @brief  Initializes the TIM One Pulse Channels according to the specified
- *         parameters in the TIM_OnePulse_InitTypeDef.
- * @param  htim TIM One Pulse handle
- * @param  sConfig TIM One Pulse configuration structure
- * @param  OutputChannel TIM output channel to configure
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- * @param  InputChannel TIM input Channel to configure
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- * @retval HAL status
- */
+  * @brief  Initializes the TIM One Pulse Channels according to the specified
+  *         parameters in the TIM_OnePulse_InitTypeDef.
+  * @param  htim TIM One Pulse handle
+  * @param  sConfig TIM One Pulse configuration structure
+  * @param  OutputChannel TIM output channel to configure
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  * @param  InputChannel TIM input Channel to configure
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_OnePulse_ConfigChannel(TIM_HandleTypeDef * htim,
                                                  TIM_OnePulse_InitTypeDef * sConfig,
                                                  uint32_t OutputChannel, uint32_t InputChannel)
@@ -3809,43 +3791,43 @@ HAL_StatusTypeDef HAL_TIM_OnePulse_ConfigChannel(TIM_HandleTypeDef * htim,
 }
 
 /**
- * @brief  Configure the DMA Burst to transfer Data from the memory to the TIM peripheral
- * @param  htim TIM handle
- * @param  BurstBaseAddress TIM Base address from where the DMA  will start the Data write
- *         This parameter can be one of the following values:
- *            @arg TIM_DMABASE_CR1
- *            @arg TIM_DMABASE_CR2
- *            @arg TIM_DMABASE_SMCR
- *            @arg TIM_DMABASE_DIER
- *            @arg TIM_DMABASE_SR
- *            @arg TIM_DMABASE_EGR
- *            @arg TIM_DMABASE_CCMR1
- *            @arg TIM_DMABASE_CCMR2
- *            @arg TIM_DMABASE_CCER
- *            @arg TIM_DMABASE_CNT
- *            @arg TIM_DMABASE_PSC
- *            @arg TIM_DMABASE_ARR
- *            @arg TIM_DMABASE_RCR
- *            @arg TIM_DMABASE_CCR1
- *            @arg TIM_DMABASE_CCR2
- *            @arg TIM_DMABASE_CCR3
- *            @arg TIM_DMABASE_CCR4
- *            @arg TIM_DMABASE_BDTR
- * @param  BurstRequestSrc TIM DMA Request sources
- *         This parameter can be one of the following values:
- *            @arg TIM_DMA_UPDATE: TIM update Interrupt source
- *            @arg TIM_DMA_CC1: TIM Capture Compare 1 DMA source
- *            @arg TIM_DMA_CC2: TIM Capture Compare 2 DMA source
- *            @arg TIM_DMA_CC3: TIM Capture Compare 3 DMA source
- *            @arg TIM_DMA_CC4: TIM Capture Compare 4 DMA source
- *            @arg TIM_DMA_COM: TIM Commutation DMA source
- *            @arg TIM_DMA_TRIGGER: TIM Trigger DMA source
- * @param  BurstBuffer The Buffer address.
- * @param  BurstLength DMA Burst length. This parameter can be one value
- *         between: TIM_DMABURSTLENGTH_1TRANSFER and TIM_DMABURSTLENGTH_18TRANSFERS.
- * @note   This function should be used only when BurstLength is equal to DMA data transfer length.
- * @retval HAL status
- */
+  * @brief  Configure the DMA Burst to transfer Data from the memory to the TIM peripheral
+  * @param  htim TIM handle
+  * @param  BurstBaseAddress TIM Base address from where the DMA  will start the Data write
+  *         This parameter can be one of the following values:
+  *            @arg TIM_DMABASE_CR1
+  *            @arg TIM_DMABASE_CR2
+  *            @arg TIM_DMABASE_SMCR
+  *            @arg TIM_DMABASE_DIER
+  *            @arg TIM_DMABASE_SR
+  *            @arg TIM_DMABASE_EGR
+  *            @arg TIM_DMABASE_CCMR1
+  *            @arg TIM_DMABASE_CCMR2
+  *            @arg TIM_DMABASE_CCER
+  *            @arg TIM_DMABASE_CNT
+  *            @arg TIM_DMABASE_PSC
+  *            @arg TIM_DMABASE_ARR
+  *            @arg TIM_DMABASE_RCR
+  *            @arg TIM_DMABASE_CCR1
+  *            @arg TIM_DMABASE_CCR2
+  *            @arg TIM_DMABASE_CCR3
+  *            @arg TIM_DMABASE_CCR4
+  *            @arg TIM_DMABASE_BDTR
+  * @param  BurstRequestSrc TIM DMA Request sources
+  *         This parameter can be one of the following values:
+  *            @arg TIM_DMA_UPDATE: TIM update Interrupt source
+  *            @arg TIM_DMA_CC1: TIM Capture Compare 1 DMA source
+  *            @arg TIM_DMA_CC2: TIM Capture Compare 2 DMA source
+  *            @arg TIM_DMA_CC3: TIM Capture Compare 3 DMA source
+  *            @arg TIM_DMA_CC4: TIM Capture Compare 4 DMA source
+  *            @arg TIM_DMA_COM: TIM Commutation DMA source
+  *            @arg TIM_DMA_TRIGGER: TIM Trigger DMA source
+  * @param  BurstBuffer The Buffer address.
+  * @param  BurstLength DMA Burst length. This parameter can be one value
+  *         between: TIM_DMABURSTLENGTH_1TRANSFER and TIM_DMABURSTLENGTH_18TRANSFERS.
+  * @note   This function should be used only when BurstLength is equal to DMA data transfer length.
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_DMABurst_WriteStart(TIM_HandleTypeDef * htim, uint32_t BurstBaseAddress,
                                               uint32_t BurstRequestSrc, uint32_t * BurstBuffer,
                                               uint32_t BurstLength)
@@ -4019,11 +4001,11 @@ HAL_StatusTypeDef HAL_TIM_DMABurst_WriteStart(TIM_HandleTypeDef * htim, uint32_t
 }
 
 /**
- * @brief  Stops the TIM DMA Burst mode
- * @param  htim TIM handle
- * @param  BurstRequestSrc TIM DMA Request sources to disable
- * @retval HAL status
- */
+  * @brief  Stops the TIM DMA Burst mode
+  * @param  htim TIM handle
+  * @param  BurstRequestSrc TIM DMA Request sources to disable
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_DMABurst_WriteStop(TIM_HandleTypeDef * htim, uint32_t BurstRequestSrc)
 {
     HAL_StatusTypeDef status = HAL_OK;
@@ -4083,43 +4065,43 @@ HAL_StatusTypeDef HAL_TIM_DMABurst_WriteStop(TIM_HandleTypeDef * htim, uint32_t 
 }
 
 /**
- * @brief  Configure the DMA Burst to transfer Data from the TIM peripheral to the memory
- * @param  htim TIM handle
- * @param  BurstBaseAddress TIM Base address from where the DMA  will start the Data read
- *         This parameter can be one of the following values:
- *            @arg TIM_DMABASE_CR1
- *            @arg TIM_DMABASE_CR2
- *            @arg TIM_DMABASE_SMCR
- *            @arg TIM_DMABASE_DIER
- *            @arg TIM_DMABASE_SR
- *            @arg TIM_DMABASE_EGR
- *            @arg TIM_DMABASE_CCMR1
- *            @arg TIM_DMABASE_CCMR2
- *            @arg TIM_DMABASE_CCER
- *            @arg TIM_DMABASE_CNT
- *            @arg TIM_DMABASE_PSC
- *            @arg TIM_DMABASE_ARR
- *            @arg TIM_DMABASE_RCR
- *            @arg TIM_DMABASE_CCR1
- *            @arg TIM_DMABASE_CCR2
- *            @arg TIM_DMABASE_CCR3
- *            @arg TIM_DMABASE_CCR4
- *            @arg TIM_DMABASE_BDTR
- * @param  BurstRequestSrc TIM DMA Request sources
- *         This parameter can be one of the following values:
- *            @arg TIM_DMA_UPDATE: TIM update Interrupt source
- *            @arg TIM_DMA_CC1: TIM Capture Compare 1 DMA source
- *            @arg TIM_DMA_CC2: TIM Capture Compare 2 DMA source
- *            @arg TIM_DMA_CC3: TIM Capture Compare 3 DMA source
- *            @arg TIM_DMA_CC4: TIM Capture Compare 4 DMA source
- *            @arg TIM_DMA_COM: TIM Commutation DMA source
- *            @arg TIM_DMA_TRIGGER: TIM Trigger DMA source
- * @param  BurstBuffer The Buffer address.
- * @param  BurstLength DMA Burst length. This parameter can be one value
- *         between: TIM_DMABURSTLENGTH_1TRANSFER and TIM_DMABURSTLENGTH_18TRANSFERS.
- * @note   This function should be used only when BurstLength is equal to DMA data transfer length.
- * @retval HAL status
- */
+  * @brief  Configure the DMA Burst to transfer Data from the TIM peripheral to the memory
+  * @param  htim TIM handle
+  * @param  BurstBaseAddress TIM Base address from where the DMA  will start the Data read
+  *         This parameter can be one of the following values:
+  *            @arg TIM_DMABASE_CR1
+  *            @arg TIM_DMABASE_CR2
+  *            @arg TIM_DMABASE_SMCR
+  *            @arg TIM_DMABASE_DIER
+  *            @arg TIM_DMABASE_SR
+  *            @arg TIM_DMABASE_EGR
+  *            @arg TIM_DMABASE_CCMR1
+  *            @arg TIM_DMABASE_CCMR2
+  *            @arg TIM_DMABASE_CCER
+  *            @arg TIM_DMABASE_CNT
+  *            @arg TIM_DMABASE_PSC
+  *            @arg TIM_DMABASE_ARR
+  *            @arg TIM_DMABASE_RCR
+  *            @arg TIM_DMABASE_CCR1
+  *            @arg TIM_DMABASE_CCR2
+  *            @arg TIM_DMABASE_CCR3
+  *            @arg TIM_DMABASE_CCR4
+  *            @arg TIM_DMABASE_BDTR
+  * @param  BurstRequestSrc TIM DMA Request sources
+  *         This parameter can be one of the following values:
+  *            @arg TIM_DMA_UPDATE: TIM update Interrupt source
+  *            @arg TIM_DMA_CC1: TIM Capture Compare 1 DMA source
+  *            @arg TIM_DMA_CC2: TIM Capture Compare 2 DMA source
+  *            @arg TIM_DMA_CC3: TIM Capture Compare 3 DMA source
+  *            @arg TIM_DMA_CC4: TIM Capture Compare 4 DMA source
+  *            @arg TIM_DMA_COM: TIM Commutation DMA source
+  *            @arg TIM_DMA_TRIGGER: TIM Trigger DMA source
+  * @param  BurstBuffer The Buffer address.
+  * @param  BurstLength DMA Burst length. This parameter can be one value
+  *         between: TIM_DMABURSTLENGTH_1TRANSFER and TIM_DMABURSTLENGTH_18TRANSFERS.
+  * @note   This function should be used only when BurstLength is equal to DMA data transfer length.
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_DMABurst_ReadStart(TIM_HandleTypeDef * htim, uint32_t BurstBaseAddress,
                                              uint32_t BurstRequestSrc, uint32_t * BurstBuffer,
                                              uint32_t BurstLength)
@@ -4294,11 +4276,11 @@ HAL_StatusTypeDef HAL_TIM_DMABurst_ReadStart(TIM_HandleTypeDef * htim, uint32_t 
 }
 
 /**
- * @brief  Stop the DMA burst reading
- * @param  htim TIM handle
- * @param  BurstRequestSrc TIM DMA Request sources to disable.
- * @retval HAL status
- */
+  * @brief  Stop the DMA burst reading
+  * @param  htim TIM handle
+  * @param  BurstRequestSrc TIM DMA Request sources to disable.
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_DMABurst_ReadStop(TIM_HandleTypeDef * htim, uint32_t BurstRequestSrc)
 {
     HAL_StatusTypeDef status = HAL_OK;
@@ -4358,24 +4340,24 @@ HAL_StatusTypeDef HAL_TIM_DMABurst_ReadStop(TIM_HandleTypeDef * htim, uint32_t B
 }
 
 /**
- * @brief  Generate a software event
- * @param  htim TIM handle
- * @param  EventSource specifies the event source.
- *          This parameter can be one of the following values:
- *            @arg TIM_EVENTSOURCE_UPDATE: Timer update Event source
- *            @arg TIM_EVENTSOURCE_CC1: Timer Capture Compare 1 Event source
- *            @arg TIM_EVENTSOURCE_CC2: Timer Capture Compare 2 Event source
- *            @arg TIM_EVENTSOURCE_CC3: Timer Capture Compare 3 Event source
- *            @arg TIM_EVENTSOURCE_CC4: Timer Capture Compare 4 Event source
- *            @arg TIM_EVENTSOURCE_COM: Timer COM event source
- *            @arg TIM_EVENTSOURCE_TRIGGER: Timer Trigger Event source
- *            @arg TIM_EVENTSOURCE_BREAK: Timer Break event source
- * @note   Basic timers can only generate an update event.
- * @note   TIM_EVENTSOURCE_COM is relevant only with advanced timer instances.
- * @note   TIM_EVENTSOURCE_BREAK are relevant only for timer instances
- *         supporting a break input.
- * @retval HAL status
- */
+  * @brief  Generate a software event
+  * @param  htim TIM handle
+  * @param  EventSource specifies the event source.
+  *          This parameter can be one of the following values:
+  *            @arg TIM_EVENTSOURCE_UPDATE: Timer update Event source
+  *            @arg TIM_EVENTSOURCE_CC1: Timer Capture Compare 1 Event source
+  *            @arg TIM_EVENTSOURCE_CC2: Timer Capture Compare 2 Event source
+  *            @arg TIM_EVENTSOURCE_CC3: Timer Capture Compare 3 Event source
+  *            @arg TIM_EVENTSOURCE_CC4: Timer Capture Compare 4 Event source
+  *            @arg TIM_EVENTSOURCE_COM: Timer COM event source
+  *            @arg TIM_EVENTSOURCE_TRIGGER: Timer Trigger Event source
+  *            @arg TIM_EVENTSOURCE_BREAK: Timer Break event source
+  * @note   Basic timers can only generate an update event.
+  * @note   TIM_EVENTSOURCE_COM is relevant only with advanced timer instances.
+  * @note   TIM_EVENTSOURCE_BREAK are relevant only for timer instances
+  *         supporting a break input.
+  * @retval HAL status
+  */
 
 HAL_StatusTypeDef HAL_TIM_GenerateEvent(TIM_HandleTypeDef * htim, uint32_t EventSource)
 {
@@ -4402,18 +4384,18 @@ HAL_StatusTypeDef HAL_TIM_GenerateEvent(TIM_HandleTypeDef * htim, uint32_t Event
 }
 
 /**
- * @brief  Configures the OCRef clear feature
- * @param  htim TIM handle
- * @param  sClearInputConfig pointer to a TIM_ClearInputConfigTypeDef structure that
- *         contains the OCREF clear feature and parameters for the TIM peripheral.
- * @param  Channel specifies the TIM Channel
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1
- *            @arg TIM_CHANNEL_2: TIM Channel 2
- *            @arg TIM_CHANNEL_3: TIM Channel 3
- *            @arg TIM_CHANNEL_4: TIM Channel 4
- * @retval HAL status
- */
+  * @brief  Configures the OCRef clear feature
+  * @param  htim TIM handle
+  * @param  sClearInputConfig pointer to a TIM_ClearInputConfigTypeDef structure that
+  *         contains the OCREF clear feature and parameters for the TIM peripheral.
+  * @param  Channel specifies the TIM Channel
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1
+  *            @arg TIM_CHANNEL_2: TIM Channel 2
+  *            @arg TIM_CHANNEL_3: TIM Channel 3
+  *            @arg TIM_CHANNEL_4: TIM Channel 4
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_ConfigOCrefClear(TIM_HandleTypeDef * htim,
                                            TIM_ClearInputConfigTypeDef * sClearInputConfig,
                                            uint32_t Channel)
@@ -4532,12 +4514,12 @@ HAL_StatusTypeDef HAL_TIM_ConfigOCrefClear(TIM_HandleTypeDef * htim,
 }
 
 /**
- * @brief   Configures the clock source to be used
- * @param  htim TIM handle
- * @param  sClockSourceConfig pointer to a TIM_ClockConfigTypeDef structure that
- *         contains the clock source information for the TIM peripheral.
- * @retval HAL status
- */
+  * @brief   Configures the clock source to be used
+  * @param  htim TIM handle
+  * @param  sClockSourceConfig pointer to a TIM_ClockConfigTypeDef structure that
+  *         contains the clock source information for the TIM peripheral.
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_ConfigClockSource(TIM_HandleTypeDef * htim,
                                             TIM_ClockConfigTypeDef * sClockSourceConfig)
 {
@@ -4567,8 +4549,7 @@ HAL_StatusTypeDef HAL_TIM_ConfigClockSource(TIM_HandleTypeDef * htim,
 
         case TIM_CLOCKSOURCE_ETRMODE1:
         {
-            /* Check whether or not the timer instance supports external trigger input mode 1
-             * (ETRF)*/
+            /* Check whether or not the timer instance supports external trigger input mode 1 (ETRF)*/
             assert_param(IS_TIM_CLOCKSOURCE_ETRMODE1_INSTANCE(htim->Instance));
 
             /* Check ETR input conditioning related parameters */
@@ -4590,8 +4571,7 @@ HAL_StatusTypeDef HAL_TIM_ConfigClockSource(TIM_HandleTypeDef * htim,
 
         case TIM_CLOCKSOURCE_ETRMODE2:
         {
-            /* Check whether or not the timer instance supports external trigger input mode 2
-             * (ETRF)*/
+            /* Check whether or not the timer instance supports external trigger input mode 2 (ETRF)*/
             assert_param(IS_TIM_CLOCKSOURCE_ETRMODE2_INSTANCE(htim->Instance));
 
             /* Check ETR input conditioning related parameters */
@@ -4675,17 +4655,17 @@ HAL_StatusTypeDef HAL_TIM_ConfigClockSource(TIM_HandleTypeDef * htim,
 }
 
 /**
- * @brief  Selects the signal connected to the TI1 input: direct from CH1_input
- *         or a XOR combination between CH1_input, CH2_input & CH3_input
- * @param  htim TIM handle.
- * @param  TI1_Selection Indicate whether or not channel 1 is connected to the
- *         output of a XOR gate.
- *          This parameter can be one of the following values:
- *            @arg TIM_TI1SELECTION_CH1: The TIMx_CH1 pin is connected to TI1 input
- *            @arg TIM_TI1SELECTION_XORCOMBINATION: The TIMx_CH1, CH2 and CH3
- *            pins are connected to the TI1 input (XOR combination)
- * @retval HAL status
- */
+  * @brief  Selects the signal connected to the TI1 input: direct from CH1_input
+  *         or a XOR combination between CH1_input, CH2_input & CH3_input
+  * @param  htim TIM handle.
+  * @param  TI1_Selection Indicate whether or not channel 1 is connected to the
+  *         output of a XOR gate.
+  *          This parameter can be one of the following values:
+  *            @arg TIM_TI1SELECTION_CH1: The TIMx_CH1 pin is connected to TI1 input
+  *            @arg TIM_TI1SELECTION_XORCOMBINATION: The TIMx_CH1, CH2 and CH3
+  *            pins are connected to the TI1 input (XOR combination)
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_ConfigTI1Input(TIM_HandleTypeDef * htim, uint32_t TI1_Selection)
 {
     uint32_t tmpcr2;
@@ -4710,14 +4690,14 @@ HAL_StatusTypeDef HAL_TIM_ConfigTI1Input(TIM_HandleTypeDef * htim, uint32_t TI1_
 }
 
 /**
- * @brief  Configures the TIM in Slave mode
- * @param  htim TIM handle.
- * @param  sSlaveConfig pointer to a TIM_SlaveConfigTypeDef structure that
- *         contains the selected trigger (internal trigger input, filtered
- *         timer input or external trigger input) and the Slave mode
- *         (Disable, Reset, Gated, Trigger, External clock mode 1).
- * @retval HAL status
- */
+  * @brief  Configures the TIM in Slave mode
+  * @param  htim TIM handle.
+  * @param  sSlaveConfig pointer to a TIM_SlaveConfigTypeDef structure that
+  *         contains the selected trigger (internal trigger input, filtered
+  *         timer input or external trigger input) and the Slave mode
+  *         (Disable, Reset, Gated, Trigger, External clock mode 1).
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_SlaveConfigSynchro(TIM_HandleTypeDef * htim,
                                              TIM_SlaveConfigTypeDef * sSlaveConfig)
 {
@@ -4751,14 +4731,14 @@ HAL_StatusTypeDef HAL_TIM_SlaveConfigSynchro(TIM_HandleTypeDef * htim,
 }
 
 /**
- * @brief  Configures the TIM in Slave mode in interrupt mode
- * @param  htim TIM handle.
- * @param  sSlaveConfig pointer to a TIM_SlaveConfigTypeDef structure that
- *         contains the selected trigger (internal trigger input, filtered
- *         timer input or external trigger input) and the Slave mode
- *         (Disable, Reset, Gated, Trigger, External clock mode 1).
- * @retval HAL status
- */
+  * @brief  Configures the TIM in Slave mode in interrupt mode
+  * @param  htim TIM handle.
+  * @param  sSlaveConfig pointer to a TIM_SlaveConfigTypeDef structure that
+  *         contains the selected trigger (internal trigger input, filtered
+  *         timer input or external trigger input) and the Slave mode
+  *         (Disable, Reset, Gated, Trigger, External clock mode 1).
+  * @retval HAL status
+  */
 HAL_StatusTypeDef HAL_TIM_SlaveConfigSynchro_IT(TIM_HandleTypeDef * htim,
                                                 TIM_SlaveConfigTypeDef * sSlaveConfig)
 {
@@ -4792,16 +4772,16 @@ HAL_StatusTypeDef HAL_TIM_SlaveConfigSynchro_IT(TIM_HandleTypeDef * htim,
 }
 
 /**
- * @brief  Read the captured value from Capture Compare unit
- * @param  htim TIM handle.
- * @param  Channel TIM Channels to be enabled
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
- *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
- *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
- *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
- * @retval Captured value
- */
+  * @brief  Read the captured value from Capture Compare unit
+  * @param  htim TIM handle.
+  * @param  Channel TIM Channels to be enabled
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
+  *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
+  * @retval Captured value
+  */
 uint32_t HAL_TIM_ReadCapturedValue(TIM_HandleTypeDef * htim, uint32_t Channel)
 {
     uint32_t tmpreg = 0U;
@@ -4859,8 +4839,8 @@ uint32_t HAL_TIM_ReadCapturedValue(TIM_HandleTypeDef * htim, uint32_t Channel)
 }
 
 /**
- * @}
- */
+  * @}
+  */
 
 /** @defgroup TIM_Exported_Functions_Group9 TIM Callbacks functions
  *  @brief    TIM Callbacks functions
@@ -4882,192 +4862,191 @@ uint32_t HAL_TIM_ReadCapturedValue(TIM_HandleTypeDef * htim, uint32_t Channel)
   */
 
 /**
- * @brief  Period elapsed callback in non-blocking mode
- * @param  htim TIM handle
- * @retval None
- */
+  * @brief  Period elapsed callback in non-blocking mode
+  * @param  htim TIM handle
+  * @retval None
+  */
 __weak void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim)
 {
     /* Prevent unused argument(s) compilation warning */
     UNUSED(htim);
 
     /* NOTE : This function should not be modified, when the callback is needed,
-              the HAL_TIM_PeriodElapsedCallback could be implemented in the user file
-     */
+            the HAL_TIM_PeriodElapsedCallback could be implemented in the user file
+   */
 }
 
 /**
- * @brief  Period elapsed half complete callback in non-blocking mode
- * @param  htim TIM handle
- * @retval None
- */
+  * @brief  Period elapsed half complete callback in non-blocking mode
+  * @param  htim TIM handle
+  * @retval None
+  */
 __weak void HAL_TIM_PeriodElapsedHalfCpltCallback(TIM_HandleTypeDef * htim)
 {
     /* Prevent unused argument(s) compilation warning */
     UNUSED(htim);
 
     /* NOTE : This function should not be modified, when the callback is needed,
-              the HAL_TIM_PeriodElapsedHalfCpltCallback could be implemented in the user file
-     */
+            the HAL_TIM_PeriodElapsedHalfCpltCallback could be implemented in the user file
+   */
 }
 
 /**
- * @brief  Output Compare callback in non-blocking mode
- * @param  htim TIM OC handle
- * @retval None
- */
+  * @brief  Output Compare callback in non-blocking mode
+  * @param  htim TIM OC handle
+  * @retval None
+  */
 __weak void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef * htim)
 {
     /* Prevent unused argument(s) compilation warning */
     UNUSED(htim);
 
     /* NOTE : This function should not be modified, when the callback is needed,
-              the HAL_TIM_OC_DelayElapsedCallback could be implemented in the user file
-     */
+            the HAL_TIM_OC_DelayElapsedCallback could be implemented in the user file
+   */
 }
 
 /**
- * @brief  Input Capture callback in non-blocking mode
- * @param  htim TIM IC handle
- * @retval None
- */
+  * @brief  Input Capture callback in non-blocking mode
+  * @param  htim TIM IC handle
+  * @retval None
+  */
 __weak void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef * htim)
 {
     /* Prevent unused argument(s) compilation warning */
     UNUSED(htim);
 
     /* NOTE : This function should not be modified, when the callback is needed,
-              the HAL_TIM_IC_CaptureCallback could be implemented in the user file
-     */
+            the HAL_TIM_IC_CaptureCallback could be implemented in the user file
+   */
 }
 
 /**
- * @brief  Input Capture half complete callback in non-blocking mode
- * @param  htim TIM IC handle
- * @retval None
- */
+  * @brief  Input Capture half complete callback in non-blocking mode
+  * @param  htim TIM IC handle
+  * @retval None
+  */
 __weak void HAL_TIM_IC_CaptureHalfCpltCallback(TIM_HandleTypeDef * htim)
 {
     /* Prevent unused argument(s) compilation warning */
     UNUSED(htim);
 
     /* NOTE : This function should not be modified, when the callback is needed,
-              the HAL_TIM_IC_CaptureHalfCpltCallback could be implemented in the user file
-     */
+            the HAL_TIM_IC_CaptureHalfCpltCallback could be implemented in the user file
+   */
 }
 
 /**
- * @brief  PWM Pulse finished callback in non-blocking mode
- * @param  htim TIM handle
- * @retval None
- */
+  * @brief  PWM Pulse finished callback in non-blocking mode
+  * @param  htim TIM handle
+  * @retval None
+  */
 __weak void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef * htim)
 {
     /* Prevent unused argument(s) compilation warning */
     UNUSED(htim);
 
     /* NOTE : This function should not be modified, when the callback is needed,
-              the HAL_TIM_PWM_PulseFinishedCallback could be implemented in the user file
-     */
+            the HAL_TIM_PWM_PulseFinishedCallback could be implemented in the user file
+   */
 }
 
 /**
- * @brief  PWM Pulse finished half complete callback in non-blocking mode
- * @param  htim TIM handle
- * @retval None
- */
+  * @brief  PWM Pulse finished half complete callback in non-blocking mode
+  * @param  htim TIM handle
+  * @retval None
+  */
 __weak void HAL_TIM_PWM_PulseFinishedHalfCpltCallback(TIM_HandleTypeDef * htim)
 {
     /* Prevent unused argument(s) compilation warning */
     UNUSED(htim);
 
     /* NOTE : This function should not be modified, when the callback is needed,
-              the HAL_TIM_PWM_PulseFinishedHalfCpltCallback could be implemented in the user file
-     */
+            the HAL_TIM_PWM_PulseFinishedHalfCpltCallback could be implemented in the user file
+   */
 }
 
 /**
- * @brief  Hall Trigger detection callback in non-blocking mode
- * @param  htim TIM handle
- * @retval None
- */
+  * @brief  Hall Trigger detection callback in non-blocking mode
+  * @param  htim TIM handle
+  * @retval None
+  */
 __weak void HAL_TIM_TriggerCallback(TIM_HandleTypeDef * htim)
 {
     /* Prevent unused argument(s) compilation warning */
     UNUSED(htim);
 
     /* NOTE : This function should not be modified, when the callback is needed,
-              the HAL_TIM_TriggerCallback could be implemented in the user file
-     */
+            the HAL_TIM_TriggerCallback could be implemented in the user file
+   */
 }
 
 /**
- * @brief  Hall Trigger detection half complete callback in non-blocking mode
- * @param  htim TIM handle
- * @retval None
- */
+  * @brief  Hall Trigger detection half complete callback in non-blocking mode
+  * @param  htim TIM handle
+  * @retval None
+  */
 __weak void HAL_TIM_TriggerHalfCpltCallback(TIM_HandleTypeDef * htim)
 {
     /* Prevent unused argument(s) compilation warning */
     UNUSED(htim);
 
     /* NOTE : This function should not be modified, when the callback is needed,
-              the HAL_TIM_TriggerHalfCpltCallback could be implemented in the user file
-     */
+            the HAL_TIM_TriggerHalfCpltCallback could be implemented in the user file
+   */
 }
 
 /**
- * @brief  Timer error callback in non-blocking mode
- * @param  htim TIM handle
- * @retval None
- */
+  * @brief  Timer error callback in non-blocking mode
+  * @param  htim TIM handle
+  * @retval None
+  */
 __weak void HAL_TIM_ErrorCallback(TIM_HandleTypeDef * htim)
 {
     /* Prevent unused argument(s) compilation warning */
     UNUSED(htim);
 
     /* NOTE : This function should not be modified, when the callback is needed,
-              the HAL_TIM_ErrorCallback could be implemented in the user file
-     */
+            the HAL_TIM_ErrorCallback could be implemented in the user file
+   */
 }
 
 #if(USE_HAL_TIM_REGISTER_CALLBACKS == 1)
 /**
- * @brief  Register a User TIM callback to be used instead of the weak predefined callback
- * @param htim tim handle
- * @param CallbackID ID of the callback to be registered
- *        This parameter can be one of the following values:
- *          @arg @ref HAL_TIM_BASE_MSPINIT_CB_ID Base MspInit Callback ID
- *          @arg @ref HAL_TIM_BASE_MSPDEINIT_CB_ID Base MspDeInit Callback ID
- *          @arg @ref HAL_TIM_IC_MSPINIT_CB_ID IC MspInit Callback ID
- *          @arg @ref HAL_TIM_IC_MSPDEINIT_CB_ID IC MspDeInit Callback ID
- *          @arg @ref HAL_TIM_OC_MSPINIT_CB_ID OC MspInit Callback ID
- *          @arg @ref HAL_TIM_OC_MSPDEINIT_CB_ID OC MspDeInit Callback ID
- *          @arg @ref HAL_TIM_PWM_MSPINIT_CB_ID PWM MspInit Callback ID
- *          @arg @ref HAL_TIM_PWM_MSPDEINIT_CB_ID PWM MspDeInit Callback ID
- *          @arg @ref HAL_TIM_ONE_PULSE_MSPINIT_CB_ID One Pulse MspInit Callback ID
- *          @arg @ref HAL_TIM_ONE_PULSE_MSPDEINIT_CB_ID One Pulse MspDeInit Callback ID
- *          @arg @ref HAL_TIM_ENCODER_MSPINIT_CB_ID Encoder MspInit Callback ID
- *          @arg @ref HAL_TIM_ENCODER_MSPDEINIT_CB_ID Encoder MspDeInit Callback ID
- *          @arg @ref HAL_TIM_HALL_SENSOR_MSPINIT_CB_ID Hall Sensor MspInit Callback ID
- *          @arg @ref HAL_TIM_HALL_SENSOR_MSPDEINIT_CB_ID Hall Sensor MspDeInit Callback ID
- *          @arg @ref HAL_TIM_PERIOD_ELAPSED_CB_ID Period Elapsed Callback ID
- *          @arg @ref HAL_TIM_PERIOD_ELAPSED_HALF_CB_ID Period Elapsed half complete Callback ID
- *          @arg @ref HAL_TIM_TRIGGER_CB_ID Trigger Callback ID
- *          @arg @ref HAL_TIM_TRIGGER_HALF_CB_ID Trigger half complete Callback ID
- *          @arg @ref HAL_TIM_IC_CAPTURE_CB_ID Input Capture Callback ID
- *          @arg @ref HAL_TIM_IC_CAPTURE_HALF_CB_ID Input Capture half complete Callback ID
- *          @arg @ref HAL_TIM_OC_DELAY_ELAPSED_CB_ID Output Compare Delay Elapsed Callback ID
- *          @arg @ref HAL_TIM_PWM_PULSE_FINISHED_CB_ID PWM Pulse Finished Callback ID
- *          @arg @ref HAL_TIM_PWM_PULSE_FINISHED_HALF_CB_ID PWM Pulse Finished half complete
- * Callback ID
- *          @arg @ref HAL_TIM_ERROR_CB_ID Error Callback ID
- *          @arg @ref HAL_TIM_COMMUTATION_CB_ID Commutation Callback ID
- *          @arg @ref HAL_TIM_COMMUTATION_HALF_CB_ID Commutation half complete Callback ID
- *          @arg @ref HAL_TIM_BREAK_CB_ID Break Callback ID
- *          @param pCallback pointer to the callback function
- *          @retval status
- */
+  * @brief  Register a User TIM callback to be used instead of the weak predefined callback
+  * @param htim tim handle
+  * @param CallbackID ID of the callback to be registered
+  *        This parameter can be one of the following values:
+  *          @arg @ref HAL_TIM_BASE_MSPINIT_CB_ID Base MspInit Callback ID
+  *          @arg @ref HAL_TIM_BASE_MSPDEINIT_CB_ID Base MspDeInit Callback ID
+  *          @arg @ref HAL_TIM_IC_MSPINIT_CB_ID IC MspInit Callback ID
+  *          @arg @ref HAL_TIM_IC_MSPDEINIT_CB_ID IC MspDeInit Callback ID
+  *          @arg @ref HAL_TIM_OC_MSPINIT_CB_ID OC MspInit Callback ID
+  *          @arg @ref HAL_TIM_OC_MSPDEINIT_CB_ID OC MspDeInit Callback ID
+  *          @arg @ref HAL_TIM_PWM_MSPINIT_CB_ID PWM MspInit Callback ID
+  *          @arg @ref HAL_TIM_PWM_MSPDEINIT_CB_ID PWM MspDeInit Callback ID
+  *          @arg @ref HAL_TIM_ONE_PULSE_MSPINIT_CB_ID One Pulse MspInit Callback ID
+  *          @arg @ref HAL_TIM_ONE_PULSE_MSPDEINIT_CB_ID One Pulse MspDeInit Callback ID
+  *          @arg @ref HAL_TIM_ENCODER_MSPINIT_CB_ID Encoder MspInit Callback ID
+  *          @arg @ref HAL_TIM_ENCODER_MSPDEINIT_CB_ID Encoder MspDeInit Callback ID
+  *          @arg @ref HAL_TIM_HALL_SENSOR_MSPINIT_CB_ID Hall Sensor MspInit Callback ID
+  *          @arg @ref HAL_TIM_HALL_SENSOR_MSPDEINIT_CB_ID Hall Sensor MspDeInit Callback ID
+  *          @arg @ref HAL_TIM_PERIOD_ELAPSED_CB_ID Period Elapsed Callback ID
+  *          @arg @ref HAL_TIM_PERIOD_ELAPSED_HALF_CB_ID Period Elapsed half complete Callback ID
+  *          @arg @ref HAL_TIM_TRIGGER_CB_ID Trigger Callback ID
+  *          @arg @ref HAL_TIM_TRIGGER_HALF_CB_ID Trigger half complete Callback ID
+  *          @arg @ref HAL_TIM_IC_CAPTURE_CB_ID Input Capture Callback ID
+  *          @arg @ref HAL_TIM_IC_CAPTURE_HALF_CB_ID Input Capture half complete Callback ID
+  *          @arg @ref HAL_TIM_OC_DELAY_ELAPSED_CB_ID Output Compare Delay Elapsed Callback ID
+  *          @arg @ref HAL_TIM_PWM_PULSE_FINISHED_CB_ID PWM Pulse Finished Callback ID
+  *          @arg @ref HAL_TIM_PWM_PULSE_FINISHED_HALF_CB_ID PWM Pulse Finished half complete Callback ID
+  *          @arg @ref HAL_TIM_ERROR_CB_ID Error Callback ID
+  *          @arg @ref HAL_TIM_COMMUTATION_CB_ID Commutation Callback ID
+  *          @arg @ref HAL_TIM_COMMUTATION_HALF_CB_ID Commutation half complete Callback ID
+  *          @arg @ref HAL_TIM_BREAK_CB_ID Break Callback ID
+  *          @param pCallback pointer to the callback function
+  *          @retval status
+  */
 HAL_StatusTypeDef HAL_TIM_RegisterCallback(TIM_HandleTypeDef * htim,
                                            HAL_TIM_CallbackIDTypeDef CallbackID,
                                            pTIM_CallbackTypeDef pCallback)
@@ -5278,41 +5257,40 @@ HAL_StatusTypeDef HAL_TIM_RegisterCallback(TIM_HandleTypeDef * htim,
 }
 
 /**
- * @brief  Unregister a TIM callback
- *         TIM callback is redirected to the weak predefined callback
- * @param htim tim handle
- * @param CallbackID ID of the callback to be unregistered
- *        This parameter can be one of the following values:
- *          @arg @ref HAL_TIM_BASE_MSPINIT_CB_ID Base MspInit Callback ID
- *          @arg @ref HAL_TIM_BASE_MSPDEINIT_CB_ID Base MspDeInit Callback ID
- *          @arg @ref HAL_TIM_IC_MSPINIT_CB_ID IC MspInit Callback ID
- *          @arg @ref HAL_TIM_IC_MSPDEINIT_CB_ID IC MspDeInit Callback ID
- *          @arg @ref HAL_TIM_OC_MSPINIT_CB_ID OC MspInit Callback ID
- *          @arg @ref HAL_TIM_OC_MSPDEINIT_CB_ID OC MspDeInit Callback ID
- *          @arg @ref HAL_TIM_PWM_MSPINIT_CB_ID PWM MspInit Callback ID
- *          @arg @ref HAL_TIM_PWM_MSPDEINIT_CB_ID PWM MspDeInit Callback ID
- *          @arg @ref HAL_TIM_ONE_PULSE_MSPINIT_CB_ID One Pulse MspInit Callback ID
- *          @arg @ref HAL_TIM_ONE_PULSE_MSPDEINIT_CB_ID One Pulse MspDeInit Callback ID
- *          @arg @ref HAL_TIM_ENCODER_MSPINIT_CB_ID Encoder MspInit Callback ID
- *          @arg @ref HAL_TIM_ENCODER_MSPDEINIT_CB_ID Encoder MspDeInit Callback ID
- *          @arg @ref HAL_TIM_HALL_SENSOR_MSPINIT_CB_ID Hall Sensor MspInit Callback ID
- *          @arg @ref HAL_TIM_HALL_SENSOR_MSPDEINIT_CB_ID Hall Sensor MspDeInit Callback ID
- *          @arg @ref HAL_TIM_PERIOD_ELAPSED_CB_ID Period Elapsed Callback ID
- *          @arg @ref HAL_TIM_PERIOD_ELAPSED_HALF_CB_ID Period Elapsed half complete Callback ID
- *          @arg @ref HAL_TIM_TRIGGER_CB_ID Trigger Callback ID
- *          @arg @ref HAL_TIM_TRIGGER_HALF_CB_ID Trigger half complete Callback ID
- *          @arg @ref HAL_TIM_IC_CAPTURE_CB_ID Input Capture Callback ID
- *          @arg @ref HAL_TIM_IC_CAPTURE_HALF_CB_ID Input Capture half complete Callback ID
- *          @arg @ref HAL_TIM_OC_DELAY_ELAPSED_CB_ID Output Compare Delay Elapsed Callback ID
- *          @arg @ref HAL_TIM_PWM_PULSE_FINISHED_CB_ID PWM Pulse Finished Callback ID
- *          @arg @ref HAL_TIM_PWM_PULSE_FINISHED_HALF_CB_ID PWM Pulse Finished half complete
- * Callback ID
- *          @arg @ref HAL_TIM_ERROR_CB_ID Error Callback ID
- *          @arg @ref HAL_TIM_COMMUTATION_CB_ID Commutation Callback ID
- *          @arg @ref HAL_TIM_COMMUTATION_HALF_CB_ID Commutation half complete Callback ID
- *          @arg @ref HAL_TIM_BREAK_CB_ID Break Callback ID
- *          @retval status
- */
+  * @brief  Unregister a TIM callback
+  *         TIM callback is redirected to the weak predefined callback
+  * @param htim tim handle
+  * @param CallbackID ID of the callback to be unregistered
+  *        This parameter can be one of the following values:
+  *          @arg @ref HAL_TIM_BASE_MSPINIT_CB_ID Base MspInit Callback ID
+  *          @arg @ref HAL_TIM_BASE_MSPDEINIT_CB_ID Base MspDeInit Callback ID
+  *          @arg @ref HAL_TIM_IC_MSPINIT_CB_ID IC MspInit Callback ID
+  *          @arg @ref HAL_TIM_IC_MSPDEINIT_CB_ID IC MspDeInit Callback ID
+  *          @arg @ref HAL_TIM_OC_MSPINIT_CB_ID OC MspInit Callback ID
+  *          @arg @ref HAL_TIM_OC_MSPDEINIT_CB_ID OC MspDeInit Callback ID
+  *          @arg @ref HAL_TIM_PWM_MSPINIT_CB_ID PWM MspInit Callback ID
+  *          @arg @ref HAL_TIM_PWM_MSPDEINIT_CB_ID PWM MspDeInit Callback ID
+  *          @arg @ref HAL_TIM_ONE_PULSE_MSPINIT_CB_ID One Pulse MspInit Callback ID
+  *          @arg @ref HAL_TIM_ONE_PULSE_MSPDEINIT_CB_ID One Pulse MspDeInit Callback ID
+  *          @arg @ref HAL_TIM_ENCODER_MSPINIT_CB_ID Encoder MspInit Callback ID
+  *          @arg @ref HAL_TIM_ENCODER_MSPDEINIT_CB_ID Encoder MspDeInit Callback ID
+  *          @arg @ref HAL_TIM_HALL_SENSOR_MSPINIT_CB_ID Hall Sensor MspInit Callback ID
+  *          @arg @ref HAL_TIM_HALL_SENSOR_MSPDEINIT_CB_ID Hall Sensor MspDeInit Callback ID
+  *          @arg @ref HAL_TIM_PERIOD_ELAPSED_CB_ID Period Elapsed Callback ID
+  *          @arg @ref HAL_TIM_PERIOD_ELAPSED_HALF_CB_ID Period Elapsed half complete Callback ID
+  *          @arg @ref HAL_TIM_TRIGGER_CB_ID Trigger Callback ID
+  *          @arg @ref HAL_TIM_TRIGGER_HALF_CB_ID Trigger half complete Callback ID
+  *          @arg @ref HAL_TIM_IC_CAPTURE_CB_ID Input Capture Callback ID
+  *          @arg @ref HAL_TIM_IC_CAPTURE_HALF_CB_ID Input Capture half complete Callback ID
+  *          @arg @ref HAL_TIM_OC_DELAY_ELAPSED_CB_ID Output Compare Delay Elapsed Callback ID
+  *          @arg @ref HAL_TIM_PWM_PULSE_FINISHED_CB_ID PWM Pulse Finished Callback ID
+  *          @arg @ref HAL_TIM_PWM_PULSE_FINISHED_HALF_CB_ID PWM Pulse Finished half complete Callback ID
+  *          @arg @ref HAL_TIM_ERROR_CB_ID Error Callback ID
+  *          @arg @ref HAL_TIM_COMMUTATION_CB_ID Commutation Callback ID
+  *          @arg @ref HAL_TIM_COMMUTATION_HALF_CB_ID Commutation half complete Callback ID
+  *          @arg @ref HAL_TIM_BREAK_CB_ID Break Callback ID
+  *          @retval status
+  */
 HAL_StatusTypeDef HAL_TIM_UnRegisterCallback(TIM_HandleTypeDef * htim,
                                              HAL_TIM_CallbackIDTypeDef CallbackID)
 {
@@ -5387,14 +5365,12 @@ HAL_StatusTypeDef HAL_TIM_UnRegisterCallback(TIM_HandleTypeDef * htim,
 
             case HAL_TIM_HALL_SENSOR_MSPINIT_CB_ID:
                 htim->HallSensor_MspInitCallback =
-                        HAL_TIMEx_HallSensor_MspInit; /* Legacy weak Hall Sensor Msp Init Callback
-                                                       */
+                        HAL_TIMEx_HallSensor_MspInit; /* Legacy weak Hall Sensor Msp Init Callback */
                 break;
 
             case HAL_TIM_HALL_SENSOR_MSPDEINIT_CB_ID:
                 htim->HallSensor_MspDeInitCallback =
-                        HAL_TIMEx_HallSensor_MspDeInit; /* Legacy weak Hall Sensor Msp DeInit
-                                                           Callback */
+                        HAL_TIMEx_HallSensor_MspDeInit; /* Legacy weak Hall Sensor Msp DeInit Callback */
                 break;
 
             case HAL_TIM_PERIOD_ELAPSED_CB_ID:
@@ -5404,8 +5380,7 @@ HAL_StatusTypeDef HAL_TIM_UnRegisterCallback(TIM_HandleTypeDef * htim,
 
             case HAL_TIM_PERIOD_ELAPSED_HALF_CB_ID:
                 htim->PeriodElapsedHalfCpltCallback =
-                        HAL_TIM_PeriodElapsedHalfCpltCallback; /* Legacy weak Period Elapsed half
-                                                                  complete Callback */
+                        HAL_TIM_PeriodElapsedHalfCpltCallback; /* Legacy weak Period Elapsed half complete Callback */
                 break;
 
             case HAL_TIM_TRIGGER_CB_ID:
@@ -5414,8 +5389,7 @@ HAL_StatusTypeDef HAL_TIM_UnRegisterCallback(TIM_HandleTypeDef * htim,
 
             case HAL_TIM_TRIGGER_HALF_CB_ID:
                 htim->TriggerHalfCpltCallback =
-                        HAL_TIM_TriggerHalfCpltCallback; /* Legacy weak Trigger half complete
-                                                            Callback */
+                        HAL_TIM_TriggerHalfCpltCallback; /* Legacy weak Trigger half complete Callback */
                 break;
 
             case HAL_TIM_IC_CAPTURE_CB_ID:
@@ -5425,8 +5399,7 @@ HAL_StatusTypeDef HAL_TIM_UnRegisterCallback(TIM_HandleTypeDef * htim,
 
             case HAL_TIM_IC_CAPTURE_HALF_CB_ID:
                 htim->IC_CaptureHalfCpltCallback =
-                        HAL_TIM_IC_CaptureHalfCpltCallback; /* Legacy weak IC Capture half complete
-                                                               Callback */
+                        HAL_TIM_IC_CaptureHalfCpltCallback; /* Legacy weak IC Capture half complete Callback */
                 break;
 
             case HAL_TIM_OC_DELAY_ELAPSED_CB_ID:
@@ -5436,14 +5409,12 @@ HAL_StatusTypeDef HAL_TIM_UnRegisterCallback(TIM_HandleTypeDef * htim,
 
             case HAL_TIM_PWM_PULSE_FINISHED_CB_ID:
                 htim->PWM_PulseFinishedCallback =
-                        HAL_TIM_PWM_PulseFinishedCallback; /* Legacy weak PWM Pulse Finished
-                                                              Callback */
+                        HAL_TIM_PWM_PulseFinishedCallback; /* Legacy weak PWM Pulse Finished Callback */
                 break;
 
             case HAL_TIM_PWM_PULSE_FINISHED_HALF_CB_ID:
                 htim->PWM_PulseFinishedHalfCpltCallback =
-                        HAL_TIM_PWM_PulseFinishedHalfCpltCallback; /* Legacy weak PWM Pulse Finished
-                                                                      half complete Callback */
+                        HAL_TIM_PWM_PulseFinishedHalfCpltCallback; /* Legacy weak PWM Pulse Finished half complete Callback */
                 break;
 
             case HAL_TIM_ERROR_CB_ID:
@@ -5457,8 +5428,7 @@ HAL_StatusTypeDef HAL_TIM_UnRegisterCallback(TIM_HandleTypeDef * htim,
 
             case HAL_TIM_COMMUTATION_HALF_CB_ID:
                 htim->CommutationHalfCpltCallback =
-                        HAL_TIMEx_CommutHalfCpltCallback; /* Legacy weak Commutation half complete
-                                                             Callback */
+                        HAL_TIMEx_CommutHalfCpltCallback; /* Legacy weak Commutation half complete Callback */
                 break;
 
             case HAL_TIM_BREAK_CB_ID:
@@ -5537,14 +5507,12 @@ HAL_StatusTypeDef HAL_TIM_UnRegisterCallback(TIM_HandleTypeDef * htim,
 
             case HAL_TIM_HALL_SENSOR_MSPINIT_CB_ID:
                 htim->HallSensor_MspInitCallback =
-                        HAL_TIMEx_HallSensor_MspInit; /* Legacy weak Hall Sensor Msp Init Callback
-                                                       */
+                        HAL_TIMEx_HallSensor_MspInit; /* Legacy weak Hall Sensor Msp Init Callback */
                 break;
 
             case HAL_TIM_HALL_SENSOR_MSPDEINIT_CB_ID:
                 htim->HallSensor_MspDeInitCallback =
-                        HAL_TIMEx_HallSensor_MspDeInit; /* Legacy weak Hall Sensor Msp DeInit
-                                                           Callback */
+                        HAL_TIMEx_HallSensor_MspDeInit; /* Legacy weak Hall Sensor Msp DeInit Callback */
                 break;
 
             default:
@@ -5567,8 +5535,8 @@ HAL_StatusTypeDef HAL_TIM_UnRegisterCallback(TIM_HandleTypeDef * htim,
 #endif /* USE_HAL_TIM_REGISTER_CALLBACKS */
 
 /**
- * @}
- */
+  * @}
+  */
 
 /** @defgroup TIM_Exported_Functions_Group10 TIM Peripheral State functions
  *  @brief   TIM Peripheral State functions
@@ -5586,82 +5554,82 @@ HAL_StatusTypeDef HAL_TIM_UnRegisterCallback(TIM_HandleTypeDef * htim,
   */
 
 /**
- * @brief  Return the TIM Base handle state.
- * @param  htim TIM Base handle
- * @retval HAL state
- */
+  * @brief  Return the TIM Base handle state.
+  * @param  htim TIM Base handle
+  * @retval HAL state
+  */
 HAL_TIM_StateTypeDef HAL_TIM_Base_GetState(TIM_HandleTypeDef * htim)
 {
     return htim->State;
 }
 
 /**
- * @brief  Return the TIM OC handle state.
- * @param  htim TIM Output Compare handle
- * @retval HAL state
- */
+  * @brief  Return the TIM OC handle state.
+  * @param  htim TIM Output Compare handle
+  * @retval HAL state
+  */
 HAL_TIM_StateTypeDef HAL_TIM_OC_GetState(TIM_HandleTypeDef * htim)
 {
     return htim->State;
 }
 
 /**
- * @brief  Return the TIM PWM handle state.
- * @param  htim TIM handle
- * @retval HAL state
- */
+  * @brief  Return the TIM PWM handle state.
+  * @param  htim TIM handle
+  * @retval HAL state
+  */
 HAL_TIM_StateTypeDef HAL_TIM_PWM_GetState(TIM_HandleTypeDef * htim)
 {
     return htim->State;
 }
 
 /**
- * @brief  Return the TIM Input Capture handle state.
- * @param  htim TIM IC handle
- * @retval HAL state
- */
+  * @brief  Return the TIM Input Capture handle state.
+  * @param  htim TIM IC handle
+  * @retval HAL state
+  */
 HAL_TIM_StateTypeDef HAL_TIM_IC_GetState(TIM_HandleTypeDef * htim)
 {
     return htim->State;
 }
 
 /**
- * @brief  Return the TIM One Pulse Mode handle state.
- * @param  htim TIM OPM handle
- * @retval HAL state
- */
+  * @brief  Return the TIM One Pulse Mode handle state.
+  * @param  htim TIM OPM handle
+  * @retval HAL state
+  */
 HAL_TIM_StateTypeDef HAL_TIM_OnePulse_GetState(TIM_HandleTypeDef * htim)
 {
     return htim->State;
 }
 
 /**
- * @brief  Return the TIM Encoder Mode handle state.
- * @param  htim TIM Encoder Interface handle
- * @retval HAL state
- */
+  * @brief  Return the TIM Encoder Mode handle state.
+  * @param  htim TIM Encoder Interface handle
+  * @retval HAL state
+  */
 HAL_TIM_StateTypeDef HAL_TIM_Encoder_GetState(TIM_HandleTypeDef * htim)
 {
     return htim->State;
 }
 
 /**
- * @}
- */
+  * @}
+  */
 
 /**
- * @}
- */
+  * @}
+  */
 
 /** @defgroup TIM_Private_Functions TIM Private Functions
- * @{
- */
+  * @{
+  */
 
 /**
- * @brief  TIM DMA error callback
- * @param  hdma pointer to DMA handle.
- * @retval None
- */
+  * @brief  TIM DMA error callback
+  * @param  hdma pointer to DMA handle.
+  * @retval None
+  */
 void TIM_DMAError(DMA_HandleTypeDef * hdma)
 {
     TIM_HandleTypeDef * htim = (TIM_HandleTypeDef *)((DMA_HandleTypeDef *)hdma)->Parent;
@@ -5676,10 +5644,10 @@ void TIM_DMAError(DMA_HandleTypeDef * hdma)
 }
 
 /**
- * @brief  TIM DMA Delay Pulse complete callback.
- * @param  hdma pointer to DMA handle.
- * @retval None
- */
+  * @brief  TIM DMA Delay Pulse complete callback.
+  * @param  hdma pointer to DMA handle.
+  * @retval None
+  */
 void TIM_DMADelayPulseCplt(DMA_HandleTypeDef * hdma)
 {
     TIM_HandleTypeDef * htim = (TIM_HandleTypeDef *)((DMA_HandleTypeDef *)hdma)->Parent;
@@ -5717,10 +5685,10 @@ void TIM_DMADelayPulseCplt(DMA_HandleTypeDef * hdma)
 }
 
 /**
- * @brief  TIM DMA Delay Pulse half complete callback.
- * @param  hdma pointer to DMA handle.
- * @retval None
- */
+  * @brief  TIM DMA Delay Pulse half complete callback.
+  * @param  hdma pointer to DMA handle.
+  * @retval None
+  */
 void TIM_DMADelayPulseHalfCplt(DMA_HandleTypeDef * hdma)
 {
     TIM_HandleTypeDef * htim = (TIM_HandleTypeDef *)((DMA_HandleTypeDef *)hdma)->Parent;
@@ -5758,10 +5726,10 @@ void TIM_DMADelayPulseHalfCplt(DMA_HandleTypeDef * hdma)
 }
 
 /**
- * @brief  TIM DMA Capture complete callback.
- * @param  hdma pointer to DMA handle.
- * @retval None
- */
+  * @brief  TIM DMA Capture complete callback.
+  * @param  hdma pointer to DMA handle.
+  * @retval None
+  */
 void TIM_DMACaptureCplt(DMA_HandleTypeDef * hdma)
 {
     TIM_HandleTypeDef * htim = (TIM_HandleTypeDef *)((DMA_HandleTypeDef *)hdma)->Parent;
@@ -5799,10 +5767,10 @@ void TIM_DMACaptureCplt(DMA_HandleTypeDef * hdma)
 }
 
 /**
- * @brief  TIM DMA Capture half complete callback.
- * @param  hdma pointer to DMA handle.
- * @retval None
- */
+  * @brief  TIM DMA Capture half complete callback.
+  * @param  hdma pointer to DMA handle.
+  * @retval None
+  */
 void TIM_DMACaptureHalfCplt(DMA_HandleTypeDef * hdma)
 {
     TIM_HandleTypeDef * htim = (TIM_HandleTypeDef *)((DMA_HandleTypeDef *)hdma)->Parent;
@@ -5840,10 +5808,10 @@ void TIM_DMACaptureHalfCplt(DMA_HandleTypeDef * hdma)
 }
 
 /**
- * @brief  TIM DMA Period Elapse complete callback.
- * @param  hdma pointer to DMA handle.
- * @retval None
- */
+  * @brief  TIM DMA Period Elapse complete callback.
+  * @param  hdma pointer to DMA handle.
+  * @retval None
+  */
 static void TIM_DMAPeriodElapsedCplt(DMA_HandleTypeDef * hdma)
 {
     TIM_HandleTypeDef * htim = (TIM_HandleTypeDef *)((DMA_HandleTypeDef *)hdma)->Parent;
@@ -5858,10 +5826,10 @@ static void TIM_DMAPeriodElapsedCplt(DMA_HandleTypeDef * hdma)
 }
 
 /**
- * @brief  TIM DMA Period Elapse half complete callback.
- * @param  hdma pointer to DMA handle.
- * @retval None
- */
+  * @brief  TIM DMA Period Elapse half complete callback.
+  * @param  hdma pointer to DMA handle.
+  * @retval None
+  */
 static void TIM_DMAPeriodElapsedHalfCplt(DMA_HandleTypeDef * hdma)
 {
     TIM_HandleTypeDef * htim = (TIM_HandleTypeDef *)((DMA_HandleTypeDef *)hdma)->Parent;
@@ -5876,10 +5844,10 @@ static void TIM_DMAPeriodElapsedHalfCplt(DMA_HandleTypeDef * hdma)
 }
 
 /**
- * @brief  TIM DMA Trigger callback.
- * @param  hdma pointer to DMA handle.
- * @retval None
- */
+  * @brief  TIM DMA Trigger callback.
+  * @param  hdma pointer to DMA handle.
+  * @retval None
+  */
 static void TIM_DMATriggerCplt(DMA_HandleTypeDef * hdma)
 {
     TIM_HandleTypeDef * htim = (TIM_HandleTypeDef *)((DMA_HandleTypeDef *)hdma)->Parent;
@@ -5894,10 +5862,10 @@ static void TIM_DMATriggerCplt(DMA_HandleTypeDef * hdma)
 }
 
 /**
- * @brief  TIM DMA Trigger half complete callback.
- * @param  hdma pointer to DMA handle.
- * @retval None
- */
+  * @brief  TIM DMA Trigger half complete callback.
+  * @param  hdma pointer to DMA handle.
+  * @retval None
+  */
 static void TIM_DMATriggerHalfCplt(DMA_HandleTypeDef * hdma)
 {
     TIM_HandleTypeDef * htim = (TIM_HandleTypeDef *)((DMA_HandleTypeDef *)hdma)->Parent;
@@ -5912,11 +5880,11 @@ static void TIM_DMATriggerHalfCplt(DMA_HandleTypeDef * hdma)
 }
 
 /**
- * @brief  Time Base configuration
- * @param  TIMx TIM peripheral
- * @param  Structure TIM Base configuration structure
- * @retval None
- */
+  * @brief  Time Base configuration
+  * @param  TIMx TIM peripheral
+  * @param  Structure TIM Base configuration structure
+  * @retval None
+  */
 void TIM_Base_SetConfig(TIM_TypeDef * TIMx, TIM_Base_InitTypeDef * Structure)
 {
     uint32_t tmpcr1;
@@ -5955,16 +5923,16 @@ void TIM_Base_SetConfig(TIM_TypeDef * TIMx, TIM_Base_InitTypeDef * Structure)
     }
 
     /* Generate an update event to reload the Prescaler
-       and the repetition counter (only for advanced timer) value immediately */
+     and the repetition counter (only for advanced timer) value immediately */
     TIMx->EGR = TIM_EGR_UG;
 }
 
 /**
- * @brief  Timer Output Compare 1 configuration
- * @param  TIMx to select the TIM peripheral
- * @param  OC_Config The ouput configuration structure
- * @retval None
- */
+  * @brief  Timer Output Compare 1 configuration
+  * @param  TIMx to select the TIM peripheral
+  * @param  OC_Config The ouput configuration structure
+  * @retval None
+  */
 static void TIM_OC1_SetConfig(TIM_TypeDef * TIMx, TIM_OC_InitTypeDef * OC_Config)
 {
     uint32_t tmpccmrx;
@@ -6035,11 +6003,11 @@ static void TIM_OC1_SetConfig(TIM_TypeDef * TIMx, TIM_OC_InitTypeDef * OC_Config
 }
 
 /**
- * @brief  Timer Output Compare 2 configuration
- * @param  TIMx to select the TIM peripheral
- * @param  OC_Config The ouput configuration structure
- * @retval None
- */
+  * @brief  Timer Output Compare 2 configuration
+  * @param  TIMx to select the TIM peripheral
+  * @param  OC_Config The ouput configuration structure
+  * @retval None
+  */
 void TIM_OC2_SetConfig(TIM_TypeDef * TIMx, TIM_OC_InitTypeDef * OC_Config)
 {
     uint32_t tmpccmrx;
@@ -6110,11 +6078,11 @@ void TIM_OC2_SetConfig(TIM_TypeDef * TIMx, TIM_OC_InitTypeDef * OC_Config)
 }
 
 /**
- * @brief  Timer Output Compare 3 configuration
- * @param  TIMx to select the TIM peripheral
- * @param  OC_Config The ouput configuration structure
- * @retval None
- */
+  * @brief  Timer Output Compare 3 configuration
+  * @param  TIMx to select the TIM peripheral
+  * @param  OC_Config The ouput configuration structure
+  * @retval None
+  */
 static void TIM_OC3_SetConfig(TIM_TypeDef * TIMx, TIM_OC_InitTypeDef * OC_Config)
 {
     uint32_t tmpccmrx;
@@ -6184,11 +6152,11 @@ static void TIM_OC3_SetConfig(TIM_TypeDef * TIMx, TIM_OC_InitTypeDef * OC_Config
 }
 
 /**
- * @brief  Timer Output Compare 4 configuration
- * @param  TIMx to select the TIM peripheral
- * @param  OC_Config The ouput configuration structure
- * @retval None
- */
+  * @brief  Timer Output Compare 4 configuration
+  * @param  TIMx to select the TIM peripheral
+  * @param  OC_Config The ouput configuration structure
+  * @retval None
+  */
 static void TIM_OC4_SetConfig(TIM_TypeDef * TIMx, TIM_OC_InitTypeDef * OC_Config)
 {
     uint32_t tmpccmrx;
@@ -6244,11 +6212,11 @@ static void TIM_OC4_SetConfig(TIM_TypeDef * TIMx, TIM_OC_InitTypeDef * OC_Config
 }
 
 /**
- * @brief  Slave Timer configuration function
- * @param  htim TIM handle
- * @param  sSlaveConfig Slave timer configuration
- * @retval None
- */
+  * @brief  Slave Timer configuration function
+  * @param  htim TIM handle
+  * @param  sSlaveConfig Slave timer configuration
+  * @retval None
+  */
 static HAL_StatusTypeDef TIM_SlaveTimer_SetConfig(TIM_HandleTypeDef * htim,
                                                   TIM_SlaveConfigTypeDef * sSlaveConfig)
 {
@@ -6357,25 +6325,25 @@ static HAL_StatusTypeDef TIM_SlaveTimer_SetConfig(TIM_HandleTypeDef * htim,
 }
 
 /**
- * @brief  Configure the TI1 as Input.
- * @param  TIMx to select the TIM peripheral.
- * @param  TIM_ICPolarity The Input Polarity.
- *          This parameter can be one of the following values:
- *            @arg TIM_ICPOLARITY_RISING
- *            @arg TIM_ICPOLARITY_FALLING
- *            @arg TIM_ICPOLARITY_BOTHEDGE
- * @param  TIM_ICSelection specifies the input to be used.
- *          This parameter can be one of the following values:
- *            @arg TIM_ICSELECTION_DIRECTTI: TIM Input 1 is selected to be connected to IC1.
- *            @arg TIM_ICSELECTION_INDIRECTTI: TIM Input 1 is selected to be connected to IC2.
- *            @arg TIM_ICSELECTION_TRC: TIM Input 1 is selected to be connected to TRC.
- * @param  TIM_ICFilter Specifies the Input Capture Filter.
- *          This parameter must be a value between 0x00 and 0x0F.
- * @retval None
- * @note TIM_ICFilter and TIM_ICPolarity are not used in INDIRECT mode as TI2FP1
- *       (on channel2 path) is used as the input signal. Therefore CCMR1 must be
- *        protected against un-initialized filter and polarity values.
- */
+  * @brief  Configure the TI1 as Input.
+  * @param  TIMx to select the TIM peripheral.
+  * @param  TIM_ICPolarity The Input Polarity.
+  *          This parameter can be one of the following values:
+  *            @arg TIM_ICPOLARITY_RISING
+  *            @arg TIM_ICPOLARITY_FALLING
+  *            @arg TIM_ICPOLARITY_BOTHEDGE
+  * @param  TIM_ICSelection specifies the input to be used.
+  *          This parameter can be one of the following values:
+  *            @arg TIM_ICSELECTION_DIRECTTI: TIM Input 1 is selected to be connected to IC1.
+  *            @arg TIM_ICSELECTION_INDIRECTTI: TIM Input 1 is selected to be connected to IC2.
+  *            @arg TIM_ICSELECTION_TRC: TIM Input 1 is selected to be connected to TRC.
+  * @param  TIM_ICFilter Specifies the Input Capture Filter.
+  *          This parameter must be a value between 0x00 and 0x0F.
+  * @retval None
+  * @note TIM_ICFilter and TIM_ICPolarity are not used in INDIRECT mode as TI2FP1
+  *       (on channel2 path) is used as the input signal. Therefore CCMR1 must be
+  *        protected against un-initialized filter and polarity values.
+  */
 void TIM_TI1_SetConfig(TIM_TypeDef * TIMx, uint32_t TIM_ICPolarity, uint32_t TIM_ICSelection,
                        uint32_t TIM_ICFilter)
 {
@@ -6412,17 +6380,17 @@ void TIM_TI1_SetConfig(TIM_TypeDef * TIMx, uint32_t TIM_ICPolarity, uint32_t TIM
 }
 
 /**
- * @brief  Configure the Polarity and Filter for TI1.
- * @param  TIMx to select the TIM peripheral.
- * @param  TIM_ICPolarity The Input Polarity.
- *          This parameter can be one of the following values:
- *            @arg TIM_ICPOLARITY_RISING
- *            @arg TIM_ICPOLARITY_FALLING
- *            @arg TIM_ICPOLARITY_BOTHEDGE
- * @param  TIM_ICFilter Specifies the Input Capture Filter.
- *          This parameter must be a value between 0x00 and 0x0F.
- * @retval None
- */
+  * @brief  Configure the Polarity and Filter for TI1.
+  * @param  TIMx to select the TIM peripheral.
+  * @param  TIM_ICPolarity The Input Polarity.
+  *          This parameter can be one of the following values:
+  *            @arg TIM_ICPOLARITY_RISING
+  *            @arg TIM_ICPOLARITY_FALLING
+  *            @arg TIM_ICPOLARITY_BOTHEDGE
+  * @param  TIM_ICFilter Specifies the Input Capture Filter.
+  *          This parameter must be a value between 0x00 and 0x0F.
+  * @retval None
+  */
 static void TIM_TI1_ConfigInputStage(TIM_TypeDef * TIMx, uint32_t TIM_ICPolarity,
                                      uint32_t TIM_ICFilter)
 {
@@ -6448,25 +6416,25 @@ static void TIM_TI1_ConfigInputStage(TIM_TypeDef * TIMx, uint32_t TIM_ICPolarity
 }
 
 /**
- * @brief  Configure the TI2 as Input.
- * @param  TIMx to select the TIM peripheral
- * @param  TIM_ICPolarity The Input Polarity.
- *          This parameter can be one of the following values:
- *            @arg TIM_ICPOLARITY_RISING
- *            @arg TIM_ICPOLARITY_FALLING
- *            @arg TIM_ICPOLARITY_BOTHEDGE
- * @param  TIM_ICSelection specifies the input to be used.
- *          This parameter can be one of the following values:
- *            @arg TIM_ICSELECTION_DIRECTTI: TIM Input 2 is selected to be connected to IC2.
- *            @arg TIM_ICSELECTION_INDIRECTTI: TIM Input 2 is selected to be connected to IC1.
- *            @arg TIM_ICSELECTION_TRC: TIM Input 2 is selected to be connected to TRC.
- * @param  TIM_ICFilter Specifies the Input Capture Filter.
- *          This parameter must be a value between 0x00 and 0x0F.
- * @retval None
- * @note TIM_ICFilter and TIM_ICPolarity are not used in INDIRECT mode as TI1FP2
- *       (on channel1 path) is used as the input signal. Therefore CCMR1 must be
- *        protected against un-initialized filter and polarity values.
- */
+  * @brief  Configure the TI2 as Input.
+  * @param  TIMx to select the TIM peripheral
+  * @param  TIM_ICPolarity The Input Polarity.
+  *          This parameter can be one of the following values:
+  *            @arg TIM_ICPOLARITY_RISING
+  *            @arg TIM_ICPOLARITY_FALLING
+  *            @arg TIM_ICPOLARITY_BOTHEDGE
+  * @param  TIM_ICSelection specifies the input to be used.
+  *          This parameter can be one of the following values:
+  *            @arg TIM_ICSELECTION_DIRECTTI: TIM Input 2 is selected to be connected to IC2.
+  *            @arg TIM_ICSELECTION_INDIRECTTI: TIM Input 2 is selected to be connected to IC1.
+  *            @arg TIM_ICSELECTION_TRC: TIM Input 2 is selected to be connected to TRC.
+  * @param  TIM_ICFilter Specifies the Input Capture Filter.
+  *          This parameter must be a value between 0x00 and 0x0F.
+  * @retval None
+  * @note TIM_ICFilter and TIM_ICPolarity are not used in INDIRECT mode as TI1FP2
+  *       (on channel1 path) is used as the input signal. Therefore CCMR1 must be
+  *        protected against un-initialized filter and polarity values.
+  */
 static void TIM_TI2_SetConfig(TIM_TypeDef * TIMx, uint32_t TIM_ICPolarity, uint32_t TIM_ICSelection,
                               uint32_t TIM_ICFilter)
 {
@@ -6496,17 +6464,17 @@ static void TIM_TI2_SetConfig(TIM_TypeDef * TIMx, uint32_t TIM_ICPolarity, uint3
 }
 
 /**
- * @brief  Configure the Polarity and Filter for TI2.
- * @param  TIMx to select the TIM peripheral.
- * @param  TIM_ICPolarity The Input Polarity.
- *          This parameter can be one of the following values:
- *            @arg TIM_ICPOLARITY_RISING
- *            @arg TIM_ICPOLARITY_FALLING
- *            @arg TIM_ICPOLARITY_BOTHEDGE
- * @param  TIM_ICFilter Specifies the Input Capture Filter.
- *          This parameter must be a value between 0x00 and 0x0F.
- * @retval None
- */
+  * @brief  Configure the Polarity and Filter for TI2.
+  * @param  TIMx to select the TIM peripheral.
+  * @param  TIM_ICPolarity The Input Polarity.
+  *          This parameter can be one of the following values:
+  *            @arg TIM_ICPOLARITY_RISING
+  *            @arg TIM_ICPOLARITY_FALLING
+  *            @arg TIM_ICPOLARITY_BOTHEDGE
+  * @param  TIM_ICFilter Specifies the Input Capture Filter.
+  *          This parameter must be a value between 0x00 and 0x0F.
+  * @retval None
+  */
 static void TIM_TI2_ConfigInputStage(TIM_TypeDef * TIMx, uint32_t TIM_ICPolarity,
                                      uint32_t TIM_ICFilter)
 {
@@ -6532,25 +6500,25 @@ static void TIM_TI2_ConfigInputStage(TIM_TypeDef * TIMx, uint32_t TIM_ICPolarity
 }
 
 /**
- * @brief  Configure the TI3 as Input.
- * @param  TIMx to select the TIM peripheral
- * @param  TIM_ICPolarity The Input Polarity.
- *          This parameter can be one of the following values:
- *            @arg TIM_ICPOLARITY_RISING
- *            @arg TIM_ICPOLARITY_FALLING
- *            @arg TIM_ICPOLARITY_BOTHEDGE
- * @param  TIM_ICSelection specifies the input to be used.
- *          This parameter can be one of the following values:
- *            @arg TIM_ICSELECTION_DIRECTTI: TIM Input 3 is selected to be connected to IC3.
- *            @arg TIM_ICSELECTION_INDIRECTTI: TIM Input 3 is selected to be connected to IC4.
- *            @arg TIM_ICSELECTION_TRC: TIM Input 3 is selected to be connected to TRC.
- * @param  TIM_ICFilter Specifies the Input Capture Filter.
- *          This parameter must be a value between 0x00 and 0x0F.
- * @retval None
- * @note TIM_ICFilter and TIM_ICPolarity are not used in INDIRECT mode as TI3FP4
- *       (on channel1 path) is used as the input signal. Therefore CCMR2 must be
- *        protected against un-initialized filter and polarity values.
- */
+  * @brief  Configure the TI3 as Input.
+  * @param  TIMx to select the TIM peripheral
+  * @param  TIM_ICPolarity The Input Polarity.
+  *          This parameter can be one of the following values:
+  *            @arg TIM_ICPOLARITY_RISING
+  *            @arg TIM_ICPOLARITY_FALLING
+  *            @arg TIM_ICPOLARITY_BOTHEDGE
+  * @param  TIM_ICSelection specifies the input to be used.
+  *          This parameter can be one of the following values:
+  *            @arg TIM_ICSELECTION_DIRECTTI: TIM Input 3 is selected to be connected to IC3.
+  *            @arg TIM_ICSELECTION_INDIRECTTI: TIM Input 3 is selected to be connected to IC4.
+  *            @arg TIM_ICSELECTION_TRC: TIM Input 3 is selected to be connected to TRC.
+  * @param  TIM_ICFilter Specifies the Input Capture Filter.
+  *          This parameter must be a value between 0x00 and 0x0F.
+  * @retval None
+  * @note TIM_ICFilter and TIM_ICPolarity are not used in INDIRECT mode as TI3FP4
+  *       (on channel1 path) is used as the input signal. Therefore CCMR2 must be
+  *        protected against un-initialized filter and polarity values.
+  */
 static void TIM_TI3_SetConfig(TIM_TypeDef * TIMx, uint32_t TIM_ICPolarity, uint32_t TIM_ICSelection,
                               uint32_t TIM_ICFilter)
 {
@@ -6580,25 +6548,25 @@ static void TIM_TI3_SetConfig(TIM_TypeDef * TIMx, uint32_t TIM_ICPolarity, uint3
 }
 
 /**
- * @brief  Configure the TI4 as Input.
- * @param  TIMx to select the TIM peripheral
- * @param  TIM_ICPolarity The Input Polarity.
- *          This parameter can be one of the following values:
- *            @arg TIM_ICPOLARITY_RISING
- *            @arg TIM_ICPOLARITY_FALLING
- *            @arg TIM_ICPOLARITY_BOTHEDGE
- * @param  TIM_ICSelection specifies the input to be used.
- *          This parameter can be one of the following values:
- *            @arg TIM_ICSELECTION_DIRECTTI: TIM Input 4 is selected to be connected to IC4.
- *            @arg TIM_ICSELECTION_INDIRECTTI: TIM Input 4 is selected to be connected to IC3.
- *            @arg TIM_ICSELECTION_TRC: TIM Input 4 is selected to be connected to TRC.
- * @param  TIM_ICFilter Specifies the Input Capture Filter.
- *          This parameter must be a value between 0x00 and 0x0F.
- * @note TIM_ICFilter and TIM_ICPolarity are not used in INDIRECT mode as TI4FP3
- *       (on channel1 path) is used as the input signal. Therefore CCMR2 must be
- *        protected against un-initialized filter and polarity values.
- * @retval None
- */
+  * @brief  Configure the TI4 as Input.
+  * @param  TIMx to select the TIM peripheral
+  * @param  TIM_ICPolarity The Input Polarity.
+  *          This parameter can be one of the following values:
+  *            @arg TIM_ICPOLARITY_RISING
+  *            @arg TIM_ICPOLARITY_FALLING
+  *            @arg TIM_ICPOLARITY_BOTHEDGE
+  * @param  TIM_ICSelection specifies the input to be used.
+  *          This parameter can be one of the following values:
+  *            @arg TIM_ICSELECTION_DIRECTTI: TIM Input 4 is selected to be connected to IC4.
+  *            @arg TIM_ICSELECTION_INDIRECTTI: TIM Input 4 is selected to be connected to IC3.
+  *            @arg TIM_ICSELECTION_TRC: TIM Input 4 is selected to be connected to TRC.
+  * @param  TIM_ICFilter Specifies the Input Capture Filter.
+  *          This parameter must be a value between 0x00 and 0x0F.
+  * @note TIM_ICFilter and TIM_ICPolarity are not used in INDIRECT mode as TI4FP3
+  *       (on channel1 path) is used as the input signal. Therefore CCMR2 must be
+  *        protected against un-initialized filter and polarity values.
+  * @retval None
+  */
 static void TIM_TI4_SetConfig(TIM_TypeDef * TIMx, uint32_t TIM_ICPolarity, uint32_t TIM_ICSelection,
                               uint32_t TIM_ICFilter)
 {
@@ -6628,20 +6596,20 @@ static void TIM_TI4_SetConfig(TIM_TypeDef * TIMx, uint32_t TIM_ICPolarity, uint3
 }
 
 /**
- * @brief  Selects the Input Trigger source
- * @param  TIMx to select the TIM peripheral
- * @param  InputTriggerSource The Input Trigger source.
- *          This parameter can be one of the following values:
- *            @arg TIM_TS_ITR0: Internal Trigger 0
- *            @arg TIM_TS_ITR1: Internal Trigger 1
- *            @arg TIM_TS_ITR2: Internal Trigger 2
- *            @arg TIM_TS_ITR3: Internal Trigger 3
- *            @arg TIM_TS_TI1F_ED: TI1 Edge Detector
- *            @arg TIM_TS_TI1FP1: Filtered Timer Input 1
- *            @arg TIM_TS_TI2FP2: Filtered Timer Input 2
- *            @arg TIM_TS_ETRF: External Trigger input
- * @retval None
- */
+  * @brief  Selects the Input Trigger source
+  * @param  TIMx to select the TIM peripheral
+  * @param  InputTriggerSource The Input Trigger source.
+  *          This parameter can be one of the following values:
+  *            @arg TIM_TS_ITR0: Internal Trigger 0
+  *            @arg TIM_TS_ITR1: Internal Trigger 1
+  *            @arg TIM_TS_ITR2: Internal Trigger 2
+  *            @arg TIM_TS_ITR3: Internal Trigger 3
+  *            @arg TIM_TS_TI1F_ED: TI1 Edge Detector
+  *            @arg TIM_TS_TI1FP1: Filtered Timer Input 1
+  *            @arg TIM_TS_TI2FP2: Filtered Timer Input 2
+  *            @arg TIM_TS_ETRF: External Trigger input
+  * @retval None
+  */
 static void TIM_ITRx_SetConfig(TIM_TypeDef * TIMx, uint32_t InputTriggerSource)
 {
     uint32_t tmpsmcr;
@@ -6656,22 +6624,22 @@ static void TIM_ITRx_SetConfig(TIM_TypeDef * TIMx, uint32_t InputTriggerSource)
     TIMx->SMCR = tmpsmcr;
 }
 /**
- * @brief  Configures the TIMx External Trigger (ETR).
- * @param  TIMx to select the TIM peripheral
- * @param  TIM_ExtTRGPrescaler The external Trigger Prescaler.
- *          This parameter can be one of the following values:
- *            @arg TIM_ETRPRESCALER_DIV1: ETRP Prescaler OFF.
- *            @arg TIM_ETRPRESCALER_DIV2: ETRP frequency divided by 2.
- *            @arg TIM_ETRPRESCALER_DIV4: ETRP frequency divided by 4.
- *            @arg TIM_ETRPRESCALER_DIV8: ETRP frequency divided by 8.
- * @param  TIM_ExtTRGPolarity The external Trigger Polarity.
- *          This parameter can be one of the following values:
- *            @arg TIM_ETRPOLARITY_INVERTED: active low or falling edge active.
- *            @arg TIM_ETRPOLARITY_NONINVERTED: active high or rising edge active.
- * @param  ExtTRGFilter External Trigger Filter.
- *          This parameter must be a value between 0x00 and 0x0F
- * @retval None
- */
+  * @brief  Configures the TIMx External Trigger (ETR).
+  * @param  TIMx to select the TIM peripheral
+  * @param  TIM_ExtTRGPrescaler The external Trigger Prescaler.
+  *          This parameter can be one of the following values:
+  *            @arg TIM_ETRPRESCALER_DIV1: ETRP Prescaler OFF.
+  *            @arg TIM_ETRPRESCALER_DIV2: ETRP frequency divided by 2.
+  *            @arg TIM_ETRPRESCALER_DIV4: ETRP frequency divided by 4.
+  *            @arg TIM_ETRPRESCALER_DIV8: ETRP frequency divided by 8.
+  * @param  TIM_ExtTRGPolarity The external Trigger Polarity.
+  *          This parameter can be one of the following values:
+  *            @arg TIM_ETRPOLARITY_INVERTED: active low or falling edge active.
+  *            @arg TIM_ETRPOLARITY_NONINVERTED: active high or rising edge active.
+  * @param  ExtTRGFilter External Trigger Filter.
+  *          This parameter must be a value between 0x00 and 0x0F
+  * @retval None
+  */
 void TIM_ETR_SetConfig(TIM_TypeDef * TIMx, uint32_t TIM_ExtTRGPrescaler,
                        uint32_t TIM_ExtTRGPolarity, uint32_t ExtTRGFilter)
 {
@@ -6690,18 +6658,18 @@ void TIM_ETR_SetConfig(TIM_TypeDef * TIMx, uint32_t TIM_ExtTRGPrescaler,
 }
 
 /**
- * @brief  Enables or disables the TIM Capture Compare Channel x.
- * @param  TIMx to select the TIM peripheral
- * @param  Channel specifies the TIM Channel
- *          This parameter can be one of the following values:
- *            @arg TIM_CHANNEL_1: TIM Channel 1
- *            @arg TIM_CHANNEL_2: TIM Channel 2
- *            @arg TIM_CHANNEL_3: TIM Channel 3
- *            @arg TIM_CHANNEL_4: TIM Channel 4
- * @param  ChannelState specifies the TIM Channel CCxE bit new state.
- *          This parameter can be: TIM_CCx_ENABLE or TIM_CCx_DISABLE.
- * @retval None
- */
+  * @brief  Enables or disables the TIM Capture Compare Channel x.
+  * @param  TIMx to select the TIM peripheral
+  * @param  Channel specifies the TIM Channel
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1
+  *            @arg TIM_CHANNEL_2: TIM Channel 2
+  *            @arg TIM_CHANNEL_3: TIM Channel 3
+  *            @arg TIM_CHANNEL_4: TIM Channel 4
+  * @param  ChannelState specifies the TIM Channel CCxE bit new state.
+  *          This parameter can be: TIM_CCx_ENABLE or TIM_CCx_DISABLE.
+  * @retval None
+  */
 void TIM_CCxChannelCmd(TIM_TypeDef * TIMx, uint32_t Channel, uint32_t ChannelState)
 {
     uint32_t tmp;
@@ -6721,22 +6689,24 @@ void TIM_CCxChannelCmd(TIM_TypeDef * TIMx, uint32_t Channel, uint32_t ChannelSta
 
 #if(USE_HAL_TIM_REGISTER_CALLBACKS == 1)
 /**
- * @brief  Reset interrupt callbacks to the legacy weak callbacks.
- * @param  htim pointer to a TIM_HandleTypeDef structure that contains
- *                the configuration information for TIM module.
- * @retval None
- */
+  * @brief  Reset interrupt callbacks to the legacy weak callbacks.
+  * @param  htim pointer to a TIM_HandleTypeDef structure that contains
+  *                the configuration information for TIM module.
+  * @retval None
+  */
 void TIM_ResetCallback(TIM_HandleTypeDef * htim)
 {
     /* Reset the TIM callback to the legacy weak callbacks */
     htim->PeriodElapsedCallback =
             HAL_TIM_PeriodElapsedCallback; /* Legacy weak PeriodElapsedCallback             */
     htim->PeriodElapsedHalfCpltCallback =
-            HAL_TIM_PeriodElapsedHalfCpltCallback; /* Legacy weak PeriodElapsedHalfCpltCallback */
-    htim->TriggerCallback = HAL_TIM_TriggerCallback; /* Legacy weak TriggerCallback */
+            HAL_TIM_PeriodElapsedHalfCpltCallback; /* Legacy weak PeriodElapsedHalfCpltCallback     */
+    htim->TriggerCallback =
+            HAL_TIM_TriggerCallback; /* Legacy weak TriggerCallback                   */
     htim->TriggerHalfCpltCallback =
             HAL_TIM_TriggerHalfCpltCallback; /* Legacy weak TriggerHalfCpltCallback           */
-    htim->IC_CaptureCallback = HAL_TIM_IC_CaptureCallback; /* Legacy weak IC_CaptureCallback */
+    htim->IC_CaptureCallback =
+            HAL_TIM_IC_CaptureCallback; /* Legacy weak IC_CaptureCallback                */
     htim->IC_CaptureHalfCpltCallback =
             HAL_TIM_IC_CaptureHalfCpltCallback; /* Legacy weak IC_CaptureHalfCpltCallback        */
     htim->OC_DelayElapsedCallback =
@@ -6744,26 +6714,27 @@ void TIM_ResetCallback(TIM_HandleTypeDef * htim)
     htim->PWM_PulseFinishedCallback =
             HAL_TIM_PWM_PulseFinishedCallback; /* Legacy weak PWM_PulseFinishedCallback         */
     htim->PWM_PulseFinishedHalfCpltCallback =
-            HAL_TIM_PWM_PulseFinishedHalfCpltCallback; /* Legacy weak
-                                                          PWM_PulseFinishedHalfCpltCallback */
+            HAL_TIM_PWM_PulseFinishedHalfCpltCallback; /* Legacy weak PWM_PulseFinishedHalfCpltCallback */
     htim->ErrorCallback = HAL_TIM_ErrorCallback; /* Legacy weak ErrorCallback                     */
-    htim->CommutationCallback = HAL_TIMEx_CommutCallback; /* Legacy weak CommutationCallback */
+    htim->CommutationCallback =
+            HAL_TIMEx_CommutCallback; /* Legacy weak CommutationCallback               */
     htim->CommutationHalfCpltCallback =
             HAL_TIMEx_CommutHalfCpltCallback; /* Legacy weak CommutationHalfCpltCallback       */
-    htim->BreakCallback = HAL_TIMEx_BreakCallback; /* Legacy weak BreakCallback */
+    htim->BreakCallback =
+            HAL_TIMEx_BreakCallback; /* Legacy weak BreakCallback                     */
 }
 #endif /* USE_HAL_TIM_REGISTER_CALLBACKS */
 
 /**
- * @}
- */
+  * @}
+  */
 
 #endif /* HAL_TIM_MODULE_ENABLED */
 /**
- * @}
- */
+  * @}
+  */
 
 /**
- * @}
- */
+  * @}
+  */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

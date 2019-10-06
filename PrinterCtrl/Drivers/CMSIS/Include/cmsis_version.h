@@ -1,13 +1,9 @@
 /**************************************************************************/ /**
-                                                                              * @file
-                                                                              *cmsis_version.h
-                                                                              * @brief    CMSIS
-                                                                              *Core(M) Version
-                                                                              *definitions
-                                                                              * @version  V5.0.2
-                                                                              * @date     19. April
-                                                                              *2017
-                                                                              ******************************************************************************/
+ * @file     cmsis_version.h
+ * @brief    CMSIS Core(M) Version definitions
+ * @version  V5.0.2
+ * @date     19. April 2017
+ ******************************************************************************/
 /*
  * Copyright (c) 2009-2017 ARM Limited. All rights reserved.
  *
@@ -38,8 +34,6 @@
 /*  CMSIS Version definitions */
 #define __CM_CMSIS_VERSION_MAIN (5U) /*!< [31:16] CMSIS Core(M) main version */
 #define __CM_CMSIS_VERSION_SUB (1U) /*!< [15:0]  CMSIS Core(M) sub version */
-#define __CM_CMSIS_VERSION                                           \
-    ((__CM_CMSIS_VERSION_MAIN << 16U)                                \
-     | __CM_CMSIS_VERSION_SUB) /*!< CMSIS Core(M) version number \
-                                */
+#define __CM_CMSIS_VERSION \
+    ((__CM_CMSIS_VERSION_MAIN << 16U) | __CM_CMSIS_VERSION_SUB) /*!< CMSIS Core(M) version number */
 #endif

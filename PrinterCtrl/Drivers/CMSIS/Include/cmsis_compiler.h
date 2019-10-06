@@ -1,13 +1,9 @@
 /**************************************************************************/ /**
-                                                                              * @file
-                                                                              *cmsis_compiler.h
-                                                                              * @brief    CMSIS
-                                                                              *compiler generic
-                                                                              *header file
-                                                                              * @version  V5.0.4
-                                                                              * @date     10.
-                                                                              *January 2018
-                                                                              ******************************************************************************/
+ * @file     cmsis_compiler.h
+ * @brief    CMSIS compiler generic header file
+ * @version  V5.0.4
+ * @date     10. January 2018
+ ******************************************************************************/
 /*
  * Copyright (c) 2009-2018 Arm Limited. All rights reserved.
  *
@@ -141,10 +137,10 @@ __PACKED_STRUCT T_UINT32_READ
  */
 #elif defined(__TASKING__)
 /*
- * The CMSIS functions have been implemented as intrinsics in the compiler.
- * Please use "carm -?i" to get an up to date list of all intrinsics,
- * Including the CMSIS ones.
- */
+   * The CMSIS functions have been implemented as intrinsics in the compiler.
+   * Please use "carm -?i" to get an up to date list of all intrinsics,
+   * Including the CMSIS ones.
+   */
 
 #ifndef __ASM
 #define __ASM __asm

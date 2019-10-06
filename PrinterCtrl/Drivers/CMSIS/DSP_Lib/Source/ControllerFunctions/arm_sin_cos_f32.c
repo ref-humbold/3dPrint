@@ -121,7 +121,7 @@ void arm_sin_cos_f32(float32_t theta, float32_t * pSinVal, float32_t * pCosVal)
     d2 = -sinTable_f32[indexS + 1];
 
     Dn = 0.0122718463030f;  // delta between the two points (fixed), in this case
-                            // 2*pi/FAST_MATH_TABLE_SIZE
+            // 2*pi/FAST_MATH_TABLE_SIZE
     Df = f2 - f1;  // delta between the values of the functions
     temp = Dn * (d1 + d2) - 2 * Df;
     temp = fract * temp + (3 * Df - (d2 + 2 * d1) * Dn);
