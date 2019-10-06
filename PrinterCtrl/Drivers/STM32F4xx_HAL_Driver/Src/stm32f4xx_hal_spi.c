@@ -214,7 +214,7 @@
   * @{
   */
 #define SPI_DEFAULT_TIMEOUT 100U
-#define SPI_BSY_FLAG_WORKAROUND_TIMEOUT 1000U /*!< Timeout 1000 µs             */
+#define SPI_BSY_FLAG_WORKAROUND_TIMEOUT 1000U /*!< Timeout 1000 µs */
 /**
   * @}
   */
@@ -349,17 +349,17 @@ HAL_StatusTypeDef HAL_SPI_Init(SPI_HandleTypeDef * hspi)
 
 #if(USE_HAL_SPI_REGISTER_CALLBACKS == 1U)
         /* Init the SPI Callback settings */
-        hspi->TxCpltCallback = HAL_SPI_TxCpltCallback; /* Legacy weak TxCpltCallback       */
-        hspi->RxCpltCallback = HAL_SPI_RxCpltCallback; /* Legacy weak RxCpltCallback       */
-        hspi->TxRxCpltCallback = HAL_SPI_TxRxCpltCallback; /* Legacy weak TxRxCpltCallback     */
+        hspi->TxCpltCallback = HAL_SPI_TxCpltCallback; /* Legacy weak TxCpltCallback */
+        hspi->RxCpltCallback = HAL_SPI_RxCpltCallback; /* Legacy weak RxCpltCallback */
+        hspi->TxRxCpltCallback = HAL_SPI_TxRxCpltCallback; /* Legacy weak TxRxCpltCallback */
         hspi->TxHalfCpltCallback =
-                HAL_SPI_TxHalfCpltCallback; /* Legacy weak TxHalfCpltCallback   */
+                HAL_SPI_TxHalfCpltCallback; /* Legacy weak TxHalfCpltCallback */
         hspi->RxHalfCpltCallback =
-                HAL_SPI_RxHalfCpltCallback; /* Legacy weak RxHalfCpltCallback   */
+                HAL_SPI_RxHalfCpltCallback; /* Legacy weak RxHalfCpltCallback */
         hspi->TxRxHalfCpltCallback =
                 HAL_SPI_TxRxHalfCpltCallback; /* Legacy weak TxRxHalfCpltCallback */
-        hspi->ErrorCallback = HAL_SPI_ErrorCallback; /* Legacy weak ErrorCallback        */
-        hspi->AbortCpltCallback = HAL_SPI_AbortCpltCallback; /* Legacy weak AbortCpltCallback    */
+        hspi->ErrorCallback = HAL_SPI_ErrorCallback; /* Legacy weak ErrorCallback */
+        hspi->AbortCpltCallback = HAL_SPI_AbortCpltCallback; /* Legacy weak AbortCpltCallback */
 
         if(hspi->MspInitCallback == NULL)
         {
@@ -622,27 +622,27 @@ HAL_StatusTypeDef HAL_SPI_UnRegisterCallback(SPI_HandleTypeDef * hspi,
         {
             case HAL_SPI_TX_COMPLETE_CB_ID:
                 hspi->TxCpltCallback =
-                        HAL_SPI_TxCpltCallback; /* Legacy weak TxCpltCallback       */
+                        HAL_SPI_TxCpltCallback; /* Legacy weak TxCpltCallback */
                 break;
 
             case HAL_SPI_RX_COMPLETE_CB_ID:
                 hspi->RxCpltCallback =
-                        HAL_SPI_RxCpltCallback; /* Legacy weak RxCpltCallback       */
+                        HAL_SPI_RxCpltCallback; /* Legacy weak RxCpltCallback */
                 break;
 
             case HAL_SPI_TX_RX_COMPLETE_CB_ID:
                 hspi->TxRxCpltCallback =
-                        HAL_SPI_TxRxCpltCallback; /* Legacy weak TxRxCpltCallback     */
+                        HAL_SPI_TxRxCpltCallback; /* Legacy weak TxRxCpltCallback */
                 break;
 
             case HAL_SPI_TX_HALF_COMPLETE_CB_ID:
                 hspi->TxHalfCpltCallback =
-                        HAL_SPI_TxHalfCpltCallback; /* Legacy weak TxHalfCpltCallback   */
+                        HAL_SPI_TxHalfCpltCallback; /* Legacy weak TxHalfCpltCallback */
                 break;
 
             case HAL_SPI_RX_HALF_COMPLETE_CB_ID:
                 hspi->RxHalfCpltCallback =
-                        HAL_SPI_RxHalfCpltCallback; /* Legacy weak RxHalfCpltCallback   */
+                        HAL_SPI_RxHalfCpltCallback; /* Legacy weak RxHalfCpltCallback */
                 break;
 
             case HAL_SPI_TX_RX_HALF_COMPLETE_CB_ID:
@@ -651,20 +651,20 @@ HAL_StatusTypeDef HAL_SPI_UnRegisterCallback(SPI_HandleTypeDef * hspi,
                 break;
 
             case HAL_SPI_ERROR_CB_ID:
-                hspi->ErrorCallback = HAL_SPI_ErrorCallback; /* Legacy weak ErrorCallback        */
+                hspi->ErrorCallback = HAL_SPI_ErrorCallback; /* Legacy weak ErrorCallback */
                 break;
 
             case HAL_SPI_ABORT_CB_ID:
                 hspi->AbortCpltCallback =
-                        HAL_SPI_AbortCpltCallback; /* Legacy weak AbortCpltCallback    */
+                        HAL_SPI_AbortCpltCallback; /* Legacy weak AbortCpltCallback */
                 break;
 
             case HAL_SPI_MSPINIT_CB_ID:
-                hspi->MspInitCallback = HAL_SPI_MspInit; /* Legacy weak MspInit              */
+                hspi->MspInitCallback = HAL_SPI_MspInit; /* Legacy weak MspInit */
                 break;
 
             case HAL_SPI_MSPDEINIT_CB_ID:
-                hspi->MspDeInitCallback = HAL_SPI_MspDeInit; /* Legacy weak MspDeInit            */
+                hspi->MspDeInitCallback = HAL_SPI_MspDeInit; /* Legacy weak MspDeInit */
                 break;
 
             default:
@@ -681,11 +681,11 @@ HAL_StatusTypeDef HAL_SPI_UnRegisterCallback(SPI_HandleTypeDef * hspi,
         switch(CallbackID)
         {
             case HAL_SPI_MSPINIT_CB_ID:
-                hspi->MspInitCallback = HAL_SPI_MspInit; /* Legacy weak MspInit              */
+                hspi->MspInitCallback = HAL_SPI_MspInit; /* Legacy weak MspInit */
                 break;
 
             case HAL_SPI_MSPDEINIT_CB_ID:
-                hspi->MspDeInitCallback = HAL_SPI_MspDeInit; /* Legacy weak MspDeInit            */
+                hspi->MspDeInitCallback = HAL_SPI_MspDeInit; /* Legacy weak MspDeInit */
                 break;
 
             default:

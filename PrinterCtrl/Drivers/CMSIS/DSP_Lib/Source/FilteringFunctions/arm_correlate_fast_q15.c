@@ -81,16 +81,16 @@ void arm_correlate_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, uint
 {
 #ifndef UNALIGNED_SUPPORT_DISABLE
 
-    q15_t * pIn1; /* inputA pointer               */
-    q15_t * pIn2; /* inputB pointer               */
-    q15_t * pOut = pDst; /* output pointer               */
-    q31_t sum, acc0, acc1, acc2, acc3; /* Accumulators                  */
+    q15_t * pIn1; /* inputA pointer */
+    q15_t * pIn2; /* inputB pointer */
+    q15_t * pOut = pDst; /* output pointer */
+    q31_t sum, acc0, acc1, acc2, acc3; /* Accumulators */
     q15_t * px; /* Intermediate inputA pointer  */
     q15_t * py; /* Intermediate inputB pointer  */
-    q15_t * pSrc1; /* Intermediate pointers        */
+    q15_t * pSrc1; /* Intermediate pointers */
     q31_t x0, x1, x2, x3, c0; /* temporary variables for holding input and coefficient values */
     uint32_t j, k = 0u, count, blkCnt, outBlockSize, blockSize1, blockSize2,
-                blockSize3; /* loop counter                 */
+                blockSize3; /* loop counter */
     int32_t inc = 1; /* Destination address modifier */
 
     /* The algorithm implementation is based on the lengths of the inputs. */
@@ -357,7 +357,7 @@ void arm_correlate_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, uint
 
                 c0 = c0 & 0x0000FFFF;
 
-#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN */
 
                 /* Read x[7] */
                 x3 = *__SIMD32(px);
@@ -414,7 +414,7 @@ void arm_correlate_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, uint
 #else
 
                 c0 = c0 & 0x0000FFFF;
-#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN */
 
                 /* Read x[10] */
                 x3 = _SIMD32_OFFSET(px + 2);
@@ -627,16 +627,16 @@ void arm_correlate_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, uint
 
 #else
 
-    q15_t * pIn1; /* inputA pointer               */
-    q15_t * pIn2; /* inputB pointer               */
-    q15_t * pOut = pDst; /* output pointer               */
-    q31_t sum, acc0, acc1, acc2, acc3; /* Accumulators                  */
+    q15_t * pIn1; /* inputA pointer */
+    q15_t * pIn2; /* inputB pointer */
+    q15_t * pOut = pDst; /* output pointer */
+    q31_t sum, acc0, acc1, acc2, acc3; /* Accumulators */
     q15_t * px; /* Intermediate inputA pointer  */
     q15_t * py; /* Intermediate inputB pointer  */
-    q15_t * pSrc1; /* Intermediate pointers        */
+    q15_t * pSrc1; /* Intermediate pointers */
     q31_t x0, x1, x2, x3, c0; /* temporary variables for holding input and coefficient values */
     uint32_t j, k = 0u, count, blkCnt, outBlockSize, blockSize1, blockSize2,
-                blockSize3; /* loop counter                 */
+                blockSize3; /* loop counter */
     int32_t inc = 1; /* Destination address modifier */
     q15_t a, b;
 
@@ -968,7 +968,7 @@ void arm_correlate_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, uint
 
                 c0 = c0 & 0x0000FFFF;
 
-#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN */
 
                 /* Read x[7] */
                 a = *px;
@@ -1089,7 +1089,7 @@ void arm_correlate_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, uint
 #else
 
                 c0 = c0 & 0x0000FFFF;
-#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN */
 
                 /* Read x[10] */
                 b = *(px + 3);

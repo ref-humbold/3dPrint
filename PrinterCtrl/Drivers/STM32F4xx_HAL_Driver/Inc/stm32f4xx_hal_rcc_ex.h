@@ -48,23 +48,23 @@ extern "C"
     typedef struct
     {
         uint32_t PLLState; /*!< The new state of the PLL.
-                            This parameter can be a value of @ref RCC_PLL_Config                      */
+                            This parameter can be a value of @ref RCC_PLL_Config */
 
         uint32_t PLLSource; /*!< RCC_PLLSource: PLL entry clock source.
-                            This parameter must be a value of @ref RCC_PLL_Clock_Source               */
+                            This parameter must be a value of @ref RCC_PLL_Clock_Source */
 
         uint32_t PLLM; /*!< PLLM: Division factor for PLL VCO input clock.
-                            This parameter must be a number between Min_Data = 0 and Max_Data = 63    */
+                            This parameter must be a number between Min_Data = 0 and Max_Data = 63 */
 
         uint32_t PLLN; /*!< PLLN: Multiplication factor for PLL VCO output clock.
                             This parameter must be a number between Min_Data = 50 and Max_Data = 432 
                             except for STM32F411xE devices where the Min_Data = 192 */
 
         uint32_t PLLP; /*!< PLLP: Division factor for main system clock (SYSCLK).
-                            This parameter must be a value of @ref RCC_PLLP_Clock_Divider             */
+                            This parameter must be a value of @ref RCC_PLLP_Clock_Divider */
 
         uint32_t PLLQ; /*!< PLLQ: Division factor for OTG FS, SDIO and RNG clocks.
-                            This parameter must be a number between Min_Data = 2 and Max_Data = 15    */
+                            This parameter must be a number between Min_Data = 2 and Max_Data = 15 */
 #if defined(STM32F410Tx) || defined(STM32F410Cx) || defined(STM32F410Rx) || defined(STM32F446xx) \
         || defined(STM32F469xx) || defined(STM32F479xx) || defined(STM32F412Zx) \
         || defined(STM32F412Vx) || defined(STM32F412Rx) || defined(STM32F412Cx) \
@@ -72,7 +72,7 @@ extern "C"
         uint32_t PLLR; /*!< PLLR: PLL division factor for I2S, SAI, SYSTEM, SPDIFRX clocks.
                             This parameter is only available in STM32F410xx/STM32F446xx/STM32F469xx/STM32F479xx
                             and STM32F412Zx/STM32F412Vx/STM32F412Rx/STM32F412Cx/STM32F413xx/STM32F423xx devices. 
-                            This parameter must be a number between Min_Data = 2 and Max_Data = 7     */
+                            This parameter must be a number between Min_Data = 2 and Max_Data = 7 */
 #endif /* STM32F410xx || STM32F446xx || STM32F469xx || STM32F479xx || STM32F412Zx || STM32F412Vx || STM32F412Rx || STM32F412Cx || STM32F413xx || STM32F423xx */
     } RCC_PLLInitTypeDef;
 
@@ -83,13 +83,13 @@ extern "C"
     typedef struct
     {
         uint32_t PLLI2SM; /*!< Specifies division factor for PLL VCO input clock.
-                            This parameter must be a number between Min_Data = 2 and Max_Data = 63       */
+                            This parameter must be a number between Min_Data = 2 and Max_Data = 63 */
 
         uint32_t PLLI2SN; /*!< Specifies the multiplication factor for PLLI2S VCO output clock.
-                            This parameter must be a number between Min_Data = 50 and Max_Data = 432    */
+                            This parameter must be a number between Min_Data = 50 and Max_Data = 432 */
 
         uint32_t PLLI2SP; /*!< Specifies division factor for SPDIFRX Clock.
-                            This parameter must be a value of @ref RCCEx_PLLI2SP_Clock_Divider           */
+                            This parameter must be a value of @ref RCCEx_PLLI2SP_Clock_Divider */
 
         uint32_t PLLI2SQ; /*!< Specifies the division factor for SAI clock.
                             This parameter must be a number between Min_Data = 2 and Max_Data = 15. 
@@ -106,13 +106,13 @@ extern "C"
     typedef struct
     {
         uint32_t PLLSAIM; /*!< Spcifies division factor for PLL VCO input clock.
-                            This parameter must be a number between Min_Data = 2 and Max_Data = 63       */
+                            This parameter must be a number between Min_Data = 2 and Max_Data = 63 */
 
         uint32_t PLLSAIN; /*!< Specifies the multiplication factor for PLLI2S VCO output clock.
-                            This parameter must be a number between Min_Data = 50 and Max_Data = 432    */
+                            This parameter must be a number between Min_Data = 50 and Max_Data = 432 */
 
         uint32_t PLLSAIP; /*!< Specifies division factor for OTG FS, SDIO and RNG clocks.
-                            This parameter must be a value of @ref RCCEx_PLLSAIP_Clock_Divider           */
+                            This parameter must be a value of @ref RCCEx_PLLSAIP_Clock_Divider */
 
         uint32_t PLLSAIQ; /*!< Specifies the division factor for SAI clock.
                             This parameter must be a number between Min_Data = 2 and Max_Data = 15.
@@ -211,10 +211,10 @@ extern "C"
     typedef struct
     {
         uint32_t PLLI2SM; /*!< Specifies division factor for PLL VCO input clock.
-                            This parameter must be a number between Min_Data = 2 and Max_Data = 63       */
+                            This parameter must be a number between Min_Data = 2 and Max_Data = 63 */
 
         uint32_t PLLI2SN; /*!< Specifies the multiplication factor for PLLI2S VCO output clock.
-                            This parameter must be a number between Min_Data = 50 and Max_Data = 432    */
+                            This parameter must be a number between Min_Data = 50 and Max_Data = 432 */
 
         uint32_t PLLI2SQ; /*!< Specifies the division factor for SAI clock.
                             This parameter must be a number between Min_Data = 2 and Max_Data = 15. 

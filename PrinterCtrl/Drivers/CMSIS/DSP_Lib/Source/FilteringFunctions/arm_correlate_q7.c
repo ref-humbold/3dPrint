@@ -82,18 +82,18 @@ void arm_correlate_q7(q7_t * pSrcA, uint32_t srcALen, q7_t * pSrcB, uint32_t src
 
     /* Run the below code for Cortex-M4 and Cortex-M3 */
 
-    q7_t * pIn1; /* inputA pointer               */
-    q7_t * pIn2; /* inputB pointer               */
-    q7_t * pOut = pDst; /* output pointer               */
+    q7_t * pIn1; /* inputA pointer */
+    q7_t * pIn2; /* inputB pointer */
+    q7_t * pOut = pDst; /* output pointer */
     q7_t * px; /* Intermediate inputA pointer  */
     q7_t * py; /* Intermediate inputB pointer  */
-    q7_t * pSrc1; /* Intermediate pointers        */
-    q31_t sum, acc0, acc1, acc2, acc3; /* Accumulators                  */
+    q7_t * pSrc1; /* Intermediate pointers */
+    q31_t sum, acc0, acc1, acc2, acc3; /* Accumulators */
     q31_t input1, input2; /* temporary variables */
     q15_t in1, in2; /* temporary variables */
     q7_t x0, x1, x2, x3, c0, c1; /* temporary variables for holding input and coefficient values */
     uint32_t j, k = 0u, count, blkCnt, outBlockSize, blockSize1, blockSize2,
-                blockSize3; /* loop counter                 */
+                blockSize3; /* loop counter */
     int32_t inc = 1;
 
     /* The algorithm implementation is based on the lengths of the inputs. */

@@ -103,8 +103,8 @@ void arm_cmplx_mult_real_f32(float32_t * pSrcCmplx, float32_t * pSrcReal, float3
      ** a second loop below computes the remaining 1 to 3 samples. */
     while(blkCnt > 0u)
     {
-        /* C[2 * i] = A[2 * i] * B[i].            */
-        /* C[2 * i + 1] = A[2 * i + 1] * B[i].        */
+        /* C[2 * i] = A[2 * i] * B[i]. */
+        /* C[2 * i + 1] = A[2 * i + 1] * B[i]. */
         /* read input from complex input buffer */
         inA1 = pSrcCmplx[0];
         inA2 = pSrcCmplx[1];
@@ -204,8 +204,8 @@ void arm_cmplx_mult_real_f32(float32_t * pSrcCmplx, float32_t * pSrcReal, float3
 
     while(blkCnt > 0u)
     {
-        /* C[2 * i] = A[2 * i] * B[i].            */
-        /* C[2 * i + 1] = A[2 * i + 1] * B[i].        */
+        /* C[2 * i] = A[2 * i] * B[i]. */
+        /* C[2 * i + 1] = A[2 * i + 1] * B[i]. */
         in = *pSrcReal++;
         /* store the result in the destination buffer. */
         *pCmplxDst++ = (*pSrcCmplx++) * (in);

@@ -84,8 +84,8 @@ void arm_cmplx_mult_real_q15(q15_t * pSrcCmplx, q15_t * pSrcReal, q15_t * pCmplx
      ** a second loop below computes the remaining 1 to 3 samples. */
     while(blkCnt > 0u)
     {
-        /* C[2 * i] = A[2 * i] * B[i].            */
-        /* C[2 * i + 1] = A[2 * i + 1] * B[i].        */
+        /* C[2 * i] = A[2 * i] * B[i]. */
+        /* C[2 * i + 1] = A[2 * i + 1] * B[i]. */
         /* read complex number both real and imaginary from complex input buffer */
         inA1 = *__SIMD32(pSrcCmplx)++;
         /* read two real values at a time from real input buffer */
@@ -158,8 +158,8 @@ void arm_cmplx_mult_real_q15(q15_t * pSrcCmplx, q15_t * pSrcReal, q15_t * pCmplx
 
     while(blkCnt > 0u)
     {
-        /* C[2 * i] = A[2 * i] * B[i].            */
-        /* C[2 * i + 1] = A[2 * i + 1] * B[i].        */
+        /* C[2 * i] = A[2 * i] * B[i]. */
+        /* C[2 * i + 1] = A[2 * i + 1] * B[i]. */
         in = *pSrcReal++;
         /* store the result in the destination buffer. */
         *pCmplxDst++ = (q15_t)__SSAT((((q31_t)(*pSrcCmplx++) * (in)) >> 15), 16);
@@ -175,8 +175,8 @@ void arm_cmplx_mult_real_q15(q15_t * pSrcCmplx, q15_t * pSrcReal, q15_t * pCmplx
 
     while(numSamples > 0u)
     {
-        /* realOut = realA * realB.            */
-        /* imagOut = imagA * realB.                */
+        /* realOut = realA * realB. */
+        /* imagOut = imagA * realB. */
         in = *pSrcReal++;
         /* store the result in the destination buffer. */
         *pCmplxDst++ = (q15_t)__SSAT((((q31_t)(*pSrcCmplx++) * (in)) >> 15), 16);

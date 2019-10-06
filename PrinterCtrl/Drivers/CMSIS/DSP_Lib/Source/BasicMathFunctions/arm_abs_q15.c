@@ -98,7 +98,7 @@ void arm_abs_q15(q15_t * pSrc, q15_t * pDst, uint32_t blockSize)
         *simd++ = __PKHBT(((in2 > 0) ? in2 : (q15_t)__QSUB16(0, in2)),
                           ((in1 > 0) ? in1 : (q15_t)__QSUB16(0, in1)), 16);
 
-#endif /* #ifndef  ARM_MATH_BIG_ENDIAN    */
+#endif /* #ifndef  ARM_MATH_BIG_ENDIAN */
 
         in1 = *pSrc++;
         in2 = *pSrc++;
@@ -113,7 +113,7 @@ void arm_abs_q15(q15_t * pSrc, q15_t * pDst, uint32_t blockSize)
         *simd++ = __PKHBT(((in2 > 0) ? in2 : (q15_t)__QSUB16(0, in2)),
                           ((in1 > 0) ? in1 : (q15_t)__QSUB16(0, in1)), 16);
 
-#endif /* #ifndef  ARM_MATH_BIG_ENDIAN    */
+#endif /* #ifndef  ARM_MATH_BIG_ENDIAN */
 
         /* Decrement the loop counter */
         blkCnt--;

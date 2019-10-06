@@ -463,7 +463,7 @@ void arm_conv_fast_opt_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, uint3
 
         *__SIMD32(pOut)++ = __PKHBT(__SSAT((acc3 >> 15), 16), __SSAT((acc2 >> 15), 16), 16);
 
-#endif /*      #ifndef ARM_MATH_BIG_ENDIAN       */
+#endif /*      #ifndef ARM_MATH_BIG_ENDIAN */
 
         /* Initialization of inputB pointer */
         pIn2 = py;

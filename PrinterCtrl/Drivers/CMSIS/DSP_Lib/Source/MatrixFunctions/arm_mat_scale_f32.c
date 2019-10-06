@@ -84,7 +84,7 @@ arm_status arm_mat_scale_f32(const arm_matrix_instance_f32 * pSrc, float32_t sca
     float32_t * pOut = pDst->pData; /* output data matrix pointer */
     uint32_t numSamples; /* total number of elements in the matrix */
     uint32_t blkCnt; /* loop counters */
-    arm_status status; /* status of matrix scaling     */
+    arm_status status; /* status of matrix scaling */
 
 #ifndef ARM_MATH_CM0_FAMILY
 
@@ -101,7 +101,7 @@ arm_status arm_mat_scale_f32(const arm_matrix_instance_f32 * pSrc, float32_t sca
         status = ARM_MATH_SIZE_MISMATCH;
     }
     else
-#endif /*    #ifdef ARM_MATH_MATRIX_CHECK    */
+#endif /*    #ifdef ARM_MATH_MATRIX_CHECK */
     {
         /* Total number of samples in the input matrix */
         numSamples = (uint32_t)pSrc->numRows * pSrc->numCols;

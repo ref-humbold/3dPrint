@@ -89,11 +89,11 @@ arm_status arm_mat_trans_f32(const arm_matrix_instance_f32 * pSrc, arm_matrix_in
         status = ARM_MATH_SIZE_MISMATCH;
     }
     else
-#endif /*    #ifdef ARM_MATH_MATRIX_CHECK    */
+#endif /*    #ifdef ARM_MATH_MATRIX_CHECK */
 
     {
         /* Matrix transpose by exchanging the rows with columns */
-        /* row loop     */
+        /* row loop */
         do
         {
             /* Loop Unrolling */
@@ -165,11 +165,11 @@ arm_status arm_mat_trans_f32(const arm_matrix_instance_f32 * pSrc, arm_matrix_in
         status = ARM_MATH_SIZE_MISMATCH;
     }
     else
-#endif /*      #ifdef ARM_MATH_MATRIX_CHECK    */
+#endif /*      #ifdef ARM_MATH_MATRIX_CHECK */
 
     {
         /* Matrix transpose by exchanging the rows with columns */
-        /* row loop     */
+        /* row loop */
         do
         {
             /* The pointer px is set to starting address of the column being processed */

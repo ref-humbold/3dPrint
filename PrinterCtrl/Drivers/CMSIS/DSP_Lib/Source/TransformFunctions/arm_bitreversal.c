@@ -124,7 +124,7 @@ void arm_bitreversal_q31(q31_t * pSrc, uint32_t fftLen, uint16_t bitRevFactor,
     uint32_t fftLenBy2, fftLenBy2p1, i, j;
     q31_t in;
 
-    /*  Initializations      */
+    /*  Initializations */
     j = 0u;
     fftLenBy2 = fftLen / 2u;
     fftLenBy2p1 = (fftLen / 2u) + 1u;
@@ -214,7 +214,7 @@ void arm_bitreversal_q15(q15_t * pSrc16, uint32_t fftLen, uint16_t bitRevFactor,
             pSrc[j + fftLenBy2p1] = in;
         }
 
-        /*  pSrc[i+1u] <-> pSrc[j+fftLenBy2];         */
+        /*  pSrc[i+1u] <-> pSrc[j+fftLenBy2]; */
         /*  pSrc[i+2] <-> pSrc[j+fftLenBy2+1u]  */
         in = pSrc[i + 1u];
         pSrc[i + 1u] = pSrc[j + fftLenBy2];

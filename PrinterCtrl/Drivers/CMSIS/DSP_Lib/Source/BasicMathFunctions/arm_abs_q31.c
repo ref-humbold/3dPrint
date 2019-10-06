@@ -108,7 +108,7 @@ void arm_abs_q31(q31_t * pSrc, q31_t * pDst, uint32_t blockSize)
     /* Initialize blkCnt with number of samples */
     blkCnt = blockSize;
 
-#endif /*   #ifndef ARM_MATH_CM0_FAMILY   */
+#endif /*   #ifndef ARM_MATH_CM0_FAMILY */
 
     while(blkCnt > 0u)
     {

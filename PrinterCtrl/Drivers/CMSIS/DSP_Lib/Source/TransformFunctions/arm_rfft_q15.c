@@ -172,7 +172,7 @@ void arm_split_rfft_q15(q15_t * pSrc, uint32_t fftLen, q15_t * pATable, q15_t * 
         /* -(pSrc[2 * i + 1] * pATable[2 * i + 1] - pSrc[2 * i] * pATable[2 * i]) */
         outR = -(__SMUSD(*__SIMD32(pSrc1), *__SIMD32(pCoefA)));
 
-#endif /*      #ifndef ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifndef ARM_MATH_BIG_ENDIAN */
 
         /* pSrc[2 * n - 2 * i] * pBTable[2 * i] +
         pSrc[2 * n - 2 * i + 1] * pBTable[2 * i + 1]) */
@@ -189,7 +189,7 @@ void arm_split_rfft_q15(q15_t * pSrc, uint32_t fftLen, q15_t * pATable, q15_t * 
 
         outI = __SMUSDX(*__SIMD32(pCoefB), *__SIMD32(pSrc2)--);
 
-#endif /*      #ifndef ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifndef ARM_MATH_BIG_ENDIAN */
 
         /* (pIn[2 * i + 1] * pATable[2 * i] + pIn[2 * i] * pATable[2 * i + 1] */
         outI = __SMLADX(*__SIMD32(pSrc1)++, *__SIMD32(pCoefA), outI);
@@ -326,7 +326,7 @@ void arm_split_rifft_q15(q15_t * pSrc, uint32_t fftLen, q15_t * pATable, q15_t *
         pIn[2 * n - 2 * i + 1] * pBTable[2 * i + 1])) */
         outR = -(__SMUSD(*__SIMD32(pSrc2), *__SIMD32(pCoefB)));
 
-#endif /*      #ifndef ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifndef ARM_MATH_BIG_ENDIAN */
 
         /* pIn[2 * i] * pATable[2 * i] + pIn[2 * i + 1] * pATable[2 * i + 1] +
         pIn[2 * n - 2 * i] * pBTable[2 * i] */
@@ -347,7 +347,7 @@ void arm_split_rifft_q15(q15_t * pSrc, uint32_t fftLen, q15_t * pATable, q15_t *
 
         outI = __SMLSDX(*__SIMD32(pSrc1)++, *__SIMD32(pCoefA), -outI);
 
-#endif /*      #ifndef ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifndef ARM_MATH_BIG_ENDIAN */
         /* write output */
 
 #ifndef ARM_MATH_BIG_ENDIAN
@@ -358,7 +358,7 @@ void arm_split_rifft_q15(q15_t * pSrc, uint32_t fftLen, q15_t * pATable, q15_t *
 
         *__SIMD32(pDst1)++ = __PKHBT((outI >> 16u), outR, 16);
 
-#endif /*      #ifndef ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifndef ARM_MATH_BIG_ENDIAN */
 
         /* update coefficient pointer */
         pCoefB = pCoefB + (2u * modifier);

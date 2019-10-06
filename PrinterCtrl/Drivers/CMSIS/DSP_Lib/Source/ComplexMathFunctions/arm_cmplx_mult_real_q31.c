@@ -83,8 +83,8 @@ void arm_cmplx_mult_real_q31(q31_t * pSrcCmplx, q31_t * pSrcReal, q31_t * pCmplx
      ** a second loop below computes the remaining 1 to 3 samples. */
     while(blkCnt > 0u)
     {
-        /* C[2 * i] = A[2 * i] * B[i].            */
-        /* C[2 * i + 1] = A[2 * i + 1] * B[i].        */
+        /* C[2 * i] = A[2 * i] * B[i]. */
+        /* C[2 * i + 1] = A[2 * i + 1] * B[i]. */
         /* read real input from complex input buffer */
         inA1 = *pSrcCmplx++;
         inA2 = *pSrcCmplx++;
@@ -163,8 +163,8 @@ void arm_cmplx_mult_real_q31(q31_t * pSrcCmplx, q31_t * pSrcReal, q31_t * pCmplx
 
     while(blkCnt > 0u)
     {
-        /* C[2 * i] = A[2 * i] * B[i].            */
-        /* C[2 * i + 1] = A[2 * i + 1] * B[i].        */
+        /* C[2 * i] = A[2 * i] * B[i]. */
+        /* C[2 * i + 1] = A[2 * i + 1] * B[i]. */
         /* read real input from complex input buffer */
         inA1 = *pSrcCmplx++;
         inA2 = *pSrcCmplx++;
@@ -197,8 +197,8 @@ void arm_cmplx_mult_real_q31(q31_t * pSrcCmplx, q31_t * pSrcReal, q31_t * pCmplx
 
     while(numSamples > 0u)
     {
-        /* realOut = realA * realB.            */
-        /* imagReal = imagA * realB.               */
+        /* realOut = realA * realB. */
+        /* imagReal = imagA * realB. */
         inA1 = *pSrcReal++;
         /* store the result in the destination buffer. */
         *pCmplxDst++ = (q31_t)clip_q63_to_q31(((q63_t)*pSrcCmplx++ * inA1) >> 31);

@@ -251,7 +251,7 @@ void arm_fir_fast_q15(const arm_fir_instance_q15 * S, q15_t * pSrc, q15_t * pDst
 
         *__SIMD32(pDst)++ = __PKHBT(__SSAT((acc3 >> 15), 16), __SSAT((acc2 >> 15), 16), 16);
 
-#endif /*      #ifndef ARM_MATH_BIG_ENDIAN       */
+#endif /*      #ifndef ARM_MATH_BIG_ENDIAN */
 
         /* Advance the state pointer by 4 to process the next group of 4 samples */
         pState = pState + 4u;

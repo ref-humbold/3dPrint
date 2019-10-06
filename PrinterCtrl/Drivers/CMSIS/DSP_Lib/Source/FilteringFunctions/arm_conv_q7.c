@@ -676,7 +676,7 @@ void arm_conv_q7(q7_t * pSrcA, uint32_t srcALen, q7_t * pSrcB, uint32_t srcBLen,
         pDst[i] = (q7_t)__SSAT((sum >> 7u), 8u);
     }
 
-#endif /*   #ifndef ARM_MATH_CM0_FAMILY        */
+#endif /*   #ifndef ARM_MATH_CM0_FAMILY */
 }
 
 /**

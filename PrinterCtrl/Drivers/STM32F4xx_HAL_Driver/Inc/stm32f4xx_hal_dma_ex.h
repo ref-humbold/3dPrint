@@ -48,8 +48,8 @@ extern "C"
   */
     typedef enum
     {
-        MEMORY0 = 0x00U, /*!< Memory 0     */
-        MEMORY1 = 0x01U /*!< Memory 1     */
+        MEMORY0 = 0x00U, /*!< Memory 0 */
+        MEMORY1 = 0x01U /*!< Memory 1 */
     } HAL_DMA_MemoryTypeDef;
 
     /**

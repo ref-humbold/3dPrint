@@ -78,7 +78,7 @@ void arm_pid_init_q15(arm_pid_instance_q15 * S, int32_t resetStateFlag)
 
     S->A1 = __PKHBT(S->Kd, -__QADD16(__QADD16(S->Kd, S->Kd), S->Kp), 16);
 
-#endif /*      #ifndef  ARM_MATH_BIG_ENDIAN    */
+#endif /*      #ifndef  ARM_MATH_BIG_ENDIAN */
 
     /* Check whether state needs reset or not */
     if(resetStateFlag)

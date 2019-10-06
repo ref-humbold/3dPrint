@@ -75,13 +75,13 @@
 void arm_fir_interpolate_q15(const arm_fir_interpolate_instance_q15 * S, q15_t * pSrc, q15_t * pDst,
                              uint32_t blockSize)
 {
-    q15_t * pState = S->pState; /* State pointer                                            */
-    q15_t * pCoeffs = S->pCoeffs; /* Coefficient pointer                                      */
-    q15_t * pStateCurnt; /* Points to the current sample of the state                */
-    q15_t *ptr1, *ptr2; /* Temporary pointers for state and coefficient buffers     */
-    q63_t sum0; /* Accumulators                                             */
+    q15_t * pState = S->pState; /* State pointer */
+    q15_t * pCoeffs = S->pCoeffs; /* Coefficient pointer */
+    q15_t * pStateCurnt; /* Points to the current sample of the state */
+    q15_t *ptr1, *ptr2; /* Temporary pointers for state and coefficient buffers */
+    q63_t sum0; /* Accumulators */
     q15_t x0, c0; /* Temporary variables to hold state and coefficient values */
-    uint32_t i, blkCnt, j, tapCnt; /* Loop counters                                            */
+    uint32_t i, blkCnt, j, tapCnt; /* Loop counters */
     uint16_t phaseLen = S->phaseLength; /* Length of each polyphase filter component */
     uint32_t blkCntN2;
     q63_t acc0, acc1;
@@ -396,13 +396,13 @@ void arm_fir_interpolate_q15(const arm_fir_interpolate_instance_q15 * S, q15_t *
 void arm_fir_interpolate_q15(const arm_fir_interpolate_instance_q15 * S, q15_t * pSrc, q15_t * pDst,
                              uint32_t blockSize)
 {
-    q15_t * pState = S->pState; /* State pointer                                            */
-    q15_t * pCoeffs = S->pCoeffs; /* Coefficient pointer                                      */
-    q15_t * pStateCurnt; /* Points to the current sample of the state                */
-    q15_t *ptr1, *ptr2; /* Temporary pointers for state and coefficient buffers     */
+    q15_t * pState = S->pState; /* State pointer */
+    q15_t * pCoeffs = S->pCoeffs; /* Coefficient pointer */
+    q15_t * pStateCurnt; /* Points to the current sample of the state */
+    q15_t *ptr1, *ptr2; /* Temporary pointers for state and coefficient buffers */
     q63_t sum; /* Accumulator */
     q15_t x0, c0; /* Temporary variables to hold state and coefficient values */
-    uint32_t i, blkCnt, tapCnt; /* Loop counters                                            */
+    uint32_t i, blkCnt, tapCnt; /* Loop counters */
     uint16_t phaseLen = S->phaseLength; /* Length of each polyphase filter component */
 
     /* S->pState buffer contains previous frame (phaseLen - 1) samples */

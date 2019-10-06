@@ -373,7 +373,7 @@ void arm_conv_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, uint32_t 
 
                 c0 = c0 & 0x0000FFFF;
 
-#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN */
 
                 /* Read x[7] */
                 x3 = *__SIMD32(px);
@@ -430,7 +430,7 @@ void arm_conv_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, uint32_t 
 #else
 
                 c0 = c0 & 0x0000FFFF;
-#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN */
 
                 /* Read x[10] */
                 x3 = _SIMD32_OFFSET(px + 2);
@@ -454,7 +454,7 @@ void arm_conv_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, uint32_t 
             *__SIMD32(pOut)++ = __PKHBT((acc1 >> 15), (acc0 >> 15), 16);
             *__SIMD32(pOut)++ = __PKHBT((acc3 >> 15), (acc2 >> 15), 16);
 
-#endif /*      #ifndef  ARM_MATH_BIG_ENDIAN    */
+#endif /*      #ifndef  ARM_MATH_BIG_ENDIAN */
 
             /* Increment the pointer pIn1 index, count by 4 */
             count += 4u;
@@ -909,7 +909,7 @@ void arm_conv_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, uint32_t 
             a = *px;
             x1 = __PKHBT(a, b, 16);
 
-#endif /*	#ifndef ARM_MATH_BIG_ENDIAN	   */
+#endif /*	#ifndef ARM_MATH_BIG_ENDIAN	 */
 
             /* Apply loop unrolling and compute 4 MACs simultaneously. */
             k = srcBLen >> 2u;
@@ -956,7 +956,7 @@ void arm_conv_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, uint32_t 
                 a = *(px + 2);
                 x3 = __PKHBT(a, b, 16);
 
-#endif /*	#ifndef ARM_MATH_BIG_ENDIAN	   */
+#endif /*	#ifndef ARM_MATH_BIG_ENDIAN	 */
 
                 /* acc2 +=  x[2] * y[srcBLen - 1] + x[3] * y[srcBLen - 2] */
                 acc2 = __SMLADX(x2, c0, acc2);
@@ -1002,7 +1002,7 @@ void arm_conv_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, uint32_t 
                 a = *(px + 4);
                 x1 = __PKHBT(a, b, 16);
 
-#endif /*	#ifndef ARM_MATH_BIG_ENDIAN	   */
+#endif /*	#ifndef ARM_MATH_BIG_ENDIAN	 */
 
                 px += 4u;
 
@@ -1034,7 +1034,7 @@ void arm_conv_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, uint32_t 
 
                 c0 = c0 & 0x0000FFFF;
 
-#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN */
 
                 /* Read x[7] */
                 a = *px;
@@ -1092,7 +1092,7 @@ void arm_conv_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, uint32_t 
                 a = *(px + 2);
                 x2 = __PKHBT(a, b, 16);
 
-#endif /*	#ifndef ARM_MATH_BIG_ENDIAN	   */
+#endif /*	#ifndef ARM_MATH_BIG_ENDIAN	 */
                 px += 2u;
 
                 /* Perform the multiply-accumulates */
@@ -1135,7 +1135,7 @@ void arm_conv_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, uint32_t 
                 a = *(px + 2);
                 x2 = __PKHBT(a, b, 16);
 
-#endif /*	#ifndef ARM_MATH_BIG_ENDIAN	   */
+#endif /*	#ifndef ARM_MATH_BIG_ENDIAN	 */
 
                 /* Perform the multiply-accumulates */
                 acc0 = __SMLADX(x0, c0, acc0);
@@ -1151,7 +1151,7 @@ void arm_conv_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, uint32_t 
 #else
 
                 c0 = c0 & 0x0000FFFF;
-#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN */
 
                 /* Read x[10] */
                 a = *(px + 2);

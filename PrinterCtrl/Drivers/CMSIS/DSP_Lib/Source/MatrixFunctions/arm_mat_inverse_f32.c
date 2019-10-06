@@ -112,7 +112,7 @@ arm_status arm_mat_inverse_f32(const arm_matrix_instance_f32 * pSrc, arm_matrix_
         status = ARM_MATH_SIZE_MISMATCH;
     }
     else
-#endif /*    #ifdef ARM_MATH_MATRIX_CHECK    */
+#endif /*    #ifdef ARM_MATH_MATRIX_CHECK */
 
     {
         /*--------------------------------------------------------------------------------------------------------------
@@ -436,7 +436,7 @@ arm_status arm_mat_inverse_f32(const arm_matrix_instance_f32 * pSrc, arm_matrix_
         status = ARM_MATH_SIZE_MISMATCH;
     }
     else
-#endif /*      #ifdef ARM_MATH_MATRIX_CHECK    */
+#endif /*      #ifdef ARM_MATH_MATRIX_CHECK */
     {
         /*--------------------------------------------------------------------------------------------------------------
          * Matrix Inverse can be solved using elementary row operations.

@@ -72,16 +72,16 @@ arm_status arm_conv_partial_q31(q31_t * pSrcA, uint32_t srcALen, q31_t * pSrcB, 
 
     /* Run the below code for Cortex-M4 and Cortex-M3 */
 
-    q31_t * pIn1; /* inputA pointer               */
-    q31_t * pIn2; /* inputB pointer               */
-    q31_t * pOut = pDst; /* output pointer               */
+    q31_t * pIn1; /* inputA pointer */
+    q31_t * pIn2; /* inputB pointer */
+    q31_t * pOut = pDst; /* output pointer */
     q31_t * px; /* Intermediate inputA pointer  */
     q31_t * py; /* Intermediate inputB pointer  */
-    q31_t *pSrc1, *pSrc2; /* Intermediate pointers        */
-    q63_t sum, acc0, acc1, acc2; /* Accumulator                  */
+    q31_t *pSrc1, *pSrc2; /* Intermediate pointers */
+    q63_t sum, acc0, acc1, acc2; /* Accumulator */
     q31_t x0, x1, x2, c0;
     uint32_t j, k, count, check, blkCnt;
-    int32_t blockSize1, blockSize2, blockSize3; /* loop counter                 */
+    int32_t blockSize1, blockSize2, blockSize3; /* loop counter */
     arm_status status; /* status of Partial convolution */
 
     /* Check for range of output samples to be calculated */
@@ -590,7 +590,7 @@ arm_status arm_conv_partial_q31(q31_t * pSrcA, uint32_t srcALen, q31_t * pSrcB, 
     }
     return (status);
 
-#endif /*    #ifndef ARM_MATH_CM0_FAMILY      */
+#endif /*    #ifndef ARM_MATH_CM0_FAMILY */
 }
 
 /**

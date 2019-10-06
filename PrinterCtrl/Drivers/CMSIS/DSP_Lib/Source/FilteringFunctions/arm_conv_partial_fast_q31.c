@@ -70,16 +70,16 @@ arm_status arm_conv_partial_fast_q31(q31_t * pSrcA, uint32_t srcALen, q31_t * pS
                                      uint32_t srcBLen, q31_t * pDst, uint32_t firstIndex,
                                      uint32_t numPoints)
 {
-    q31_t * pIn1; /* inputA pointer               */
-    q31_t * pIn2; /* inputB pointer               */
-    q31_t * pOut = pDst; /* output pointer               */
+    q31_t * pIn1; /* inputA pointer */
+    q31_t * pIn2; /* inputB pointer */
+    q31_t * pOut = pDst; /* output pointer */
     q31_t * px; /* Intermediate inputA pointer  */
     q31_t * py; /* Intermediate inputB pointer  */
-    q31_t *pSrc1, *pSrc2; /* Intermediate pointers        */
-    q31_t sum, acc0, acc1, acc2, acc3; /* Accumulators                  */
+    q31_t *pSrc1, *pSrc2; /* Intermediate pointers */
+    q31_t sum, acc0, acc1, acc2, acc3; /* Accumulators */
     q31_t x0, x1, x2, x3, c0;
     uint32_t j, k, count, check, blkCnt;
-    int32_t blockSize1, blockSize2, blockSize3; /* loop counters                 */
+    int32_t blockSize1, blockSize2, blockSize3; /* loop counters */
     arm_status status; /* status of Partial convolution */
 
     /* Check for range of output samples to be calculated */

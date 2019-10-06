@@ -358,7 +358,7 @@ void arm_fir_lattice_q15(const arm_fir_lattice_instance_q15 * S, q15_t * pSrc, q
         *__SIMD32(pDst)++ = __PKHBT(fcurnt2, fcurnt1, 16);
         *__SIMD32(pDst)++ = __PKHBT(fcurnt4, fcurnt3, 16);
 
-#endif /*      #ifndef  ARM_MATH_BIG_ENDIAN    */
+#endif /*      #ifndef  ARM_MATH_BIG_ENDIAN */
 
         blkCnt--;
     }

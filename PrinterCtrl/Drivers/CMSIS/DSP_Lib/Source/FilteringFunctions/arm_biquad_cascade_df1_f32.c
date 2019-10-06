@@ -185,15 +185,15 @@
 void arm_biquad_cascade_df1_f32(const arm_biquad_casd_df1_inst_f32 * S, float32_t * pSrc,
                                 float32_t * pDst, uint32_t blockSize)
 {
-    float32_t * pIn = pSrc; /*  source pointer            */
-    float32_t * pOut = pDst; /*  destination pointer       */
-    float32_t * pState = S->pState; /*  pState pointer            */
-    float32_t * pCoeffs = S->pCoeffs; /*  coefficient pointer       */
+    float32_t * pIn = pSrc; /*  source pointer */
+    float32_t * pOut = pDst; /*  destination pointer */
+    float32_t * pState = S->pState; /*  pState pointer */
+    float32_t * pCoeffs = S->pCoeffs; /*  coefficient pointer */
     float32_t acc; /*  Simulates the accumulator */
-    float32_t b0, b1, b2, a1, a2; /*  Filter coefficients       */
-    float32_t Xn1, Xn2, Yn1, Yn2; /*  Filter pState variables   */
-    float32_t Xn; /*  temporary input           */
-    uint32_t sample, stage = S->numStages; /*  loop counters             */
+    float32_t b0, b1, b2, a1, a2; /*  Filter coefficients */
+    float32_t Xn1, Xn2, Yn1, Yn2; /*  Filter pState variables */
+    float32_t Xn; /*  temporary input */
+    uint32_t sample, stage = S->numStages; /*  loop counters */
 
 #ifndef ARM_MATH_CM0_FAMILY
 
@@ -240,10 +240,10 @@ void arm_biquad_cascade_df1_f32(const arm_biquad_casd_df1_inst_f32 * S, float32_
 
             /* Every time after the output is computed state should be updated. */
             /* The states should be updated as:  */
-            /* Xn2 = Xn1    */
-            /* Xn1 = Xn     */
-            /* Yn2 = Yn1    */
-            /* Yn1 = acc   */
+            /* Xn2 = Xn1 */
+            /* Xn1 = Xn */
+            /* Yn2 = Yn1 */
+            /* Yn1 = acc */
 
             /* Read the second input */
             Xn2 = *pIn++;
@@ -256,10 +256,10 @@ void arm_biquad_cascade_df1_f32(const arm_biquad_casd_df1_inst_f32 * S, float32_
 
             /* Every time after the output is computed state should be updated. */
             /* The states should be updated as:  */
-            /* Xn2 = Xn1    */
-            /* Xn1 = Xn     */
-            /* Yn2 = Yn1    */
-            /* Yn1 = acc   */
+            /* Xn2 = Xn1 */
+            /* Xn1 = Xn */
+            /* Yn2 = Yn1 */
+            /* Yn1 = acc */
 
             /* Read the third input */
             Xn1 = *pIn++;
@@ -272,10 +272,10 @@ void arm_biquad_cascade_df1_f32(const arm_biquad_casd_df1_inst_f32 * S, float32_
 
             /* Every time after the output is computed state should be updated. */
             /* The states should be updated as: */
-            /* Xn2 = Xn1    */
-            /* Xn1 = Xn     */
-            /* Yn2 = Yn1    */
-            /* Yn1 = acc   */
+            /* Xn2 = Xn1 */
+            /* Xn1 = Xn */
+            /* Yn2 = Yn1 */
+            /* Yn1 = acc */
 
             /* Read the forth input */
             Xn = *pIn++;
@@ -288,10 +288,10 @@ void arm_biquad_cascade_df1_f32(const arm_biquad_casd_df1_inst_f32 * S, float32_
 
             /* Every time after the output is computed state should be updated. */
             /* The states should be updated as:  */
-            /* Xn2 = Xn1    */
-            /* Xn1 = Xn     */
-            /* Yn2 = Yn1    */
-            /* Yn1 = acc   */
+            /* Xn2 = Xn1 */
+            /* Xn1 = Xn */
+            /* Yn2 = Yn1 */
+            /* Yn1 = acc */
             Xn2 = Xn1;
             Xn1 = Xn;
 
@@ -315,11 +315,11 @@ void arm_biquad_cascade_df1_f32(const arm_biquad_casd_df1_inst_f32 * S, float32_
             *pOut++ = acc;
 
             /* Every time after the output is computed state should be updated. */
-            /* The states should be updated as:    */
-            /* Xn2 = Xn1    */
-            /* Xn1 = Xn     */
-            /* Yn2 = Yn1    */
-            /* Yn1 = acc   */
+            /* The states should be updated as: */
+            /* Xn2 = Xn1 */
+            /* Xn1 = Xn */
+            /* Yn2 = Yn1 */
+            /* Yn1 = acc */
             Xn2 = Xn1;
             Xn1 = Xn;
             Yn2 = Yn1;
@@ -384,11 +384,11 @@ void arm_biquad_cascade_df1_f32(const arm_biquad_casd_df1_inst_f32 * S, float32_
             *pOut++ = acc;
 
             /* Every time after the output is computed state should be updated. */
-            /* The states should be updated as:    */
-            /* Xn2 = Xn1    */
-            /* Xn1 = Xn     */
-            /* Yn2 = Yn1    */
-            /* Yn1 = acc   */
+            /* The states should be updated as: */
+            /* Xn2 = Xn1 */
+            /* Xn1 = Xn */
+            /* Yn2 = Yn1 */
+            /* Yn1 = acc */
             Xn2 = Xn1;
             Xn1 = Xn;
             Yn2 = Yn1;
@@ -416,7 +416,7 @@ void arm_biquad_cascade_df1_f32(const arm_biquad_casd_df1_inst_f32 * S, float32_
 
     } while(stage > 0u);
 
-#endif /*   #ifndef ARM_MATH_CM0_FAMILY         */
+#endif /*   #ifndef ARM_MATH_CM0_FAMILY */
 }
 
 /**

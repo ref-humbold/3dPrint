@@ -103,7 +103,7 @@ void arm_shift_q15(q15_t * pSrc, int8_t shiftBits, q15_t * pDst, uint32_t blockS
             *__SIMD32(pDst)++ =
                     __PKHBT(__SSAT((in2 << shiftBits), 16), __SSAT((in1 << shiftBits), 16), 16);
 
-#endif /* #ifndef  ARM_MATH_BIG_ENDIAN    */
+#endif /* #ifndef  ARM_MATH_BIG_ENDIAN */
 
             in1 = *pSrc++;
             in2 = *pSrc++;
@@ -118,7 +118,7 @@ void arm_shift_q15(q15_t * pSrc, int8_t shiftBits, q15_t * pDst, uint32_t blockS
             *__SIMD32(pDst)++ =
                     __PKHBT(__SSAT((in2 << shiftBits), 16), __SSAT((in1 << shiftBits), 16), 16);
 
-#endif /* #ifndef  ARM_MATH_BIG_ENDIAN    */
+#endif /* #ifndef  ARM_MATH_BIG_ENDIAN */
 
             /* Decrement the loop counter */
             blkCnt--;
@@ -158,7 +158,7 @@ void arm_shift_q15(q15_t * pSrc, int8_t shiftBits, q15_t * pDst, uint32_t blockS
 
             *__SIMD32(pDst)++ = __PKHBT((in2 >> -shiftBits), (in1 >> -shiftBits), 16);
 
-#endif /* #ifndef  ARM_MATH_BIG_ENDIAN    */
+#endif /* #ifndef  ARM_MATH_BIG_ENDIAN */
 
             in1 = *pSrc++;
             in2 = *pSrc++;
@@ -171,7 +171,7 @@ void arm_shift_q15(q15_t * pSrc, int8_t shiftBits, q15_t * pDst, uint32_t blockS
 
             *__SIMD32(pDst)++ = __PKHBT((in2 >> -shiftBits), (in1 >> -shiftBits), 16);
 
-#endif /* #ifndef  ARM_MATH_BIG_ENDIAN    */
+#endif /* #ifndef  ARM_MATH_BIG_ENDIAN */
 
             /* Decrement the loop counter */
             blkCnt--;

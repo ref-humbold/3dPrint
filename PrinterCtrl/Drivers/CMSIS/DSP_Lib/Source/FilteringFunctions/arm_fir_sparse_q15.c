@@ -283,7 +283,7 @@ void arm_fir_sparse_q15(arm_fir_sparse_instance_q15 * S, q15_t * pSrc, q15_t * p
 #else
         *__SIMD32(pOut)++ = __PKHBT((q15_t)__SSAT(in2 >> 15, 16), (q15_t)__SSAT(in1 >> 15, 16), 16);
 
-#endif /*      #ifndef  ARM_MATH_BIG_ENDIAN    */
+#endif /*      #ifndef  ARM_MATH_BIG_ENDIAN */
 
         in1 = *pScr2++;
 
@@ -297,7 +297,7 @@ void arm_fir_sparse_q15(arm_fir_sparse_instance_q15 * S, q15_t * pSrc, q15_t * p
 
         *__SIMD32(pOut)++ = __PKHBT((q15_t)__SSAT(in2 >> 15, 16), (q15_t)__SSAT(in1 >> 15, 16), 16);
 
-#endif /*      #ifndef  ARM_MATH_BIG_ENDIAN    */
+#endif /*      #ifndef  ARM_MATH_BIG_ENDIAN */
 
         blkCnt--;
     }

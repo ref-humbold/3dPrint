@@ -848,32 +848,32 @@ HAL_StatusTypeDef HAL_UART_UnRegisterCallback(UART_HandleTypeDef * huart,
         {
             case HAL_UART_TX_HALFCOMPLETE_CB_ID:
                 huart->TxHalfCpltCallback =
-                        HAL_UART_TxHalfCpltCallback; /* Legacy weak  TxHalfCpltCallback       */
+                        HAL_UART_TxHalfCpltCallback; /* Legacy weak  TxHalfCpltCallback */
                 break;
 
             case HAL_UART_TX_COMPLETE_CB_ID:
                 huart->TxCpltCallback =
-                        HAL_UART_TxCpltCallback; /* Legacy weak TxCpltCallback            */
+                        HAL_UART_TxCpltCallback; /* Legacy weak TxCpltCallback */
                 break;
 
             case HAL_UART_RX_HALFCOMPLETE_CB_ID:
                 huart->RxHalfCpltCallback =
-                        HAL_UART_RxHalfCpltCallback; /* Legacy weak RxHalfCpltCallback        */
+                        HAL_UART_RxHalfCpltCallback; /* Legacy weak RxHalfCpltCallback */
                 break;
 
             case HAL_UART_RX_COMPLETE_CB_ID:
                 huart->RxCpltCallback =
-                        HAL_UART_RxCpltCallback; /* Legacy weak RxCpltCallback            */
+                        HAL_UART_RxCpltCallback; /* Legacy weak RxCpltCallback */
                 break;
 
             case HAL_UART_ERROR_CB_ID:
                 huart->ErrorCallback =
-                        HAL_UART_ErrorCallback; /* Legacy weak ErrorCallback             */
+                        HAL_UART_ErrorCallback; /* Legacy weak ErrorCallback */
                 break;
 
             case HAL_UART_ABORT_COMPLETE_CB_ID:
                 huart->AbortCpltCallback =
-                        HAL_UART_AbortCpltCallback; /* Legacy weak AbortCpltCallback         */
+                        HAL_UART_AbortCpltCallback; /* Legacy weak AbortCpltCallback */
                 break;
 
             case HAL_UART_ABORT_TRANSMIT_COMPLETE_CB_ID:
@@ -888,12 +888,12 @@ HAL_StatusTypeDef HAL_UART_UnRegisterCallback(UART_HandleTypeDef * huart,
 
             case HAL_UART_MSPINIT_CB_ID:
                 huart->MspInitCallback =
-                        HAL_UART_MspInit; /* Legacy weak MspInitCallback           */
+                        HAL_UART_MspInit; /* Legacy weak MspInitCallback */
                 break;
 
             case HAL_UART_MSPDEINIT_CB_ID:
                 huart->MspDeInitCallback =
-                        HAL_UART_MspDeInit; /* Legacy weak MspDeInitCallback         */
+                        HAL_UART_MspDeInit; /* Legacy weak MspDeInitCallback */
                 break;
 
             default:
@@ -2523,14 +2523,14 @@ void UART_InitCallbacksToDefault(UART_HandleTypeDef * huart)
 {
     /* Init the UART Callback settings */
     huart->TxHalfCpltCallback =
-            HAL_UART_TxHalfCpltCallback; /* Legacy weak TxHalfCpltCallback        */
-    huart->TxCpltCallback = HAL_UART_TxCpltCallback; /* Legacy weak TxCpltCallback            */
+            HAL_UART_TxHalfCpltCallback; /* Legacy weak TxHalfCpltCallback */
+    huart->TxCpltCallback = HAL_UART_TxCpltCallback; /* Legacy weak TxCpltCallback */
     huart->RxHalfCpltCallback =
-            HAL_UART_RxHalfCpltCallback; /* Legacy weak RxHalfCpltCallback        */
-    huart->RxCpltCallback = HAL_UART_RxCpltCallback; /* Legacy weak RxCpltCallback            */
-    huart->ErrorCallback = HAL_UART_ErrorCallback; /* Legacy weak ErrorCallback             */
+            HAL_UART_RxHalfCpltCallback; /* Legacy weak RxHalfCpltCallback */
+    huart->RxCpltCallback = HAL_UART_RxCpltCallback; /* Legacy weak RxCpltCallback */
+    huart->ErrorCallback = HAL_UART_ErrorCallback; /* Legacy weak ErrorCallback */
     huart->AbortCpltCallback =
-            HAL_UART_AbortCpltCallback; /* Legacy weak AbortCpltCallback         */
+            HAL_UART_AbortCpltCallback; /* Legacy weak AbortCpltCallback */
     huart->AbortTransmitCpltCallback =
             HAL_UART_AbortTransmitCpltCallback; /* Legacy weak AbortTransmitCpltCallback */
     huart->AbortReceiveCpltCallback =

@@ -377,7 +377,7 @@ void arm_conv_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, uint32_t srcBL
 
                 c0 = c0 & 0x0000FFFF;
 
-#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN */
                 /* Read x[7] */
                 x3 = *__SIMD32(px);
                 px++;
@@ -433,7 +433,7 @@ void arm_conv_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, uint32_t srcBL
 #else
 
                 c0 = c0 & 0x0000FFFF;
-#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN */
                 /* Read x[10] */
                 x3 = _SIMD32_OFFSET(px + 2);
                 px += 3u;
@@ -457,7 +457,7 @@ void arm_conv_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, uint32_t srcBL
             *__SIMD32(pOut)++ = __PKHBT(__SSAT((acc1 >> 15), 16), __SSAT((acc0 >> 15), 16), 16);
             *__SIMD32(pOut)++ = __PKHBT(__SSAT((acc3 >> 15), 16), __SSAT((acc2 >> 15), 16), 16);
 
-#endif /*      #ifndef  ARM_MATH_BIG_ENDIAN    */
+#endif /*      #ifndef  ARM_MATH_BIG_ENDIAN */
 
             /* Increment the pointer pIn1 index, count by 4 */
             count += 4u;

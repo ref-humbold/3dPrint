@@ -73,9 +73,9 @@ extern "C"
 
         __IO uint32_t Address; /*Internal variable to save address selected for program*/
 
-        HAL_LockTypeDef Lock; /* FLASH locking object                */
+        HAL_LockTypeDef Lock; /* FLASH locking object */
 
-        __IO uint32_t ErrorCode; /* FLASH error code                    */
+        __IO uint32_t ErrorCode; /* FLASH error code */
 
     } FLASH_ProcessTypeDef;
 
@@ -91,13 +91,13 @@ extern "C"
   * @brief    FLASH Error Code 
   * @{
   */
-#define HAL_FLASH_ERROR_NONE 0x00000000U /*!< No error                      */
-#define HAL_FLASH_ERROR_RD 0x00000001U /*!< Read Protection error         */
-#define HAL_FLASH_ERROR_PGS 0x00000002U /*!< Programming Sequence error    */
+#define HAL_FLASH_ERROR_NONE 0x00000000U /*!< No error */
+#define HAL_FLASH_ERROR_RD 0x00000001U /*!< Read Protection error */
+#define HAL_FLASH_ERROR_PGS 0x00000002U /*!< Programming Sequence error */
 #define HAL_FLASH_ERROR_PGP 0x00000004U /*!< Programming Parallelism error */
-#define HAL_FLASH_ERROR_PGA 0x00000008U /*!< Programming Alignment error   */
-#define HAL_FLASH_ERROR_WRP 0x00000010U /*!< Write protection error        */
-#define HAL_FLASH_ERROR_OPERATION 0x00000020U /*!< Operation Error               */
+#define HAL_FLASH_ERROR_PGA 0x00000008U /*!< Programming Alignment error */
+#define HAL_FLASH_ERROR_WRP 0x00000010U /*!< Write protection error */
+#define HAL_FLASH_ERROR_OPERATION 0x00000020U /*!< Operation Error */
 /**
   * @}
   */
@@ -106,11 +106,11 @@ extern "C"
   * @{
   */
 #define FLASH_TYPEPROGRAM_BYTE \
-    0x00000000U /*!< Program byte (8-bit) at a specified address           */
+    0x00000000U /*!< Program byte (8-bit) at a specified address */
 #define FLASH_TYPEPROGRAM_HALFWORD \
-    0x00000001U /*!< Program a half-word (16-bit) at a specified address   */
+    0x00000001U /*!< Program a half-word (16-bit) at a specified address */
 #define FLASH_TYPEPROGRAM_WORD \
-    0x00000002U /*!< Program a word (32-bit) at a specified address        */
+    0x00000002U /*!< Program a word (32-bit) at a specified address */
 #define FLASH_TYPEPROGRAM_DOUBLEWORD \
     0x00000003U /*!< Program a double word (64-bit) at a specified address */
 /**
@@ -121,16 +121,16 @@ extern "C"
   * @brief Flag definition
   * @{
   */
-#define FLASH_FLAG_EOP FLASH_SR_EOP /*!< FLASH End of Operation flag               */
-#define FLASH_FLAG_OPERR FLASH_SR_SOP /*!< FLASH operation Error flag                */
-#define FLASH_FLAG_WRPERR FLASH_SR_WRPERR /*!< FLASH Write protected error flag          */
-#define FLASH_FLAG_PGAERR FLASH_SR_PGAERR /*!< FLASH Programming Alignment error flag    */
+#define FLASH_FLAG_EOP FLASH_SR_EOP /*!< FLASH End of Operation flag */
+#define FLASH_FLAG_OPERR FLASH_SR_SOP /*!< FLASH operation Error flag */
+#define FLASH_FLAG_WRPERR FLASH_SR_WRPERR /*!< FLASH Write protected error flag */
+#define FLASH_FLAG_PGAERR FLASH_SR_PGAERR /*!< FLASH Programming Alignment error flag */
 #define FLASH_FLAG_PGPERR FLASH_SR_PGPERR /*!< FLASH Programming Parallelism error flag  */
-#define FLASH_FLAG_PGSERR FLASH_SR_PGSERR /*!< FLASH Programming Sequence error flag     */
+#define FLASH_FLAG_PGSERR FLASH_SR_PGSERR /*!< FLASH Programming Sequence error flag */
 #if defined(FLASH_SR_RDERR)
-#define FLASH_FLAG_RDERR FLASH_SR_RDERR /*!< Read Protection error flag (PCROP)        */
+#define FLASH_FLAG_RDERR FLASH_SR_RDERR /*!< Read Protection error flag (PCROP) */
 #endif /* FLASH_SR_RDERR */
-#define FLASH_FLAG_BSY FLASH_SR_BSY /*!< FLASH Busy flag                           */
+#define FLASH_FLAG_BSY FLASH_SR_BSY /*!< FLASH Busy flag */
 /**
   * @}
   */
@@ -140,7 +140,7 @@ extern "C"
   * @{
   */
 #define FLASH_IT_EOP FLASH_CR_EOPIE /*!< End of FLASH Operation Interrupt source */
-#define FLASH_IT_ERR 0x02000000U /*!< Error Interrupt source                  */
+#define FLASH_IT_ERR 0x02000000U /*!< Error Interrupt source */
 /**
   * @}
   */

@@ -3734,7 +3734,7 @@ HAL_StatusTypeDef HAL_RCC_OscConfig(RCC_OscInitTypeDef * RCC_OscInitStruct)
         /* Check the parameters */
         assert_param(IS_RCC_LSE(RCC_OscInitStruct->LSEState));
 
-        /* Update LSE configuration in Backup Domain control register    */
+        /* Update LSE configuration in Backup Domain control register */
         /* Requires to enable write access to Backup Domain of necessary */
         if(__HAL_RCC_PWR_IS_CLK_DISABLED())
         {

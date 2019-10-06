@@ -160,20 +160,20 @@ LOW_OPTIMIZATION_ENTER
 void arm_biquad_cascade_stereo_df2T_f32(const arm_biquad_cascade_stereo_df2T_instance_f32 * S,
                                         float32_t * pSrc, float32_t * pDst, uint32_t blockSize)
 {
-    float32_t * pIn = pSrc; /*  source pointer            */
-    float32_t * pOut = pDst; /*  destination pointer       */
-    float32_t * pState = S->pState; /*  State pointer             */
-    float32_t * pCoeffs = S->pCoeffs; /*  coefficient pointer       */
-    float32_t acc1a, acc1b; /*  accumulator               */
-    float32_t b0, b1, b2, a1, a2; /*  Filter coefficients       */
-    float32_t Xn1a, Xn1b; /*  temporary input           */
-    float32_t d1a, d2a, d1b, d2b; /*  state variables           */
-    uint32_t sample, stage = S->numStages; /*  loop counters             */
+    float32_t * pIn = pSrc; /*  source pointer */
+    float32_t * pOut = pDst; /*  destination pointer */
+    float32_t * pState = S->pState; /*  State pointer */
+    float32_t * pCoeffs = S->pCoeffs; /*  coefficient pointer */
+    float32_t acc1a, acc1b; /*  accumulator */
+    float32_t b0, b1, b2, a1, a2; /*  Filter coefficients */
+    float32_t Xn1a, Xn1b; /*  temporary input */
+    float32_t d1a, d2a, d1b, d2b; /*  state variables */
+    uint32_t sample, stage = S->numStages; /*  loop counters */
 
 #if defined(ARM_MATH_CM7)
 
-    float32_t Xn2a, Xn3a, Xn4a, Xn5a, Xn6a, Xn7a, Xn8a; /*  Input State variables     */
-    float32_t Xn2b, Xn3b, Xn4b, Xn5b, Xn6b, Xn7b, Xn8b; /*  Input State variables     */
+    float32_t Xn2a, Xn3a, Xn4a, Xn5a, Xn6a, Xn7a, Xn8a; /*  Input State variables */
+    float32_t Xn2b, Xn3b, Xn4b, Xn5b, Xn6b, Xn7b, Xn8b; /*  Input State variables */
     float32_t acc2a, acc3a, acc4a, acc5a, acc6a, acc7a, acc8a; /*  Simulates the accumulator */
     float32_t acc2b, acc3b, acc4b, acc5b, acc6b, acc7b, acc8b; /*  Simulates the accumulator */
 
@@ -493,10 +493,10 @@ void arm_biquad_cascade_stereo_df2T_f32(const arm_biquad_cascade_stereo_df2T_ins
 
 #else
 
-    float32_t Xn2a, Xn3a, Xn4a; /*  Input State variables     */
-    float32_t Xn2b, Xn3b, Xn4b; /*  Input State variables     */
-    float32_t acc2a, acc3a, acc4a; /*  accumulator               */
-    float32_t acc2b, acc3b, acc4b; /*  accumulator               */
+    float32_t Xn2a, Xn3a, Xn4a; /*  Input State variables */
+    float32_t Xn2b, Xn3b, Xn4b; /*  Input State variables */
+    float32_t acc2a, acc3a, acc4a; /*  accumulator */
+    float32_t acc2b, acc3b, acc4b; /*  accumulator */
     float32_t p0a, p1a, p2a, p3a, p4a, A1a;
     float32_t p0b, p1b, p2b, p3b, p4b, A1b;
 

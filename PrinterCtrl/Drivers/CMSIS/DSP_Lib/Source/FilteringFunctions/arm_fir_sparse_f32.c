@@ -421,7 +421,7 @@ void arm_fir_sparse_f32(arm_fir_sparse_instance_f32 * S, float32_t * pSrc, float
         blkCnt--;
     }
 
-#endif /*   #ifndef ARM_MATH_CM0_FAMILY        */
+#endif /*   #ifndef ARM_MATH_CM0_FAMILY */
 }
 
 /**

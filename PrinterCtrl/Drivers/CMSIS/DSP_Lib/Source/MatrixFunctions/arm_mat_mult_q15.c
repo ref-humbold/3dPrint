@@ -91,10 +91,10 @@ arm_status arm_mat_mult_q15(const arm_matrix_instance_q15 * pSrcA,
     q15_t * pInA = pSrcA->pData; /* input data matrix pointer A of Q15 type */
     q15_t * pInB = pSrcB->pData; /* input data matrix pointer B of Q15 type */
     q15_t * px; /* Temporary output data matrix pointer */
-    uint16_t numRowsA = pSrcA->numRows; /* number of rows of input matrix A    */
+    uint16_t numRowsA = pSrcA->numRows; /* number of rows of input matrix A */
     uint16_t numColsB = pSrcB->numCols; /* number of columns of input matrix B */
     uint16_t numColsA = pSrcA->numCols; /* number of columns of input matrix A */
-    uint16_t numRowsB = pSrcB->numRows; /* number of rows of input matrix A    */
+    uint16_t numRowsB = pSrcB->numRows; /* number of rows of input matrix A */
     uint16_t col, i = 0u, row = numRowsB, colCnt; /* loop counters */
     arm_status status; /* status of matrix multiplication */
 
@@ -119,7 +119,7 @@ arm_status arm_mat_mult_q15(const arm_matrix_instance_q15 * pSrcA,
         status = ARM_MATH_SIZE_MISMATCH;
     }
     else
-#endif /*    #ifdef ARM_MATH_MATRIX_CHECK    */
+#endif /*    #ifdef ARM_MATH_MATRIX_CHECK */
     {
         /* Matrix transpose */
         do
@@ -148,7 +148,7 @@ arm_status arm_mat_mult_q15(const arm_matrix_instance_q15 * pSrcA,
 
                 *px = (q15_t)((in & (q31_t)0xffff0000) >> 16);
 
-#endif /*    #ifndef ARM_MATH_BIG_ENDIAN    */
+#endif /*    #ifndef ARM_MATH_BIG_ENDIAN */
 
                 /* Update the pointer px to point to the next row of the transposed matrix */
                 px += numRowsB;
@@ -162,7 +162,7 @@ arm_status arm_mat_mult_q15(const arm_matrix_instance_q15 * pSrcA,
 
                 *px = (q15_t)in;
 
-#endif /*    #ifndef ARM_MATH_BIG_ENDIAN    */
+#endif /*    #ifndef ARM_MATH_BIG_ENDIAN */
 
                 /* Update the pointer px to point to the next row of the transposed matrix */
                 px += numRowsB;
@@ -179,7 +179,7 @@ arm_status arm_mat_mult_q15(const arm_matrix_instance_q15 * pSrcA,
 
                 *px = (q15_t)((in & (q31_t)0xffff0000) >> 16);
 
-#endif /*    #ifndef ARM_MATH_BIG_ENDIAN    */
+#endif /*    #ifndef ARM_MATH_BIG_ENDIAN */
 
                 /* Update the pointer px to point to the next row of the transposed matrix */
                 px += numRowsB;
@@ -194,7 +194,7 @@ arm_status arm_mat_mult_q15(const arm_matrix_instance_q15 * pSrcA,
 
                 *px = (q15_t)in;
 
-#endif /*    #ifndef ARM_MATH_BIG_ENDIAN    */
+#endif /*    #ifndef ARM_MATH_BIG_ENDIAN */
 
                 /* Update the pointer px to point to the next row of the transposed matrix */
                 px += numRowsB;
@@ -380,7 +380,7 @@ arm_status arm_mat_mult_q15(const arm_matrix_instance_q15 * pSrcA,
     q15_t * px; /* Temporary output data matrix pointer */
     uint16_t numColsB = pSrcB->numCols; /* number of columns of input matrix B */
     uint16_t numColsA = pSrcA->numCols; /* number of columns of input matrix A */
-    uint16_t numRowsA = pSrcA->numRows; /* number of rows of input matrix A    */
+    uint16_t numRowsA = pSrcA->numRows; /* number of rows of input matrix A */
     uint16_t col, i = 0u, row = numRowsA, colCnt; /* loop counters */
     arm_status status; /* status of matrix multiplication */
 
@@ -394,7 +394,7 @@ arm_status arm_mat_mult_q15(const arm_matrix_instance_q15 * pSrcA,
         status = ARM_MATH_SIZE_MISMATCH;
     }
     else
-#endif /*    #ifdef ARM_MATH_MATRIX_CHECK    */
+#endif /*    #ifdef ARM_MATH_MATRIX_CHECK */
 
     {
         /* The following loop performs the dot-product of each row in pSrcA with each column in

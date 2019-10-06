@@ -106,7 +106,7 @@ arm_status arm_mat_mult_f32(const arm_matrix_instance_f32 * pSrcA,
         status = ARM_MATH_SIZE_MISMATCH;
     }
     else
-#endif /*      #ifdef ARM_MATH_MATRIX_CHECK    */
+#endif /*      #ifdef ARM_MATH_MATRIX_CHECK */
 
     {
         /* The following loop performs the dot-product of each row in pSrcA with each column in
@@ -139,7 +139,7 @@ arm_status arm_mat_mult_f32(const arm_matrix_instance_f32 * pSrcA,
                 /* Apply loop unrolling and compute 4 MACs simultaneously. */
                 colCnt = numColsA >> 2u;
 
-                /* matrix multiplication        */
+                /* matrix multiplication */
                 while(colCnt > 0u)
                 {
                     /* c(m,n) = a(1,1)*b(1,1) + a(1,2) * b(2,1) + .... + a(m,p)*b(p,n) */
@@ -210,7 +210,7 @@ arm_status arm_mat_mult_f32(const arm_matrix_instance_f32 * pSrcA,
         status = ARM_MATH_SIZE_MISMATCH;
     }
     else
-#endif /*      #ifdef ARM_MATH_MATRIX_CHECK    */
+#endif /*      #ifdef ARM_MATH_MATRIX_CHECK */
 
     {
         /* The following loop performs the dot-product of each row in pInA with each column in pInB

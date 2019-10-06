@@ -87,7 +87,7 @@ arm_status arm_mat_mult_q31(const arm_matrix_instance_q31 * pSrcA,
     q31_t * pOut = pDst->pData; /* output data matrix pointer */
     q31_t * px; /* Temporary output data matrix pointer */
     q63_t sum; /* Accumulator */
-    uint16_t numRowsA = pSrcA->numRows; /* number of rows of input matrix A    */
+    uint16_t numRowsA = pSrcA->numRows; /* number of rows of input matrix A */
     uint16_t numColsB = pSrcB->numCols; /* number of columns of input matrix B */
     uint16_t numColsA = pSrcA->numCols; /* number of columns of input matrix A */
 
@@ -109,7 +109,7 @@ arm_status arm_mat_mult_q31(const arm_matrix_instance_q31 * pSrcA,
         status = ARM_MATH_SIZE_MISMATCH;
     }
     else
-#endif /*    #ifdef ARM_MATH_MATRIX_CHECK    */
+#endif /*    #ifdef ARM_MATH_MATRIX_CHECK */
 
     {
         /* The following loop performs the dot-product of each row in pSrcA with each column in
@@ -219,7 +219,7 @@ arm_status arm_mat_mult_q31(const arm_matrix_instance_q31 * pSrcA,
         status = ARM_MATH_SIZE_MISMATCH;
     }
     else
-#endif /*    #ifdef ARM_MATH_MATRIX_CHECK    */
+#endif /*    #ifdef ARM_MATH_MATRIX_CHECK */
 
     {
         /* The following loop performs the dot-product of each row in pSrcA with each column in

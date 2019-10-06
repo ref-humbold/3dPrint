@@ -81,18 +81,18 @@ void arm_biquad_cascade_df1_q15(const arm_biquad_casd_df1_inst_q15 * S, q15_t * 
 
     /* Run the below code for Cortex-M4 and Cortex-M3 */
 
-    q15_t * pIn = pSrc; /*  Source pointer                               */
-    q15_t * pOut = pDst; /*  Destination pointer                          */
-    q31_t in; /*  Temporary variable to hold input value       */
-    q31_t out; /*  Temporary variable to hold output value      */
-    q31_t b0; /*  Temporary variable to hold bo value          */
-    q31_t b1, a1; /*  Filter coefficients                          */
-    q31_t state_in, state_out; /*  Filter state variables                       */
+    q15_t * pIn = pSrc; /*  Source pointer */
+    q15_t * pOut = pDst; /*  Destination pointer */
+    q31_t in; /*  Temporary variable to hold input value */
+    q31_t out; /*  Temporary variable to hold output value */
+    q31_t b0; /*  Temporary variable to hold bo value */
+    q31_t b1, a1; /*  Filter coefficients */
+    q31_t state_in, state_out; /*  Filter state variables */
     q31_t acc_l, acc_h;
-    q63_t acc; /*  Accumulator                                  */
+    q63_t acc; /*  Accumulator */
     int32_t lShift = (15 - (int32_t)S->postShift); /*  Post shift */
-    q15_t * pState = S->pState; /*  State pointer                                */
-    q15_t * pCoeffs = S->pCoeffs; /*  Coefficient pointer                          */
+    q15_t * pState = S->pState; /*  State pointer */
+    q15_t * pCoeffs = S->pCoeffs; /*  Coefficient pointer */
     uint32_t sample, stage = (uint32_t)S->numStages; /*  Stage loop counter */
     int32_t uShift = (32 - lShift);
 
@@ -151,10 +151,10 @@ void arm_biquad_cascade_df1_q15(const arm_biquad_casd_df1_inst_q15 * S, q15_t * 
 
             /* Every time after the output is computed state should be updated. */
             /* The states should be updated as:  */
-            /* Xn2 = Xn1    */
-            /* Xn1 = Xn     */
-            /* Yn2 = Yn1    */
-            /* Yn1 = acc   */
+            /* Xn2 = Xn1 */
+            /* Xn1 = Xn */
+            /* Yn2 = Yn1 */
+            /* Yn1 = acc */
             /* x[n-N], x[n-N-1] are packed together to make state_in of type q31 */
             /* y[n-N], y[n-N-1] are packed together to make state_out of type q31 */
 
@@ -168,7 +168,7 @@ void arm_biquad_cascade_df1_q15(const arm_biquad_casd_df1_inst_q15 * S, q15_t * 
             state_in = __PKHBT(state_in >> 16, (in >> 16), 16);
             state_out = __PKHBT(state_out >> 16, (out), 16);
 
-#endif /*      #ifndef  ARM_MATH_BIG_ENDIAN    */
+#endif /*      #ifndef  ARM_MATH_BIG_ENDIAN */
 
             /* out =  b0 * x[n] + 0 * 0 */
             out = __SMUADX(b0, in);
@@ -200,14 +200,14 @@ void arm_biquad_cascade_df1_q15(const arm_biquad_casd_df1_inst_q15 * S, q15_t * 
 
             *__SIMD32(pOut)++ = __PKHBT(out, state_out >> 16, 16);
 
-#endif /*      #ifndef  ARM_MATH_BIG_ENDIAN    */
+#endif /*      #ifndef  ARM_MATH_BIG_ENDIAN */
 
             /* Every time after the output is computed state should be updated. */
             /* The states should be updated as:  */
-            /* Xn2 = Xn1    */
-            /* Xn1 = Xn     */
-            /* Yn2 = Yn1    */
-            /* Yn1 = acc   */
+            /* Xn2 = Xn1 */
+            /* Xn1 = Xn */
+            /* Yn2 = Yn1 */
+            /* Yn1 = acc */
             /* x[n-N], x[n-N-1] are packed together to make state_in of type q31 */
             /* y[n-N], y[n-N-1] are packed together to make state_out of type q31 */
 #ifndef ARM_MATH_BIG_ENDIAN
@@ -220,7 +220,7 @@ void arm_biquad_cascade_df1_q15(const arm_biquad_casd_df1_inst_q15 * S, q15_t * 
             state_in = __PKHBT(state_in >> 16, in, 16);
             state_out = __PKHBT(state_out >> 16, out, 16);
 
-#endif /*      #ifndef  ARM_MATH_BIG_ENDIAN    */
+#endif /*      #ifndef  ARM_MATH_BIG_ENDIAN */
 
             /* Decrement the loop counter */
             sample--;
@@ -244,7 +244,7 @@ void arm_biquad_cascade_df1_q15(const arm_biquad_casd_df1_inst_q15 * S, q15_t * 
 
             out = __SMUADX(b0, in);
 
-#endif /*      #ifndef  ARM_MATH_BIG_ENDIAN    */
+#endif /*      #ifndef  ARM_MATH_BIG_ENDIAN */
 
             /* acc =  b1 * x[n-1] + b2 * x[n-2] + out */
             acc = __SMLALD(b1, state_in, out);
@@ -269,10 +269,10 @@ void arm_biquad_cascade_df1_q15(const arm_biquad_casd_df1_inst_q15 * S, q15_t * 
 
             /* Every time after the output is computed state should be updated. */
             /* The states should be updated as:  */
-            /* Xn2 = Xn1    */
-            /* Xn1 = Xn     */
-            /* Yn2 = Yn1    */
-            /* Yn1 = acc   */
+            /* Xn2 = Xn1 */
+            /* Xn1 = Xn */
+            /* Yn2 = Yn1 */
+            /* Yn1 = acc */
             /* x[n-N], x[n-N-1] are packed together to make state_in of type q31 */
             /* y[n-N], y[n-N-1] are packed together to make state_out of type q31 */
 
@@ -286,7 +286,7 @@ void arm_biquad_cascade_df1_q15(const arm_biquad_casd_df1_inst_q15 * S, q15_t * 
             state_in = __PKHBT(state_in >> 16, in, 16);
             state_out = __PKHBT(state_out >> 16, out, 16);
 
-#endif /*   #ifndef  ARM_MATH_BIG_ENDIAN    */
+#endif /*   #ifndef  ARM_MATH_BIG_ENDIAN */
         }
 
         /*  The first stage goes from the input wire to the output wire.  */
@@ -309,15 +309,15 @@ void arm_biquad_cascade_df1_q15(const arm_biquad_casd_df1_inst_q15 * S, q15_t * 
 
     /* Run the below code for Cortex-M0 */
 
-    q15_t * pIn = pSrc; /*  Source pointer                               */
-    q15_t * pOut = pDst; /*  Destination pointer                          */
-    q15_t b0, b1, b2, a1, a2; /*  Filter coefficients           */
-    q15_t Xn1, Xn2, Yn1, Yn2; /*  Filter state variables        */
-    q15_t Xn; /*  temporary input               */
-    q63_t acc; /*  Accumulator                                  */
+    q15_t * pIn = pSrc; /*  Source pointer */
+    q15_t * pOut = pDst; /*  Destination pointer */
+    q15_t b0, b1, b2, a1, a2; /*  Filter coefficients */
+    q15_t Xn1, Xn2, Yn1, Yn2; /*  Filter state variables */
+    q15_t Xn; /*  temporary input */
+    q63_t acc; /*  Accumulator */
     int32_t shift = (15 - (int32_t)S->postShift); /*  Post shift */
-    q15_t * pState = S->pState; /*  State pointer                                */
-    q15_t * pCoeffs = S->pCoeffs; /*  Coefficient pointer                          */
+    q15_t * pState = S->pState; /*  State pointer */
+    q15_t * pCoeffs = S->pCoeffs; /*  Coefficient pointer */
     uint32_t sample, stage = (uint32_t)S->numStages; /*  Stage loop counter */
 
     do
@@ -365,10 +365,10 @@ void arm_biquad_cascade_df1_q15(const arm_biquad_casd_df1_inst_q15 * S, q15_t * 
 
             /* Every time after the output is computed state should be updated. */
             /* The states should be updated as:  */
-            /* Xn2 = Xn1    */
-            /* Xn1 = Xn     */
-            /* Yn2 = Yn1    */
-            /* Yn1 = acc    */
+            /* Xn2 = Xn1 */
+            /* Xn1 = Xn */
+            /* Yn2 = Yn1 */
+            /* Yn1 = acc */
             Xn2 = Xn1;
             Xn1 = Xn;
             Yn2 = Yn1;

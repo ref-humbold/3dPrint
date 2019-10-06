@@ -88,11 +88,11 @@ arm_status arm_mat_trans_q15(const arm_matrix_instance_q15 * pSrc, arm_matrix_in
         status = ARM_MATH_SIZE_MISMATCH;
     }
     else
-#endif /*      #ifdef ARM_MATH_MATRIX_CHECK    */
+#endif /*      #ifdef ARM_MATH_MATRIX_CHECK */
 
     {
         /* Matrix transpose by exchanging the rows with columns */
-        /* row loop     */
+        /* row loop */
         do
         {
             /* Apply loop unrolling and exchange the columns with row elements */
@@ -119,7 +119,7 @@ arm_status arm_mat_trans_q15(const arm_matrix_instance_q15 * pSrc, arm_matrix_in
 
                 *pOut = (q15_t)((in & (q31_t)0xffff0000) >> 16);
 
-#endif /*    #ifndef ARM_MATH_BIG_ENDIAN    */
+#endif /*    #ifndef ARM_MATH_BIG_ENDIAN */
 
                 /* Update the pointer pOut to point to the next row of the transposed matrix */
                 pOut += nRows;
@@ -134,7 +134,7 @@ arm_status arm_mat_trans_q15(const arm_matrix_instance_q15 * pSrc, arm_matrix_in
 
                 *pOut = (q15_t)in;
 
-#endif /*    #ifndef ARM_MATH_BIG_ENDIAN    */
+#endif /*    #ifndef ARM_MATH_BIG_ENDIAN */
 
                 /* Update the pointer pOut to point to the next row of the transposed matrix */
                 pOut += nRows;
@@ -148,7 +148,7 @@ arm_status arm_mat_trans_q15(const arm_matrix_instance_q15 * pSrc, arm_matrix_in
 
                 in = *__SIMD32(pSrcA)++;
 
-#endif /*    #ifndef ARM_MATH_BIG_ENDIAN    */
+#endif /*    #ifndef ARM_MATH_BIG_ENDIAN */
 
                 /* Unpack and store one element in the destination */
 #ifndef ARM_MATH_BIG_ENDIAN
@@ -159,7 +159,7 @@ arm_status arm_mat_trans_q15(const arm_matrix_instance_q15 * pSrc, arm_matrix_in
 
                 *pOut = (q15_t)((in & (q31_t)0xffff0000) >> 16);
 
-#endif /*    #ifndef ARM_MATH_BIG_ENDIAN    */
+#endif /*    #ifndef ARM_MATH_BIG_ENDIAN */
 
                 /* Update the pointer pOut to point to the next row of the transposed matrix */
                 pOut += nRows;
@@ -173,7 +173,7 @@ arm_status arm_mat_trans_q15(const arm_matrix_instance_q15 * pSrc, arm_matrix_in
 
                 *pOut = (q15_t)in;
 
-#endif /*    #ifndef ARM_MATH_BIG_ENDIAN    */
+#endif /*    #ifndef ARM_MATH_BIG_ENDIAN */
 
 #else
                 /* Read one element from the row */
@@ -234,11 +234,11 @@ arm_status arm_mat_trans_q15(const arm_matrix_instance_q15 * pSrc, arm_matrix_in
         status = ARM_MATH_SIZE_MISMATCH;
     }
     else
-#endif /*    #ifdef ARM_MATH_MATRIX_CHECK    */
+#endif /*    #ifdef ARM_MATH_MATRIX_CHECK */
 
     {
         /* Matrix transpose by exchanging the rows with columns */
-        /* row loop     */
+        /* row loop */
         do
         {
             /* The pointer pOut is set to starting address of the column being processed */

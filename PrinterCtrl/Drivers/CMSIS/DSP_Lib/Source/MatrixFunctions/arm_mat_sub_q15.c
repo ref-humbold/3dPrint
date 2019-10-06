@@ -84,7 +84,7 @@ arm_status arm_mat_sub_q15(const arm_matrix_instance_q15 * pSrcA,
         status = ARM_MATH_SIZE_MISMATCH;
     }
     else
-#endif /*    #ifdef ARM_MATH_MATRIX_CHECK    */
+#endif /*    #ifdef ARM_MATH_MATRIX_CHECK */
 
     {
         /* Total number of samples in the input matrix */

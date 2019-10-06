@@ -513,7 +513,7 @@ void arm_fir_decimate_f32(const arm_fir_decimate_instance_f32 * S, float32_t * p
         i--;
     }
 
-#endif /*   #ifndef ARM_MATH_CM0_FAMILY        */
+#endif /*   #ifndef ARM_MATH_CM0_FAMILY */
 }
 
 /**

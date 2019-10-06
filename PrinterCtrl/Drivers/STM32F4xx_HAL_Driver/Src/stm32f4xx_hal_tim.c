@@ -6698,30 +6698,30 @@ void TIM_ResetCallback(TIM_HandleTypeDef * htim)
 {
     /* Reset the TIM callback to the legacy weak callbacks */
     htim->PeriodElapsedCallback =
-            HAL_TIM_PeriodElapsedCallback; /* Legacy weak PeriodElapsedCallback             */
+            HAL_TIM_PeriodElapsedCallback; /* Legacy weak PeriodElapsedCallback */
     htim->PeriodElapsedHalfCpltCallback =
-            HAL_TIM_PeriodElapsedHalfCpltCallback; /* Legacy weak PeriodElapsedHalfCpltCallback     */
+            HAL_TIM_PeriodElapsedHalfCpltCallback; /* Legacy weak PeriodElapsedHalfCpltCallback */
     htim->TriggerCallback =
-            HAL_TIM_TriggerCallback; /* Legacy weak TriggerCallback                   */
+            HAL_TIM_TriggerCallback; /* Legacy weak TriggerCallback */
     htim->TriggerHalfCpltCallback =
-            HAL_TIM_TriggerHalfCpltCallback; /* Legacy weak TriggerHalfCpltCallback           */
+            HAL_TIM_TriggerHalfCpltCallback; /* Legacy weak TriggerHalfCpltCallback */
     htim->IC_CaptureCallback =
-            HAL_TIM_IC_CaptureCallback; /* Legacy weak IC_CaptureCallback                */
+            HAL_TIM_IC_CaptureCallback; /* Legacy weak IC_CaptureCallback */
     htim->IC_CaptureHalfCpltCallback =
-            HAL_TIM_IC_CaptureHalfCpltCallback; /* Legacy weak IC_CaptureHalfCpltCallback        */
+            HAL_TIM_IC_CaptureHalfCpltCallback; /* Legacy weak IC_CaptureHalfCpltCallback */
     htim->OC_DelayElapsedCallback =
-            HAL_TIM_OC_DelayElapsedCallback; /* Legacy weak OC_DelayElapsedCallback           */
+            HAL_TIM_OC_DelayElapsedCallback; /* Legacy weak OC_DelayElapsedCallback */
     htim->PWM_PulseFinishedCallback =
-            HAL_TIM_PWM_PulseFinishedCallback; /* Legacy weak PWM_PulseFinishedCallback         */
+            HAL_TIM_PWM_PulseFinishedCallback; /* Legacy weak PWM_PulseFinishedCallback */
     htim->PWM_PulseFinishedHalfCpltCallback =
             HAL_TIM_PWM_PulseFinishedHalfCpltCallback; /* Legacy weak PWM_PulseFinishedHalfCpltCallback */
-    htim->ErrorCallback = HAL_TIM_ErrorCallback; /* Legacy weak ErrorCallback                     */
+    htim->ErrorCallback = HAL_TIM_ErrorCallback; /* Legacy weak ErrorCallback */
     htim->CommutationCallback =
-            HAL_TIMEx_CommutCallback; /* Legacy weak CommutationCallback               */
+            HAL_TIMEx_CommutCallback; /* Legacy weak CommutationCallback */
     htim->CommutationHalfCpltCallback =
-            HAL_TIMEx_CommutHalfCpltCallback; /* Legacy weak CommutationHalfCpltCallback       */
+            HAL_TIMEx_CommutHalfCpltCallback; /* Legacy weak CommutationHalfCpltCallback */
     htim->BreakCallback =
-            HAL_TIMEx_BreakCallback; /* Legacy weak BreakCallback                     */
+            HAL_TIMEx_BreakCallback; /* Legacy weak BreakCallback */
 }
 #endif /* USE_HAL_TIM_REGISTER_CALLBACKS */
 

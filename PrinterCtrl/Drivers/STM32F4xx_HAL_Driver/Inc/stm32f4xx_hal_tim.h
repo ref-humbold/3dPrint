@@ -286,10 +286,10 @@ extern "C"
     typedef enum
     {
         HAL_TIM_STATE_RESET = 0x00U, /*!< Peripheral not yet initialized or disabled  */
-        HAL_TIM_STATE_READY = 0x01U, /*!< Peripheral Initialized and ready for use    */
-        HAL_TIM_STATE_BUSY = 0x02U, /*!< An internal process is ongoing              */
-        HAL_TIM_STATE_TIMEOUT = 0x03U, /*!< Timeout state                               */
-        HAL_TIM_STATE_ERROR = 0x04U /*!< Reception process is ongoing                */
+        HAL_TIM_STATE_READY = 0x01U, /*!< Peripheral Initialized and ready for use */
+        HAL_TIM_STATE_BUSY = 0x02U, /*!< An internal process is ongoing */
+        HAL_TIM_STATE_TIMEOUT = 0x03U, /*!< Timeout state */
+        HAL_TIM_STATE_ERROR = 0x04U /*!< Reception process is ongoing */
     } HAL_TIM_StateTypeDef;
 
     /**
@@ -297,10 +297,10 @@ extern "C"
   */
     typedef enum
     {
-        HAL_TIM_ACTIVE_CHANNEL_1 = 0x01U, /*!< The active channel is 1     */
-        HAL_TIM_ACTIVE_CHANNEL_2 = 0x02U, /*!< The active channel is 2     */
-        HAL_TIM_ACTIVE_CHANNEL_3 = 0x04U, /*!< The active channel is 3     */
-        HAL_TIM_ACTIVE_CHANNEL_4 = 0x08U, /*!< The active channel is 4     */
+        HAL_TIM_ACTIVE_CHANNEL_1 = 0x01U, /*!< The active channel is 1 */
+        HAL_TIM_ACTIVE_CHANNEL_2 = 0x02U, /*!< The active channel is 2 */
+        HAL_TIM_ACTIVE_CHANNEL_3 = 0x04U, /*!< The active channel is 3 */
+        HAL_TIM_ACTIVE_CHANNEL_4 = 0x08U, /*!< The active channel is 4 */
         HAL_TIM_ACTIVE_CHANNEL_CLEARED = 0x00U /*!< All active channels cleared */
     } HAL_TIM_ActiveChannel;
 
@@ -313,96 +313,96 @@ extern "C"
 typedef struct
 #endif /* USE_HAL_TIM_REGISTER_CALLBACKS */
     {
-        TIM_TypeDef * Instance; /*!< Register base address             */
+        TIM_TypeDef * Instance; /*!< Register base address */
         TIM_Base_InitTypeDef Init; /*!< TIM Time Base required parameters */
-        HAL_TIM_ActiveChannel Channel; /*!< Active channel                    */
+        HAL_TIM_ActiveChannel Channel; /*!< Active channel */
         DMA_HandleTypeDef * hdma[7]; /*!< DMA Handlers array
                                                   This array is accessed by a @ref DMA_Handle_index */
-        HAL_LockTypeDef Lock; /*!< Locking object                    */
-        __IO HAL_TIM_StateTypeDef State; /*!< TIM operation state               */
+        HAL_LockTypeDef Lock; /*!< Locking object */
+        __IO HAL_TIM_StateTypeDef State; /*!< TIM operation state */
 
 #if(USE_HAL_TIM_REGISTER_CALLBACKS == 1)
         void (*Base_MspInitCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM Base Msp Init Callback                              */
+                        htim); /*!< TIM Base Msp Init Callback */
         void (*Base_MspDeInitCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM Base Msp DeInit Callback                            */
+                        htim); /*!< TIM Base Msp DeInit Callback */
         void (*IC_MspInitCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM IC Msp Init Callback                                */
+                        htim); /*!< TIM IC Msp Init Callback */
         void (*IC_MspDeInitCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM IC Msp DeInit Callback                              */
+                        htim); /*!< TIM IC Msp DeInit Callback */
         void (*OC_MspInitCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM OC Msp Init Callback                                */
+                        htim); /*!< TIM OC Msp Init Callback */
         void (*OC_MspDeInitCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM OC Msp DeInit Callback                              */
+                        htim); /*!< TIM OC Msp DeInit Callback */
         void (*PWM_MspInitCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM PWM Msp Init Callback                               */
+                        htim); /*!< TIM PWM Msp Init Callback */
         void (*PWM_MspDeInitCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM PWM Msp DeInit Callback                             */
+                        htim); /*!< TIM PWM Msp DeInit Callback */
         void (*OnePulse_MspInitCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM One Pulse Msp Init Callback                         */
+                        htim); /*!< TIM One Pulse Msp Init Callback */
         void (*OnePulse_MspDeInitCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM One Pulse Msp DeInit Callback                       */
+                        htim); /*!< TIM One Pulse Msp DeInit Callback */
         void (*Encoder_MspInitCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM Encoder Msp Init Callback                           */
+                        htim); /*!< TIM Encoder Msp Init Callback */
         void (*Encoder_MspDeInitCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM Encoder Msp DeInit Callback                         */
+                        htim); /*!< TIM Encoder Msp DeInit Callback */
         void (*HallSensor_MspInitCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM Hall Sensor Msp Init Callback                       */
+                        htim); /*!< TIM Hall Sensor Msp Init Callback */
         void (*HallSensor_MspDeInitCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM Hall Sensor Msp DeInit Callback                     */
+                        htim); /*!< TIM Hall Sensor Msp DeInit Callback */
         void (*PeriodElapsedCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM Period Elapsed Callback                             */
+                        htim); /*!< TIM Period Elapsed Callback */
         void (*PeriodElapsedHalfCpltCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM Period Elapsed half complete Callback               */
+                        htim); /*!< TIM Period Elapsed half complete Callback */
         void (*TriggerCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM Trigger Callback                                    */
+                        htim); /*!< TIM Trigger Callback */
         void (*TriggerHalfCpltCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM Trigger half complete Callback                      */
+                        htim); /*!< TIM Trigger half complete Callback */
         void (*IC_CaptureCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM Input Capture Callback                              */
+                        htim); /*!< TIM Input Capture Callback */
         void (*IC_CaptureHalfCpltCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM Input Capture half complete Callback                */
+                        htim); /*!< TIM Input Capture half complete Callback */
         void (*OC_DelayElapsedCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM Output Compare Delay Elapsed Callback               */
+                        htim); /*!< TIM Output Compare Delay Elapsed Callback */
         void (*PWM_PulseFinishedCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM PWM Pulse Finished Callback                         */
+                        htim); /*!< TIM PWM Pulse Finished Callback */
         void (*PWM_PulseFinishedHalfCpltCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM PWM Pulse Finished half complete Callback           */
+                        htim); /*!< TIM PWM Pulse Finished half complete Callback */
         void (*ErrorCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM Error Callback                                      */
+                        htim); /*!< TIM Error Callback */
         void (*CommutationCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM Commutation Callback                                */
+                        htim); /*!< TIM Commutation Callback */
         void (*CommutationHalfCpltCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM Commutation half complete Callback                  */
+                        htim); /*!< TIM Commutation half complete Callback */
         void (*BreakCallback)(
                 struct __TIM_HandleTypeDef *
-                        htim); /*!< TIM Break Callback                                      */
+                        htim); /*!< TIM Break Callback */
 #endif /* USE_HAL_TIM_REGISTER_CALLBACKS */
     } TIM_HandleTypeDef;
 
@@ -413,86 +413,86 @@ typedef struct
     typedef enum
     {
         HAL_TIM_BASE_MSPINIT_CB_ID =
-                0x00U /*!< TIM Base MspInit Callback ID                              */
+                0x00U /*!< TIM Base MspInit Callback ID */
         ,
         HAL_TIM_BASE_MSPDEINIT_CB_ID =
-                0x01U /*!< TIM Base MspDeInit Callback ID                            */
+                0x01U /*!< TIM Base MspDeInit Callback ID */
         ,
         HAL_TIM_IC_MSPINIT_CB_ID =
-                0x02U /*!< TIM IC MspInit Callback ID                                */
+                0x02U /*!< TIM IC MspInit Callback ID */
         ,
         HAL_TIM_IC_MSPDEINIT_CB_ID =
-                0x03U /*!< TIM IC MspDeInit Callback ID                              */
+                0x03U /*!< TIM IC MspDeInit Callback ID */
         ,
         HAL_TIM_OC_MSPINIT_CB_ID =
-                0x04U /*!< TIM OC MspInit Callback ID                                */
+                0x04U /*!< TIM OC MspInit Callback ID */
         ,
         HAL_TIM_OC_MSPDEINIT_CB_ID =
-                0x05U /*!< TIM OC MspDeInit Callback ID                              */
+                0x05U /*!< TIM OC MspDeInit Callback ID */
         ,
         HAL_TIM_PWM_MSPINIT_CB_ID =
-                0x06U /*!< TIM PWM MspInit Callback ID                               */
+                0x06U /*!< TIM PWM MspInit Callback ID */
         ,
         HAL_TIM_PWM_MSPDEINIT_CB_ID =
-                0x07U /*!< TIM PWM MspDeInit Callback ID                             */
+                0x07U /*!< TIM PWM MspDeInit Callback ID */
         ,
         HAL_TIM_ONE_PULSE_MSPINIT_CB_ID =
-                0x08U /*!< TIM One Pulse MspInit Callback ID                         */
+                0x08U /*!< TIM One Pulse MspInit Callback ID */
         ,
         HAL_TIM_ONE_PULSE_MSPDEINIT_CB_ID =
-                0x09U /*!< TIM One Pulse MspDeInit Callback ID                       */
+                0x09U /*!< TIM One Pulse MspDeInit Callback ID */
         ,
         HAL_TIM_ENCODER_MSPINIT_CB_ID =
-                0x0AU /*!< TIM Encoder MspInit Callback ID                           */
+                0x0AU /*!< TIM Encoder MspInit Callback ID */
         ,
         HAL_TIM_ENCODER_MSPDEINIT_CB_ID =
-                0x0BU /*!< TIM Encoder MspDeInit Callback ID                         */
+                0x0BU /*!< TIM Encoder MspDeInit Callback ID */
         ,
         HAL_TIM_HALL_SENSOR_MSPINIT_CB_ID =
-                0x0CU /*!< TIM Hall Sensor MspDeInit Callback ID                     */
+                0x0CU /*!< TIM Hall Sensor MspDeInit Callback ID */
         ,
         HAL_TIM_HALL_SENSOR_MSPDEINIT_CB_ID =
-                0x0DU /*!< TIM Hall Sensor MspDeInit Callback ID                     */
+                0x0DU /*!< TIM Hall Sensor MspDeInit Callback ID */
         ,
         HAL_TIM_PERIOD_ELAPSED_CB_ID =
-                0x0EU /*!< TIM Period Elapsed Callback ID                             */
+                0x0EU /*!< TIM Period Elapsed Callback ID */
         ,
         HAL_TIM_PERIOD_ELAPSED_HALF_CB_ID =
-                0x0FU /*!< TIM Period Elapsed half complete Callback ID               */
+                0x0FU /*!< TIM Period Elapsed half complete Callback ID */
         ,
         HAL_TIM_TRIGGER_CB_ID =
-                0x10U /*!< TIM Trigger Callback ID                                    */
+                0x10U /*!< TIM Trigger Callback ID */
         ,
         HAL_TIM_TRIGGER_HALF_CB_ID =
-                0x11U /*!< TIM Trigger half complete Callback ID                      */
+                0x11U /*!< TIM Trigger half complete Callback ID */
 
         ,
         HAL_TIM_IC_CAPTURE_CB_ID =
-                0x12U /*!< TIM Input Capture Callback ID                              */
+                0x12U /*!< TIM Input Capture Callback ID */
         ,
         HAL_TIM_IC_CAPTURE_HALF_CB_ID =
-                0x13U /*!< TIM Input Capture half complete Callback ID                */
+                0x13U /*!< TIM Input Capture half complete Callback ID */
         ,
         HAL_TIM_OC_DELAY_ELAPSED_CB_ID =
-                0x14U /*!< TIM Output Compare Delay Elapsed Callback ID               */
+                0x14U /*!< TIM Output Compare Delay Elapsed Callback ID */
         ,
         HAL_TIM_PWM_PULSE_FINISHED_CB_ID =
-                0x15U /*!< TIM PWM Pulse Finished Callback ID           */
+                0x15U /*!< TIM PWM Pulse Finished Callback ID */
         ,
         HAL_TIM_PWM_PULSE_FINISHED_HALF_CB_ID =
-                0x16U /*!< TIM PWM Pulse Finished half complete Callback ID           */
+                0x16U /*!< TIM PWM Pulse Finished half complete Callback ID */
         ,
         HAL_TIM_ERROR_CB_ID =
-                0x17U /*!< TIM Error Callback ID                                      */
+                0x17U /*!< TIM Error Callback ID */
         ,
         HAL_TIM_COMMUTATION_CB_ID =
-                0x18U /*!< TIM Commutation Callback ID                                */
+                0x18U /*!< TIM Commutation Callback ID */
         ,
         HAL_TIM_COMMUTATION_HALF_CB_ID =
-                0x19U /*!< TIM Commutation half complete Callback ID                  */
+                0x19U /*!< TIM Commutation half complete Callback ID */
         ,
         HAL_TIM_BREAK_CB_ID =
-                0x1AU /*!< TIM Break Callback ID                                      */
+                0x1AU /*!< TIM Break Callback ID */
     } HAL_TIM_CallbackIDTypeDef;
 
     /**
@@ -599,11 +599,11 @@ typedef struct
 /** @defgroup TIM_Counter_Mode TIM Counter Mode
   * @{
   */
-#define TIM_COUNTERMODE_UP 0x00000000U /*!< Counter used as up-counter   */
+#define TIM_COUNTERMODE_UP 0x00000000U /*!< Counter used as up-counter */
 #define TIM_COUNTERMODE_DOWN TIM_CR1_DIR /*!< Counter used as down-counter */
-#define TIM_COUNTERMODE_CENTERALIGNED1 TIM_CR1_CMS_0 /*!< Center-aligned mode 1        */
-#define TIM_COUNTERMODE_CENTERALIGNED2 TIM_CR1_CMS_1 /*!< Center-aligned mode 2        */
-#define TIM_COUNTERMODE_CENTERALIGNED3 TIM_CR1_CMS /*!< Center-aligned mode 3        */
+#define TIM_COUNTERMODE_CENTERALIGNED1 TIM_CR1_CMS_0 /*!< Center-aligned mode 1 */
+#define TIM_COUNTERMODE_CENTERALIGNED2 TIM_CR1_CMS_1 /*!< Center-aligned mode 2 */
+#define TIM_COUNTERMODE_CENTERALIGNED3 TIM_CR1_CMS /*!< Center-aligned mode 3 */
 /**
   * @}
   */
@@ -611,7 +611,7 @@ typedef struct
 /** @defgroup TIM_ClockDivision TIM Clock Division
   * @{
   */
-#define TIM_CLOCKDIVISION_DIV1 0x00000000U /*!< Clock division: tDTS=tCK_INT   */
+#define TIM_CLOCKDIVISION_DIV1 0x00000000U /*!< Clock division: tDTS=tCK_INT */
 #define TIM_CLOCKDIVISION_DIV2 TIM_CR1_CKD_0 /*!< Clock division: tDTS=2*tCK_INT */
 #define TIM_CLOCKDIVISION_DIV4 TIM_CR1_CKD_1 /*!< Clock division: tDTS=4*tCK_INT */
 /**
@@ -650,7 +650,7 @@ typedef struct
   * @{
   */
 #define TIM_OUTPUTNSTATE_DISABLE 0x00000000U /*!< OCxN is disabled  */
-#define TIM_OUTPUTNSTATE_ENABLE TIM_CCER_CC1NE /*!< OCxN is enabled   */
+#define TIM_OUTPUTNSTATE_ENABLE TIM_CCER_CC1NE /*!< OCxN is enabled */
 /**
   * @}
   */
@@ -697,9 +697,9 @@ typedef struct
   * @{
   */
 #define TIM_ICPOLARITY_RISING \
-    TIM_INPUTCHANNELPOLARITY_RISING /*!< Capture triggered by rising edge on timer input                  */
+    TIM_INPUTCHANNELPOLARITY_RISING /*!< Capture triggered by rising edge on timer input */
 #define TIM_ICPOLARITY_FALLING \
-    TIM_INPUTCHANNELPOLARITY_FALLING /*!< Capture triggered by falling edge on timer input                 */
+    TIM_INPUTCHANNELPOLARITY_FALLING /*!< Capture triggered by falling edge on timer input */
 #define TIM_ICPOLARITY_BOTHEDGE \
     TIM_INPUTCHANNELPOLARITY_BOTHEDGE /*!< Capture triggered by both rising and falling edges on timer input*/
 /**
@@ -727,11 +727,11 @@ typedef struct
 #define TIM_ICPSC_DIV1 \
     0x00000000U /*!< Capture performed each time an edge is detected on the capture input */
 #define TIM_ICPSC_DIV2 \
-    TIM_CCMR1_IC1PSC_0 /*!< Capture performed once every 2 events                                */
+    TIM_CCMR1_IC1PSC_0 /*!< Capture performed once every 2 events */
 #define TIM_ICPSC_DIV4 \
-    TIM_CCMR1_IC1PSC_1 /*!< Capture performed once every 4 events                                */
+    TIM_CCMR1_IC1PSC_1 /*!< Capture performed once every 4 events */
 #define TIM_ICPSC_DIV8 \
-    TIM_CCMR1_IC1PSC /*!< Capture performed once every 8 events                                */
+    TIM_CCMR1_IC1PSC /*!< Capture performed once every 8 events */
 /**
   * @}
   */
@@ -740,7 +740,7 @@ typedef struct
   * @{
   */
 #define TIM_OPMODE_SINGLE TIM_CR1_OPM /*!< Counter stops counting at the next update event */
-#define TIM_OPMODE_REPETITIVE 0x00000000U /*!< Counter is not stopped at update event          */
+#define TIM_OPMODE_REPETITIVE 0x00000000U /*!< Counter is not stopped at update event */
 /**
   * @}
   */
@@ -762,14 +762,14 @@ typedef struct
 /** @defgroup TIM_Interrupt_definition TIM interrupt Definition
   * @{
   */
-#define TIM_IT_UPDATE TIM_DIER_UIE /*!< Update interrupt            */
+#define TIM_IT_UPDATE TIM_DIER_UIE /*!< Update interrupt */
 #define TIM_IT_CC1 TIM_DIER_CC1IE /*!< Capture/Compare 1 interrupt */
 #define TIM_IT_CC2 TIM_DIER_CC2IE /*!< Capture/Compare 2 interrupt */
 #define TIM_IT_CC3 TIM_DIER_CC3IE /*!< Capture/Compare 3 interrupt */
 #define TIM_IT_CC4 TIM_DIER_CC4IE /*!< Capture/Compare 4 interrupt */
-#define TIM_IT_COM TIM_DIER_COMIE /*!< Commutation interrupt       */
-#define TIM_IT_TRIGGER TIM_DIER_TIE /*!< Trigger interrupt           */
-#define TIM_IT_BREAK TIM_DIER_BIE /*!< Break interrupt             */
+#define TIM_IT_COM TIM_DIER_COMIE /*!< Commutation interrupt */
+#define TIM_IT_TRIGGER TIM_DIER_TIE /*!< Trigger interrupt */
+#define TIM_IT_BREAK TIM_DIER_BIE /*!< Break interrupt */
 /**
   * @}
   */
@@ -806,18 +806,18 @@ typedef struct
 /** @defgroup TIM_Flag_definition TIM Flag Definition
   * @{
   */
-#define TIM_FLAG_UPDATE TIM_SR_UIF /*!< Update interrupt flag         */
+#define TIM_FLAG_UPDATE TIM_SR_UIF /*!< Update interrupt flag */
 #define TIM_FLAG_CC1 TIM_SR_CC1IF /*!< Capture/Compare 1 interrupt flag */
 #define TIM_FLAG_CC2 TIM_SR_CC2IF /*!< Capture/Compare 2 interrupt flag */
 #define TIM_FLAG_CC3 TIM_SR_CC3IF /*!< Capture/Compare 3 interrupt flag */
 #define TIM_FLAG_CC4 TIM_SR_CC4IF /*!< Capture/Compare 4 interrupt flag */
-#define TIM_FLAG_COM TIM_SR_COMIF /*!< Commutation interrupt flag    */
-#define TIM_FLAG_TRIGGER TIM_SR_TIF /*!< Trigger interrupt flag        */
-#define TIM_FLAG_BREAK TIM_SR_BIF /*!< Break interrupt flag          */
-#define TIM_FLAG_CC1OF TIM_SR_CC1OF /*!< Capture 1 overcapture flag    */
-#define TIM_FLAG_CC2OF TIM_SR_CC2OF /*!< Capture 2 overcapture flag    */
-#define TIM_FLAG_CC3OF TIM_SR_CC3OF /*!< Capture 3 overcapture flag    */
-#define TIM_FLAG_CC4OF TIM_SR_CC4OF /*!< Capture 4 overcapture flag    */
+#define TIM_FLAG_COM TIM_SR_COMIF /*!< Commutation interrupt flag */
+#define TIM_FLAG_TRIGGER TIM_SR_TIF /*!< Trigger interrupt flag */
+#define TIM_FLAG_BREAK TIM_SR_BIF /*!< Break interrupt flag */
+#define TIM_FLAG_CC1OF TIM_SR_CC1OF /*!< Capture 1 overcapture flag */
+#define TIM_FLAG_CC2OF TIM_SR_CC2OF /*!< Capture 2 overcapture flag */
+#define TIM_FLAG_CC3OF TIM_SR_CC3OF /*!< Capture 3 overcapture flag */
+#define TIM_FLAG_CC4OF TIM_SR_CC4OF /*!< Capture 4 overcapture flag */
 /**
   * @}
   */
@@ -825,10 +825,10 @@ typedef struct
 /** @defgroup TIM_Channel TIM Channel
   * @{
   */
-#define TIM_CHANNEL_1 0x00000000U /*!< Capture/compare channel 1 identifier      */
-#define TIM_CHANNEL_2 0x00000004U /*!< Capture/compare channel 2 identifier      */
-#define TIM_CHANNEL_3 0x00000008U /*!< Capture/compare channel 3 identifier      */
-#define TIM_CHANNEL_4 0x0000000CU /*!< Capture/compare channel 4 identifier      */
+#define TIM_CHANNEL_1 0x00000000U /*!< Capture/compare channel 1 identifier */
+#define TIM_CHANNEL_2 0x00000004U /*!< Capture/compare channel 2 identifier */
+#define TIM_CHANNEL_3 0x00000008U /*!< Capture/compare channel 3 identifier */
+#define TIM_CHANNEL_4 0x0000000CU /*!< Capture/compare channel 4 identifier */
 #define TIM_CHANNEL_ALL 0x0000003CU /*!< Global Capture/compare channel identifier  */
 /**
   * @}
@@ -838,25 +838,25 @@ typedef struct
   * @{
   */
 #define TIM_CLOCKSOURCE_ETRMODE2 \
-    TIM_SMCR_ETPS_1 /*!< External clock source mode 2                          */
+    TIM_SMCR_ETPS_1 /*!< External clock source mode 2 */
 #define TIM_CLOCKSOURCE_INTERNAL \
-    TIM_SMCR_ETPS_0 /*!< Internal clock source                                 */
+    TIM_SMCR_ETPS_0 /*!< Internal clock source */
 #define TIM_CLOCKSOURCE_ITR0 \
-    TIM_TS_ITR0 /*!< External clock source mode 1 (ITR0)                   */
+    TIM_TS_ITR0 /*!< External clock source mode 1 (ITR0) */
 #define TIM_CLOCKSOURCE_ITR1 \
-    TIM_TS_ITR1 /*!< External clock source mode 1 (ITR1)                   */
+    TIM_TS_ITR1 /*!< External clock source mode 1 (ITR1) */
 #define TIM_CLOCKSOURCE_ITR2 \
-    TIM_TS_ITR2 /*!< External clock source mode 1 (ITR2)                   */
+    TIM_TS_ITR2 /*!< External clock source mode 1 (ITR2) */
 #define TIM_CLOCKSOURCE_ITR3 \
-    TIM_TS_ITR3 /*!< External clock source mode 1 (ITR3)                   */
+    TIM_TS_ITR3 /*!< External clock source mode 1 (ITR3) */
 #define TIM_CLOCKSOURCE_TI1ED \
     TIM_TS_TI1F_ED /*!< External clock source mode 1 (TTI1FP1 + edge detect.) */
 #define TIM_CLOCKSOURCE_TI1 \
-    TIM_TS_TI1FP1 /*!< External clock source mode 1 (TTI1FP1)                */
+    TIM_TS_TI1FP1 /*!< External clock source mode 1 (TTI1FP1) */
 #define TIM_CLOCKSOURCE_TI2 \
-    TIM_TS_TI2FP2 /*!< External clock source mode 1 (TTI2FP2)                */
+    TIM_TS_TI2FP2 /*!< External clock source mode 1 (TTI2FP2) */
 #define TIM_CLOCKSOURCE_ETRMODE1 \
-    TIM_TS_ETRF /*!< External clock source mode 1 (ETRF)                   */
+    TIM_TS_ETRF /*!< External clock source mode 1 (ETRF) */
 /**
   * @}
   */
@@ -881,7 +881,7 @@ typedef struct
   * @{
   */
 #define TIM_CLOCKPRESCALER_DIV1 \
-    TIM_ETRPRESCALER_DIV1 /*!< No prescaler is used                                                     */
+    TIM_ETRPRESCALER_DIV1 /*!< No prescaler is used */
 #define TIM_CLOCKPRESCALER_DIV2 \
     TIM_ETRPRESCALER_DIV2 /*!< Prescaler for External ETR Clock: Capture performed once every 2 events. */
 #define TIM_CLOCKPRESCALER_DIV4 \
@@ -905,7 +905,7 @@ typedef struct
   * @{
   */
 #define TIM_CLEARINPUTPRESCALER_DIV1 \
-    TIM_ETRPRESCALER_DIV1 /*!< No prescaler is used                                                   */
+    TIM_ETRPRESCALER_DIV1 /*!< No prescaler is used */
 #define TIM_CLEARINPUTPRESCALER_DIV2 \
     TIM_ETRPRESCALER_DIV2 /*!< Prescaler for External ETR pin: Capture performed once every 2 events. */
 #define TIM_CLEARINPUTPRESCALER_DIV4 \
@@ -920,7 +920,7 @@ typedef struct
   * @{
   */
 #define TIM_OSSR_ENABLE \
-    TIM_BDTR_OSSR /*!< When inactive, OC/OCN outputs are enabled (still controlled by the timer)           */
+    TIM_BDTR_OSSR /*!< When inactive, OC/OCN outputs are enabled (still controlled by the timer) */
 #define TIM_OSSR_DISABLE \
     0x00000000U /*!< When inactive, OC/OCN outputs are disabled (not controlled any longer by the timer) */
 /**
@@ -931,7 +931,7 @@ typedef struct
   * @{
   */
 #define TIM_OSSI_ENABLE \
-    TIM_BDTR_OSSI /*!< When inactive, OC/OCN outputs are enabled (still controlled by the timer)           */
+    TIM_BDTR_OSSI /*!< When inactive, OC/OCN outputs are enabled (still controlled by the timer) */
 #define TIM_OSSI_DISABLE \
     0x00000000U /*!< When inactive, OC/OCN outputs are disabled (not controlled any longer by the timer) */
 /**
@@ -940,7 +940,7 @@ typedef struct
 /** @defgroup TIM_Lock_level  TIM Lock level
   * @{
   */
-#define TIM_LOCKLEVEL_OFF 0x00000000U /*!< LOCK OFF     */
+#define TIM_LOCKLEVEL_OFF 0x00000000U /*!< LOCK OFF */
 #define TIM_LOCKLEVEL_1 TIM_BDTR_LOCK_0 /*!< LOCK Level 1 */
 #define TIM_LOCKLEVEL_2 TIM_BDTR_LOCK_1 /*!< LOCK Level 2 */
 #define TIM_LOCKLEVEL_3 TIM_BDTR_LOCK /*!< LOCK Level 3 */
@@ -981,25 +981,25 @@ typedef struct
   * @{
   */
 #define TIM_TRGO_RESET \
-    0x00000000U /*!< TIMx_EGR.UG bit is used as trigger output (TRGO)              */
+    0x00000000U /*!< TIMx_EGR.UG bit is used as trigger output (TRGO) */
 #define TIM_TRGO_ENABLE \
-    TIM_CR2_MMS_0 /*!< TIMx_CR1.CEN bit is used as trigger output (TRGO)             */
+    TIM_CR2_MMS_0 /*!< TIMx_CR1.CEN bit is used as trigger output (TRGO) */
 #define TIM_TRGO_UPDATE \
-    TIM_CR2_MMS_1 /*!< Update event is used as trigger output (TRGO)                 */
+    TIM_CR2_MMS_1 /*!< Update event is used as trigger output (TRGO) */
 #define TIM_TRGO_OC1 \
     (TIM_CR2_MMS_1 \
      | TIM_CR2_MMS_0) /*!< Capture or a compare match 1 is used as trigger output (TRGO) */
 #define TIM_TRGO_OC1REF \
-    TIM_CR2_MMS_2 /*!< OC1REF signal is used as trigger output (TRGO)                */
+    TIM_CR2_MMS_2 /*!< OC1REF signal is used as trigger output (TRGO) */
 #define TIM_TRGO_OC2REF \
     (TIM_CR2_MMS_2 \
-     | TIM_CR2_MMS_0) /*!< OC2REF signal is used as trigger output(TRGO)                 */
+     | TIM_CR2_MMS_0) /*!< OC2REF signal is used as trigger output(TRGO) */
 #define TIM_TRGO_OC3REF \
     (TIM_CR2_MMS_2 \
-     | TIM_CR2_MMS_1) /*!< OC3REF signal is used as trigger output(TRGO)                 */
+     | TIM_CR2_MMS_1) /*!< OC3REF signal is used as trigger output(TRGO) */
 #define TIM_TRGO_OC4REF \
     (TIM_CR2_MMS_2 | TIM_CR2_MMS_1 \
-     | TIM_CR2_MMS_0) /*!< OC4REF signal is used as trigger output(TRGO)                 */
+     | TIM_CR2_MMS_0) /*!< OC4REF signal is used as trigger output(TRGO) */
 /**
   * @}
   */
@@ -1016,13 +1016,13 @@ typedef struct
 /** @defgroup TIM_Slave_Mode TIM Slave mode
   * @{
   */
-#define TIM_SLAVEMODE_DISABLE 0x00000000U /*!< Slave mode disabled           */
-#define TIM_SLAVEMODE_RESET TIM_SMCR_SMS_2 /*!< Reset Mode                    */
-#define TIM_SLAVEMODE_GATED (TIM_SMCR_SMS_2 | TIM_SMCR_SMS_0) /*!< Gated Mode                    */
+#define TIM_SLAVEMODE_DISABLE 0x00000000U /*!< Slave mode disabled */
+#define TIM_SLAVEMODE_RESET TIM_SMCR_SMS_2 /*!< Reset Mode */
+#define TIM_SLAVEMODE_GATED (TIM_SMCR_SMS_2 | TIM_SMCR_SMS_0) /*!< Gated Mode */
 #define TIM_SLAVEMODE_TRIGGER \
-    (TIM_SMCR_SMS_2 | TIM_SMCR_SMS_1) /*!< Trigger Mode                  */
+    (TIM_SMCR_SMS_2 | TIM_SMCR_SMS_1) /*!< Trigger Mode */
 #define TIM_SLAVEMODE_EXTERNAL1 \
-    (TIM_SMCR_SMS_2 | TIM_SMCR_SMS_1 | TIM_SMCR_SMS_0) /*!< External Clock Mode 1         */
+    (TIM_SMCR_SMS_2 | TIM_SMCR_SMS_1 | TIM_SMCR_SMS_0) /*!< External Clock Mode 1 */
 /**
   * @}
   */
@@ -1030,19 +1030,19 @@ typedef struct
 /** @defgroup TIM_Output_Compare_and_PWM_modes TIM Output Compare and PWM Modes
   * @{
   */
-#define TIM_OCMODE_TIMING 0x00000000U /*!< Frozen                                 */
-#define TIM_OCMODE_ACTIVE TIM_CCMR1_OC1M_0 /*!< Set channel to active level on match   */
+#define TIM_OCMODE_TIMING 0x00000000U /*!< Frozen */
+#define TIM_OCMODE_ACTIVE TIM_CCMR1_OC1M_0 /*!< Set channel to active level on match */
 #define TIM_OCMODE_INACTIVE TIM_CCMR1_OC1M_1 /*!< Set channel to inactive level on match */
 #define TIM_OCMODE_TOGGLE \
-    (TIM_CCMR1_OC1M_1 | TIM_CCMR1_OC1M_0) /*!< Toggle                                 */
+    (TIM_CCMR1_OC1M_1 | TIM_CCMR1_OC1M_0) /*!< Toggle */
 #define TIM_OCMODE_PWM1 \
-    (TIM_CCMR1_OC1M_2 | TIM_CCMR1_OC1M_1) /*!< PWM mode 1                             */
+    (TIM_CCMR1_OC1M_2 | TIM_CCMR1_OC1M_1) /*!< PWM mode 1 */
 #define TIM_OCMODE_PWM2 \
     (TIM_CCMR1_OC1M_2 | TIM_CCMR1_OC1M_1 \
-     | TIM_CCMR1_OC1M_0) /*!< PWM mode 2                             */
+     | TIM_CCMR1_OC1M_0) /*!< PWM mode 2 */
 #define TIM_OCMODE_FORCED_ACTIVE \
-    (TIM_CCMR1_OC1M_2 | TIM_CCMR1_OC1M_0) /*!< Force active level                     */
-#define TIM_OCMODE_FORCED_INACTIVE TIM_CCMR1_OC1M_2 /*!< Force inactive level                   */
+    (TIM_CCMR1_OC1M_2 | TIM_CCMR1_OC1M_0) /*!< Force active level */
+#define TIM_OCMODE_FORCED_INACTIVE TIM_CCMR1_OC1M_2 /*!< Force inactive level */
 /**
   * @}
   */
@@ -1050,16 +1050,16 @@ typedef struct
 /** @defgroup TIM_Trigger_Selection TIM Trigger Selection
   * @{
   */
-#define TIM_TS_ITR0 0x00000000U /*!< Internal Trigger 0 (ITR0)              */
-#define TIM_TS_ITR1 TIM_SMCR_TS_0 /*!< Internal Trigger 1 (ITR1)              */
-#define TIM_TS_ITR2 TIM_SMCR_TS_1 /*!< Internal Trigger 2 (ITR2)              */
-#define TIM_TS_ITR3 (TIM_SMCR_TS_0 | TIM_SMCR_TS_1) /*!< Internal Trigger 3 (ITR3)              */
-#define TIM_TS_TI1F_ED TIM_SMCR_TS_2 /*!< TI1 Edge Detector (TI1F_ED)            */
-#define TIM_TS_TI1FP1 (TIM_SMCR_TS_0 | TIM_SMCR_TS_2) /*!< Filtered Timer Input 1 (TI1FP1)        */
-#define TIM_TS_TI2FP2 (TIM_SMCR_TS_1 | TIM_SMCR_TS_2) /*!< Filtered Timer Input 2 (TI2FP2)        */
+#define TIM_TS_ITR0 0x00000000U /*!< Internal Trigger 0 (ITR0) */
+#define TIM_TS_ITR1 TIM_SMCR_TS_0 /*!< Internal Trigger 1 (ITR1) */
+#define TIM_TS_ITR2 TIM_SMCR_TS_1 /*!< Internal Trigger 2 (ITR2) */
+#define TIM_TS_ITR3 (TIM_SMCR_TS_0 | TIM_SMCR_TS_1) /*!< Internal Trigger 3 (ITR3) */
+#define TIM_TS_TI1F_ED TIM_SMCR_TS_2 /*!< TI1 Edge Detector (TI1F_ED) */
+#define TIM_TS_TI1FP1 (TIM_SMCR_TS_0 | TIM_SMCR_TS_2) /*!< Filtered Timer Input 1 (TI1FP1) */
+#define TIM_TS_TI2FP2 (TIM_SMCR_TS_1 | TIM_SMCR_TS_2) /*!< Filtered Timer Input 2 (TI2FP2) */
 #define TIM_TS_ETRF \
     (TIM_SMCR_TS_0 | TIM_SMCR_TS_1 | TIM_SMCR_TS_2) /*!< Filtered External Trigger input (ETRF) */
-#define TIM_TS_NONE 0x0000FFFFU /*!< No trigger selected                    */
+#define TIM_TS_NONE 0x0000FFFFU /*!< No trigger selected */
 /**
   * @}
   */
@@ -1068,9 +1068,9 @@ typedef struct
   * @{
   */
 #define TIM_TRIGGERPOLARITY_INVERTED \
-    TIM_ETRPOLARITY_INVERTED /*!< Polarity for ETRx trigger sources             */
+    TIM_ETRPOLARITY_INVERTED /*!< Polarity for ETRx trigger sources */
 #define TIM_TRIGGERPOLARITY_NONINVERTED \
-    TIM_ETRPOLARITY_NONINVERTED /*!< Polarity for ETRx trigger sources             */
+    TIM_ETRPOLARITY_NONINVERTED /*!< Polarity for ETRx trigger sources */
 #define TIM_TRIGGERPOLARITY_RISING \
     TIM_INPUTCHANNELPOLARITY_RISING /*!< Polarity for TIxFPx or TI1_ED trigger sources */
 #define TIM_TRIGGERPOLARITY_FALLING \
@@ -1085,7 +1085,7 @@ typedef struct
   * @{
   */
 #define TIM_TRIGGERPRESCALER_DIV1 \
-    TIM_ETRPRESCALER_DIV1 /*!< No prescaler is used                                                       */
+    TIM_ETRPRESCALER_DIV1 /*!< No prescaler is used */
 #define TIM_TRIGGERPRESCALER_DIV2 \
     TIM_ETRPRESCALER_DIV2 /*!< Prescaler for External ETR Trigger: Capture performed once every 2 events. */
 #define TIM_TRIGGERPRESCALER_DIV4 \
@@ -1110,7 +1110,7 @@ typedef struct
   * @{
   */
 #define TIM_DMABURSTLENGTH_1TRANSFER \
-    0x00000000U /*!< The transfer is done to 1 register starting trom TIMx_CR1 + TIMx_DCR.DBA   */
+    0x00000000U /*!< The transfer is done to 1 register starting trom TIMx_CR1 + TIMx_DCR.DBA */
 #define TIM_DMABURSTLENGTH_2TRANSFERS \
     0x00000100U /*!< The transfer is done to 2 registers starting trom TIMx_CR1 + TIMx_DCR.DBA  */
 #define TIM_DMABURSTLENGTH_3TRANSFERS \

@@ -85,19 +85,19 @@
 void arm_correlate_opt_q7(q7_t * pSrcA, uint32_t srcALen, q7_t * pSrcB, uint32_t srcBLen,
                           q7_t * pDst, q15_t * pScratch1, q15_t * pScratch2)
 {
-    q7_t * pOut = pDst; /* output pointer                */
+    q7_t * pOut = pDst; /* output pointer */
     q15_t * pScr1 = pScratch1; /* Temporary pointer for scratch */
     q15_t * pScr2 = pScratch2; /* Temporary pointer for scratch */
-    q7_t * pIn1; /* inputA pointer                */
-    q7_t * pIn2; /* inputB pointer                */
-    q15_t * py; /* Intermediate inputB pointer   */
-    q31_t acc0, acc1, acc2, acc3; /* Accumulators                  */
-    uint32_t j, k = 0u, blkCnt; /* loop counter                  */
-    int32_t inc = 1; /* output pointer increment          */
-    uint32_t outBlockSize; /* loop counter                  */
-    q15_t x4; /* Temporary input variable      */
-    uint32_t tapCnt; /* loop counter                  */
-    q31_t x1, x2, x3, y1; /* Temporary input variables     */
+    q7_t * pIn1; /* inputA pointer */
+    q7_t * pIn2; /* inputB pointer */
+    q15_t * py; /* Intermediate inputB pointer */
+    q31_t acc0, acc1, acc2, acc3; /* Accumulators */
+    uint32_t j, k = 0u, blkCnt; /* loop counter */
+    int32_t inc = 1; /* output pointer increment */
+    uint32_t outBlockSize; /* loop counter */
+    q15_t x4; /* Temporary input variable */
+    uint32_t tapCnt; /* loop counter */
+    q31_t x1, x2, x3, y1; /* Temporary input variables */
 
     /* The algorithm implementation is based on the lengths of the inputs. */
     /* srcB is always made to slide across srcA. */

@@ -262,7 +262,7 @@ extern "C"
 #define FPDS_BIT_NUMBER PWR_CR_FPDS_Pos
 #define CR_FPDS_BB (uint32_t)(PERIPH_BB_BASE + (PWR_CR_OFFSET_BB * 32U) + (FPDS_BIT_NUMBER * 4U))
 
-/* Alias word address of ODEN bit   */
+/* Alias word address of ODEN bit */
 #define ODEN_BIT_NUMBER PWR_CR_ODEN_Pos
 #define CR_ODEN_BB (uint32_t)(PERIPH_BB_BASE + (PWR_CR_OFFSET_BB * 32U) + (ODEN_BIT_NUMBER * 4U))
 

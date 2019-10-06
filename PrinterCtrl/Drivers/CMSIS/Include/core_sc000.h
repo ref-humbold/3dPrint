@@ -732,13 +732,13 @@ extern "C"
 
 /* The following EXC_RETURN values are saved the LR on exception entry */
 #define EXC_RETURN_HANDLER \
-    (0xFFFFFFF1UL) /* return to Handler mode, uses MSP after return                               */
+    (0xFFFFFFF1UL) /* return to Handler mode, uses MSP after return */
 #define EXC_RETURN_THREAD_MSP \
-    (0xFFFFFFF9UL) /* return to Thread mode, uses MSP after return                                */
+    (0xFFFFFFF9UL) /* return to Thread mode, uses MSP after return */
 #define EXC_RETURN_THREAD_PSP \
-    (0xFFFFFFFDUL) /* return to Thread mode, uses PSP after return                                */
+    (0xFFFFFFFDUL) /* return to Thread mode, uses PSP after return */
 
-/* Interrupt Priorities are WORD accessible only under Armv6-M                  */
+/* Interrupt Priorities are WORD accessible only under Armv6-M */
 /* The following MACROS handle generation of the register offset and byte masks */
 #define _BIT_SHIFT(IRQn) (((((uint32_t)(int32_t)(IRQn))) & 0x03UL) * 8UL)
 #define _SHP_IDX(IRQn) ((((((uint32_t)(int32_t)(IRQn)) & 0x0FUL) - 8UL) >> 2UL))

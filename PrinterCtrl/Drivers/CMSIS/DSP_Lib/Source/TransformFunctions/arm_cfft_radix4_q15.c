@@ -253,7 +253,7 @@ void arm_radix4_butterfly_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * pCoef16,
         /* yc' = (xa-xb+xc-xd)* co2 + (ya-yb+yc-yd)* (si2) */
         out2 = __SMUAD(C2, R);
 
-#endif /*      #ifndef ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifndef ARM_MATH_BIG_ENDIAN */
 
         /*  Reading i0+fftLen/4 */
         /* T = packed(yb, xb) */
@@ -289,7 +289,7 @@ void arm_radix4_butterfly_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * pCoef16,
         /* S = packed((ya-yc) - (xb- xd),  (xa-xc) + (yb-yd)) */
         S = __QASX(S, T);
 
-#endif /*      #ifndef ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifndef ARM_MATH_BIG_ENDIAN */
 
         /* co1 & si1 are read from SIMD Coefficient pointer */
         C1 = _SIMD32_OFFSET(pCoef16 + (2u * ic));
@@ -309,7 +309,7 @@ void arm_radix4_butterfly_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * pCoef16,
         /* yb' = (xa+yb-xc-yd)* co1 + (ya-xb-yc+xd)* (si1) */
         out2 = __SMUAD(C1, S);
 
-#endif /*      #ifndef ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifndef ARM_MATH_BIG_ENDIAN */
 
         /* writing output(xb', yb') in little endian format */
         _SIMD32_OFFSET(pSi2) = ((out2)&0xFFFF0000) | ((out1)&0x0000FFFF);
@@ -333,7 +333,7 @@ void arm_radix4_butterfly_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * pCoef16,
         /* yd' = (xa-yb-xc+yd)* co3 + (ya+xb-yc-xd)* (si3) */
         out2 = __SMUAD(C3, R);
 
-#endif /*      #ifndef ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifndef ARM_MATH_BIG_ENDIAN */
 
         /* writing output(xd', yd') in little endian format */
         _SIMD32_OFFSET(pSi3) = ((out2)&0xFFFF0000) | (out1 & 0x0000FFFF);
@@ -429,7 +429,7 @@ void arm_radix4_butterfly_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * pCoef16,
                 /* (ya-yb+yc-yd)* (si2) + (xa-xb+xc-xd)* co2 */
                 out2 = __SMUAD(C2, R);
 
-#endif /*      #ifndef ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifndef ARM_MATH_BIG_ENDIAN */
 
                 /*  Reading i0+3fftLen/4 */
                 /* Read yb (real), xb(imag) input */
@@ -473,7 +473,7 @@ void arm_radix4_butterfly_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * pCoef16,
                 out1 = __SMUSDX(S, C1) >> 16u;
                 out2 = __SMUAD(C1, S);
 
-#endif /*      #ifndef ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifndef ARM_MATH_BIG_ENDIAN */
 
                 /* xb' = (xa+yb-xc-yd)* co1 + (ya-xb-yc+xd)* (si1) */
                 /* yb' = (ya-xb-yc+xd)* co1 - (xa+yb-xc-yd)* (si1) */
@@ -492,7 +492,7 @@ void arm_radix4_butterfly_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * pCoef16,
                 out1 = __SMUSDX(R, C3) >> 16u;
                 out2 = __SMUAD(C3, R);
 
-#endif /*      #ifndef ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifndef ARM_MATH_BIG_ENDIAN */
 
                 /* xd' = (xa-yb-xc+yd)* co3 + (ya+xb-yc-xd)* (si3) */
                 /* yd' = (ya+xb-yc-xd)* co3 - (xa-yb-xc+yd)* (si3) */
@@ -579,14 +579,14 @@ void arm_radix4_butterfly_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * pCoef16,
         /* yd' = (ya+xb-yc-xd) */
         *__SIMD32(ptr1)++ = __SHSAX(S, U);
 
-#endif /*      #ifndef ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifndef ARM_MATH_BIG_ENDIAN */
 
     } while(--j);
 
     /* end of last stage process */
 
     /* output is in 11.5(q5) format for the 1024 point */
-    /* output is in 9.7(q7) format for the 256 point   */
+    /* output is in 9.7(q7) format for the 256 point */
     /* output is in 7.9(q9) format for the 64 point  */
     /* output is in 5.11(q11) format for the 16 point  */
 
@@ -983,7 +983,7 @@ void arm_radix4_butterfly_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * pCoef16,
     /* end of last stage process */
 
     /* output is in 11.5(q5) format for the 1024 point */
-    /* output is in 9.7(q7) format for the 256 point   */
+    /* output is in 9.7(q7) format for the 256 point */
     /* output is in 7.9(q9) format for the 64 point  */
     /* output is in 5.11(q11) format for the 16 point  */
 
@@ -1145,7 +1145,7 @@ void arm_radix4_butterfly_inverse_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * p
         /* yc' = (xa-xb+xc-xd)* co2 + (ya-yb+yc-yd)* (si2) */
         out2 = __SMUSD(__QSUB16(0, C2), R);
 
-#endif /*      #ifndef ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifndef ARM_MATH_BIG_ENDIAN */
 
         /*  Reading i0+fftLen/4 */
         /* T = packed(yb, xb) */
@@ -1181,7 +1181,7 @@ void arm_radix4_butterfly_inverse_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * p
         /* S = packed((ya-yc) - (xb- xd),  (xa-xc) + (yb-yd)) */
         S = __QSAX(S, T);
 
-#endif /*      #ifndef ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifndef ARM_MATH_BIG_ENDIAN */
 
         /* co1 & si1 are read from SIMD Coefficient pointer */
         C1 = _SIMD32_OFFSET(pCoef16 + (2u * ic));
@@ -1201,7 +1201,7 @@ void arm_radix4_butterfly_inverse_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * p
         /* yb' = (xa+yb-xc-yd)* co1 + (ya-xb-yc+xd)* (si1) */
         out2 = __SMUSD(__QSUB16(0, C1), S);
 
-#endif /*      #ifndef ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifndef ARM_MATH_BIG_ENDIAN */
 
         /* writing output(xb', yb') in little endian format */
         _SIMD32_OFFSET(pSi2) = ((out2)&0xFFFF0000) | ((out1)&0x0000FFFF);
@@ -1225,7 +1225,7 @@ void arm_radix4_butterfly_inverse_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * p
         /* yd' = (xa-yb-xc+yd)* co3 + (ya+xb-yc-xd)* (si3) */
         out2 = __SMUSD(__QSUB16(0, C3), R);
 
-#endif /*      #ifndef ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifndef ARM_MATH_BIG_ENDIAN */
 
         /* writing output(xd', yd') in little endian format */
         _SIMD32_OFFSET(pSi3) = ((out2)&0xFFFF0000) | (out1 & 0x0000FFFF);
@@ -1321,7 +1321,7 @@ void arm_radix4_butterfly_inverse_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * p
                 /* (ya-yb+yc-yd)* (si2) + (xa-xb+xc-xd)* co2 */
                 out2 = __SMUSD(__QSUB16(0, C2), R);
 
-#endif /*      #ifndef ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifndef ARM_MATH_BIG_ENDIAN */
 
                 /*  Reading i0+3fftLen/4 */
                 /* Read yb (real), xb(imag) input */
@@ -1365,7 +1365,7 @@ void arm_radix4_butterfly_inverse_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * p
                 out1 = __SMUADX(S, C1) >> 16u;
                 out2 = __SMUSD(__QSUB16(0, C1), S);
 
-#endif /*      #ifndef ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifndef ARM_MATH_BIG_ENDIAN */
 
                 /* xb' = (xa+yb-xc-yd)* co1 + (ya-xb-yc+xd)* (si1) */
                 /* yb' = (ya-xb-yc+xd)* co1 - (xa+yb-xc-yd)* (si1) */
@@ -1384,7 +1384,7 @@ void arm_radix4_butterfly_inverse_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * p
                 out1 = __SMUADX(C3, R) >> 16u;
                 out2 = __SMUSD(__QSUB16(0, C3), R);
 
-#endif /*      #ifndef ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifndef ARM_MATH_BIG_ENDIAN */
 
                 /* xd' = (xa-yb-xc+yd)* co3 + (ya+xb-yc-xd)* (si3) */
                 /* yd' = (ya+xb-yc-xd)* co3 - (xa-yb-xc+yd)* (si3) */
@@ -1471,14 +1471,14 @@ void arm_radix4_butterfly_inverse_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * p
         /* yd' = (ya+xb-yc-xd) */
         *__SIMD32(ptr1)++ = __SHASX(S, U);
 
-#endif /*      #ifndef ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifndef ARM_MATH_BIG_ENDIAN */
 
     } while(--j);
 
     /* end of last stage  process */
 
     /* output is in 11.5(q5) format for the 1024 point */
-    /* output is in 9.7(q7) format for the 256 point   */
+    /* output is in 9.7(q7) format for the 256 point */
     /* output is in 7.9(q9) format for the 64 point  */
     /* output is in 5.11(q11) format for the 16 point  */
 
@@ -1765,7 +1765,7 @@ void arm_radix4_butterfly_inverse_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * p
     /*  End of Middle stages process */
 
     /* data is in 10.6(q6) format for the 1024 point */
-    /* data is in 8.8(q8) format for the 256 point   */
+    /* data is in 8.8(q8) format for the 256 point */
     /* data is in 6.10(q10) format for the 64 point  */
     /* data is in 4.12(q12) format for the 16 point  */
 
@@ -1853,7 +1853,7 @@ void arm_radix4_butterfly_inverse_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * p
     /* end of last stage  process */
 
     /* output is in 11.5(q5) format for the 1024 point */
-    /* output is in 9.7(q7) format for the 256 point   */
+    /* output is in 9.7(q7) format for the 256 point */
     /* output is in 7.9(q9) format for the 64 point  */
     /* output is in 5.11(q11) format for the 16 point  */
 

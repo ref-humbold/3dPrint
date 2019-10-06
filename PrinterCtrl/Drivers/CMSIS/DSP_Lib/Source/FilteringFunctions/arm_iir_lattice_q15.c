@@ -192,7 +192,7 @@ void arm_iir_lattice_q15(const arm_iir_lattice_instance_q15 * S, q15_t * pSrc, q
 
             gnext = __PKHBT(gnext2, gnext1, 16);
 
-#endif /*   #ifndef  ARM_MATH_BIG_ENDIAN    */
+#endif /*   #ifndef  ARM_MATH_BIG_ENDIAN */
 
             /* y(n) += gN-1(n) * vN-1  */
             /* process for gN-5(n) * vN-5, gN-9(n) * vN-9 ... */
@@ -257,7 +257,7 @@ void arm_iir_lattice_q15(const arm_iir_lattice_instance_q15 * S, q15_t * pSrc, q
 
             gnext = __PKHBT(gnext2, gnext1, 16);
 
-#endif /*      #ifndef  ARM_MATH_BIG_ENDIAN    */
+#endif /*      #ifndef  ARM_MATH_BIG_ENDIAN */
 
             /* y(n) += gN-4(n) * vN-4  */
             /* process for gN-8(n) * vN-8, gN-12(n) * vN-12 ... */

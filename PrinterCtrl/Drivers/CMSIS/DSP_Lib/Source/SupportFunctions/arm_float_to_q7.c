@@ -80,7 +80,7 @@ void arm_float_to_q7(float32_t * pSrc, q7_t * pDst, uint32_t blockSize)
 
     float32_t in;
 
-#endif /*      #ifdef ARM_MATH_ROUNDING        */
+#endif /*      #ifdef ARM_MATH_ROUNDING */
 
 #ifndef ARM_MATH_CM0_FAMILY
 
@@ -125,7 +125,7 @@ void arm_float_to_q7(float32_t * pSrc, q7_t * pDst, uint32_t blockSize)
         *pDst++ = __SSAT((q31_t)(*pIn++ * 128.0f), 8);
         *pDst++ = __SSAT((q31_t)(*pIn++ * 128.0f), 8);
 
-#endif /*      #ifdef ARM_MATH_ROUNDING        */
+#endif /*      #ifdef ARM_MATH_ROUNDING */
 
         /* Decrement the loop counter */
         blkCnt--;
@@ -151,7 +151,7 @@ void arm_float_to_q7(float32_t * pSrc, q7_t * pDst, uint32_t blockSize)
         /* convert from float to q7 and then store the results in the destination buffer */
         *pDst++ = __SSAT((q31_t)(*pIn++ * 128.0f), 8);
 
-#endif /*      #ifdef ARM_MATH_ROUNDING        */
+#endif /*      #ifdef ARM_MATH_ROUNDING */
 
         /* Decrement the loop counter */
         blkCnt--;
@@ -180,7 +180,7 @@ void arm_float_to_q7(float32_t * pSrc, q7_t * pDst, uint32_t blockSize)
         /* convert from float to q7 and then store the results in the destination buffer */
         *pDst++ = (q7_t)__SSAT((q31_t)(*pIn++ * 128.0f), 8);
 
-#endif /*      #ifdef ARM_MATH_ROUNDING        */
+#endif /*      #ifdef ARM_MATH_ROUNDING */
 
         /* Decrement the loop counter */
         blkCnt--;

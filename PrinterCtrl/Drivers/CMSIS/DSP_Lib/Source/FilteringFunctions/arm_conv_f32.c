@@ -636,7 +636,7 @@ void arm_conv_f32(float32_t * pSrcA, uint32_t srcALen, float32_t * pSrcB, uint32
         pDst[i] = sum;
     }
 
-#endif /*   #ifndef ARM_MATH_CM0_FAMILY        */
+#endif /*   #ifndef ARM_MATH_CM0_FAMILY */
 }
 
 /**

@@ -155,9 +155,9 @@ extern "C"
 #define COMP_INVERTINGINPUT_DAC2 COMP_INPUT_MINUS_DAC1_CH2
 #define COMP_INVERTINGINPUT_IO1 COMP_INPUT_MINUS_IO1
 #if defined(STM32L0)
-/* Issue fixed on STM32L0 COMP driver: only 2 dedicated IO (IO1 and IO2),     */
-/* IO2 was wrongly assigned to IO shared with DAC and IO3 was corresponding   */
-/* to the second dedicated IO (only for COMP2).                               */
+/* Issue fixed on STM32L0 COMP driver: only 2 dedicated IO (IO1 and IO2), */
+/* IO2 was wrongly assigned to IO shared with DAC and IO3 was corresponding */
+/* to the second dedicated IO (only for COMP2). */
 #define COMP_INVERTINGINPUT_IO2 COMP_INPUT_MINUS_DAC1_CH2
 #define COMP_INVERTINGINPUT_IO3 COMP_INPUT_MINUS_IO2
 #else
@@ -170,8 +170,8 @@ extern "C"
 #define COMP_OUTPUTLEVEL_LOW COMP_OUTPUT_LEVEL_LOW
 #define COMP_OUTPUTLEVEL_HIGH COMP_OUTPUT_LEVEL_HIGH
 
-/* Note: Literal "COMP_FLAG_LOCK" kept for legacy purpose.                    */
-/*       To check COMP lock state, use macro "__HAL_COMP_IS_LOCKED()".        */
+/* Note: Literal "COMP_FLAG_LOCK" kept for legacy purpose. */
+/*       To check COMP lock state, use macro "__HAL_COMP_IS_LOCKED()". */
 #if defined(COMP_CSR_LOCK)
 #define COMP_FLAG_LOCK COMP_CSR_LOCK
 #elif defined(COMP_CSR_COMP1LOCK)
@@ -1913,10 +1913,10 @@ extern "C"
 #define __HAL_COMP_GET_EXTI_LINE COMP_GET_EXTI_LINE
 
 #if defined(STM32L0) || defined(STM32L4)
-/* Note: On these STM32 families, the only argument of this macro             */
-/*       is COMP_FLAG_LOCK.                                                   */
+/* Note: On these STM32 families, the only argument of this macro */
+/*       is COMP_FLAG_LOCK. */
 /*       This macro is replaced by __HAL_COMP_IS_LOCKED with only HAL handle  */
-/*       argument.                                                            */
+/*       argument. */
 #define __HAL_COMP_GET_FLAG(__HANDLE__, __FLAG__) (__HAL_COMP_IS_LOCKED(__HANDLE__))
 #endif
     /**

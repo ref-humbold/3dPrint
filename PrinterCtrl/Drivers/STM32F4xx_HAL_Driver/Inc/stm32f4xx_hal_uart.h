@@ -144,27 +144,27 @@ extern "C"
   */
     typedef struct __UART_HandleTypeDef
     {
-        USART_TypeDef * Instance; /*!< UART registers base address        */
+        USART_TypeDef * Instance; /*!< UART registers base address */
 
-        UART_InitTypeDef Init; /*!< UART communication parameters      */
+        UART_InitTypeDef Init; /*!< UART communication parameters */
 
         uint8_t * pTxBuffPtr; /*!< Pointer to UART Tx transfer Buffer */
 
-        uint16_t TxXferSize; /*!< UART Tx Transfer size              */
+        uint16_t TxXferSize; /*!< UART Tx Transfer size */
 
-        __IO uint16_t TxXferCount; /*!< UART Tx Transfer Counter           */
+        __IO uint16_t TxXferCount; /*!< UART Tx Transfer Counter */
 
         uint8_t * pRxBuffPtr; /*!< Pointer to UART Rx transfer Buffer */
 
-        uint16_t RxXferSize; /*!< UART Rx Transfer size              */
+        uint16_t RxXferSize; /*!< UART Rx Transfer size */
 
-        __IO uint16_t RxXferCount; /*!< UART Rx Transfer Counter           */
+        __IO uint16_t RxXferCount; /*!< UART Rx Transfer Counter */
 
-        DMA_HandleTypeDef * hdmatx; /*!< UART Tx DMA Handle parameters      */
+        DMA_HandleTypeDef * hdmatx; /*!< UART Tx DMA Handle parameters */
 
-        DMA_HandleTypeDef * hdmarx; /*!< UART Rx DMA Handle parameters      */
+        DMA_HandleTypeDef * hdmarx; /*!< UART Rx DMA Handle parameters */
 
-        HAL_LockTypeDef Lock; /*!< Locking object                     */
+        HAL_LockTypeDef Lock; /*!< Locking object */
 
         __IO HAL_UART_StateTypeDef
                 gState; /*!< UART state information related to global Handle management
@@ -174,32 +174,32 @@ extern "C"
         __IO HAL_UART_StateTypeDef RxState; /*!< UART state information related to Rx operations.
                                                        This parameter can be a value of @ref HAL_UART_StateTypeDef */
 
-        __IO uint32_t ErrorCode; /*!< UART Error code                    */
+        __IO uint32_t ErrorCode; /*!< UART Error code */
 
 #if(USE_HAL_UART_REGISTER_CALLBACKS == 1)
         void (*TxHalfCpltCallback)(
-                struct __UART_HandleTypeDef * huart); /*!< UART Tx Half Complete Callback        */
+                struct __UART_HandleTypeDef * huart); /*!< UART Tx Half Complete Callback */
         void (*TxCpltCallback)(
-                struct __UART_HandleTypeDef * huart); /*!< UART Tx Complete Callback             */
+                struct __UART_HandleTypeDef * huart); /*!< UART Tx Complete Callback */
         void (*RxHalfCpltCallback)(
-                struct __UART_HandleTypeDef * huart); /*!< UART Rx Half Complete Callback        */
+                struct __UART_HandleTypeDef * huart); /*!< UART Rx Half Complete Callback */
         void (*RxCpltCallback)(
-                struct __UART_HandleTypeDef * huart); /*!< UART Rx Complete Callback             */
+                struct __UART_HandleTypeDef * huart); /*!< UART Rx Complete Callback */
         void (*ErrorCallback)(
-                struct __UART_HandleTypeDef * huart); /*!< UART Error Callback                   */
+                struct __UART_HandleTypeDef * huart); /*!< UART Error Callback */
         void (*AbortCpltCallback)(
-                struct __UART_HandleTypeDef * huart); /*!< UART Abort Complete Callback          */
+                struct __UART_HandleTypeDef * huart); /*!< UART Abort Complete Callback */
         void (*AbortTransmitCpltCallback)(
                 struct __UART_HandleTypeDef * huart); /*!< UART Abort Transmit Complete Callback */
         void (*AbortReceiveCpltCallback)(
                 struct __UART_HandleTypeDef * huart); /*!< UART Abort Receive Complete Callback  */
         void (*WakeupCallback)(
-                struct __UART_HandleTypeDef * huart); /*!< UART Wakeup Callback                  */
+                struct __UART_HandleTypeDef * huart); /*!< UART Wakeup Callback */
 
         void (*MspInitCallback)(
-                struct __UART_HandleTypeDef * huart); /*!< UART Msp Init callback                */
+                struct __UART_HandleTypeDef * huart); /*!< UART Msp Init callback */
         void (*MspDeInitCallback)(
-                struct __UART_HandleTypeDef * huart); /*!< UART Msp DeInit callback              */
+                struct __UART_HandleTypeDef * huart); /*!< UART Msp DeInit callback */
 #endif /* USE_HAL_UART_REGISTER_CALLBACKS */
 
     } UART_HandleTypeDef;
@@ -210,20 +210,20 @@ extern "C"
   */
     typedef enum
     {
-        HAL_UART_TX_HALFCOMPLETE_CB_ID = 0x00U, /*!< UART Tx Half Complete Callback ID        */
-        HAL_UART_TX_COMPLETE_CB_ID = 0x01U, /*!< UART Tx Complete Callback ID             */
-        HAL_UART_RX_HALFCOMPLETE_CB_ID = 0x02U, /*!< UART Rx Half Complete Callback ID        */
-        HAL_UART_RX_COMPLETE_CB_ID = 0x03U, /*!< UART Rx Complete Callback ID             */
-        HAL_UART_ERROR_CB_ID = 0x04U, /*!< UART Error Callback ID                   */
-        HAL_UART_ABORT_COMPLETE_CB_ID = 0x05U, /*!< UART Abort Complete Callback ID          */
+        HAL_UART_TX_HALFCOMPLETE_CB_ID = 0x00U, /*!< UART Tx Half Complete Callback ID */
+        HAL_UART_TX_COMPLETE_CB_ID = 0x01U, /*!< UART Tx Complete Callback ID */
+        HAL_UART_RX_HALFCOMPLETE_CB_ID = 0x02U, /*!< UART Rx Half Complete Callback ID */
+        HAL_UART_RX_COMPLETE_CB_ID = 0x03U, /*!< UART Rx Complete Callback ID */
+        HAL_UART_ERROR_CB_ID = 0x04U, /*!< UART Error Callback ID */
+        HAL_UART_ABORT_COMPLETE_CB_ID = 0x05U, /*!< UART Abort Complete Callback ID */
         HAL_UART_ABORT_TRANSMIT_COMPLETE_CB_ID =
                 0x06U, /*!< UART Abort Transmit Complete Callback ID */
         HAL_UART_ABORT_RECEIVE_COMPLETE_CB_ID =
                 0x07U, /*!< UART Abort Receive Complete Callback ID  */
-        HAL_UART_WAKEUP_CB_ID = 0x08U, /*!< UART Wakeup Callback ID                  */
+        HAL_UART_WAKEUP_CB_ID = 0x08U, /*!< UART Wakeup Callback ID */
 
-        HAL_UART_MSPINIT_CB_ID = 0x0BU, /*!< UART MspInit callback ID                 */
-        HAL_UART_MSPDEINIT_CB_ID = 0x0CU /*!< UART MspDeInit callback ID               */
+        HAL_UART_MSPINIT_CB_ID = 0x0BU, /*!< UART MspInit callback ID */
+        HAL_UART_MSPDEINIT_CB_ID = 0x0CU /*!< UART MspDeInit callback ID */
 
     } HAL_UART_CallbackIDTypeDef;
 
@@ -247,11 +247,11 @@ extern "C"
 /** @defgroup UART_Error_Code UART Error Code
   * @{
   */
-#define HAL_UART_ERROR_NONE 0x00000000U /*!< No error            */
-#define HAL_UART_ERROR_PE 0x00000001U /*!< Parity error        */
-#define HAL_UART_ERROR_NE 0x00000002U /*!< Noise error         */
-#define HAL_UART_ERROR_FE 0x00000004U /*!< Frame error         */
-#define HAL_UART_ERROR_ORE 0x00000008U /*!< Overrun error       */
+#define HAL_UART_ERROR_NONE 0x00000000U /*!< No error */
+#define HAL_UART_ERROR_PE 0x00000001U /*!< Parity error */
+#define HAL_UART_ERROR_NE 0x00000002U /*!< Noise error */
+#define HAL_UART_ERROR_FE 0x00000004U /*!< Frame error */
+#define HAL_UART_ERROR_ORE 0x00000008U /*!< Overrun error */
 #define HAL_UART_ERROR_DMA 0x00000010U /*!< DMA transfer error  */
 #if(USE_HAL_UART_REGISTER_CALLBACKS == 1)
 #define HAL_UART_ERROR_INVALID_CALLBACK 0x00000020U /*!< Invalid Callback error  */

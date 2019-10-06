@@ -86,17 +86,17 @@
 void arm_correlate_opt_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, uint32_t srcBLen,
                            q15_t * pDst, q15_t * pScratch)
 {
-    q15_t * pIn1; /* inputA pointer               */
-    q15_t * pIn2; /* inputB pointer               */
-    q63_t acc0, acc1, acc2, acc3; /* Accumulators                  */
+    q15_t * pIn1; /* inputA pointer */
+    q15_t * pIn2; /* inputB pointer */
+    q63_t acc0, acc1, acc2, acc3; /* Accumulators */
     q15_t * py; /* Intermediate inputB pointer  */
     q31_t x1, x2, x3; /* temporary variables for holding input1 and input2 values */
-    uint32_t j, blkCnt, outBlockSize; /* loop counter                 */
-    int32_t inc = 1; /* output pointer increment     */
+    uint32_t j, blkCnt, outBlockSize; /* loop counter */
+    int32_t inc = 1; /* output pointer increment */
     uint32_t tapCnt;
     q31_t y1, y2;
-    q15_t * pScr; /* Intermediate pointers        */
-    q15_t * pOut = pDst; /* output pointer               */
+    q15_t * pScr; /* Intermediate pointers */
+    q15_t * pOut = pDst; /* output pointer */
 #ifdef UNALIGNED_SUPPORT_DISABLE
 
     q15_t a, b;

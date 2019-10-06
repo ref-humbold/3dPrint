@@ -74,7 +74,7 @@ arm_status arm_mat_scale_q31(const arm_matrix_instance_q31 * pSrc, q31_t scaleFr
     uint32_t numSamples; /* total number of elements in the matrix */
     int32_t totShift = shift + 1; /* shift to apply after scaling */
     uint32_t blkCnt; /* loop counters  */
-    arm_status status; /* status of matrix scaling      */
+    arm_status status; /* status of matrix scaling */
     q31_t in1, in2, out1; /* temporary variabels */
 
 #ifndef ARM_MATH_CM0_FAMILY

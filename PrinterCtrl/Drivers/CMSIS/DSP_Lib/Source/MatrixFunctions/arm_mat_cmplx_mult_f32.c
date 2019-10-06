@@ -102,7 +102,7 @@ arm_status arm_mat_cmplx_mult_f32(const arm_matrix_instance_f32 * pSrcA,
         status = ARM_MATH_SIZE_MISMATCH;
     }
     else
-#endif /*      #ifdef ARM_MATH_MATRIX_CHECK    */
+#endif /*      #ifdef ARM_MATH_MATRIX_CHECK */
 
     {
         /* The following loop performs the dot-product of each row in pSrcA with each column in
@@ -139,7 +139,7 @@ arm_status arm_mat_cmplx_mult_f32(const arm_matrix_instance_f32 * pSrcA,
                 /* Apply loop unrolling and compute 4 MACs simultaneously. */
                 colCnt = numColsA >> 2;
 
-                /* matrix multiplication        */
+                /* matrix multiplication */
                 while(colCnt > 0u)
                 {
                     /* Reading real part of complex matrix A */

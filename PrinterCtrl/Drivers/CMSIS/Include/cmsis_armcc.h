@@ -110,14 +110,14 @@
   \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
            Can only be executed in Privileged modes.
  */
-/* intrinsic void __enable_irq();     */
+/* intrinsic void __enable_irq(); */
 
 /**
   \brief   Disable IRQ Interrupts
   \details Disables IRQ interrupts by setting the I-bit in the CPSR.
            Can only be executed in Privileged modes.
  */
-/* intrinsic void __disable_irq();    */
+/* intrinsic void __disable_irq(); */
 
 /**
   \brief   Get Control Register

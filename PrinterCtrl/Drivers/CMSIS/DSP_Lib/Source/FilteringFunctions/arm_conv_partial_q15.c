@@ -77,16 +77,16 @@ arm_status arm_conv_partial_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, 
 
     /* Run the below code for Cortex-M4 and Cortex-M3 */
 
-    q15_t * pIn1; /* inputA pointer               */
-    q15_t * pIn2; /* inputB pointer               */
-    q15_t * pOut = pDst; /* output pointer               */
-    q63_t sum, acc0, acc1, acc2, acc3; /* Accumulator                  */
+    q15_t * pIn1; /* inputA pointer */
+    q15_t * pIn2; /* inputB pointer */
+    q15_t * pOut = pDst; /* output pointer */
+    q63_t sum, acc0, acc1, acc2, acc3; /* Accumulator */
     q15_t * px; /* Intermediate inputA pointer  */
     q15_t * py; /* Intermediate inputB pointer  */
-    q15_t *pSrc1, *pSrc2; /* Intermediate pointers        */
+    q15_t *pSrc1, *pSrc2; /* Intermediate pointers */
     q31_t x0, x1, x2, x3, c0; /* Temporary input variables */
     uint32_t j, k, count, check, blkCnt;
-    int32_t blockSize1, blockSize2, blockSize3; /* loop counter                 */
+    int32_t blockSize1, blockSize2, blockSize3; /* loop counter */
     arm_status status; /* status of Partial convolution */
 
     /* Check for range of output samples to be calculated */
@@ -400,7 +400,7 @@ arm_status arm_conv_partial_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, 
 
                     c0 = c0 & 0x0000FFFF;
 
-#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN */
 
                     /* Read x[7] */
                     x3 = *__SIMD32(px);
@@ -457,7 +457,7 @@ arm_status arm_conv_partial_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, 
 #else
 
                     c0 = c0 & 0x0000FFFF;
-#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN */
 
                     /* Read x[10] */
                     x3 = _SIMD32_OFFSET(px + 2);
@@ -482,7 +482,7 @@ arm_status arm_conv_partial_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, 
                 *__SIMD32(pOut)++ = __PKHBT(__SSAT((acc1 >> 15), 16), __SSAT((acc0 >> 15), 16), 16);
                 *__SIMD32(pOut)++ = __PKHBT(__SSAT((acc3 >> 15), 16), __SSAT((acc2 >> 15), 16), 16);
 
-#endif /*      #ifndef  ARM_MATH_BIG_ENDIAN    */
+#endif /*      #ifndef  ARM_MATH_BIG_ENDIAN */
 
                 /* Increment the pointer pIn1 index, count by 4 */
                 count += 4u;

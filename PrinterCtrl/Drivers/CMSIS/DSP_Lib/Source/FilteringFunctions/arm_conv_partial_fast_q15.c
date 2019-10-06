@@ -71,16 +71,16 @@ arm_status arm_conv_partial_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pS
 {
 #ifndef UNALIGNED_SUPPORT_DISABLE
 
-    q15_t * pIn1; /* inputA pointer               */
-    q15_t * pIn2; /* inputB pointer               */
-    q15_t * pOut = pDst; /* output pointer               */
-    q31_t sum, acc0, acc1, acc2, acc3; /* Accumulator                  */
+    q15_t * pIn1; /* inputA pointer */
+    q15_t * pIn2; /* inputB pointer */
+    q15_t * pOut = pDst; /* output pointer */
+    q31_t sum, acc0, acc1, acc2, acc3; /* Accumulator */
     q15_t * px; /* Intermediate inputA pointer  */
     q15_t * py; /* Intermediate inputB pointer  */
-    q15_t *pSrc1, *pSrc2; /* Intermediate pointers        */
+    q15_t *pSrc1, *pSrc2; /* Intermediate pointers */
     q31_t x0, x1, x2, x3, c0;
     uint32_t j, k, count, check, blkCnt;
-    int32_t blockSize1, blockSize2, blockSize3; /* loop counters                 */
+    int32_t blockSize1, blockSize2, blockSize3; /* loop counters */
     arm_status status; /* status of Partial convolution */
 
     /* Check for range of output samples to be calculated */
@@ -393,7 +393,7 @@ arm_status arm_conv_partial_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pS
 
                     c0 = c0 & 0x0000FFFF;
 
-#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN */
 
                     /* Read x[7] */
                     x3 = *__SIMD32(px);
@@ -449,7 +449,7 @@ arm_status arm_conv_partial_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pS
 #else
 
                     c0 = c0 & 0x0000FFFF;
-#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN */
 
                     /* Read x[10] */
                     x3 = _SIMD32_OFFSET(px + 2);
@@ -473,7 +473,7 @@ arm_status arm_conv_partial_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pS
                 *__SIMD32(pOut)++ = __PKHBT(acc1 >> 15, acc0 >> 15, 16);
                 *__SIMD32(pOut)++ = __PKHBT(acc3 >> 15, acc2 >> 15, 16);
 
-#endif /*      #ifndef  ARM_MATH_BIG_ENDIAN    */
+#endif /*      #ifndef  ARM_MATH_BIG_ENDIAN */
 
                 /* Increment the pointer pIn1 index, count by 4 */
                 count += 4u;
@@ -715,16 +715,16 @@ arm_status arm_conv_partial_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pS
 
 #else
 
-    q15_t * pIn1; /* inputA pointer               */
-    q15_t * pIn2; /* inputB pointer               */
-    q15_t * pOut = pDst; /* output pointer               */
-    q31_t sum, acc0, acc1, acc2, acc3; /* Accumulator                  */
+    q15_t * pIn1; /* inputA pointer */
+    q15_t * pIn2; /* inputB pointer */
+    q15_t * pOut = pDst; /* output pointer */
+    q31_t sum, acc0, acc1, acc2, acc3; /* Accumulator */
     q15_t * px; /* Intermediate inputA pointer  */
     q15_t * py; /* Intermediate inputB pointer  */
-    q15_t *pSrc1, *pSrc2; /* Intermediate pointers        */
+    q15_t *pSrc1, *pSrc2; /* Intermediate pointers */
     q31_t x0, x1, x2, x3, c0;
     uint32_t j, k, count, check, blkCnt;
-    int32_t blockSize1, blockSize2, blockSize3; /* loop counters                 */
+    int32_t blockSize1, blockSize2, blockSize3; /* loop counters */
     arm_status status; /* status of Partial convolution */
     q15_t a, b;
 
@@ -974,7 +974,7 @@ arm_status arm_conv_partial_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pS
                 a = *px;
                 x1 = __PKHBT(a, b, 16);
 
-#endif /*	#ifndef ARM_MATH_BIG_ENDIAN	   */
+#endif /*	#ifndef ARM_MATH_BIG_ENDIAN	 */
 
                 /* Apply loop unrolling and compute 4 MACs simultaneously. */
                 k = srcBLen >> 2u;
@@ -1021,7 +1021,7 @@ arm_status arm_conv_partial_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pS
                     a = *(px + 2);
                     x3 = __PKHBT(a, b, 16);
 
-#endif /*	#ifndef ARM_MATH_BIG_ENDIAN	   */
+#endif /*	#ifndef ARM_MATH_BIG_ENDIAN	 */
 
                     /* acc2 +=  x[2] * y[srcBLen - 1] + x[3] * y[srcBLen - 2] */
                     acc2 = __SMLADX(x2, c0, acc2);
@@ -1067,7 +1067,7 @@ arm_status arm_conv_partial_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pS
                     a = *(px + 4);
                     x1 = __PKHBT(a, b, 16);
 
-#endif /*	#ifndef ARM_MATH_BIG_ENDIAN	   */
+#endif /*	#ifndef ARM_MATH_BIG_ENDIAN	 */
 
                     px += 4u;
 
@@ -1099,7 +1099,7 @@ arm_status arm_conv_partial_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pS
 
                     c0 = c0 & 0x0000FFFF;
 
-#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN */
 
                     /* Read x[7] */
                     a = *px;
@@ -1157,7 +1157,7 @@ arm_status arm_conv_partial_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pS
                     a = *(px + 2);
                     x2 = __PKHBT(a, b, 16);
 
-#endif /*	#ifndef ARM_MATH_BIG_ENDIAN	   */
+#endif /*	#ifndef ARM_MATH_BIG_ENDIAN	 */
                     px += 2u;
 
                     /* Perform the multiply-accumulates */
@@ -1200,7 +1200,7 @@ arm_status arm_conv_partial_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pS
                     a = *(px + 2);
                     x2 = __PKHBT(a, b, 16);
 
-#endif /*	#ifndef ARM_MATH_BIG_ENDIAN	   */
+#endif /*	#ifndef ARM_MATH_BIG_ENDIAN	 */
 
                     /* Perform the multiply-accumulates */
                     acc0 = __SMLADX(x0, c0, acc0);
@@ -1216,7 +1216,7 @@ arm_status arm_conv_partial_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pS
 #else
 
                     c0 = c0 & 0x0000FFFF;
-#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN     */
+#endif /*      #ifdef  ARM_MATH_BIG_ENDIAN */
 
                     /* Read x[10] */
                     a = *(px + 2);
@@ -1482,7 +1482,7 @@ arm_status arm_conv_partial_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pS
     /* Return to application */
     return (status);
 
-#endif /*     #ifndef UNALIGNED_SUPPORT_DISABLE      */
+#endif /*     #ifndef UNALIGNED_SUPPORT_DISABLE */
 }
 
 /**
