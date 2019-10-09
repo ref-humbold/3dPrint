@@ -1,6 +1,3 @@
 # [ C / C++ ]
 # C / GNU Make output
 build/
-
-# STM32CubeMX
-.mxproject
