@@ -7,6 +7,3 @@ dist/
 # CLion
 .idea
 cmake-build-debug/
-
-# Visual Studio Code
-.vscode

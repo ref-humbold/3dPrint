@@ -4,6 +4,3 @@ build/
 
 # STM32CubeMX
 .mxproject
-
-# Visual Studio Code
-.vscode
