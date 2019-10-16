@@ -1,3 +1,5 @@
+# VERSION 8
+
 AccessModifierOffset: -4
 AlignAfterOpenBracket: Align
 AlignConsecutiveAssignments: false
@@ -8,7 +10,7 @@ AlignTrailingComments: false
 AllowAllParametersOfDeclarationOnNextLine: false
 AllowShortBlocksOnASingleLine: false
 AllowShortCaseLabelsOnASingleLine: false
-AllowShortFunctionsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
 AllowShortIfStatementsOnASingleLine: false
 AllowShortLoopsOnASingleLine: false
 AlwaysBreakAfterReturnType: None
@@ -34,30 +36,30 @@ FixNamespaceComments: false
 ForEachMacros: []
 IncludeBlocks: Merge
 IncludeCategories:
-    # C Standard library
-    - Regex: '^<cstdlib>'
-      Priority: 1
-    # C standard library
-    - Regex: '^<c(std(arg|def|int|io)|assert|(u|w)char|ctype|errno|fenv|float|inttypes|limits|locale|math|setjmp|signal|string|time|wctype)>'
-      Priority: 2
-    # C++ standard library: input-output, exceptions, memory, threads
-    - Regex: '^<(ios(fwd)?|(i|o|io|f|s)stream|streambuf|iomanip|exception|stdexcept|system_error|new|memory|atomic|thread|(shared_)?mutex|future|condition_variable)>'
-      Priority: 3
-    # C++ standard library: algorithms, containers, strings
-    - Regex: '^<(algorithm|array|bitset|deque|iterator|(forward_|initializer_)?list|(unordered_)?map|queue|(unordered_)?set|stack|string|tuple|vector)>'
-      Priority: 4
-    # C++ standard library: utilities, numerics, types
-    - Regex: '^<(complex|chrono|functional|limits|locale|numeric|random|ratio|regex|type(info|index|_traits)|valarray)>'
-      Priority: 5
-    # All other headers (C++ style)
-    - Regex: '^<.*>'
-      Priority: 6
-    # All other headers (C style)
-    - Regex: '^<.*\.(h|hpp)>'
-      Priority: 7
-    # All custom headers
-    - Regex: '^".*"'
-      Priority: 8
+  # C Standard library
+  - Regex: '^<cstdlib>'
+    Priority: 1
+  # C standard library
+  - Regex: '^<c(std(arg|def|int|io)|assert|(u|w)char|ctype|errno|fenv|float|inttypes|limits|locale|math|setjmp|signal|string|time|wctype)>'
+    Priority: 2
+  # C++ standard library: input-output, exceptions, memory, threads
+  - Regex: '^<(ios(fwd)?|(i|o|io|f|s)stream|streambuf|iomanip|exception|stdexcept|system_error|new|memory|atomic|thread|(shared_)?mutex|future|condition_variable)>'
+    Priority: 3
+  # C++ standard library: algorithms, containers, strings
+  - Regex: '^<(algorithm|array|bitset|deque|iterator|(forward_|initializer_)?list|(unordered_)?map|queue|(unordered_)?set|stack|string|tuple|vector)>'
+    Priority: 4
+  # C++ standard library: utilities, numerics, types
+  - Regex: '^<(complex|chrono|functional|limits|locale|numeric|random|ratio|regex|type(info|index|_traits)|valarray)>'
+    Priority: 5
+  # All other headers (C++ style)
+  - Regex: '^<.*>'
+    Priority: 6
+  # All other headers (C style)
+  - Regex: '^<.*\.(h|hpp)>'
+    Priority: 7
+  # All custom headers
+  - Regex: '^".*"'
+    Priority: 8
 IndentCaseLabels: true
 IndentPPDirectives: None
 IndentWidth: 4

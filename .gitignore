@@ -1,2 +1,8 @@
+# [ C / C++ ]
+# C++ / CMake output
+**/bin/
+**/build/
+**/dist/
+
 # Visual Studio Code
 .vscode

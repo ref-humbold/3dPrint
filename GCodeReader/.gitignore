@@ -1,9 +1,0 @@
-# [ C / C++ ]
-# C++ / CMake output
-bin/
-build/
-dist/
-
-# CLion
-.idea
-cmake-build-debug/
