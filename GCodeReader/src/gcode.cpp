@@ -20,8 +20,6 @@ int main(int argc, char * argv[])
 
     while(!iterator.empty())
     {
-        uart.expect_receive(DataExpect);
-
         auto msg = iterator->to_message();
 
         uart.send(BeginTransmit);

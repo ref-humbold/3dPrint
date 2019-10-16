@@ -21,7 +21,7 @@ void usart_test(const std::string & port)
     std::cout << ">>> TEST 2 :: Done\n";
     std::cout << ">>> TEST 3 :: Acknowledge & Failure\n";
     uart.assert_receive(Acknowledge);
-    uart.send(DataExpect);
+    uart.send(Debug);
     uart.expect_receive(Failure);
     std::cout << ">>> TEST 3 :: Done\n";
 };
