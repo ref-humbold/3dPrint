@@ -119,15 +119,16 @@ int main(void)
     MX_SPI2_Init();
     /* USER CODE BEGIN 2 */
     laser_on(3);
-    builtin_led_on();
     /* USER CODE END 2 */
 
     /* Infinite loop */
     /* USER CODE BEGIN WHILE */
     while(1)
     {
-        HAL_Delay(10000);
+        builtin_led_on();
+        HAL_Delay(1000);
         builtin_led_off();
+        HAL_Delay(2000);
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
