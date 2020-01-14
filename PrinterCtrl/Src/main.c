@@ -118,17 +118,13 @@ int main(void)
     MX_USART2_UART_Init();
     MX_SPI2_Init();
     /* USER CODE BEGIN 2 */
-    laser_on(3);
     /* USER CODE END 2 */
 
     /* Infinite loop */
     /* USER CODE BEGIN WHILE */
     while(1)
     {
-        builtin_led_on();
-        HAL_Delay(1000);
-        builtin_led_off();
-        HAL_Delay(2000);
+        dac_test();
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */

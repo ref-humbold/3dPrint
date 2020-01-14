@@ -8,13 +8,13 @@ void send_to_dac(point * p)
 
 void move(point * p)
 {
-    laser_off(1);
+    laser_off();
     send_to_dac(p);
-    laser_on(1);
+    laser_on();
 }
 
 void linear(point * p)
 {
-    laser_on(1);
+    laser_on();
     send_to_dac(p);
 }
