@@ -135,7 +135,7 @@ void arm_fir_sparse_f32(arm_fir_sparse_instance_f32 * S, float32_t * pSrc, float
     int32_t * pTapDelay =
             S->pTapDelay; /* Pointer to the array containing offset of the non-zero tap values. */
     uint32_t delaySize = S->maxDelay + blockSize; /* state length */
-    uint16_t numTaps = S->numTaps; /* Number of filter coefficients in the filter  */
+    uint16_t numTaps = S->numTaps; /* Number of filter coefficients in the filter */
     int32_t readIndex; /* Read index of the state buffer */
     uint32_t tapCnt, blkCnt; /* loop counters */
     float32_t coeff = *pCoeffs++; /* Read the first coefficient value */

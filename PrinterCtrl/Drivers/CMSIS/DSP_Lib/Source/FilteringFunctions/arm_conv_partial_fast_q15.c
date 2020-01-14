@@ -75,8 +75,8 @@ arm_status arm_conv_partial_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pS
     q15_t * pIn2; /* inputB pointer */
     q15_t * pOut = pDst; /* output pointer */
     q31_t sum, acc0, acc1, acc2, acc3; /* Accumulator */
-    q15_t * px; /* Intermediate inputA pointer  */
-    q15_t * py; /* Intermediate inputB pointer  */
+    q15_t * px; /* Intermediate inputA pointer */
+    q15_t * py; /* Intermediate inputB pointer */
     q15_t *pSrc1, *pSrc2; /* Intermediate pointers */
     q31_t x0, x1, x2, x3, c0;
     uint32_t j, k, count, check, blkCnt;
@@ -719,8 +719,8 @@ arm_status arm_conv_partial_fast_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pS
     q15_t * pIn2; /* inputB pointer */
     q15_t * pOut = pDst; /* output pointer */
     q31_t sum, acc0, acc1, acc2, acc3; /* Accumulator */
-    q15_t * px; /* Intermediate inputA pointer  */
-    q15_t * py; /* Intermediate inputB pointer  */
+    q15_t * px; /* Intermediate inputA pointer */
+    q15_t * py; /* Intermediate inputB pointer */
     q15_t *pSrc1, *pSrc2; /* Intermediate pointers */
     q31_t x0, x1, x2, x3, c0;
     uint32_t j, k, count, check, blkCnt;

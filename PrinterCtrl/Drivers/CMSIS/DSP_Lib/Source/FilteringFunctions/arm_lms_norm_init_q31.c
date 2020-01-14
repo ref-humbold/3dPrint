@@ -78,7 +78,7 @@ void arm_lms_norm_init_q31(arm_lms_norm_instance_q31 * S, uint16_t numTaps, q31_
     /* Assign coefficient pointer */
     S->pCoeffs = pCoeffs;
 
-    /* Clear state buffer and size is always blockSize + numTaps - 1  */
+    /* Clear state buffer and size is always blockSize + numTaps - 1 */
     memset(pState, 0, (numTaps + (blockSize - 1u)) * sizeof(q31_t));
 
     /* Assign post Shift value applied to coefficients */

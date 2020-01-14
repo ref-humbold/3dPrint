@@ -98,8 +98,8 @@ void arm_conv_opt_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, uint32_t s
     q15_t * pScr2 = pScratch2; /* Temporary pointer for scratch1 */
     q15_t * pIn1; /* inputA pointer */
     q15_t * pIn2; /* inputB pointer */
-    q15_t * px; /* Intermediate inputA pointer  */
-    q15_t * py; /* Intermediate inputB pointer  */
+    q15_t * px; /* Intermediate inputA pointer */
+    q15_t * py; /* Intermediate inputB pointer */
     uint32_t j, k, blkCnt; /* loop counter */
     uint32_t tapCnt; /* loop count */
 #ifdef UNALIGNED_SUPPORT_DISABLE

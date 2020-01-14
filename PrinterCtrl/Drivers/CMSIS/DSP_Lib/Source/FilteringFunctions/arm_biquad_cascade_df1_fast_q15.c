@@ -94,7 +94,7 @@ void arm_biquad_cascade_df1_fast_q15(const arm_biquad_casd_df1_inst_q15 * S, q15
 
     do
     {
-        /* Read the b0 and 0 coefficients using SIMD  */
+        /* Read the b0 and 0 coefficients using SIMD */
         b0 = *__SIMD32(pCoeffs)++;
 
         /* Read the b1 and b2 coefficients using SIMD */
@@ -135,7 +135,7 @@ void arm_biquad_cascade_df1_fast_q15(const arm_biquad_casd_df1_inst_q15 * S, q15
             out = __SSAT((acc >> shift), 16);
 
             /* Every time after the output is computed state should be updated. */
-            /* The states should be updated as:  */
+            /* The states should be updated as: */
             /* Xn2 = Xn1 */
             /* Xn1 = Xn */
             /* Yn2 = Yn1 */
@@ -178,7 +178,7 @@ void arm_biquad_cascade_df1_fast_q15(const arm_biquad_casd_df1_inst_q15 * S, q15
 #endif /*      #ifndef  ARM_MATH_BIG_ENDIAN */
 
             /* Every time after the output is computed state should be updated. */
-            /* The states should be updated as:  */
+            /* The states should be updated as: */
             /* Xn2 = Xn1 */
             /* Xn1 = Xn */
             /* Yn2 = Yn1 */
@@ -234,7 +234,7 @@ void arm_biquad_cascade_df1_fast_q15(const arm_biquad_casd_df1_inst_q15 * S, q15
             *pOut++ = (q15_t)out;
 
             /* Every time after the output is computed state should be updated. */
-            /* The states should be updated as:  */
+            /* The states should be updated as: */
             /* Xn2 = Xn1 */
             /* Xn1 = Xn */
             /* Yn2 = Yn1 */
@@ -255,8 +255,8 @@ void arm_biquad_cascade_df1_fast_q15(const arm_biquad_casd_df1_inst_q15 * S, q15
 #endif /*   #ifndef  ARM_MATH_BIG_ENDIAN */
         }
 
-        /*  The first stage goes from the input buffer to the output buffer.  */
-        /*  Subsequent (numStages - 1) occur in-place in the output buffer  */
+        /*  The first stage goes from the input buffer to the output buffer. */
+        /*  Subsequent (numStages - 1) occur in-place in the output buffer */
         pIn = pDst;
 
         /* Reset the output pointer */

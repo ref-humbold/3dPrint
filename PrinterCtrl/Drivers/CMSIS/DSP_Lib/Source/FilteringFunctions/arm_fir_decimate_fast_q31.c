@@ -144,7 +144,7 @@ void arm_fir_decimate_fast_q31(arm_fir_decimate_instance_q31 * S, q31_t * pSrc, 
             /* Read the b[numTaps-2] coefficient */
             c0 = *(pb + 1u);
 
-            /* Read x[n-numTaps-2]  for sample 0 sample 1  */
+            /* Read x[n-numTaps-2]  for sample 0 sample 1 */
             x0 = *(px0 + 1u);
             x1 = *(px1 + 1u);
 

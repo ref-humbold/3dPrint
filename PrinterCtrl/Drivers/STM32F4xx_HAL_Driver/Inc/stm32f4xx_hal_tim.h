@@ -55,7 +55,7 @@ extern "C"
 
         uint32_t Period; /*!< Specifies the period value to be loaded into the active
                                    Auto-Reload Register at the next update event.
-                                   This parameter can be a number between Min_Data = 0x0000 and Max_Data = 0xFFFF.  */
+                                   This parameter can be a number between Min_Data = 0x0000 and Max_Data = 0xFFFF. */
 
         uint32_t ClockDivision; /*!< Specifies the clock division.
                                    This parameter can be a value of @ref TIM_ClockDivision */
@@ -170,7 +170,7 @@ extern "C"
                                This parameter can be a value of @ref TIM_Encoder_Mode */
 
         uint32_t IC1Polarity; /*!< Specifies the active edge of the input signal.
-                               This parameter can be a value of @ref TIM_Input_Capture_Polarity */
+                               This parameter can be a value of @ref TIM_Encoder_Input_Polarity */
 
         uint32_t IC1Selection; /*!< Specifies the input.
                                This parameter can be a value of @ref TIM_Input_Capture_Selection */
@@ -182,7 +182,7 @@ extern "C"
                                This parameter can be a number between Min_Data = 0x0 and Max_Data = 0xF */
 
         uint32_t IC2Polarity; /*!< Specifies the active edge of the input signal.
-                               This parameter can be a value of @ref TIM_Input_Capture_Polarity */
+                               This parameter can be a value of @ref TIM_Encoder_Input_Polarity */
 
         uint32_t IC2Selection; /*!< Specifies the input.
                               This parameter can be a value of @ref TIM_Input_Capture_Selection */
@@ -234,7 +234,12 @@ extern "C"
         uint32_t MasterOutputTrigger; /*!< Trigger output (TRGO) selection
                                         This parameter can be a value of @ref TIM_Master_Mode_Selection */
         uint32_t MasterSlaveMode; /*!< Master/slave mode selection
-                                        This parameter can be a value of @ref TIM_Master_Slave_Mode */
+                                        This parameter can be a value of @ref TIM_Master_Slave_Mode
+                                        @note When the Master/slave mode is enabled, the effect of
+                                        an event on the trigger input (TRGI) is delayed to allow a
+                                        perfect synchronization between the current timer and its
+                                        slaves (through TRGO). It is not mandatory in case of timer
+                                        synchronization mode. */
     } TIM_MasterConfigTypeDef;
 
     /**
@@ -251,7 +256,7 @@ extern "C"
         uint32_t TriggerPrescaler; /*!< Input trigger prescaler
                                     This parameter can be a value of @ref TIM_Trigger_Prescaler */
         uint32_t TriggerFilter; /*!< Input trigger filter
-                                    This parameter can be a number between Min_Data = 0x0 and Max_Data = 0xF  */
+                                    This parameter can be a number between Min_Data = 0x0 and Max_Data = 0xF */
 
     } TIM_SlaveConfigTypeDef;
 
@@ -285,7 +290,7 @@ extern "C"
   */
     typedef enum
     {
-        HAL_TIM_STATE_RESET = 0x00U, /*!< Peripheral not yet initialized or disabled  */
+        HAL_TIM_STATE_RESET = 0x00U, /*!< Peripheral not yet initialized or disabled */
         HAL_TIM_STATE_READY = 0x01U, /*!< Peripheral Initialized and ready for use */
         HAL_TIM_STATE_BUSY = 0x02U, /*!< An internal process is ongoing */
         HAL_TIM_STATE_TIMEOUT = 0x03U, /*!< Timeout state */
@@ -641,7 +646,7 @@ typedef struct
   * @{
   */
 #define TIM_OCFAST_DISABLE 0x00000000U /*!< Output Compare fast disable */
-#define TIM_OCFAST_ENABLE TIM_CCMR1_OC1FE /*!< Output Compare fast enable  */
+#define TIM_OCFAST_ENABLE TIM_CCMR1_OC1FE /*!< Output Compare fast enable */
 /**
   * @}
   */
@@ -649,7 +654,7 @@ typedef struct
 /** @defgroup TIM_Output_Compare_N_State TIM Complementary Output Compare State
   * @{
   */
-#define TIM_OUTPUTNSTATE_DISABLE 0x00000000U /*!< OCxN is disabled  */
+#define TIM_OUTPUTNSTATE_DISABLE 0x00000000U /*!< OCxN is disabled */
 #define TIM_OUTPUTNSTATE_ENABLE TIM_CCER_CC1NE /*!< OCxN is enabled */
 /**
   * @}
@@ -658,8 +663,8 @@ typedef struct
 /** @defgroup TIM_Output_Compare_Polarity TIM Output Compare Polarity
   * @{
   */
-#define TIM_OCPOLARITY_HIGH 0x00000000U /*!< Capture/Compare output polarity  */
-#define TIM_OCPOLARITY_LOW TIM_CCER_CC1P /*!< Capture/Compare output polarity  */
+#define TIM_OCPOLARITY_HIGH 0x00000000U /*!< Capture/Compare output polarity */
+#define TIM_OCPOLARITY_LOW TIM_CCER_CC1P /*!< Capture/Compare output polarity */
 /**
   * @}
   */
@@ -702,6 +707,17 @@ typedef struct
     TIM_INPUTCHANNELPOLARITY_FALLING /*!< Capture triggered by falling edge on timer input */
 #define TIM_ICPOLARITY_BOTHEDGE \
     TIM_INPUTCHANNELPOLARITY_BOTHEDGE /*!< Capture triggered by both rising and falling edges on timer input*/
+/**
+  * @}
+  */
+
+/** @defgroup TIM_Encoder_Input_Polarity TIM Encoder Input Polarity
+  * @{
+  */
+#define TIM_ENCODERINPUTPOLARITY_RISING \
+    TIM_INPUTCHANNELPOLARITY_RISING /*!< Encoder input with rising edge polarity */
+#define TIM_ENCODERINPUTPOLARITY_FALLING \
+    TIM_INPUTCHANNELPOLARITY_FALLING /*!< Encoder input with falling edge polarity */
 /**
   * @}
   */
@@ -749,7 +765,7 @@ typedef struct
   * @{
   */
 #define TIM_ENCODERMODE_TI1 \
-    TIM_SMCR_SMS_0 /*!< Quadrature encoder mode 1, x2 mode, counts up/down on TI1FP1 edge depending on TI2FP2 level  */
+    TIM_SMCR_SMS_0 /*!< Quadrature encoder mode 1, x2 mode, counts up/down on TI1FP1 edge depending on TI2FP2 level */
 #define TIM_ENCODERMODE_TI2 \
     TIM_SMCR_SMS_1 /*!< Quadrature encoder mode 2, x2 mode, counts up/down on TI2FP2 edge depending on TI1FP1 level. */
 #define TIM_ENCODERMODE_TI12 \
@@ -829,7 +845,7 @@ typedef struct
 #define TIM_CHANNEL_2 0x00000004U /*!< Capture/compare channel 2 identifier */
 #define TIM_CHANNEL_3 0x00000008U /*!< Capture/compare channel 3 identifier */
 #define TIM_CHANNEL_4 0x0000000CU /*!< Capture/compare channel 4 identifier */
-#define TIM_CHANNEL_ALL 0x0000003CU /*!< Global Capture/compare channel identifier  */
+#define TIM_CHANNEL_ALL 0x0000003CU /*!< Global Capture/compare channel identifier */
 /**
   * @}
   */
@@ -951,7 +967,7 @@ typedef struct
 /** @defgroup TIM_Break_Input_enable_disable TIM Break Input Enable
   * @{
   */
-#define TIM_BREAK_ENABLE TIM_BDTR_BKE /*!< Break input BRK is enabled  */
+#define TIM_BREAK_ENABLE TIM_BDTR_BKE /*!< Break input BRK is enabled */
 #define TIM_BREAK_DISABLE 0x00000000U /*!< Break input BRK is disabled */
 /**
   * @}
@@ -960,7 +976,7 @@ typedef struct
 /** @defgroup TIM_Break_Polarity TIM Break Input Polarity
   * @{
   */
-#define TIM_BREAKPOLARITY_LOW 0x00000000U /*!< Break input BRK is active low  */
+#define TIM_BREAKPOLARITY_LOW 0x00000000U /*!< Break input BRK is active low */
 #define TIM_BREAKPOLARITY_HIGH TIM_BDTR_BKP /*!< Break input BRK is active high */
 /**
   * @}
@@ -971,7 +987,7 @@ typedef struct
   */
 #define TIM_AUTOMATICOUTPUT_DISABLE 0x00000000U /*!< MOE can be set only by software */
 #define TIM_AUTOMATICOUTPUT_ENABLE \
-    TIM_BDTR_AOE /*!< MOE can be set by software or automatically at the next update event 
+    TIM_BDTR_AOE /*!< MOE can be set by software or automatically at the next update event
                                                                                     (if none of the break inputs BRK and BRK2 is active) */
 /**
   * @}
@@ -1112,21 +1128,21 @@ typedef struct
 #define TIM_DMABURSTLENGTH_1TRANSFER \
     0x00000000U /*!< The transfer is done to 1 register starting trom TIMx_CR1 + TIMx_DCR.DBA */
 #define TIM_DMABURSTLENGTH_2TRANSFERS \
-    0x00000100U /*!< The transfer is done to 2 registers starting trom TIMx_CR1 + TIMx_DCR.DBA  */
+    0x00000100U /*!< The transfer is done to 2 registers starting trom TIMx_CR1 + TIMx_DCR.DBA */
 #define TIM_DMABURSTLENGTH_3TRANSFERS \
-    0x00000200U /*!< The transfer is done to 3 registers starting trom TIMx_CR1 + TIMx_DCR.DBA  */
+    0x00000200U /*!< The transfer is done to 3 registers starting trom TIMx_CR1 + TIMx_DCR.DBA */
 #define TIM_DMABURSTLENGTH_4TRANSFERS \
-    0x00000300U /*!< The transfer is done to 4 registers starting trom TIMx_CR1 + TIMx_DCR.DBA  */
+    0x00000300U /*!< The transfer is done to 4 registers starting trom TIMx_CR1 + TIMx_DCR.DBA */
 #define TIM_DMABURSTLENGTH_5TRANSFERS \
-    0x00000400U /*!< The transfer is done to 5 registers starting trom TIMx_CR1 + TIMx_DCR.DBA  */
+    0x00000400U /*!< The transfer is done to 5 registers starting trom TIMx_CR1 + TIMx_DCR.DBA */
 #define TIM_DMABURSTLENGTH_6TRANSFERS \
-    0x00000500U /*!< The transfer is done to 6 registers starting trom TIMx_CR1 + TIMx_DCR.DBA  */
+    0x00000500U /*!< The transfer is done to 6 registers starting trom TIMx_CR1 + TIMx_DCR.DBA */
 #define TIM_DMABURSTLENGTH_7TRANSFERS \
-    0x00000600U /*!< The transfer is done to 7 registers starting trom TIMx_CR1 + TIMx_DCR.DBA  */
+    0x00000600U /*!< The transfer is done to 7 registers starting trom TIMx_CR1 + TIMx_DCR.DBA */
 #define TIM_DMABURSTLENGTH_8TRANSFERS \
-    0x00000700U /*!< The transfer is done to 8 registers starting trom TIMx_CR1 + TIMx_DCR.DBA  */
+    0x00000700U /*!< The transfer is done to 8 registers starting trom TIMx_CR1 + TIMx_DCR.DBA */
 #define TIM_DMABURSTLENGTH_9TRANSFERS \
-    0x00000800U /*!< The transfer is done to 9 registers starting trom TIMx_CR1 + TIMx_DCR.DBA  */
+    0x00000800U /*!< The transfer is done to 9 registers starting trom TIMx_CR1 + TIMx_DCR.DBA */
 #define TIM_DMABURSTLENGTH_10TRANSFERS \
     0x00000900U /*!< The transfer is done to 10 registers starting trom TIMx_CR1 + TIMx_DCR.DBA */
 #define TIM_DMABURSTLENGTH_11TRANSFERS \
@@ -1619,12 +1635,60 @@ mode.
   */
 #define __HAL_TIM_DISABLE_OCxPRELOAD(__HANDLE__, __CHANNEL__) \
     (((__CHANNEL__) == TIM_CHANNEL_1) \
-             ? ((__HANDLE__)->Instance->CCMR1 &= (uint16_t)~TIM_CCMR1_OC1PE) \
+             ? ((__HANDLE__)->Instance->CCMR1 &= ~TIM_CCMR1_OC1PE) \
              : ((__CHANNEL__) == TIM_CHANNEL_2) \
-                       ? ((__HANDLE__)->Instance->CCMR1 &= (uint16_t)~TIM_CCMR1_OC2PE) \
+                       ? ((__HANDLE__)->Instance->CCMR1 &= ~TIM_CCMR1_OC2PE) \
                        : ((__CHANNEL__) == TIM_CHANNEL_3) \
-                                 ? ((__HANDLE__)->Instance->CCMR2 &= (uint16_t)~TIM_CCMR2_OC3PE) \
-                                 : ((__HANDLE__)->Instance->CCMR2 &= (uint16_t)~TIM_CCMR2_OC4PE))
+                                 ? ((__HANDLE__)->Instance->CCMR2 &= ~TIM_CCMR2_OC3PE) \
+                                 : ((__HANDLE__)->Instance->CCMR2 &= ~TIM_CCMR2_OC4PE))
+
+/**
+  * @brief  Enable fast mode for a given channel.
+  * @param  __HANDLE__ TIM handle.
+  * @param  __CHANNEL__ TIM Channels to be configured.
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
+  *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
+  * @note  When fast mode is enabled an active edge on the trigger input acts
+  *        like a compare match on CCx output. Delay to sample the trigger
+  *        input and to activate CCx output is reduced to 3 clock cycles.
+  * @note  Fast mode acts only if the channel is configured in PWM1 or PWM2 mode.
+  * @retval None
+  */
+#define __HAL_TIM_ENABLE_OCxFAST(__HANDLE__, __CHANNEL__) \
+    (((__CHANNEL__) == TIM_CHANNEL_1) \
+             ? ((__HANDLE__)->Instance->CCMR1 |= TIM_CCMR1_OC1FE) \
+             : ((__CHANNEL__) == TIM_CHANNEL_2) \
+                       ? ((__HANDLE__)->Instance->CCMR1 |= TIM_CCMR1_OC2FE) \
+                       : ((__CHANNEL__) == TIM_CHANNEL_3) \
+                                 ? ((__HANDLE__)->Instance->CCMR2 |= TIM_CCMR2_OC3FE) \
+                                 : ((__HANDLE__)->Instance->CCMR2 |= TIM_CCMR2_OC4FE))
+
+/**
+  * @brief  Disable fast mode for a given channel.
+  * @param  __HANDLE__ TIM handle.
+  * @param  __CHANNEL__ TIM Channels to be configured.
+  *          This parameter can be one of the following values:
+  *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
+  *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
+  *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
+  *            @arg TIM_CHANNEL_4: TIM Channel 4 selected
+  * @note  When fast mode is disabled CCx output behaves normally depending
+  *        on counter and CCRx values even when the trigger is ON. The minimum
+  *        delay to activate CCx output when an active edge occurs on the
+  *        trigger input is 5 clock cycles.
+  * @retval None
+  */
+#define __HAL_TIM_DISABLE_OCxFAST(__HANDLE__, __CHANNEL__) \
+    (((__CHANNEL__) == TIM_CHANNEL_1) \
+             ? ((__HANDLE__)->Instance->CCMR1 &= ~TIM_CCMR1_OC1FE) \
+             : ((__CHANNEL__) == TIM_CHANNEL_2) \
+                       ? ((__HANDLE__)->Instance->CCMR1 &= ~TIM_CCMR1_OC2FE) \
+                       : ((__CHANNEL__) == TIM_CHANNEL_3) \
+                                 ? ((__HANDLE__)->Instance->CCMR2 &= ~TIM_CCMR2_OC3FE) \
+                                 : ((__HANDLE__)->Instance->CCMR2 &= ~TIM_CCMR2_OC4FE))
 
 /**
   * @brief  Set the Update Request Source (URS) bit of the TIMx_CR1 register.
@@ -1738,6 +1802,10 @@ mode.
 
 #define IS_TIM_OCNIDLE_STATE(__STATE__) \
     (((__STATE__) == TIM_OCNIDLESTATE_SET) || ((__STATE__) == TIM_OCNIDLESTATE_RESET))
+
+#define IS_TIM_ENCODERINPUT_POLARITY(__POLARITY__) \
+    (((__POLARITY__) == TIM_ENCODERINPUTPOLARITY_RISING) \
+     || ((__POLARITY__) == TIM_ENCODERINPUTPOLARITY_FALLING))
 
 #define IS_TIM_IC_POLARITY(__POLARITY__) \
     (((__POLARITY__) == TIM_ICPOLARITY_RISING) || ((__POLARITY__) == TIM_ICPOLARITY_FALLING) \
@@ -1917,12 +1985,12 @@ mode.
 
 #define TIM_RESET_ICPRESCALERVALUE(__HANDLE__, __CHANNEL__) \
     (((__CHANNEL__) == TIM_CHANNEL_1) \
-             ? ((__HANDLE__)->Instance->CCMR1 &= (uint16_t)~TIM_CCMR1_IC1PSC) \
+             ? ((__HANDLE__)->Instance->CCMR1 &= ~TIM_CCMR1_IC1PSC) \
              : ((__CHANNEL__) == TIM_CHANNEL_2) \
-                       ? ((__HANDLE__)->Instance->CCMR1 &= (uint16_t)~TIM_CCMR1_IC2PSC) \
+                       ? ((__HANDLE__)->Instance->CCMR1 &= ~TIM_CCMR1_IC2PSC) \
                        : ((__CHANNEL__) == TIM_CHANNEL_3) \
-                                 ? ((__HANDLE__)->Instance->CCMR2 &= (uint16_t)~TIM_CCMR2_IC3PSC) \
-                                 : ((__HANDLE__)->Instance->CCMR2 &= (uint16_t)~TIM_CCMR2_IC4PSC))
+                                 ? ((__HANDLE__)->Instance->CCMR2 &= ~TIM_CCMR2_IC3PSC) \
+                                 : ((__HANDLE__)->Instance->CCMR2 &= ~TIM_CCMR2_IC4PSC))
 
 #define TIM_SET_CAPTUREPOLARITY(__HANDLE__, __CHANNEL__, __POLARITY__) \
     (((__CHANNEL__) == TIM_CHANNEL_1) \
@@ -1935,15 +2003,13 @@ mode.
 
 #define TIM_RESET_CAPTUREPOLARITY(__HANDLE__, __CHANNEL__) \
     (((__CHANNEL__) == TIM_CHANNEL_1) \
-             ? ((__HANDLE__)->Instance->CCER &= (uint16_t) ~(TIM_CCER_CC1P | TIM_CCER_CC1NP)) \
+             ? ((__HANDLE__)->Instance->CCER &= ~(TIM_CCER_CC1P | TIM_CCER_CC1NP)) \
              : ((__CHANNEL__) == TIM_CHANNEL_2) \
-                       ? ((__HANDLE__)->Instance->CCER &= \
-                          (uint16_t) ~(TIM_CCER_CC2P | TIM_CCER_CC2NP)) \
-                       : ((__CHANNEL__) == TIM_CHANNEL_3) \
-                                 ? ((__HANDLE__)->Instance->CCER &= \
-                                    (uint16_t) ~(TIM_CCER_CC3P | TIM_CCER_CC3NP)) \
-                                 : ((__HANDLE__)->Instance->CCER &= \
-                                    (uint16_t) ~(TIM_CCER_CC4P | TIM_CCER_CC4NP)))
+                       ? ((__HANDLE__)->Instance->CCER &= ~(TIM_CCER_CC2P | TIM_CCER_CC2NP)) \
+                       : ((__CHANNEL__) == TIM_CHANNEL_3) ? ((__HANDLE__)->Instance->CCER &= \
+                                                             ~(TIM_CCER_CC3P | TIM_CCER_CC3NP)) \
+                                                          : ((__HANDLE__)->Instance->CCER &= \
+                                                             ~(TIM_CCER_CC4P | TIM_CCER_CC4NP)))
 
 /**
   * @}
@@ -2196,8 +2262,8 @@ mode.
 
     /* Private functions----------------------------------------------------------*/
     /** @defgroup TIM_Private_Functions TIM Private Functions
-* @{
-*/
+  * @{
+  */
     void TIM_Base_SetConfig(TIM_TypeDef * TIMx, TIM_Base_InitTypeDef * Structure);
     void TIM_TI1_SetConfig(TIM_TypeDef * TIMx, uint32_t TIM_ICPolarity, uint32_t TIM_ICSelection,
                            uint32_t TIM_ICFilter);
@@ -2217,8 +2283,8 @@ mode.
 #endif /* USE_HAL_TIM_REGISTER_CALLBACKS */
 
     /**
-* @}
-*/
+  * @}
+  */
     /* End of private functions --------------------------------------------------*/
 
     /**

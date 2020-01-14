@@ -124,7 +124,7 @@ void arm_mean_f32(float32_t * pSrc, uint32_t blockSize, float32_t * pResult)
         blkCnt--;
     }
 
-    /* C = (A[0] + A[1] + A[2] + ... + A[blockSize-1]) / blockSize  */
+    /* C = (A[0] + A[1] + A[2] + ... + A[blockSize-1]) / blockSize */
     /* Store the result to the destination */
     *pResult = sum / (float32_t)blockSize;
 }

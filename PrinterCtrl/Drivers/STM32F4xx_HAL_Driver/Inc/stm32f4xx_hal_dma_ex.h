@@ -43,8 +43,8 @@ extern "C"
   * @{
   */
 
-    /** 
-  * @brief  HAL DMA Memory definition  
+    /**
+  * @brief  HAL DMA Memory definition
   */
     typedef enum
     {

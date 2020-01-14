@@ -119,7 +119,7 @@ void arm_mean_q7(q7_t * pSrc, uint32_t blockSize, q7_t * pResult)
         blkCnt--;
     }
 
-    /* C = (A[0] + A[1] + A[2] + ... + A[blockSize-1]) / blockSize  */
+    /* C = (A[0] + A[1] + A[2] + ... + A[blockSize-1]) / blockSize */
     /* Store the result to the destination */
     *pResult = (q7_t)(sum / (int32_t)blockSize);
 }

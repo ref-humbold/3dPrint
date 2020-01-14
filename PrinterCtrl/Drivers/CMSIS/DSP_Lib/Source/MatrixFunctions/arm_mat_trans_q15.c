@@ -71,7 +71,7 @@ arm_status arm_mat_trans_q15(const arm_matrix_instance_q15 * pSrc, arm_matrix_in
     /* Run the below code for Cortex-M4 and Cortex-M3 */
 #ifndef UNALIGNED_SUPPORT_DISABLE
 
-    q31_t in; /* variable to hold temporary output  */
+    q31_t in; /* variable to hold temporary output */
 
 #else
 

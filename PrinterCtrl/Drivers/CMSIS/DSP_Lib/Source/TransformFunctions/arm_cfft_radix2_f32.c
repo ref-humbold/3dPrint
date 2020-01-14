@@ -74,13 +74,13 @@ void arm_cfft_radix2_f32(const arm_cfft_radix2_instance_f32 * S, float32_t * pSr
 {
     if(S->ifftFlag == 1u)
     {
-        /*  Complex IFFT radix-2  */
+        /*  Complex IFFT radix-2 */
         arm_radix2_butterfly_inverse_f32(pSrc, S->fftLen, S->pTwiddle, S->twidCoefModifier,
                                          S->onebyfftLen);
     }
     else
     {
-        /*  Complex FFT radix-2  */
+        /*  Complex FFT radix-2 */
         arm_radix2_butterfly_f32(pSrc, S->fftLen, S->pTwiddle, S->twidCoefModifier);
     }
 

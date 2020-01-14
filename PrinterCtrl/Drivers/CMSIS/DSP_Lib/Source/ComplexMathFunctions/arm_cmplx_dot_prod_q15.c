@@ -171,7 +171,7 @@ void arm_cmplx_dot_prod_q15(q15_t * pSrcA, q15_t * pSrcB, uint32_t numSamples, q
 
 #endif /* #ifndef ARM_MATH_CM0_FAMILY */
 
-    /* Store the real and imaginary results in 8.24 format  */
+    /* Store the real and imaginary results in 8.24 format */
     /* Convert real data in 34.30 to 8.24 by 6 right shifts */
     *realResult = (q31_t)(real_sum >> 6);
     /* Convert imaginary data in 34.30 to 8.24 by 6 right shifts */

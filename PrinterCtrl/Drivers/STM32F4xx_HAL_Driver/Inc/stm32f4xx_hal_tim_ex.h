@@ -206,9 +206,9 @@ extern "C"
   */
 
     /** @addtogroup TIMEx_Exported_Functions_Group1 Extended Timer Hall Sensor functions
- *  @brief    Timer Hall Sensor functions
- * @{
- */
+  *  @brief    Timer Hall Sensor functions
+  * @{
+  */
     /*  Timer Hall Sensor functions  **********************************************/
     HAL_StatusTypeDef HAL_TIMEx_HallSensor_Init(TIM_HandleTypeDef * htim,
                                                 TIM_HallSensor_InitTypeDef * sConfig);
@@ -232,9 +232,9 @@ extern "C"
   */
 
     /** @addtogroup TIMEx_Exported_Functions_Group2 Extended Timer Complementary Output Compare functions
- *  @brief   Timer Complementary Output Compare functions
- * @{
- */
+  *  @brief   Timer Complementary Output Compare functions
+  * @{
+  */
     /*  Timer Complementary Output Compare functions  *****************************/
     /* Blocking mode: Polling */
     HAL_StatusTypeDef HAL_TIMEx_OCN_Start(TIM_HandleTypeDef * htim, uint32_t Channel);
@@ -253,9 +253,9 @@ extern "C"
   */
 
     /** @addtogroup TIMEx_Exported_Functions_Group3 Extended Timer Complementary PWM functions
- *  @brief    Timer Complementary PWM functions
- * @{
- */
+  *  @brief    Timer Complementary PWM functions
+  * @{
+  */
     /*  Timer Complementary PWM functions  ****************************************/
     /* Blocking mode: Polling */
     HAL_StatusTypeDef HAL_TIMEx_PWMN_Start(TIM_HandleTypeDef * htim, uint32_t Channel);
@@ -273,9 +273,9 @@ extern "C"
   */
 
     /** @addtogroup TIMEx_Exported_Functions_Group4 Extended Timer Complementary One Pulse functions
- *  @brief    Timer Complementary One Pulse functions
- * @{
- */
+  *  @brief    Timer Complementary One Pulse functions
+  * @{
+  */
     /*  Timer Complementary One Pulse functions  **********************************/
     /* Blocking mode: Polling */
     HAL_StatusTypeDef HAL_TIMEx_OnePulseN_Start(TIM_HandleTypeDef * htim, uint32_t OutputChannel);
@@ -290,9 +290,9 @@ extern "C"
   */
 
     /** @addtogroup TIMEx_Exported_Functions_Group5 Extended Peripheral Control functions
- *  @brief    Peripheral Control functions
- * @{
- */
+  *  @brief    Peripheral Control functions
+  * @{
+  */
     /* Extended Control functions  ************************************************/
     HAL_StatusTypeDef HAL_TIMEx_ConfigCommutEvent(TIM_HandleTypeDef * htim, uint32_t InputTrigger,
                                                   uint32_t CommutationSource);
@@ -341,7 +341,7 @@ extern "C"
     /* End of exported functions -------------------------------------------------*/
 
     /* Private functions----------------------------------------------------------*/
-    /** @defgroup TIMEx_Private_Functions TIM Extended Private Functions
+    /** @addtogroup TIMEx_Private_Functions TIMEx Private Functions
   * @{
   */
     void TIMEx_DMACommutationCplt(DMA_HandleTypeDef * hdma);

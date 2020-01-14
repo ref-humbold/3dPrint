@@ -79,7 +79,7 @@ arm_status arm_mat_add_q31(const arm_matrix_instance_q31 * pSrcA,
 
 #endif  //      #ifndef ARM_MATH_CM0_FAMILY
 
-    uint32_t numSamples; /* total number of elements in the matrix  */
+    uint32_t numSamples; /* total number of elements in the matrix */
     uint32_t blkCnt; /* loop counters */
     arm_status status; /* status of matrix addition */
 

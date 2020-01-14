@@ -81,12 +81,12 @@ void arm_cfft_radix4_q15(const arm_cfft_radix4_instance_q15 * S, q15_t * pSrc)
 {
     if(S->ifftFlag == 1u)
     {
-        /*  Complex IFFT radix-4  */
+        /*  Complex IFFT radix-4 */
         arm_radix4_butterfly_inverse_q15(pSrc, S->fftLen, S->pTwiddle, S->twidCoefModifier);
     }
     else
     {
-        /*  Complex FFT radix-4  */
+        /*  Complex FFT radix-4 */
         arm_radix4_butterfly_q15(pSrc, S->fftLen, S->pTwiddle, S->twidCoefModifier);
     }
 
@@ -556,7 +556,7 @@ void arm_radix4_butterfly_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * pCoef16,
         S = __QSUB16(xaya, xcyc);
 
         /* Read yd (real), xd(imag) input */
-        /* T = packed( (yb - yd), (xb - xd))  */
+        /* T = packed( (yb - yd), (xb - xd)) */
         U = __QSUB16(xbyb, xdyd);
 
 #ifndef ARM_MATH_BIG_ENDIAN
@@ -587,8 +587,8 @@ void arm_radix4_butterfly_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * pCoef16,
 
     /* output is in 11.5(q5) format for the 1024 point */
     /* output is in 9.7(q7) format for the 256 point */
-    /* output is in 7.9(q9) format for the 64 point  */
-    /* output is in 5.11(q11) format for the 16 point  */
+    /* output is in 7.9(q9) format for the 64 point */
+    /* output is in 5.11(q11) format for the 16 point */
 
 #else
 
@@ -963,7 +963,7 @@ void arm_radix4_butterfly_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * pCoef16,
         /* Read yd (real), xd(imag) input */
         U0 = pSrc16[i3 * 2u];
         U1 = pSrc16[(i3 * 2u) + 1u];
-        /* T0 = (yb - yd), T1 = (xb - xd)  */
+        /* T0 = (yb - yd), T1 = (xb - xd) */
         T0 = __SSAT(T0 - U0, 16u);
         T1 = __SSAT(T1 - U1, 16u);
 
@@ -984,8 +984,8 @@ void arm_radix4_butterfly_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * pCoef16,
 
     /* output is in 11.5(q5) format for the 1024 point */
     /* output is in 9.7(q7) format for the 256 point */
-    /* output is in 7.9(q9) format for the 64 point  */
-    /* output is in 5.11(q11) format for the 16 point  */
+    /* output is in 7.9(q9) format for the 64 point */
+    /* output is in 5.11(q11) format for the 16 point */
 
 #endif /* #ifndef ARM_MATH_CM0_FAMILY */
 }
@@ -1448,7 +1448,7 @@ void arm_radix4_butterfly_inverse_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * p
         S = __QSUB16(xaya, xcyc);
 
         /* Read yd (real), xd(imag) input */
-        /* T = packed( (yb - yd), (xb - xd))  */
+        /* T = packed( (yb - yd), (xb - xd)) */
         U = __QSUB16(xbyb, xdyd);
 
 #ifndef ARM_MATH_BIG_ENDIAN
@@ -1479,8 +1479,8 @@ void arm_radix4_butterfly_inverse_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * p
 
     /* output is in 11.5(q5) format for the 1024 point */
     /* output is in 9.7(q7) format for the 256 point */
-    /* output is in 7.9(q9) format for the 64 point  */
-    /* output is in 5.11(q11) format for the 16 point  */
+    /* output is in 7.9(q9) format for the 64 point */
+    /* output is in 5.11(q11) format for the 16 point */
 
 #else
 
@@ -1766,8 +1766,8 @@ void arm_radix4_butterfly_inverse_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * p
 
     /* data is in 10.6(q6) format for the 1024 point */
     /* data is in 8.8(q8) format for the 256 point */
-    /* data is in 6.10(q10) format for the 64 point  */
-    /* data is in 4.12(q12) format for the 16 point  */
+    /* data is in 6.10(q10) format for the 64 point */
+    /* data is in 4.12(q12) format for the 16 point */
 
     /* start of last stage process */
 
@@ -1854,8 +1854,8 @@ void arm_radix4_butterfly_inverse_q15(q15_t * pSrc16, uint32_t fftLen, q15_t * p
 
     /* output is in 11.5(q5) format for the 1024 point */
     /* output is in 9.7(q7) format for the 256 point */
-    /* output is in 7.9(q9) format for the 64 point  */
-    /* output is in 5.11(q11) format for the 16 point  */
+    /* output is in 7.9(q9) format for the 64 point */
+    /* output is in 5.11(q11) format for the 16 point */
 
 #endif /* #ifndef ARM_MATH_CM0_FAMILY */
 }

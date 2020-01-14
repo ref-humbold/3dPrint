@@ -129,7 +129,7 @@ void arm_power_q7(q7_t * pSrc, uint32_t blockSize, q31_t * pResult)
         blkCnt--;
     }
 
-    /* Store the result in 18.14 format  */
+    /* Store the result in 18.14 format */
     *pResult = sum;
 }
 

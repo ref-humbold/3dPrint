@@ -98,7 +98,7 @@ void arm_biquad_cascade_df1_q15(const arm_biquad_casd_df1_inst_q15 * S, q15_t * 
 
     do
     {
-        /* Read the b0 and 0 coefficients using SIMD  */
+        /* Read the b0 and 0 coefficients using SIMD */
         b0 = *__SIMD32(pCoeffs)++;
 
         /* Read the b1 and b2 coefficients using SIMD */
@@ -150,7 +150,7 @@ void arm_biquad_cascade_df1_q15(const arm_biquad_casd_df1_inst_q15 * S, q15_t * 
             out = __SSAT(out, 16);
 
             /* Every time after the output is computed state should be updated. */
-            /* The states should be updated as:  */
+            /* The states should be updated as: */
             /* Xn2 = Xn1 */
             /* Xn1 = Xn */
             /* Yn2 = Yn1 */
@@ -203,7 +203,7 @@ void arm_biquad_cascade_df1_q15(const arm_biquad_casd_df1_inst_q15 * S, q15_t * 
 #endif /*      #ifndef  ARM_MATH_BIG_ENDIAN */
 
             /* Every time after the output is computed state should be updated. */
-            /* The states should be updated as:  */
+            /* The states should be updated as: */
             /* Xn2 = Xn1 */
             /* Xn1 = Xn */
             /* Yn2 = Yn1 */
@@ -268,7 +268,7 @@ void arm_biquad_cascade_df1_q15(const arm_biquad_casd_df1_inst_q15 * S, q15_t * 
             *pOut++ = (q15_t)out;
 
             /* Every time after the output is computed state should be updated. */
-            /* The states should be updated as:  */
+            /* The states should be updated as: */
             /* Xn2 = Xn1 */
             /* Xn1 = Xn */
             /* Yn2 = Yn1 */
@@ -289,8 +289,8 @@ void arm_biquad_cascade_df1_q15(const arm_biquad_casd_df1_inst_q15 * S, q15_t * 
 #endif /*   #ifndef  ARM_MATH_BIG_ENDIAN */
         }
 
-        /*  The first stage goes from the input wire to the output wire.  */
-        /*  Subsequent numStages occur in-place in the output wire  */
+        /*  The first stage goes from the input wire to the output wire. */
+        /*  Subsequent numStages occur in-place in the output wire */
         pIn = pDst;
 
         /* Reset the output pointer */
@@ -360,11 +360,11 @@ void arm_biquad_cascade_df1_q15(const arm_biquad_casd_df1_inst_q15 * S, q15_t * 
             /* acc +=  a2 * y[n-2] */
             acc += (q31_t)a2 * Yn2;
 
-            /* The result is converted to 1.31  */
+            /* The result is converted to 1.31 */
             acc = __SSAT((acc >> shift), 16);
 
             /* Every time after the output is computed state should be updated. */
-            /* The states should be updated as:  */
+            /* The states should be updated as: */
             /* Xn2 = Xn1 */
             /* Xn1 = Xn */
             /* Yn2 = Yn1 */

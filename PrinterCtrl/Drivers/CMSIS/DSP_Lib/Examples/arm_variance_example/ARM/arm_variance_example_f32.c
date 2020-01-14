@@ -156,7 +156,7 @@ int32_t main(void)
     /* Calculation of 1/blockSize */
     oneByBlockSize = 1.0 / (blockSize);
 
-    /* 1/blockSize * (x(0)* 1 + x(1) * 1 + ... + x(n-1) * 1)  */
+    /* 1/blockSize * (x(0)* 1 + x(1) * 1 + ... + x(n-1) * 1) */
     arm_mult_f32(&mean, &oneByBlockSize, &mean, 1);
 
     /* Calculation of variance value of input */

@@ -302,7 +302,7 @@ void arm_conv_q7(q7_t * pSrcA, uint32_t srcALen, q7_t * pSrcB, uint32_t srcBLen,
 
                 input2 = ((q31_t)in1 & 0x0000FFFF) | ((q31_t)in2 << 16u);
 
-                /* acc0 += x[0] * y[srcBLen - 1] + x[1] * y[srcBLen - 2]  */
+                /* acc0 += x[0] * y[srcBLen - 1] + x[1] * y[srcBLen - 2] */
                 acc0 = __SMLAD(input1, input2, acc0);
 
                 /* x[1] and x[2] are packed */
@@ -311,7 +311,7 @@ void arm_conv_q7(q7_t * pSrcA, uint32_t srcALen, q7_t * pSrcB, uint32_t srcBLen,
 
                 input1 = ((q31_t)in1 & 0x0000FFFF) | ((q31_t)in2 << 16u);
 
-                /* acc1 += x[1] * y[srcBLen - 1] + x[2] * y[srcBLen - 2]  */
+                /* acc1 += x[1] * y[srcBLen - 1] + x[2] * y[srcBLen - 2] */
                 acc1 = __SMLAD(input1, input2, acc1);
 
                 /* x[2] and x[3] are packed */
@@ -320,7 +320,7 @@ void arm_conv_q7(q7_t * pSrcA, uint32_t srcALen, q7_t * pSrcB, uint32_t srcBLen,
 
                 input1 = ((q31_t)in1 & 0x0000FFFF) | ((q31_t)in2 << 16u);
 
-                /* acc2 += x[2] * y[srcBLen - 1] + x[3] * y[srcBLen - 2]  */
+                /* acc2 += x[2] * y[srcBLen - 1] + x[3] * y[srcBLen - 2] */
                 acc2 = __SMLAD(input1, input2, acc2);
 
                 /* Read x[4] sample */
@@ -332,7 +332,7 @@ void arm_conv_q7(q7_t * pSrcA, uint32_t srcALen, q7_t * pSrcB, uint32_t srcBLen,
 
                 input1 = ((q31_t)in1 & 0x0000FFFF) | ((q31_t)in2 << 16u);
 
-                /* acc3 += x[3] * y[srcBLen - 1] + x[4] * y[srcBLen - 2]  */
+                /* acc3 += x[3] * y[srcBLen - 1] + x[4] * y[srcBLen - 2] */
                 acc3 = __SMLAD(input1, input2, acc3);
 
                 /* Read y[srcBLen - 3] sample */
@@ -355,7 +355,7 @@ void arm_conv_q7(q7_t * pSrcA, uint32_t srcALen, q7_t * pSrcB, uint32_t srcBLen,
 
                 input2 = ((q31_t)in1 & 0x0000FFFF) | ((q31_t)in2 << 16u);
 
-                /* acc0 += x[2] * y[srcBLen - 3] + x[3] * y[srcBLen - 4]  */
+                /* acc0 += x[2] * y[srcBLen - 3] + x[3] * y[srcBLen - 4] */
                 acc0 = __SMLAD(input1, input2, acc0);
 
                 /* x[3] and x[4] are packed */
@@ -364,7 +364,7 @@ void arm_conv_q7(q7_t * pSrcA, uint32_t srcALen, q7_t * pSrcB, uint32_t srcBLen,
 
                 input1 = ((q31_t)in1 & 0x0000FFFF) | ((q31_t)in2 << 16u);
 
-                /* acc1 += x[3] * y[srcBLen - 3] + x[4] * y[srcBLen - 4]  */
+                /* acc1 += x[3] * y[srcBLen - 3] + x[4] * y[srcBLen - 4] */
                 acc1 = __SMLAD(input1, input2, acc1);
 
                 /* x[4] and x[5] are packed */
@@ -373,7 +373,7 @@ void arm_conv_q7(q7_t * pSrcA, uint32_t srcALen, q7_t * pSrcB, uint32_t srcBLen,
 
                 input1 = ((q31_t)in1 & 0x0000FFFF) | ((q31_t)in2 << 16u);
 
-                /* acc2 += x[4] * y[srcBLen - 3] + x[5] * y[srcBLen - 4]  */
+                /* acc2 += x[4] * y[srcBLen - 3] + x[5] * y[srcBLen - 4] */
                 acc2 = __SMLAD(input1, input2, acc2);
 
                 /* Read x[6] sample */
@@ -385,7 +385,7 @@ void arm_conv_q7(q7_t * pSrcA, uint32_t srcALen, q7_t * pSrcB, uint32_t srcBLen,
 
                 input1 = ((q31_t)in1 & 0x0000FFFF) | ((q31_t)in2 << 16u);
 
-                /* acc3 += x[5] * y[srcBLen - 3] + x[6] * y[srcBLen - 4]  */
+                /* acc3 += x[5] * y[srcBLen - 3] + x[6] * y[srcBLen - 4] */
                 acc3 = __SMLAD(input1, input2, acc3);
 
             } while(--k);

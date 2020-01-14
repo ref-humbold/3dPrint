@@ -138,7 +138,7 @@ void arm_power_q15(q15_t * pSrc, uint32_t blockSize, q63_t * pResult)
 
 #endif /* #ifndef ARM_MATH_CM0_FAMILY */
 
-    /* Store the results in 34.30 format  */
+    /* Store the results in 34.30 format */
     *pResult = sum;
 }
 

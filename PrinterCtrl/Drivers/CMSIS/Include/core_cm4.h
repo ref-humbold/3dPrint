@@ -1767,9 +1767,9 @@ extern "C"
 #define EXC_RETURN_HANDLER_FPU \
     (0xFFFFFFE1UL) /* return to Handler mode, uses MSP after return, restore floating-point state */
 #define EXC_RETURN_THREAD_MSP_FPU \
-    (0xFFFFFFE9UL) /* return to Thread mode, uses MSP after return, restore floating-point state  */
+    (0xFFFFFFE9UL) /* return to Thread mode, uses MSP after return, restore floating-point state */
 #define EXC_RETURN_THREAD_PSP_FPU \
-    (0xFFFFFFEDUL) /* return to Thread mode, uses PSP after return, restore floating-point state  */
+    (0xFFFFFFEDUL) /* return to Thread mode, uses PSP after return, restore floating-point state */
 
     /**
   \brief   Set Priority Grouping

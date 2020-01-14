@@ -78,7 +78,7 @@ arm_status arm_mat_trans_f32(const arm_matrix_instance_f32 * pSrc, arm_matrix_in
     /* Run the below code for Cortex-M4 and Cortex-M3 */
 
     uint16_t blkCnt, i = 0u, row = nRows; /* loop counters */
-    arm_status status; /* status of matrix transpose  */
+    arm_status status; /* status of matrix transpose */
 
 #ifdef ARM_MATH_MATRIX_CHECK
 
@@ -154,7 +154,7 @@ arm_status arm_mat_trans_f32(const arm_matrix_instance_f32 * pSrc, arm_matrix_in
     /* Run the below code for Cortex-M0 */
 
     uint16_t col, i = 0u, row = nRows; /* loop counters */
-    arm_status status; /* status of matrix transpose  */
+    arm_status status; /* status of matrix transpose */
 
 #ifdef ARM_MATH_MATRIX_CHECK
 
@@ -197,7 +197,7 @@ arm_status arm_mat_trans_f32(const arm_matrix_instance_f32 * pSrc, arm_matrix_in
             /* Decrement the row loop counter */
             row--;
 
-        } while(row > 0u); /* row loop end  */
+        } while(row > 0u); /* row loop end */
 
         /* Set status as ARM_MATH_SUCCESS */
         status = ARM_MATH_SUCCESS;

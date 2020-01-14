@@ -90,7 +90,7 @@ void arm_correlate_fast_opt_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, 
     q15_t * pIn1; /* inputA pointer */
     q15_t * pIn2; /* inputB pointer */
     q31_t acc0, acc1, acc2, acc3; /* Accumulators */
-    q15_t * py; /* Intermediate inputB pointer  */
+    q15_t * py; /* Intermediate inputB pointer */
     q31_t x1, x2, x3; /* temporary variables for holding input and coefficient values */
     uint32_t j, blkCnt, outBlockSize; /* loop counter */
     int32_t inc = 1; /* Destination address modifier */

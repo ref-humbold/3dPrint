@@ -2349,7 +2349,7 @@ extern "C"
 #define EXC_RETURN_DCRS \
     (0x00000020UL) /* bit [5] stacking rules for called registers: 0=skipped 1=saved */
 #define EXC_RETURN_FTYPE \
-    (0x00000010UL) /* bit [4] allocate stack for floating-point context: 0=done 1=skipped  */
+    (0x00000010UL) /* bit [4] allocate stack for floating-point context: 0=done 1=skipped */
 #define EXC_RETURN_MODE \
     (0x00000008UL) /* bit [3] processor mode for return: 0=Handler mode 1=Thread mode */
 #define EXC_RETURN_SPSEL \

@@ -907,7 +907,7 @@ void arm_radix4_butterfly_inverse_f32(float32_t * pSrc, uint16_t fftLen, float32
         a1 = (Yaplusc + Ybplusd);
         /* xc' = (xa-xb+xc-xd) * onebyfftLen */
         a2 = (Xaplusc - Xbplusd);
-        /* yc' = (ya-yb+yc-yd) * onebyfftLen  */
+        /* yc' = (ya-yb+yc-yd) * onebyfftLen */
         a3 = (Yaplusc - Ybplusd);
         /* xb' = (xa-yb-xc+yd) * onebyfftLen */
         a4 = (Xaminusc - Ybminusd);
@@ -933,7 +933,7 @@ void arm_radix4_butterfly_inverse_f32(float32_t * pSrc, uint16_t fftLen, float32
         ptr1[1] = p1;
         /* xc' = (xa-xb+xc-xd) * onebyfftLen */
         ptr1[2] = p2;
-        /* yc' = (ya-yb+yc-yd) * onebyfftLen  */
+        /* yc' = (ya-yb+yc-yd) * onebyfftLen */
         ptr1[3] = p3;
         /* xb' = (xa-yb-xc+yd) * onebyfftLen */
         ptr1[4] = p4;
@@ -1169,13 +1169,13 @@ void arm_cfft_radix4_f32(const arm_cfft_radix4_instance_f32 * S, float32_t * pSr
 {
     if(S->ifftFlag == 1u)
     {
-        /*  Complex IFFT radix-4  */
+        /*  Complex IFFT radix-4 */
         arm_radix4_butterfly_inverse_f32(pSrc, S->fftLen, S->pTwiddle, S->twidCoefModifier,
                                          S->onebyfftLen);
     }
     else
     {
-        /*  Complex FFT radix-4  */
+        /*  Complex FFT radix-4 */
         arm_radix4_butterfly_f32(pSrc, S->fftLen, S->pTwiddle, S->twidCoefModifier);
     }
 

@@ -220,7 +220,7 @@ __weak HAL_StatusTypeDef HAL_RCC_DeInit(void)
   */
 __weak HAL_StatusTypeDef HAL_RCC_OscConfig(RCC_OscInitTypeDef * RCC_OscInitStruct)
 {
-    uint32_t tickstart;
+    uint32_t tickstart, pll_config;
 
     /* Check Null pointer */
     if(RCC_OscInitStruct == NULL)
@@ -535,7 +535,24 @@ __weak HAL_StatusTypeDef HAL_RCC_OscConfig(RCC_OscInitTypeDef * RCC_OscInitStruc
         }
         else
         {
-            return HAL_ERROR;
+            /* Check if there is a request to disable the PLL used as System clock source */
+            if((RCC_OscInitStruct->PLL.PLLState) == RCC_PLL_OFF)
+            {
+                return HAL_ERROR;
+            }
+            else
+            {
+                /* Do not return HAL_ERROR if request repeats the current configuration */
+                pll_config = RCC->CFGR;
+                if((READ_BIT(pll_config, RCC_PLLCFGR_PLLSRC) != RCC_OscInitStruct->PLL.PLLSource)
+                   || (READ_BIT(pll_config, RCC_PLLCFGR_PLLM) != RCC_OscInitStruct->PLL.PLLM)
+                   || (READ_BIT(pll_config, RCC_PLLCFGR_PLLN) != RCC_OscInitStruct->PLL.PLLN)
+                   || (READ_BIT(pll_config, RCC_PLLCFGR_PLLP) != RCC_OscInitStruct->PLL.PLLP)
+                   || (READ_BIT(pll_config, RCC_PLLCFGR_PLLQ) != RCC_OscInitStruct->PLL.PLLQ))
+                {
+                    return HAL_ERROR;
+                }
+            }
         }
     }
     return HAL_OK;
@@ -699,7 +716,7 @@ HAL_StatusTypeDef HAL_RCC_ClockConfig(RCC_ClkInitTypeDef * RCC_ClkInitStruct, ui
                       >> AHBPrescTable[(RCC->CFGR & RCC_CFGR_HPRE) >> RCC_CFGR_HPRE_Pos];
 
     /* Configure the source of time base considering new system clocks settings */
-    HAL_InitTick(TICK_INT_PRIORITY);
+    HAL_InitTick(uwTickPrio);
 
     return HAL_OK;
 }
@@ -1077,7 +1094,7 @@ void HAL_RCC_GetClockConfig(RCC_ClkInitTypeDef * RCC_ClkInitStruct, uint32_t * p
   */
 void HAL_RCC_NMI_IRQHandler(void)
 {
-    /* Check RCC CSSF flag  */
+    /* Check RCC CSSF flag */
     if(__HAL_RCC_GET_IT(RCC_IT_CSS))
     {
         /* RCC Clock Security System interrupt user callback */

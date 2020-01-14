@@ -172,7 +172,7 @@ void arm_cmplx_dot_prod_q31(q31_t * pSrcA, q31_t * pSrcB, uint32_t numSamples, q
 
 #endif /* #ifndef ARM_MATH_CM0_FAMILY */
 
-    /* Store the real and imaginary results in 16.48 format  */
+    /* Store the real and imaginary results in 16.48 format */
     *realResult = real_sum;
     *imagResult = imag_sum;
 }

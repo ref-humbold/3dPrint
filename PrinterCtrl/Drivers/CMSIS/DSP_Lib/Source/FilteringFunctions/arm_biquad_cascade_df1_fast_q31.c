@@ -83,10 +83,10 @@ void arm_biquad_cascade_df1_fast_q31(const arm_biquad_casd_df1_inst_q31 * S, q31
     q31_t acc = 0; /*  accumulator */
     q31_t Xn1, Xn2, Yn1, Yn2; /*  Filter state variables */
     q31_t b0, b1, b2, a1, a2; /*  Filter coefficients */
-    q31_t * pIn = pSrc; /*  input pointer initialization  */
+    q31_t * pIn = pSrc; /*  input pointer initialization */
     q31_t * pOut = pDst; /*  output pointer initialization */
     q31_t * pState = S->pState; /*  pState pointer initialization */
-    q31_t * pCoeffs = S->pCoeffs; /*  coeff pointer initialization  */
+    q31_t * pCoeffs = S->pCoeffs; /*  coeff pointer initialization */
     q31_t Xn; /*  temporary input */
     int32_t shift = (int32_t)S->postShift + 1; /*  Shift to be applied to the output */
     uint32_t sample, stage = S->numStages; /*  loop counters */
@@ -164,10 +164,10 @@ void arm_biquad_cascade_df1_fast_q31(const arm_biquad_casd_df1_inst_q31 * S, q31
             /*acc = (q31_t) ((((q63_t) acc << 32) + ((q63_t) a2 * (Yn1))) >> 32);*/
             multAcc_32x32_keep32_R(acc, a2, Yn1);
 
-            /* The result is converted to 1.31, Yn1 variable is reused  */
+            /* The result is converted to 1.31, Yn1 variable is reused */
             Yn1 = acc << shift;
 
-            /* Read the third input  */
+            /* Read the third input */
             Xn1 = *(pIn + 2u);
 
             /* Store the output in the destination buffer. */
@@ -190,7 +190,7 @@ void arm_biquad_cascade_df1_fast_q31(const arm_biquad_casd_df1_inst_q31 * S, q31
             /*acc = (q31_t) ((((q63_t) acc << 32) + ((q63_t) a2 * (Yn2))) >> 32);*/
             multAcc_32x32_keep32_R(acc, a2, Yn2);
 
-            /* The result is converted to 1.31, Yn2 variable is reused  */
+            /* The result is converted to 1.31, Yn2 variable is reused */
             Yn2 = acc << shift;
 
             /* Read the forth input */
@@ -218,11 +218,11 @@ void arm_biquad_cascade_df1_fast_q31(const arm_biquad_casd_df1_inst_q31 * S, q31
             multAcc_32x32_keep32_R(acc, a2, Yn1);
 
             /* Every time after the output is computed state should be updated. */
-            /* The states should be updated as:  */
+            /* The states should be updated as: */
             /* Xn2 = Xn1 */
             Xn2 = Xn1;
 
-            /* The result is converted to 1.31, Yn1 variable is reused  */
+            /* The result is converted to 1.31, Yn1 variable is reused */
             Yn1 = acc << shift;
 
             /* Xn1 = Xn */
@@ -262,11 +262,11 @@ void arm_biquad_cascade_df1_fast_q31(const arm_biquad_casd_df1_inst_q31 * S, q31
             /*acc = (q31_t) ((((q63_t) acc << 32) + ((q63_t) a2 * (Yn2))) >> 32);*/
             multAcc_32x32_keep32_R(acc, a2, Yn2);
 
-            /* The result is converted to 1.31  */
+            /* The result is converted to 1.31 */
             acc = acc << shift;
 
             /* Every time after the output is computed state should be updated. */
-            /* The states should be updated as:  */
+            /* The states should be updated as: */
             /* Xn2 = Xn1 */
             /* Xn1 = Xn */
             /* Yn2 = Yn1 */

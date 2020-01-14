@@ -2331,7 +2331,8 @@ HAL_StatusTypeDef HAL_RCCEx_PeriphCLKConfig(RCC_PeriphCLKInitTypeDef * PeriphClk
      factor is common parameters for both peripherals */
     if((((PeriphClkInit->PeriphClockSelection) & RCC_PERIPHCLK_I2S) == RCC_PERIPHCLK_I2S)
        || (((PeriphClkInit->PeriphClockSelection) & RCC_PERIPHCLK_SAI_PLLI2S)
-           == RCC_PERIPHCLK_SAI_PLLI2S))
+           == RCC_PERIPHCLK_SAI_PLLI2S)
+       || (((PeriphClkInit->PeriphClockSelection) & RCC_PERIPHCLK_PLLI2S) == RCC_PERIPHCLK_PLLI2S))
     {
         /* check for Parameters */
         assert_param(IS_RCC_PLLI2SN_VALUE(PeriphClkInit->PLLI2S.PLLI2SN));
@@ -2383,6 +2384,19 @@ HAL_StatusTypeDef HAL_RCCEx_PeriphCLKConfig(RCC_PeriphCLKInitTypeDef * PeriphClk
                                            PeriphClkInit->PLLI2S.PLLI2SQ, tmpreg1);
             /* SAI_CLK_x = SAI_CLK(first level)/PLLI2SDIVQ */
             __HAL_RCC_PLLI2S_PLLSAICLKDIVQ_CONFIG(PeriphClkInit->PLLI2SDivQ);
+        }
+
+        /*----------------- In Case of PLLI2S is just selected  -----------------*/
+        if((PeriphClkInit->PeriphClockSelection & RCC_PERIPHCLK_PLLI2S) == RCC_PERIPHCLK_PLLI2S)
+        {
+            /* Check for Parameters */
+            assert_param(IS_RCC_PLLI2SQ_VALUE(PeriphClkInit->PLLI2S.PLLI2SQ));
+            assert_param(IS_RCC_PLLI2SR_VALUE(PeriphClkInit->PLLI2S.PLLI2SR));
+
+            /* Configure the PLLI2S multiplication and division factors */
+            __HAL_RCC_PLLI2S_SAICLK_CONFIG(PeriphClkInit->PLLI2S.PLLI2SN,
+                                           PeriphClkInit->PLLI2S.PLLI2SQ,
+                                           PeriphClkInit->PLLI2S.PLLI2SR);
         }
 
         /* Enable the PLLI2S */
@@ -2651,7 +2665,7 @@ uint32_t HAL_RCCEx_GetPeriphCLKFreq(uint32_t PeriphClk)
                                               & (RCC_PLLI2SCFGR_PLLI2SR >> 28U)));
                     break;
                 }
-                    /* Clock not enabled for I2S */
+                    /* Clock not enabled for I2S*/
                 default:
                 {
                     frequency = 0U;
@@ -2965,12 +2979,12 @@ void HAL_RCCEx_SelectLSEMode(uint8_t Mode)
 /** @defgroup RCCEx_Exported_Functions_Group2 Extended Clock management functions
  *  @brief  Extended Clock management functions
  *
-@verbatim   
+@verbatim
  ===============================================================================
                 ##### Extended clock management functions  #####
  ===============================================================================
     [..]
-    This subsection provides a set of functions allowing to control the 
+    This subsection provides a set of functions allowing to control the
     activation or deactivation of PLLI2S, PLLSAI.
 @endverbatim
   * @{
@@ -3513,7 +3527,7 @@ HAL_StatusTypeDef HAL_RCC_DeInit(void)
     SystemCoreClock = HSI_VALUE;
 
     /* Adapt Systick interrupt period */
-    if(HAL_InitTick(TICK_INT_PRIORITY) != HAL_OK)
+    if(HAL_InitTick(uwTickPrio) != HAL_OK)
     {
         return HAL_ERROR;
     }

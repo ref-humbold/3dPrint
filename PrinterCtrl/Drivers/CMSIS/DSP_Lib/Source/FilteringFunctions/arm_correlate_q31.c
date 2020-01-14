@@ -88,8 +88,8 @@ void arm_correlate_q31(q31_t * pSrcA, uint32_t srcALen, q31_t * pSrcB, uint32_t 
     q31_t * pIn1; /* inputA pointer */
     q31_t * pIn2; /* inputB pointer */
     q31_t * pOut = pDst; /* output pointer */
-    q31_t * px; /* Intermediate inputA pointer  */
-    q31_t * py; /* Intermediate inputB pointer  */
+    q31_t * px; /* Intermediate inputA pointer */
+    q31_t * py; /* Intermediate inputB pointer */
     q31_t * pSrc1; /* Intermediate pointers */
     q63_t sum, acc0, acc1, acc2; /* Accumulators */
     q31_t x0, x1, x2, c0; /* temporary variables for holding input and coefficient values */

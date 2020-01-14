@@ -79,12 +79,12 @@ arm_status arm_mat_sub_q31(const arm_matrix_instance_q31 * pSrcA,
 
 #endif  //      #ifndef ARM_MATH_CM0_FAMILY
 
-    uint32_t numSamples; /* total number of elements in the matrix  */
+    uint32_t numSamples; /* total number of elements in the matrix */
     uint32_t blkCnt; /* loop counters */
     arm_status status; /* status of matrix subtraction */
 
 #ifdef ARM_MATH_MATRIX_CHECK
-    /* Check for matrix mismatch condition  */
+    /* Check for matrix mismatch condition */
     if((pSrcA->numRows != pSrcB->numRows) || (pSrcA->numCols != pSrcB->numCols)
        || (pSrcA->numRows != pDst->numRows) || (pSrcA->numCols != pDst->numCols))
     {

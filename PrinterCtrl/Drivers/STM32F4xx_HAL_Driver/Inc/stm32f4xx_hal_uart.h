@@ -192,7 +192,7 @@ extern "C"
         void (*AbortTransmitCpltCallback)(
                 struct __UART_HandleTypeDef * huart); /*!< UART Abort Transmit Complete Callback */
         void (*AbortReceiveCpltCallback)(
-                struct __UART_HandleTypeDef * huart); /*!< UART Abort Receive Complete Callback  */
+                struct __UART_HandleTypeDef * huart); /*!< UART Abort Receive Complete Callback */
         void (*WakeupCallback)(
                 struct __UART_HandleTypeDef * huart); /*!< UART Wakeup Callback */
 
@@ -219,7 +219,7 @@ extern "C"
         HAL_UART_ABORT_TRANSMIT_COMPLETE_CB_ID =
                 0x06U, /*!< UART Abort Transmit Complete Callback ID */
         HAL_UART_ABORT_RECEIVE_COMPLETE_CB_ID =
-                0x07U, /*!< UART Abort Receive Complete Callback ID  */
+                0x07U, /*!< UART Abort Receive Complete Callback ID */
         HAL_UART_WAKEUP_CB_ID = 0x08U, /*!< UART Wakeup Callback ID */
 
         HAL_UART_MSPINIT_CB_ID = 0x0BU, /*!< UART MspInit callback ID */
@@ -252,9 +252,9 @@ extern "C"
 #define HAL_UART_ERROR_NE 0x00000002U /*!< Noise error */
 #define HAL_UART_ERROR_FE 0x00000004U /*!< Frame error */
 #define HAL_UART_ERROR_ORE 0x00000008U /*!< Overrun error */
-#define HAL_UART_ERROR_DMA 0x00000010U /*!< DMA transfer error  */
+#define HAL_UART_ERROR_DMA 0x00000010U /*!< DMA transfer error */
 #if(USE_HAL_UART_REGISTER_CALLBACKS == 1)
-#define HAL_UART_ERROR_INVALID_CALLBACK 0x00000020U /*!< Invalid Callback error  */
+#define HAL_UART_ERROR_INVALID_CALLBACK 0x00000020U /*!< Invalid Callback error */
 #endif /* USE_HAL_UART_REGISTER_CALLBACKS */
 /**
   * @}
@@ -566,7 +566,7 @@ extern "C"
                        ? ((__HANDLE__)->Instance->CR2 &= ~((__INTERRUPT__)&UART_IT_MASK)) \
                        : ((__HANDLE__)->Instance->CR3 &= ~((__INTERRUPT__)&UART_IT_MASK)))
 
-/** @brief  Checks whether the specified UART interrupt has occurred or not.
+/** @brief  Checks whether the specified UART interrupt source is enabled or not.
   * @param  __HANDLE__ specifies the UART Handle.
   *         UART Handle selects the USARTx or UARTy peripheral
   *         (USART,UART availability and x,y values depending on device).
@@ -847,34 +847,36 @@ extern "C"
 #define IS_UART_BAUDRATE(BAUDRATE) ((BAUDRATE) <= 10500000U)
 #define IS_UART_ADDRESS(ADDRESS) ((ADDRESS) <= 0x0FU)
 
-#define UART_DIV_SAMPLING16(_PCLK_, _BAUD_) (((_PCLK_)*25U) / (4U * (_BAUD_)))
+#define UART_DIV_SAMPLING16(_PCLK_, _BAUD_) \
+    ((uint32_t)((((uint64_t)(_PCLK_)) * 25U) / (4U * ((uint64_t)(_BAUD_)))))
 #define UART_DIVMANT_SAMPLING16(_PCLK_, _BAUD_) (UART_DIV_SAMPLING16((_PCLK_), (_BAUD_)) / 100U)
 #define UART_DIVFRAQ_SAMPLING16(_PCLK_, _BAUD_) \
-    (((UART_DIV_SAMPLING16((_PCLK_), (_BAUD_)) \
-       - (UART_DIVMANT_SAMPLING16((_PCLK_), (_BAUD_)) * 100U)) \
-              * 16U \
+    ((((UART_DIV_SAMPLING16((_PCLK_), (_BAUD_)) \
+        - (UART_DIVMANT_SAMPLING16((_PCLK_), (_BAUD_)) * 100U)) \
+       * 16U) \
       + 50U) \
      / 100U)
 /* UART BRR = mantissa + overflow + fraction
             = (UART DIVMANT << 4) + (UART DIVFRAQ & 0xF0) + (UART DIVFRAQ & 0x0FU) */
 #define UART_BRR_SAMPLING16(_PCLK_, _BAUD_) \
-    (((UART_DIVMANT_SAMPLING16((_PCLK_), (_BAUD_)) << 4U) \
-      + (UART_DIVFRAQ_SAMPLING16((_PCLK_), (_BAUD_)) & 0xF0U)) \
+    ((UART_DIVMANT_SAMPLING16((_PCLK_), (_BAUD_)) << 4U) \
+     + (UART_DIVFRAQ_SAMPLING16((_PCLK_), (_BAUD_)) & 0xF0U) \
      + (UART_DIVFRAQ_SAMPLING16((_PCLK_), (_BAUD_)) & 0x0FU))
 
-#define UART_DIV_SAMPLING8(_PCLK_, _BAUD_) (((_PCLK_)*25U) / (2U * (_BAUD_)))
+#define UART_DIV_SAMPLING8(_PCLK_, _BAUD_) \
+    ((uint32_t)((((uint64_t)(_PCLK_)) * 25U) / (2U * ((uint64_t)(_BAUD_)))))
 #define UART_DIVMANT_SAMPLING8(_PCLK_, _BAUD_) (UART_DIV_SAMPLING8((_PCLK_), (_BAUD_)) / 100U)
 #define UART_DIVFRAQ_SAMPLING8(_PCLK_, _BAUD_) \
-    (((UART_DIV_SAMPLING8((_PCLK_), (_BAUD_)) \
-       - (UART_DIVMANT_SAMPLING8((_PCLK_), (_BAUD_)) * 100U)) \
-              * 8U \
+    ((((UART_DIV_SAMPLING8((_PCLK_), (_BAUD_)) \
+        - (UART_DIVMANT_SAMPLING8((_PCLK_), (_BAUD_)) * 100U)) \
+       * 8U) \
       + 50U) \
      / 100U)
 /* UART BRR = mantissa + overflow + fraction
             = (UART DIVMANT << 4) + ((UART DIVFRAQ & 0xF8) << 1) + (UART DIVFRAQ & 0x07U) */
 #define UART_BRR_SAMPLING8(_PCLK_, _BAUD_) \
-    (((UART_DIVMANT_SAMPLING8((_PCLK_), (_BAUD_)) << 4U) \
-      + ((UART_DIVFRAQ_SAMPLING8((_PCLK_), (_BAUD_)) & 0xF8U) << 1U)) \
+    ((UART_DIVMANT_SAMPLING8((_PCLK_), (_BAUD_)) << 4U) \
+     + ((UART_DIVFRAQ_SAMPLING8((_PCLK_), (_BAUD_)) & 0xF8U) << 1U) \
      + (UART_DIVFRAQ_SAMPLING8((_PCLK_), (_BAUD_)) & 0x07U))
 
     /**

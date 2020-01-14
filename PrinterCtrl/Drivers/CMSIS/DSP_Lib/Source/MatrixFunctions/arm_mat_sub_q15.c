@@ -71,8 +71,8 @@ arm_status arm_mat_sub_q15(const arm_matrix_instance_q15 * pSrcA,
     q15_t * pInB = pSrcB->pData; /* input data matrix pointer B */
     q15_t * pOut = pDst->pData; /* output data matrix pointer */
     uint32_t numSamples; /* total number of elements in the matrix */
-    uint32_t blkCnt; /* loop counters  */
-    arm_status status; /* status of matrix subtraction  */
+    uint32_t blkCnt; /* loop counters */
+    arm_status status; /* status of matrix subtraction */
 
 #ifdef ARM_MATH_MATRIX_CHECK
 

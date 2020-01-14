@@ -88,8 +88,8 @@ arm_status arm_conv_partial_fast_opt_q15(q15_t * pSrcA, uint32_t srcALen, q15_t 
     q31_t y1, y2; /* State variables */
     q15_t * pIn1; /* inputA pointer */
     q15_t * pIn2; /* inputB pointer */
-    q15_t * px; /* Intermediate inputA pointer  */
-    q15_t * py; /* Intermediate inputB pointer  */
+    q15_t * px; /* Intermediate inputA pointer */
+    q15_t * py; /* Intermediate inputB pointer */
     uint32_t j, k, blkCnt; /* loop counter */
     arm_status status;
 
@@ -392,8 +392,8 @@ arm_status arm_conv_partial_fast_opt_q15(q15_t * pSrcA, uint32_t srcALen, q15_t 
     q31_t acc0, acc1, acc2, acc3; /* Accumulator */
     q15_t * pIn1; /* inputA pointer */
     q15_t * pIn2; /* inputB pointer */
-    q15_t * px; /* Intermediate inputA pointer  */
-    q15_t * py; /* Intermediate inputB pointer  */
+    q15_t * px; /* Intermediate inputA pointer */
+    q15_t * py; /* Intermediate inputB pointer */
     uint32_t j, k, blkCnt; /* loop counter */
     arm_status status; /* Status variable */
     uint32_t tapCnt; /* loop count */

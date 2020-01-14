@@ -72,7 +72,7 @@
   *                        opensource.org/licenses/BSD-3-Clause
   *
   ******************************************************************************
-*/
+  */
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_hal.h"
@@ -399,11 +399,11 @@ HAL_StatusTypeDef HAL_TIMEx_HallSensor_Start_DMA(TIM_HandleTypeDef * htim, uint3
     /* Check the parameters */
     assert_param(IS_TIM_HALL_SENSOR_INTERFACE_INSTANCE(htim->Instance));
 
-    if((htim->State == HAL_TIM_STATE_BUSY))
+    if(htim->State == HAL_TIM_STATE_BUSY)
     {
         return HAL_BUSY;
     }
-    else if((htim->State == HAL_TIM_STATE_READY))
+    else if(htim->State == HAL_TIM_STATE_READY)
     {
         if(((uint32_t)pData == 0U) && (Length > 0U))
         {
@@ -712,11 +712,11 @@ HAL_StatusTypeDef HAL_TIMEx_OCN_Start_DMA(TIM_HandleTypeDef * htim, uint32_t Cha
     /* Check the parameters */
     assert_param(IS_TIM_CCXN_INSTANCE(htim->Instance, Channel));
 
-    if((htim->State == HAL_TIM_STATE_BUSY))
+    if(htim->State == HAL_TIM_STATE_BUSY)
     {
         return HAL_BUSY;
     }
-    else if((htim->State == HAL_TIM_STATE_READY))
+    else if(htim->State == HAL_TIM_STATE_READY)
     {
         if(((uint32_t)pData == 0U) && (Length > 0U))
         {
@@ -729,7 +729,7 @@ HAL_StatusTypeDef HAL_TIMEx_OCN_Start_DMA(TIM_HandleTypeDef * htim, uint32_t Cha
     }
     else
     {
-        /* nothing to do  */
+        /* nothing to do */
     }
 
     switch(Channel)
@@ -931,7 +931,7 @@ HAL_StatusTypeDef HAL_TIMEx_PWMN_Start(TIM_HandleTypeDef * htim, uint32_t Channe
     /* Check the parameters */
     assert_param(IS_TIM_CCXN_INSTANCE(htim->Instance, Channel));
 
-    /* Enable the complementary PWM output  */
+    /* Enable the complementary PWM output */
     TIM_CCxNChannelCmd(htim->Instance, Channel, TIM_CCxN_ENABLE);
 
     /* Enable the Main Output */
@@ -963,7 +963,7 @@ HAL_StatusTypeDef HAL_TIMEx_PWMN_Stop(TIM_HandleTypeDef * htim, uint32_t Channel
     /* Check the parameters */
     assert_param(IS_TIM_CCXN_INSTANCE(htim->Instance, Channel));
 
-    /* Disable the complementary PWM output  */
+    /* Disable the complementary PWM output */
     TIM_CCxNChannelCmd(htim->Instance, Channel, TIM_CCxN_DISABLE);
 
     /* Disable the Main Output */
@@ -1024,7 +1024,7 @@ HAL_StatusTypeDef HAL_TIMEx_PWMN_Start_IT(TIM_HandleTypeDef * htim, uint32_t Cha
     /* Enable the TIM Break interrupt */
     __HAL_TIM_ENABLE_IT(htim, TIM_IT_BREAK);
 
-    /* Enable the complementary PWM output  */
+    /* Enable the complementary PWM output */
     TIM_CCxNChannelCmd(htim->Instance, Channel, TIM_CCxN_ENABLE);
 
     /* Enable the Main Output */
@@ -1086,7 +1086,7 @@ HAL_StatusTypeDef HAL_TIMEx_PWMN_Stop_IT(TIM_HandleTypeDef * htim, uint32_t Chan
             break;
     }
 
-    /* Disable the complementary PWM output  */
+    /* Disable the complementary PWM output */
     TIM_CCxNChannelCmd(htim->Instance, Channel, TIM_CCxN_DISABLE);
 
     /* Disable the TIM Break interrupt (only if no more channel is active) */
@@ -1127,11 +1127,11 @@ HAL_StatusTypeDef HAL_TIMEx_PWMN_Start_DMA(TIM_HandleTypeDef * htim, uint32_t Ch
     /* Check the parameters */
     assert_param(IS_TIM_CCXN_INSTANCE(htim->Instance, Channel));
 
-    if((htim->State == HAL_TIM_STATE_BUSY))
+    if(htim->State == HAL_TIM_STATE_BUSY)
     {
         return HAL_BUSY;
     }
-    else if((htim->State == HAL_TIM_STATE_READY))
+    else if(htim->State == HAL_TIM_STATE_READY)
     {
         if(((uint32_t)pData == 0U) && (Length > 0U))
         {
@@ -1215,7 +1215,7 @@ HAL_StatusTypeDef HAL_TIMEx_PWMN_Start_DMA(TIM_HandleTypeDef * htim, uint32_t Ch
             break;
     }
 
-    /* Enable the complementary PWM output  */
+    /* Enable the complementary PWM output */
     TIM_CCxNChannelCmd(htim->Instance, Channel, TIM_CCxN_ENABLE);
 
     /* Enable the Main Output */
@@ -1649,7 +1649,7 @@ HAL_StatusTypeDef HAL_TIMEx_MasterConfigSynchronization(TIM_HandleTypeDef * htim
     uint32_t tmpsmcr;
 
     /* Check the parameters */
-    assert_param(IS_TIM_SYNCHRO_INSTANCE(htim->Instance));
+    assert_param(IS_TIM_MASTER_INSTANCE(htim->Instance));
     assert_param(IS_TIM_TRGO_SOURCE(sMasterConfig->MasterOutputTrigger));
     assert_param(IS_TIM_MSM_STATE(sMasterConfig->MasterSlaveMode));
 
@@ -1670,16 +1670,19 @@ HAL_StatusTypeDef HAL_TIMEx_MasterConfigSynchronization(TIM_HandleTypeDef * htim
     /* Select the TRGO source */
     tmpcr2 |= sMasterConfig->MasterOutputTrigger;
 
-    /* Reset the MSM Bit */
-    tmpsmcr &= ~TIM_SMCR_MSM;
-    /* Set master mode */
-    tmpsmcr |= sMasterConfig->MasterSlaveMode;
-
     /* Update TIMx CR2 */
     htim->Instance->CR2 = tmpcr2;
 
-    /* Update TIMx SMCR */
-    htim->Instance->SMCR = tmpsmcr;
+    if(IS_TIM_SLAVE_INSTANCE(htim->Instance))
+    {
+        /* Reset the MSM Bit */
+        tmpsmcr &= ~TIM_SMCR_MSM;
+        /* Set master mode */
+        tmpsmcr |= sMasterConfig->MasterSlaveMode;
+
+        /* Update TIMx SMCR */
+        htim->Instance->SMCR = tmpsmcr;
+    }
 
     /* Change the htim state */
     htim->State = HAL_TIM_STATE_READY;
@@ -1695,6 +1698,9 @@ HAL_StatusTypeDef HAL_TIMEx_MasterConfigSynchronization(TIM_HandleTypeDef * htim
   * @param  htim TIM handle
   * @param  sBreakDeadTimeConfig pointer to a TIM_ConfigBreakDeadConfigTypeDef structure that
   *         contains the BDTR Register configuration  information for the TIM peripheral.
+  * @note   Interrupts can be generated when an active level is detected on the
+  *         break input, the break 2 input or the system break input. Break
+  *         interrupt can be enabled by calling the @ref __HAL_TIM_ENABLE_IT macro.
   * @retval HAL status
   */
 HAL_StatusTypeDef
@@ -1906,7 +1912,7 @@ HAL_TIM_StateTypeDef HAL_TIMEx_HallSensor_GetState(TIM_HandleTypeDef * htim)
   */
 
 /* Private functions ---------------------------------------------------------*/
-/** @defgroup TIMEx_Private_Functions TIM Extended Private Functions
+/** @defgroup TIMEx_Private_Functions TIMEx Private Functions
   * @{
   */
 

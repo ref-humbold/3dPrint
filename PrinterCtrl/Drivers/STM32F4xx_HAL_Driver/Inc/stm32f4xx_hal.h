@@ -226,6 +226,18 @@ extern "C"
   * @}
   */
 
+    /* Exported variables --------------------------------------------------------*/
+
+    /** @addtogroup HAL_Exported_Variables
+  * @{
+  */
+    extern __IO uint32_t uwTick;
+    extern uint32_t uwTickPrio;
+    extern HAL_TickFreqTypeDef uwTickFreq;
+    /**
+  * @}
+  */
+
     /* Exported functions --------------------------------------------------------*/
     /** @addtogroup HAL_Exported_Functions
   * @{

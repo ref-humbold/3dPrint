@@ -327,7 +327,9 @@ HAL_StatusTypeDef HAL_UART_Init(UART_HandleTypeDef * huart)
     /* Check the parameters */
     if(huart->Init.HwFlowCtl != UART_HWCONTROL_NONE)
     {
-        /* The hardware flow control is available only for USART1, USART2, USART3 and USART6 */
+        /* The hardware flow control is available only for USART1, USART2, USART3 and USART6.
+       Except for STM32F446xx devices, that is available for USART1, USART2, USART3, USART6, UART4 and UART5.
+    */
         assert_param(IS_UART_HWFLOW_INSTANCE(huart->Instance));
         assert_param(IS_UART_HARDWARE_FLOW_CONTROL(huart->Init.HwFlowCtl));
     }
@@ -883,7 +885,7 @@ HAL_StatusTypeDef HAL_UART_UnRegisterCallback(UART_HandleTypeDef * huart,
 
             case HAL_UART_ABORT_RECEIVE_COMPLETE_CB_ID:
                 huart->AbortReceiveCpltCallback =
-                        HAL_UART_AbortReceiveCpltCallback; /* Legacy weak AbortReceiveCpltCallback  */
+                        HAL_UART_AbortReceiveCpltCallback; /* Legacy weak AbortReceiveCpltCallback */
                 break;
 
             case HAL_UART_MSPINIT_CB_ID:
@@ -1025,10 +1027,13 @@ HAL_StatusTypeDef HAL_UART_UnRegisterCallback(UART_HandleTypeDef * huart,
 
 /**
   * @brief  Sends an amount of data in blocking mode.
-  * @param  huart  Pointer to a UART_HandleTypeDef structure that contains
-  *                the configuration information for the specified UART module.
-  * @param  pData Pointer to data buffer
-  * @param  Size Amount of data to be sent
+  * @note   When UART parity is not enabled (PCE = 0), and Word Length is configured to 9 bits (M1-M0 = 01),
+  *         the sent data is handled as a set of u16. In this case, Size must indicate the number
+  *         of u16 provided through pData.
+  * @param  huart Pointer to a UART_HandleTypeDef structure that contains
+  *               the configuration information for the specified UART module.
+  * @param  pData Pointer to data buffer (u8 or u16 data elements).
+  * @param  Size  Amount of data elements (u8 or u16) to be sent
   * @param  Timeout Timeout duration
   * @retval HAL status
   */
@@ -1057,6 +1062,10 @@ HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef * huart, uint8_t * pData,
 
         huart->TxXferSize = Size;
         huart->TxXferCount = Size;
+
+        /* Process Unlocked */
+        __HAL_UNLOCK(huart);
+
         while(huart->TxXferCount > 0U)
         {
             huart->TxXferCount--;
@@ -1097,9 +1106,6 @@ HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef * huart, uint8_t * pData,
         /* At end of Tx process, restore huart->gState to Ready */
         huart->gState = HAL_UART_STATE_READY;
 
-        /* Process Unlocked */
-        __HAL_UNLOCK(huart);
-
         return HAL_OK;
     }
     else
@@ -1110,10 +1116,13 @@ HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef * huart, uint8_t * pData,
 
 /**
   * @brief  Receives an amount of data in blocking mode.
-  * @param  huart  Pointer to a UART_HandleTypeDef structure that contains
-  *                the configuration information for the specified UART module.
-  * @param  pData Pointer to data buffer
-  * @param  Size Amount of data to be received
+  * @note   When UART parity is not enabled (PCE = 0), and Word Length is configured to 9 bits (M1-M0 = 01),
+  *         the received data is handled as a set of u16. In this case, Size must indicate the number
+  *         of u16 available through pData.
+  * @param  huart Pointer to a UART_HandleTypeDef structure that contains
+  *               the configuration information for the specified UART module.
+  * @param  pData Pointer to data buffer (u8 or u16 data elements).
+  * @param  Size  Amount of data elements (u8 or u16) to be received.
   * @param  Timeout Timeout duration
   * @retval HAL status
   */
@@ -1142,6 +1151,9 @@ HAL_StatusTypeDef HAL_UART_Receive(UART_HandleTypeDef * huart, uint8_t * pData, 
 
         huart->RxXferSize = Size;
         huart->RxXferCount = Size;
+
+        /* Process Unlocked */
+        __HAL_UNLOCK(huart);
 
         /* Check the remain data to be received */
         while(huart->RxXferCount > 0U)
@@ -1187,9 +1199,6 @@ HAL_StatusTypeDef HAL_UART_Receive(UART_HandleTypeDef * huart, uint8_t * pData, 
         /* At end of Rx process, restore huart->RxState to Ready */
         huart->RxState = HAL_UART_STATE_READY;
 
-        /* Process Unlocked */
-        __HAL_UNLOCK(huart);
-
         return HAL_OK;
     }
     else
@@ -1200,10 +1209,13 @@ HAL_StatusTypeDef HAL_UART_Receive(UART_HandleTypeDef * huart, uint8_t * pData, 
 
 /**
   * @brief  Sends an amount of data in non blocking mode.
-  * @param  huart  Pointer to a UART_HandleTypeDef structure that contains
-  *                the configuration information for the specified UART module.
-  * @param  pData Pointer to data buffer
-  * @param  Size Amount of data to be sent
+  * @note   When UART parity is not enabled (PCE = 0), and Word Length is configured to 9 bits (M1-M0 = 01),
+  *         the sent data is handled as a set of u16. In this case, Size must indicate the number
+  *         of u16 provided through pData.
+  * @param  huart Pointer to a UART_HandleTypeDef structure that contains
+  *               the configuration information for the specified UART module.
+  * @param  pData Pointer to data buffer (u8 or u16 data elements).
+  * @param  Size  Amount of data elements (u8 or u16) to be sent
   * @retval HAL status
   */
 HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef * huart, uint8_t * pData, uint16_t Size)
@@ -1242,10 +1254,13 @@ HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef * huart, uint8_t * pDa
 
 /**
   * @brief  Receives an amount of data in non blocking mode.
-  * @param  huart  Pointer to a UART_HandleTypeDef structure that contains
-  *                the configuration information for the specified UART module.
-  * @param  pData Pointer to data buffer
-  * @param  Size Amount of data to be received
+  * @note   When UART parity is not enabled (PCE = 0), and Word Length is configured to 9 bits (M1-M0 = 01),
+  *         the received data is handled as a set of u16. In this case, Size must indicate the number
+  *         of u16 available through pData.
+  * @param  huart Pointer to a UART_HandleTypeDef structure that contains
+  *               the configuration information for the specified UART module.
+  * @param  pData Pointer to data buffer (u8 or u16 data elements).
+  * @param  Size  Amount of data elements (u8 or u16) to be received.
   * @retval HAL status
   */
 HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef * huart, uint8_t * pData, uint16_t Size)
@@ -1289,11 +1304,14 @@ HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef * huart, uint8_t * pDat
 }
 
 /**
-  * @brief  Sends an amount of data in non blocking mode.
+  * @brief  Sends an amount of data in DMA mode.
+  * @note   When UART parity is not enabled (PCE = 0), and Word Length is configured to 9 bits (M1-M0 = 01),
+  *         the sent data is handled as a set of u16. In this case, Size must indicate the number
+  *         of u16 provided through pData.
   * @param  huart  Pointer to a UART_HandleTypeDef structure that contains
   *                the configuration information for the specified UART module.
-  * @param  pData Pointer to data buffer
-  * @param  Size Amount of data to be sent
+  * @param  pData Pointer to data buffer (u8 or u16 data elements).
+  * @param  Size  Amount of data elements (u8 or u16) to be sent
   * @retval HAL status
   */
 HAL_StatusTypeDef HAL_UART_Transmit_DMA(UART_HandleTypeDef * huart, uint8_t * pData, uint16_t Size)
@@ -1353,11 +1371,14 @@ HAL_StatusTypeDef HAL_UART_Transmit_DMA(UART_HandleTypeDef * huart, uint8_t * pD
 }
 
 /**
-  * @brief  Receives an amount of data in non blocking mode.
-  * @param  huart  Pointer to a UART_HandleTypeDef structure that contains
-  *                the configuration information for the specified UART module.
-  * @param  pData Pointer to data buffer
-  * @param  Size Amount of data to be received
+  * @brief  Receives an amount of data in DMA mode.
+  * @note   When UART parity is not enabled (PCE = 0), and Word Length is configured to 9 bits (M1-M0 = 01),
+  *         the received data is handled as a set of u16. In this case, Size must indicate the number
+  *         of u16 available through pData.
+  * @param  huart Pointer to a UART_HandleTypeDef structure that contains
+  *               the configuration information for the specified UART module.
+  * @param  pData Pointer to data buffer (u8 or u16 data elements).
+  * @param  Size  Amount of data elements (u8 or u16) to be received.
   * @note   When the UART parity is enabled (PCE = 1) the received data contains the parity bit.
   * @retval HAL status
   */
@@ -2061,7 +2082,8 @@ void HAL_UART_IRQHandler(UART_HandleTypeDef * huart)
         }
 
         /* UART Over-Run interrupt occurred --------------------------------------*/
-        if(((isrflags & USART_SR_ORE) != RESET) && ((cr3its & USART_CR3_EIE) != RESET))
+        if(((isrflags & USART_SR_ORE) != RESET)
+           && (((cr1its & USART_CR1_RXNEIE) != RESET) || ((cr3its & USART_CR3_EIE) != RESET)))
         {
             huart->ErrorCode |= HAL_UART_ERROR_ORE;
         }
@@ -2534,7 +2556,7 @@ void UART_InitCallbacksToDefault(UART_HandleTypeDef * huart)
     huart->AbortTransmitCpltCallback =
             HAL_UART_AbortTransmitCpltCallback; /* Legacy weak AbortTransmitCpltCallback */
     huart->AbortReceiveCpltCallback =
-            HAL_UART_AbortReceiveCpltCallback; /* Legacy weak AbortReceiveCpltCallback  */
+            HAL_UART_AbortReceiveCpltCallback; /* Legacy weak AbortReceiveCpltCallback */
 }
 #endif /* USE_HAL_UART_REGISTER_CALLBACKS */
 
@@ -3070,6 +3092,7 @@ static HAL_StatusTypeDef UART_Receive_IT(UART_HandleTypeDef * huart)
 static void UART_SetConfig(UART_HandleTypeDef * huart)
 {
     uint32_t tmpreg;
+    uint32_t pclk;
 
     /* Check the parameters */
     assert_param(IS_UART_BAUDRATE(huart->Init.BaudRate));
@@ -3104,42 +3127,59 @@ static void UART_SetConfig(UART_HandleTypeDef * huart)
     if(huart->Init.OverSampling == UART_OVERSAMPLING_8)
     {
         /*-------------------------- USART BRR Configuration ---------------------*/
-#if defined(USART6)
+#if defined(USART6) && defined(UART9) && defined(UART10)
+        if((huart->Instance == USART1) || (huart->Instance == USART6) || (huart->Instance == UART9)
+           || (huart->Instance == UART10))
+        {
+            pclk = HAL_RCC_GetPCLK2Freq();
+            huart->Instance->BRR = UART_BRR_SAMPLING8(pclk, huart->Init.BaudRate);
+        }
+#elif defined(USART6)
         if((huart->Instance == USART1) || (huart->Instance == USART6))
         {
-            huart->Instance->BRR = UART_BRR_SAMPLING8(HAL_RCC_GetPCLK2Freq(), huart->Init.BaudRate);
+            pclk = HAL_RCC_GetPCLK2Freq();
+            huart->Instance->BRR = UART_BRR_SAMPLING8(pclk, huart->Init.BaudRate);
         }
 #else
         if(huart->Instance == USART1)
         {
-            huart->Instance->BRR = UART_BRR_SAMPLING8(HAL_RCC_GetPCLK2Freq(), huart->Init.BaudRate);
+            pclk = HAL_RCC_GetPCLK2Freq();
+            huart->Instance->BRR = UART_BRR_SAMPLING8(pclk, huart->Init.BaudRate);
         }
 #endif /* USART6 */
         else
         {
-            huart->Instance->BRR = UART_BRR_SAMPLING8(HAL_RCC_GetPCLK1Freq(), huart->Init.BaudRate);
+            pclk = HAL_RCC_GetPCLK1Freq();
+            huart->Instance->BRR = UART_BRR_SAMPLING8(pclk, huart->Init.BaudRate);
         }
     }
     else
     {
         /*-------------------------- USART BRR Configuration ---------------------*/
-#if defined(USART6)
+#if defined(USART6) && defined(UART9) && defined(UART10)
+        if((huart->Instance == USART1) || (huart->Instance == USART6) || (huart->Instance == UART9)
+           || (huart->Instance == UART10))
+        {
+            pclk = HAL_RCC_GetPCLK2Freq();
+            huart->Instance->BRR = UART_BRR_SAMPLING16(pclk, huart->Init.BaudRate);
+        }
+#elif defined(USART6)
         if((huart->Instance == USART1) || (huart->Instance == USART6))
         {
-            huart->Instance->BRR =
-                    UART_BRR_SAMPLING16(HAL_RCC_GetPCLK2Freq(), huart->Init.BaudRate);
+            pclk = HAL_RCC_GetPCLK2Freq();
+            huart->Instance->BRR = UART_BRR_SAMPLING16(pclk, huart->Init.BaudRate);
         }
 #else
         if(huart->Instance == USART1)
         {
-            huart->Instance->BRR =
-                    UART_BRR_SAMPLING16(HAL_RCC_GetPCLK2Freq(), huart->Init.BaudRate);
+            pclk = HAL_RCC_GetPCLK2Freq();
+            huart->Instance->BRR = UART_BRR_SAMPLING16(pclk, huart->Init.BaudRate);
         }
 #endif /* USART6 */
         else
         {
-            huart->Instance->BRR =
-                    UART_BRR_SAMPLING16(HAL_RCC_GetPCLK1Freq(), huart->Init.BaudRate);
+            pclk = HAL_RCC_GetPCLK1Freq();
+            huart->Instance->BRR = UART_BRR_SAMPLING16(pclk, huart->Init.BaudRate);
         }
     }
 }

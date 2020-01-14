@@ -225,7 +225,7 @@ void arm_iir_lattice_f32(const arm_iir_lattice_instance_f32 * S, float32_t * pSr
             /* Read gN-3(n-1) from state buffer */
             gcurr1 = *(px1 + 2u);
 
-            /* y(n) += gN(n) * vN  */
+            /* y(n) += gN(n) * vN */
             acc += (gnext * v1);
 
             /* fN-3(n) = fN-2(n) - kN-2 * gN-3(n-1) */
@@ -237,7 +237,7 @@ void arm_iir_lattice_f32(const arm_iir_lattice_instance_f32 * S, float32_t * pSr
             /* Read gN-4(n-1) from state buffer */
             gcurr2 = *(px1 + 3u);
 
-            /* y(n) += gN-1(n) * vN-1  */
+            /* y(n) += gN-1(n) * vN-1 */
             acc += (gnext * v2);
 
             /* read reflection coefficient kN-3 */
@@ -255,7 +255,7 @@ void arm_iir_lattice_f32(const arm_iir_lattice_instance_f32 * S, float32_t * pSr
             /* read ladder coefficient vN-2 */
             v3 = *(pv + 2u);
 
-            /* y(n) += gN-2(n) * vN-2  */
+            /* y(n) += gN-2(n) * vN-2 */
             acc += (gnext * v3);
 
             /* write gN-2(n) into state for next sample processing */
@@ -270,7 +270,7 @@ void arm_iir_lattice_f32(const arm_iir_lattice_instance_f32 * S, float32_t * pSr
             /* read next ladder coefficient vN-3 */
             v4 = *(pv + 3u);
 
-            /* y(n) += gN-4(n) * vN-4  */
+            /* y(n) += gN-4(n) * vN-4 */
             acc += (gnext * v4);
 
             /* write gN-3(n) into state for next sample processing */

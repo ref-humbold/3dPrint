@@ -164,19 +164,19 @@ extern "C"
 #define __HAL_PWR_OVERDRIVE_DISABLE() (*(__IO uint32_t *)CR_ODEN_BB = DISABLE)
 
 /** @brief Macros to enable or disable the Over drive switching.
-  * @note  These macros can be used only for STM32F42xx/STM3243xx devices. 
+  * @note  These macros can be used only for STM32F42xx/STM3243xx devices.
   */
 #define __HAL_PWR_OVERDRIVESWITCHING_ENABLE() (*(__IO uint32_t *)CR_ODSWEN_BB = ENABLE)
 #define __HAL_PWR_OVERDRIVESWITCHING_DISABLE() (*(__IO uint32_t *)CR_ODSWEN_BB = DISABLE)
 
 /** @brief Macros to enable or disable the Under drive mode.
   * @note  This mode is enabled only with STOP low power mode.
-  *        In this mode, the 1.2V domain is preserved in reduced leakage mode. This 
-  *        mode is only available when the main regulator or the low power regulator 
-  *        is in low voltage mode.      
-  * @note  If the Under-drive mode was enabled, it is automatically disabled after 
-  *        exiting Stop mode. 
-  *        When the voltage regulator operates in Under-drive mode, an additional  
+  *        In this mode, the 1.2V domain is preserved in reduced leakage mode. This
+  *        mode is only available when the main regulator or the low power regulator
+  *        is in low voltage mode.
+  * @note  If the Under-drive mode was enabled, it is automatically disabled after
+  *        exiting Stop mode.
+  *        When the voltage regulator operates in Under-drive mode, an additional
   *        startup delay is induced when waking up from Stop mode.
   */
 #define __HAL_PWR_UNDERDRIVE_ENABLE() (PWR->CR |= (uint32_t)PWR_CR_UDEN)
@@ -187,9 +187,9 @@ extern "C"
   * @param  __FLAG__ specifies the flag to check.
   *         This parameter can be one of the following values:
   *            @arg PWR_FLAG_ODRDY: This flag indicates that the Over-drive mode
-  *                                 is ready 
+  *                                 is ready
   *            @arg PWR_FLAG_ODSWRDY: This flag indicates that the Over-drive mode
-  *                                   switching is ready  
+  *                                   switching is ready
   *            @arg PWR_FLAG_UDRDY: This flag indicates that the Under-drive mode
   *                                 is enabled in Stop mode
   * @retval The new state of __FLAG__ (TRUE or FALSE).

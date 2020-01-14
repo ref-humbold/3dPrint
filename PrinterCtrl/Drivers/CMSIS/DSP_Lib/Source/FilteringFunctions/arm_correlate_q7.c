@@ -85,8 +85,8 @@ void arm_correlate_q7(q7_t * pSrcA, uint32_t srcALen, q7_t * pSrcB, uint32_t src
     q7_t * pIn1; /* inputA pointer */
     q7_t * pIn2; /* inputB pointer */
     q7_t * pOut = pDst; /* output pointer */
-    q7_t * px; /* Intermediate inputA pointer  */
-    q7_t * py; /* Intermediate inputB pointer  */
+    q7_t * px; /* Intermediate inputA pointer */
+    q7_t * py; /* Intermediate inputB pointer */
     q7_t * pSrc1; /* Intermediate pointers */
     q31_t sum, acc0, acc1, acc2, acc3; /* Accumulators */
     q31_t input1, input2; /* temporary variables */
@@ -337,7 +337,7 @@ void arm_correlate_q7(q7_t * pSrcA, uint32_t srcALen, q7_t * pSrcB, uint32_t src
 
                 input2 = ((q31_t)in1 & 0x0000FFFF) | ((q31_t)in2 << 16);
 
-                /* acc0 += x[0] * y[0] + x[1] * y[1]  */
+                /* acc0 += x[0] * y[0] + x[1] * y[1] */
                 acc0 = __SMLAD(input1, input2, acc0);
 
                 /* x[1] and x[2] are packed */
@@ -355,7 +355,7 @@ void arm_correlate_q7(q7_t * pSrcA, uint32_t srcALen, q7_t * pSrcB, uint32_t src
 
                 input1 = ((q31_t)in1 & 0x0000FFFF) | ((q31_t)in2 << 16);
 
-                /* acc2 += x[2] * y[0] + x[3] * y[1]  */
+                /* acc2 += x[2] * y[0] + x[3] * y[1] */
                 acc2 = __SMLAD(input1, input2, acc2);
 
                 /* Read x[4] sample */
@@ -367,7 +367,7 @@ void arm_correlate_q7(q7_t * pSrcA, uint32_t srcALen, q7_t * pSrcB, uint32_t src
 
                 input1 = ((q31_t)in1 & 0x0000FFFF) | ((q31_t)in2 << 16);
 
-                /* acc3 += x[3] * y[0] + x[4] * y[1]  */
+                /* acc3 += x[3] * y[0] + x[4] * y[1] */
                 acc3 = __SMLAD(input1, input2, acc3);
 
                 /* Read y[2] sample */
@@ -390,7 +390,7 @@ void arm_correlate_q7(q7_t * pSrcA, uint32_t srcALen, q7_t * pSrcB, uint32_t src
 
                 input2 = ((q31_t)in1 & 0x0000FFFF) | ((q31_t)in2 << 16);
 
-                /* acc0 += x[2] * y[2] + x[3] * y[3]  */
+                /* acc0 += x[2] * y[2] + x[3] * y[3] */
                 acc0 = __SMLAD(input1, input2, acc0);
 
                 /* x[3] and x[4] are packed */
@@ -399,7 +399,7 @@ void arm_correlate_q7(q7_t * pSrcA, uint32_t srcALen, q7_t * pSrcB, uint32_t src
 
                 input1 = ((q31_t)in1 & 0x0000FFFF) | ((q31_t)in2 << 16);
 
-                /* acc1 += x[3] * y[2] + x[4] * y[3]  */
+                /* acc1 += x[3] * y[2] + x[4] * y[3] */
                 acc1 = __SMLAD(input1, input2, acc1);
 
                 /* x[4] and x[5] are packed */
@@ -408,7 +408,7 @@ void arm_correlate_q7(q7_t * pSrcA, uint32_t srcALen, q7_t * pSrcB, uint32_t src
 
                 input1 = ((q31_t)in1 & 0x0000FFFF) | ((q31_t)in2 << 16);
 
-                /* acc2 += x[4] * y[2] + x[5] * y[3]  */
+                /* acc2 += x[4] * y[2] + x[5] * y[3] */
                 acc2 = __SMLAD(input1, input2, acc2);
 
                 /* Read x[6] sample */
@@ -420,7 +420,7 @@ void arm_correlate_q7(q7_t * pSrcA, uint32_t srcALen, q7_t * pSrcB, uint32_t src
 
                 input1 = ((q31_t)in1 & 0x0000FFFF) | ((q31_t)in2 << 16);
 
-                /* acc3 += x[5] * y[2] + x[6] * y[3]  */
+                /* acc3 += x[5] * y[2] + x[6] * y[3] */
                 acc3 = __SMLAD(input1, input2, acc3);
 
             } while(--k);
@@ -633,7 +633,7 @@ void arm_correlate_q7(q7_t * pSrcA, uint32_t srcALen, q7_t * pSrcB, uint32_t src
          ** a second loop below computes MACs for the remaining 1 to 3 samples. */
         while(k > 0u)
         {
-            /* x[srcALen - srcBLen + 1] , x[srcALen - srcBLen + 2]  */
+            /* x[srcALen - srcBLen + 1] , x[srcALen - srcBLen + 2] */
             in1 = (q15_t)*px++;
             in2 = (q15_t)*px++;
             input1 = ((q31_t)in1 & 0x0000FFFF) | ((q31_t)in2 << 16);

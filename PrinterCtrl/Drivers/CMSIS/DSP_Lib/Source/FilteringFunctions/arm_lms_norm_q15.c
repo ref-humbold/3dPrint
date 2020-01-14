@@ -99,7 +99,7 @@ void arm_lms_norm_q15(arm_lms_norm_instance_q15 * S, q15_t * pSrc, q15_t * pRef,
     q15_t postShift; /* Post shift to be applied to weight after reciprocal calculation */
     q31_t coef; /* Teporary variable for coefficient */
     q31_t acc_l, acc_h;
-    int32_t lShift = (15 - (int32_t)S->postShift); /*  Post shift  */
+    int32_t lShift = (15 - (int32_t)S->postShift); /*  Post shift */
     int32_t uShift = (32 - lShift);
 
     energy = S->energy;

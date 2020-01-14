@@ -119,7 +119,7 @@ void arm_mean_q15(q15_t * pSrc, uint32_t blockSize, q15_t * pResult)
         blkCnt--;
     }
 
-    /* C = (A[0] + A[1] + A[2] + ... + A[blockSize-1]) / blockSize  */
+    /* C = (A[0] + A[1] + A[2] + ... + A[blockSize-1]) / blockSize */
     /* Store the result to the destination */
     *pResult = (q15_t)(sum / (q31_t)blockSize);
 }

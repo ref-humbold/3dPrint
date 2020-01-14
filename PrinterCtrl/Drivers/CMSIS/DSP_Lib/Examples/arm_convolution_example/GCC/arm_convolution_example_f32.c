@@ -206,7 +206,7 @@ int32_t main(void)
     status = arm_cfft_radix4_init_f32(cfft_instance_ptr, 64, 1, 1);
 
     /* Transform the multiplication output from frequency domain to time domain,
-       that gives the convolved output  */
+       that gives the convolved output */
     arm_cfft_radix4_f32(cfft_instance_ptr, AxB);
 
     /* SNR Calculation */

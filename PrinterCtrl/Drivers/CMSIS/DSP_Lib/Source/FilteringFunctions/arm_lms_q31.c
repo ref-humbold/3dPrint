@@ -343,7 +343,7 @@ void arm_lms_q31(const arm_lms_instance_q31 * S, q31_t * pSrc, q31_t * pRef, q31
     /* Points to the start of the pState buffer */
     pStateCurnt = S->pState;
 
-    /*  Copy (numTaps - 1u) samples  */
+    /*  Copy (numTaps - 1u) samples */
     tapCnt = (numTaps - 1u);
 
     /* Copy the data */

@@ -103,7 +103,7 @@ void arm_bitreversal_f32(float32_t * pSrc, uint16_t fftSize, uint16_t bitRevFact
         /*  Reading the index for the bit reversal */
         j = *pBitRevTab;
 
-        /*  Updating the bit reversal index depending on the fft length  */
+        /*  Updating the bit reversal index depending on the fft length */
         pBitRevTab += bitRevFactor;
     }
 }
@@ -207,7 +207,7 @@ void arm_bitreversal_q15(q15_t * pSrc16, uint32_t fftLen, uint16_t bitRevFactor,
             pSrc[i] = pSrc[j];
             pSrc[j] = in;
 
-            /*  pSrc[i + fftLenBy2p1] <-> pSrc[j + fftLenBy2p1];  */
+            /*  pSrc[i + fftLenBy2p1] <-> pSrc[j + fftLenBy2p1]; */
             /*  pSrc[i + fftLenBy2p1+1u] <-> pSrc[j + fftLenBy2p1+1u] */
             in = pSrc[i + fftLenBy2p1];
             pSrc[i + fftLenBy2p1] = pSrc[j + fftLenBy2p1];
@@ -215,7 +215,7 @@ void arm_bitreversal_q15(q15_t * pSrc16, uint32_t fftLen, uint16_t bitRevFactor,
         }
 
         /*  pSrc[i+1u] <-> pSrc[j+fftLenBy2]; */
-        /*  pSrc[i+2] <-> pSrc[j+fftLenBy2+1u]  */
+        /*  pSrc[i+2] <-> pSrc[j+fftLenBy2+1u] */
         in = pSrc[i + 1u];
         pSrc[i + 1u] = pSrc[j + fftLenBy2];
         pSrc[j + fftLenBy2] = in;
@@ -223,7 +223,7 @@ void arm_bitreversal_q15(q15_t * pSrc16, uint32_t fftLen, uint16_t bitRevFactor,
         /*  Reading the index for the bit reversal */
         j = *pBitRevTab;
 
-        /*  Updating the bit reversal index depending on the fft length  */
+        /*  Updating the bit reversal index depending on the fft length */
         pBitRevTab += bitRevFactor;
     }
 }

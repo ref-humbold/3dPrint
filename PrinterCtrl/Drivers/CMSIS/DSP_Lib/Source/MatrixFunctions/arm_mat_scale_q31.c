@@ -73,7 +73,7 @@ arm_status arm_mat_scale_q31(const arm_matrix_instance_q31 * pSrc, q31_t scaleFr
     q31_t * pOut = pDst->pData; /* output data matrix pointer */
     uint32_t numSamples; /* total number of elements in the matrix */
     int32_t totShift = shift + 1; /* shift to apply after scaling */
-    uint32_t blkCnt; /* loop counters  */
+    uint32_t blkCnt; /* loop counters */
     arm_status status; /* status of matrix scaling */
     q31_t in1, in2, out1; /* temporary variabels */
 
@@ -84,7 +84,7 @@ arm_status arm_mat_scale_q31(const arm_matrix_instance_q31 * pSrc, q31_t scaleFr
 #endif  //      #ifndef ARM_MAT_CM0
 
 #ifdef ARM_MATH_MATRIX_CHECK
-    /* Check for matrix mismatch  */
+    /* Check for matrix mismatch */
     if((pSrc->numRows != pDst->numRows) || (pSrc->numCols != pDst->numCols))
     {
         /* Set status as ARM_MATH_SIZE_MISMATCH */

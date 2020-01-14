@@ -53,8 +53,8 @@ extern "C"
         FLASH_PROC_PROGRAM
     } FLASH_ProcedureTypeDef;
 
-    /** 
-  * @brief  FLASH handle Structure definition  
+    /**
+  * @brief  FLASH handle Structure definition
   */
     typedef struct
     {
@@ -88,7 +88,7 @@ extern "C"
   * @{
   */
 /** @defgroup FLASH_Error_Code FLASH Error Code
-  * @brief    FLASH Error Code 
+  * @brief    FLASH Error Code
   * @{
   */
 #define HAL_FLASH_ERROR_NONE 0x00000000U /*!< No error */
@@ -125,7 +125,7 @@ extern "C"
 #define FLASH_FLAG_OPERR FLASH_SR_SOP /*!< FLASH operation Error flag */
 #define FLASH_FLAG_WRPERR FLASH_SR_WRPERR /*!< FLASH Write protected error flag */
 #define FLASH_FLAG_PGAERR FLASH_SR_PGAERR /*!< FLASH Programming Alignment error flag */
-#define FLASH_FLAG_PGPERR FLASH_SR_PGPERR /*!< FLASH Programming Parallelism error flag  */
+#define FLASH_FLAG_PGPERR FLASH_SR_PGPERR /*!< FLASH Programming Parallelism error flag */
 #define FLASH_FLAG_PGSERR FLASH_SR_PGSERR /*!< FLASH Programming Sequence error flag */
 #if defined(FLASH_SR_RDERR)
 #define FLASH_FLAG_RDERR FLASH_SR_RDERR /*!< Read Protection error flag (PCROP) */
@@ -231,7 +231,7 @@ extern "C"
 
 /**
   * @brief  Resets the FLASH instruction Cache.
-  * @note   This function must be used only when the Instruction Cache is disabled.  
+  * @note   This function must be used only when the Instruction Cache is disabled.
   * @retval None
   */
 #define __HAL_FLASH_INSTRUCTION_CACHE_RESET() \
@@ -243,7 +243,7 @@ extern "C"
 
 /**
   * @brief  Resets the FLASH data Cache.
-  * @note   This function must be used only when the data Cache is disabled.  
+  * @note   This function must be used only when the data Cache is disabled.
   * @retval None
   */
 #define __HAL_FLASH_DATA_CACHE_RESET() \
@@ -254,37 +254,37 @@ extern "C"
     } while(0U)
 /**
   * @brief  Enable the specified FLASH interrupt.
-  * @param  __INTERRUPT__  FLASH interrupt 
+  * @param  __INTERRUPT__  FLASH interrupt
   *         This parameter can be any combination of the following values:
   *     @arg FLASH_IT_EOP: End of FLASH Operation Interrupt
-  *     @arg FLASH_IT_ERR: Error Interrupt    
+  *     @arg FLASH_IT_ERR: Error Interrupt
   * @retval none
   */
 #define __HAL_FLASH_ENABLE_IT(__INTERRUPT__) (FLASH->CR |= (__INTERRUPT__))
 
 /**
   * @brief  Disable the specified FLASH interrupt.
-  * @param  __INTERRUPT__  FLASH interrupt 
+  * @param  __INTERRUPT__  FLASH interrupt
   *         This parameter can be any combination of the following values:
   *     @arg FLASH_IT_EOP: End of FLASH Operation Interrupt
-  *     @arg FLASH_IT_ERR: Error Interrupt    
+  *     @arg FLASH_IT_ERR: Error Interrupt
   * @retval none
   */
 #define __HAL_FLASH_DISABLE_IT(__INTERRUPT__) (FLASH->CR &= ~(uint32_t)(__INTERRUPT__))
 
 /**
-  * @brief  Get the specified FLASH flag status. 
+  * @brief  Get the specified FLASH flag status.
   * @param  __FLAG__ specifies the FLASH flags to check.
   *          This parameter can be any combination of the following values:
-  *            @arg FLASH_FLAG_EOP   : FLASH End of Operation flag 
-  *            @arg FLASH_FLAG_OPERR : FLASH operation Error flag 
-  *            @arg FLASH_FLAG_WRPERR: FLASH Write protected error flag 
+  *            @arg FLASH_FLAG_EOP   : FLASH End of Operation flag
+  *            @arg FLASH_FLAG_OPERR : FLASH operation Error flag
+  *            @arg FLASH_FLAG_WRPERR: FLASH Write protected error flag
   *            @arg FLASH_FLAG_PGAERR: FLASH Programming Alignment error flag
   *            @arg FLASH_FLAG_PGPERR: FLASH Programming Parallelism error flag
   *            @arg FLASH_FLAG_PGSERR: FLASH Programming Sequence error flag
   *            @arg FLASH_FLAG_RDERR : FLASH Read Protection error flag (PCROP) (*)
   *            @arg FLASH_FLAG_BSY   : FLASH Busy flag
-  *           (*) FLASH_FLAG_RDERR is not available for STM32F405xx/407xx/415xx/417xx devices                             
+  *           (*) FLASH_FLAG_RDERR is not available for STM32F405xx/407xx/415xx/417xx devices
   * @retval The new state of __FLAG__ (SET or RESET).
   */
 #define __HAL_FLASH_GET_FLAG(__FLAG__) ((FLASH->SR & (__FLAG__)))
@@ -293,14 +293,14 @@ extern "C"
   * @brief  Clear the specified FLASH flags.
   * @param  __FLAG__ specifies the FLASH flags to clear.
   *          This parameter can be any combination of the following values:
-  *            @arg FLASH_FLAG_EOP   : FLASH End of Operation flag 
-  *            @arg FLASH_FLAG_OPERR : FLASH operation Error flag 
-  *            @arg FLASH_FLAG_WRPERR: FLASH Write protected error flag 
-  *            @arg FLASH_FLAG_PGAERR: FLASH Programming Alignment error flag 
+  *            @arg FLASH_FLAG_EOP   : FLASH End of Operation flag
+  *            @arg FLASH_FLAG_OPERR : FLASH operation Error flag
+  *            @arg FLASH_FLAG_WRPERR: FLASH Write protected error flag
+  *            @arg FLASH_FLAG_PGAERR: FLASH Programming Alignment error flag
   *            @arg FLASH_FLAG_PGPERR: FLASH Programming Parallelism error flag
   *            @arg FLASH_FLAG_PGSERR: FLASH Programming Sequence error flag
   *            @arg FLASH_FLAG_RDERR : FLASH Read Protection error flag (PCROP) (*)
-  *           (*) FLASH_FLAG_RDERR is not available for STM32F405xx/407xx/415xx/417xx devices   
+  *           (*) FLASH_FLAG_RDERR is not available for STM32F405xx/407xx/415xx/417xx devices
   * @retval none
   */
 #define __HAL_FLASH_CLEAR_FLAG(__FLAG__) (FLASH->SR = (__FLAG__))
@@ -372,24 +372,24 @@ extern "C"
   * @{
   */
 
-/** 
-  * @brief   ACR register byte 0 (Bits[7:0]) base address  
+/**
+  * @brief   ACR register byte 0 (Bits[7:0]) base address
   */
 #define ACR_BYTE0_ADDRESS 0x40023C00U
-/** 
-  * @brief   OPTCR register byte 0 (Bits[7:0]) base address  
+/**
+  * @brief   OPTCR register byte 0 (Bits[7:0]) base address
   */
 #define OPTCR_BYTE0_ADDRESS 0x40023C14U
-/** 
-  * @brief   OPTCR register byte 1 (Bits[15:8]) base address  
+/**
+  * @brief   OPTCR register byte 1 (Bits[15:8]) base address
   */
 #define OPTCR_BYTE1_ADDRESS 0x40023C15U
-/** 
-  * @brief   OPTCR register byte 2 (Bits[23:16]) base address  
+/**
+  * @brief   OPTCR register byte 2 (Bits[23:16]) base address
   */
 #define OPTCR_BYTE2_ADDRESS 0x40023C16U
-/** 
-  * @brief   OPTCR register byte 3 (Bits[31:24]) base address  
+/**
+  * @brief   OPTCR register byte 3 (Bits[31:24]) base address
   */
 #define OPTCR_BYTE3_ADDRESS 0x40023C17U
 

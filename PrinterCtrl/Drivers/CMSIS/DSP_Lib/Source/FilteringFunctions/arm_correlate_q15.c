@@ -91,8 +91,8 @@ void arm_correlate_q15(q15_t * pSrcA, uint32_t srcALen, q15_t * pSrcB, uint32_t 
     q15_t * pIn2; /* inputB pointer */
     q15_t * pOut = pDst; /* output pointer */
     q63_t sum, acc0, acc1, acc2, acc3; /* Accumulators */
-    q15_t * px; /* Intermediate inputA pointer  */
-    q15_t * py; /* Intermediate inputB pointer  */
+    q15_t * px; /* Intermediate inputA pointer */
+    q15_t * py; /* Intermediate inputB pointer */
     q15_t * pSrc1; /* Intermediate pointers */
     q31_t x0, x1, x2, x3, c0; /* temporary variables for holding input and coefficient values */
     uint32_t j, k = 0u, count, blkCnt, outBlockSize, blockSize1, blockSize2,

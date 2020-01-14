@@ -76,7 +76,7 @@ arm_status arm_mat_cmplx_mult_f32(const arm_matrix_instance_f32 * pSrcA,
 {
     float32_t * pIn1 = pSrcA->pData; /* input data matrix pointer A */
     float32_t * pIn2 = pSrcB->pData; /* input data matrix pointer B */
-    float32_t * pInA = pSrcA->pData; /* input data matrix pointer A  */
+    float32_t * pInA = pSrcA->pData; /* input data matrix pointer A */
     float32_t * pOut = pDst->pData; /* output data matrix pointer */
     float32_t * px; /* Temporary output data matrix pointer */
     uint16_t numRowsA = pSrcA->numRows; /* number of rows of input matrix A */

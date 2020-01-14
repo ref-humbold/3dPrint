@@ -329,7 +329,7 @@ void arm_fir_q7(const arm_fir_instance_q7 * S, q7_t * pSrc, q7_t * pDst, uint32_
     /* Initialize blkCnt with blockSize */
     blkCnt = blockSize;
 
-    /* Perform filtering upto BlockSize - BlockSize%4  */
+    /* Perform filtering upto BlockSize - BlockSize%4 */
     while(blkCnt > 0u)
     {
         /* Copy one sample at a time into state buffer */

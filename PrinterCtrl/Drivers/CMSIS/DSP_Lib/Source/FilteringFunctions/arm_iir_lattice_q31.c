@@ -113,7 +113,7 @@ void arm_iir_lattice_q31(const arm_iir_lattice_instance_q31 * S, q31_t * pSrc, q
         gnext = __QADD(gcurr, (q31_t)(((q63_t)fnext * (*pk++)) >> 31));
         /* write gN-1(n-1) into state for next sample processing */
         *px2++ = gnext;
-        /* y(n) += gN(n) * vN  */
+        /* y(n) += gN(n) * vN */
         acc += ((q63_t)gnext * *pv++);
 
         /* Update f values for next coefficient processing */
@@ -131,7 +131,7 @@ void arm_iir_lattice_q31(const arm_iir_lattice_instance_q31 * S, q31_t * pSrc, q
             fnext = __QSUB(fcurr, (q31_t)(((q63_t)gcurr * (*pk)) >> 31));
             /* gN-1(n) = kN-1 * fN-2(n) + gN-2(n-1) */
             gnext = __QADD(gcurr, (q31_t)(((q63_t)fnext * (*pk++)) >> 31));
-            /* y(n) += gN-1(n) * vN-1  */
+            /* y(n) += gN-1(n) * vN-1 */
             /* process for gN-5(n) * vN-5, gN-9(n) * vN-9 ... */
             acc += ((q63_t)gnext * *pv++);
             /* write gN-1(n) into state for next sample processing */
@@ -145,7 +145,7 @@ void arm_iir_lattice_q31(const arm_iir_lattice_instance_q31 * S, q31_t * pSrc, q
             fcurr = __QSUB(fnext, (q31_t)(((q63_t)gcurr * (*pk)) >> 31));
             /* gN-2(n) = kN-2 * fN-3(n) + gN-3(n-1) */
             gnext = __QADD(gcurr, (q31_t)(((q63_t)fcurr * (*pk++)) >> 31));
-            /* y(n) += gN-2(n) * vN-2  */
+            /* y(n) += gN-2(n) * vN-2 */
             /* process for gN-6(n) * vN-6, gN-10(n) * vN-10 ... */
             acc += ((q63_t)gnext * *pv++);
             /* write gN-2(n) into state for next sample processing */
@@ -159,7 +159,7 @@ void arm_iir_lattice_q31(const arm_iir_lattice_instance_q31 * S, q31_t * pSrc, q
             fnext = __QSUB(fcurr, (q31_t)(((q63_t)gcurr * (*pk)) >> 31));
             /* gN-3(n) = kN-3 * fN-4(n) + gN-4(n-1) */
             gnext = __QADD(gcurr, (q31_t)(((q63_t)fnext * (*pk++)) >> 31));
-            /* y(n) += gN-3(n) * vN-3  */
+            /* y(n) += gN-3(n) * vN-3 */
             /* process for gN-7(n) * vN-7, gN-11(n) * vN-11 ... */
             acc += ((q63_t)gnext * *pv++);
             /* write gN-3(n) into state for next sample processing */
@@ -173,7 +173,7 @@ void arm_iir_lattice_q31(const arm_iir_lattice_instance_q31 * S, q31_t * pSrc, q
             fcurr = __QSUB(fnext, (q31_t)(((q63_t)gcurr * (*pk)) >> 31));
             /* gN-4(n) = kN-4 * fN-5(n) + gN-5(n-1) */
             gnext = __QADD(gcurr, (q31_t)(((q63_t)fcurr * (*pk++)) >> 31));
-            /* y(n) += gN-4(n) * vN-4  */
+            /* y(n) += gN-4(n) * vN-4 */
             /* process for gN-8(n) * vN-8, gN-12(n) * vN-12 ... */
             acc += ((q63_t)gnext * *pv++);
             /* write gN-4(n) into state for next sample processing */
@@ -279,7 +279,7 @@ void arm_iir_lattice_q31(const arm_iir_lattice_instance_q31 * S, q31_t * pSrc, q
             /* gN(n) = kN * fN-1(n) + gN-1(n-1) */
             gnext = clip_q63_to_q31(((q63_t)gcurr + ((q31_t)(((q63_t)fnext * (*pk++)) >> 31))));
             /* Output samples */
-            /* y(n) += gN(n) * vN  */
+            /* y(n) += gN(n) * vN */
             acc += ((q63_t)gnext * *pv++);
             /* write gN-1(n-1) into state for next sample processing */
             *px2++ = gnext;

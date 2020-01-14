@@ -88,7 +88,7 @@
  */
 
 /************************* Miscellaneous Configuration ************************/
-/*!< Uncomment the following line if you need to use external SRAM or SDRAM as data memory  */
+/*!< Uncomment the following line if you need to use external SRAM or SDRAM as data memory */
 #if defined(STM32F405xx) || defined(STM32F415xx) || defined(STM32F407xx) || defined(STM32F417xx) \
         || defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) \
         || defined(STM32F439xx) || defined(STM32F469xx) || defined(STM32F479xx) \

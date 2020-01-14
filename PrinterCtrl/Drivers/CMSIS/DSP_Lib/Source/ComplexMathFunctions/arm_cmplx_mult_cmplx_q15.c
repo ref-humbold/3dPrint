@@ -79,8 +79,8 @@ void arm_cmplx_mult_cmplx_q15(q15_t * pSrcA, q15_t * pSrcB, q15_t * pDst, uint32
      ** a second loop below computes the remaining 1 to 3 samples. */
     while(blkCnt > 0u)
     {
-        /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
-        /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+        /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1]. */
+        /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i]. */
         a = *pSrcA++;
         b = *pSrcA++;
         c = *pSrcB++;
@@ -131,8 +131,8 @@ void arm_cmplx_mult_cmplx_q15(q15_t * pSrcA, q15_t * pSrcB, q15_t * pDst, uint32
 
     while(blkCnt > 0u)
     {
-        /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
-        /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+        /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1]. */
+        /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i]. */
         a = *pSrcA++;
         b = *pSrcA++;
         c = *pSrcB++;
@@ -153,8 +153,8 @@ void arm_cmplx_mult_cmplx_q15(q15_t * pSrcA, q15_t * pSrcB, q15_t * pDst, uint32
 
     while(numSamples > 0u)
     {
-        /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
-        /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+        /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1]. */
+        /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i]. */
         a = *pSrcA++;
         b = *pSrcA++;
         c = *pSrcB++;

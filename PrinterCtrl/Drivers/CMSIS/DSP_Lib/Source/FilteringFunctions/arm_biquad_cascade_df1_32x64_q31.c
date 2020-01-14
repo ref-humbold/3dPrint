@@ -198,10 +198,10 @@
 void arm_biquad_cas_df1_32x64_q31(const arm_biquad_cas_df1_32x64_ins_q31 * S, q31_t * pSrc,
                                   q31_t * pDst, uint32_t blockSize)
 {
-    q31_t * pIn = pSrc; /*  input pointer initialization  */
+    q31_t * pIn = pSrc; /*  input pointer initialization */
     q31_t * pOut = pDst; /*  output pointer initialization */
-    q63_t * pState = S->pState; /*  state pointer initialization  */
-    q31_t * pCoeffs = S->pCoeffs; /*  coeff pointer initialization  */
+    q63_t * pState = S->pState; /*  state pointer initialization */
+    q31_t * pCoeffs = S->pCoeffs; /*  coeff pointer initialization */
     q63_t acc; /*  accumulator */
     q31_t Xn1, Xn2; /*  Input Filter state variables */
     q63_t Yn1, Yn2; /*  Output Filter state variables */
@@ -335,7 +335,7 @@ void arm_biquad_cas_df1_32x64_q31(const arm_biquad_cas_df1_32x64_ins_q31 * S, q3
             /* acc +=  a2 * y[n-2] */
             acc += mult32x64(Yn2, a2);
 
-            /* The result is converted to 1.63, Yn2 variable is reused  */
+            /* The result is converted to 1.63, Yn2 variable is reused */
             Yn2 = acc << shift;
 
             /* Calc lower part of acc */
@@ -369,7 +369,7 @@ void arm_biquad_cas_df1_32x64_q31(const arm_biquad_cas_df1_32x64_ins_q31 * S, q3
             /* acc +=  a2 * y[n-2] */
             acc += mult32x64(Yn1, a2);
 
-            /* The result is converted to 1.63, Yn1 variable is reused  */
+            /* The result is converted to 1.63, Yn1 variable is reused */
             Yn1 = acc << shift;
 
             /* Calc lower part of acc */
@@ -385,7 +385,7 @@ void arm_biquad_cas_df1_32x64_q31(const arm_biquad_cas_df1_32x64_ins_q31 * S, q3
             *(pOut + 3u) = acc_h;
 
             /* Every time after the output is computed state should be updated. */
-            /* The states should be updated as:  */
+            /* The states should be updated as: */
             /* Xn2 = Xn1 */
             /* Xn1 = Xn */
             /* Yn2 = Yn1 */
@@ -423,7 +423,7 @@ void arm_biquad_cas_df1_32x64_q31(const arm_biquad_cas_df1_32x64_ins_q31 * S, q3
             acc += mult32x64(Yn2, a2);
 
             /* Every time after the output is computed state should be updated. */
-            /* The states should be updated as:  */
+            /* The states should be updated as: */
             /* Xn2 = Xn1 */
             /* Xn1 = Xn */
             /* Yn2 = Yn1 */
@@ -431,7 +431,7 @@ void arm_biquad_cas_df1_32x64_q31(const arm_biquad_cas_df1_32x64_ins_q31 * S, q3
             Xn2 = Xn1;
             Xn1 = Xn;
             Yn2 = Yn1;
-            /* The result is converted to 1.63, Yn1 variable is reused  */
+            /* The result is converted to 1.63, Yn1 variable is reused */
             Yn1 = acc << shift;
 
             /* Calc lower part of acc */
@@ -448,7 +448,7 @@ void arm_biquad_cas_df1_32x64_q31(const arm_biquad_cas_df1_32x64_ins_q31 * S, q3
             /* Yn1 = acc << shift; */
 
             /* Store the output in the destination buffer in 1.31 format. */
-            /*      *pOut++ = (q31_t) (acc >> (32 - shift));  */
+            /*      *pOut++ = (q31_t) (acc >> (32 - shift)); */
 
             /* decrement the loop counter */
             sample--;
@@ -513,7 +513,7 @@ void arm_biquad_cas_df1_32x64_q31(const arm_biquad_cas_df1_32x64_ins_q31 * S, q3
             acc += mult32x64(Yn2, a2);
 
             /* Every time after the output is computed state should be updated. */
-            /* The states should be updated as:  */
+            /* The states should be updated as: */
             /* Xn2 = Xn1 */
             /* Xn1 = Xn */
             /* Yn2 = Yn1 */
@@ -522,7 +522,7 @@ void arm_biquad_cas_df1_32x64_q31(const arm_biquad_cas_df1_32x64_ins_q31 * S, q3
             Xn1 = Xn;
             Yn2 = Yn1;
 
-            /* The result is converted to 1.63, Yn1 variable is reused  */
+            /* The result is converted to 1.63, Yn1 variable is reused */
             Yn1 = acc << shift;
 
             /* Calc lower part of acc */

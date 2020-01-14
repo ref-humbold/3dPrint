@@ -65,13 +65,13 @@
 #define ARM_MPU_ATTR(O, I) \
     (((O & 0xFU) << 4U) | (((O & 0xFU) != 0U) ? (I & 0xFU) : ((I & 0x3U) << 2U)))
 
-/** \brief Normal memory non-shareable  */
+/** \brief Normal memory non-shareable */
 #define ARM_MPU_SH_NON (0U)
 
-/** \brief Normal memory outer shareable  */
+/** \brief Normal memory outer shareable */
 #define ARM_MPU_SH_OUTER (2U)
 
-/** \brief Normal memory inner shareable  */
+/** \brief Normal memory inner shareable */
 #define ARM_MPU_SH_INNER (3U)
 
 /** \brief Memory access permissions

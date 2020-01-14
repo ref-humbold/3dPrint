@@ -434,7 +434,7 @@ void arm_lms_norm_f32(arm_lms_norm_instance_f32 * S, float32_t * pSrc, float32_t
     /* Points to the start of the pState buffer */
     pStateCurnt = S->pState;
 
-    /* Copy (numTaps - 1u) samples  */
+    /* Copy (numTaps - 1u) samples */
     tapCnt = (numTaps - 1u);
 
     /* Copy the remaining q31_t data */

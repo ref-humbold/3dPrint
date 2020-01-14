@@ -249,7 +249,7 @@ void arm_dct4_f32(const arm_dct4_instance_f32 * S, float32_t * pState, float32_t
     /* ----------- Post-processing ---------- */
     /* DCT-IV can be obtained from DCT-II by the equation,
      *       Y4(k) = Y2(k) - Y4(k-1) and Y4(-1) = Y4(0)
-     *       Hence, Y4(0) = Y2(0)/2  */
+     *       Hence, Y4(0) = Y2(0)/2 */
     /* Getting only real part from the output and Converting to DCT-IV */
 
     /* Initializing the loop counter to N >> 2 for loop unrolling by 4 */
@@ -396,7 +396,7 @@ void arm_dct4_f32(const arm_dct4_instance_f32 * S, float32_t * pState, float32_t
     /* ----------- Post-processing ---------- */
     /* DCT-IV can be obtained from DCT-II by the equation,
      *       Y4(k) = Y2(k) - Y4(k-1) and Y4(-1) = Y4(0)
-     *       Hence, Y4(0) = Y2(0)/2  */
+     *       Hence, Y4(0) = Y2(0)/2 */
     /* Getting only real part from the output and Converting to DCT-IV */
 
     /* pbuff initialized to input buffer. */

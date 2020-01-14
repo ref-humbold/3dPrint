@@ -171,7 +171,7 @@ extern "C"
         HAL_SPI_TX_RX_COMPLETE_CB_ID = 0x02U, /*!< SPI TxRx Completed callback ID */
         HAL_SPI_TX_HALF_COMPLETE_CB_ID = 0x03U, /*!< SPI Tx Half Completed callback ID */
         HAL_SPI_RX_HALF_COMPLETE_CB_ID = 0x04U, /*!< SPI Rx Half Completed callback ID */
-        HAL_SPI_TX_RX_HALF_COMPLETE_CB_ID = 0x05U, /*!< SPI TxRx Half Completed callback ID  */
+        HAL_SPI_TX_RX_HALF_COMPLETE_CB_ID = 0x05U, /*!< SPI TxRx Half Completed callback ID */
         HAL_SPI_ERROR_CB_ID = 0x06U, /*!< SPI Error callback ID */
         HAL_SPI_ABORT_CB_ID = 0x07U, /*!< SPI Abort callback ID */
         HAL_SPI_MSPINIT_CB_ID = 0x08U, /*!< SPI Msp Init callback ID */
@@ -361,7 +361,7 @@ extern "C"
     } while(0)
 #else
 #define __HAL_SPI_RESET_HANDLE_STATE(__HANDLE__) ((__HANDLE__)->State = HAL_SPI_STATE_RESET)
-#endif
+#endif /* USE_HAL_SPI_REGISTER_CALLBACKS */
 
 /** @brief  Enable the specified SPI interrupts.
   * @param  __HANDLE__ specifies the SPI Handle.

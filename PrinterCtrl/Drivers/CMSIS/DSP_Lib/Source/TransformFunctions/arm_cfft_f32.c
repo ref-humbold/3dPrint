@@ -577,7 +577,7 @@ void arm_cfft_f32(const arm_cfft_instance_f32 * S, float32_t * p1, uint8_t ifftF
 
     if(ifftFlag == 1u)
     {
-        /*  Conjugate input data  */
+        /*  Conjugate input data */
         pSrc = p1 + 1;
         for(l = 0; l < L; l++)
         {

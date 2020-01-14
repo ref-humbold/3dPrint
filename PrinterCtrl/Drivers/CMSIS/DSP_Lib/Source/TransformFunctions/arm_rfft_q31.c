@@ -165,7 +165,7 @@ void arm_split_rfft_q31(q31_t * pSrc, uint32_t fftLen, q31_t * pATable, q31_t * 
         /* (pIn[2 * i + 1] * pATable[2 * i] */
         multAcc_32x32_keep32_R(outI, *pIn1++, CoefA1);
 
-        /* pSrc[2 * n - 2 * i] * pBTable[2 * i]  */
+        /* pSrc[2 * n - 2 * i] * pBTable[2 * i] */
         multSub_32x32_keep32_R(outR, *pIn2, CoefA2);
         CoefB1 = *pCoefB;
 

@@ -90,15 +90,15 @@ arm_status arm_mat_inverse_f64(const arm_matrix_instance_f64 * pSrc, arm_matrix_
     float64_t *pOutT1, *pOutT2; /* Temporary output data matrix pointer */
     float64_t *pPivotRowIn, *pPRT_in, *pPivotRowDst,
             *pPRT_pDst; /* Temporary input and output data matrix pointer */
-    uint32_t numRows = pSrc->numRows; /* Number of rows in the matrix  */
-    uint32_t numCols = pSrc->numCols; /* Number of Cols in the matrix  */
+    uint32_t numRows = pSrc->numRows; /* Number of rows in the matrix */
+    uint32_t numCols = pSrc->numCols; /* Number of Cols in the matrix */
 
 #ifndef ARM_MATH_CM0_FAMILY
     float64_t maxC; /* maximum value in the column */
 
     /* Run the below code for Cortex-M4 and Cortex-M3 */
 
-    float64_t Xchg, in = 0.0f, in1; /* Temporary input values  */
+    float64_t Xchg, in = 0.0f, in1; /* Temporary input values */
     uint32_t i, rowCnt, flag = 0u, j, loopCnt, k, l; /* loop counters */
     arm_status status; /* status of matrix inverse */
 
@@ -196,11 +196,11 @@ arm_status arm_mat_inverse_f64(const arm_matrix_instance_f64 * pSrc, arm_matrix_
              * then the matrix is Singular. */
 
             /* Working pointer for the input matrix that points
-             * to the pivot element of the particular row  */
+             * to the pivot element of the particular row */
             pInT1 = pIn + (l * numCols);
 
             /* Working pointer for the destination matrix that points
-             * to the pivot element of the particular row  */
+             * to the pivot element of the particular row */
             pOutT1 = pOut + (l * numCols);
 
             /* Temporary variable to hold the pivot value */
@@ -221,7 +221,7 @@ arm_status arm_mat_inverse_f64(const arm_matrix_instance_f64 * pSrc, arm_matrix_
                 return ARM_MATH_SINGULAR;
             }
 
-            /* Restore pInT1  */
+            /* Restore pInT1 */
             pInT1 = pIn;
 
             /* Destination pointer modifier */
@@ -374,7 +374,7 @@ arm_status arm_mat_inverse_f64(const arm_matrix_instance_f64 * pSrc, arm_matrix_
                     while(j > 0u)
                     {
                         /* Replace the element by the sum of that row
-                           and a multiple of the reference row  */
+                           and a multiple of the reference row */
                         in1 = *pInT1;
                         *pInT1++ = in1 - (in * *pPRT_in++);
 
@@ -389,7 +389,7 @@ arm_status arm_mat_inverse_f64(const arm_matrix_instance_f64 * pSrc, arm_matrix_
                     while(j > 0u)
                     {
                         /* Replace the element by the sum of that row
-                           and a multiple of the reference row  */
+                           and a multiple of the reference row */
                         in1 = *pInT2;
                         *pInT2++ = in1 - (in * *pPRT_pDst++);
 
@@ -422,7 +422,7 @@ arm_status arm_mat_inverse_f64(const arm_matrix_instance_f64 * pSrc, arm_matrix_
 
     /* Run the below code for Cortex-M0 */
 
-    float64_t Xchg, in = 0.0f; /* Temporary input values  */
+    float64_t Xchg, in = 0.0f; /* Temporary input values */
     uint32_t i, rowCnt, flag = 0u, j, loopCnt, k, l; /* loop counters */
     arm_status status; /* status of matrix inverse */
 
@@ -519,11 +519,11 @@ arm_status arm_mat_inverse_f64(const arm_matrix_instance_f64 * pSrc, arm_matrix_
              * then the matrix is Singular. */
 
             /* Working pointer for the input matrix that points
-             * to the pivot element of the particular row  */
+             * to the pivot element of the particular row */
             pInT1 = pIn + (l * numCols);
 
             /* Working pointer for the destination matrix that points
-             * to the pivot element of the particular row  */
+             * to the pivot element of the particular row */
             pOutT1 = pOut + (l * numCols);
 
             /* Temporary variable to hold the pivot value */
@@ -640,7 +640,7 @@ arm_status arm_mat_inverse_f64(const arm_matrix_instance_f64 * pSrc, arm_matrix_
                     for(j = 0u; j < (numCols - l); j++)
                     {
                         /* Replace the element by the sum of that row
-                           and a multiple of the reference row  */
+                           and a multiple of the reference row */
                         *pInT1 = *pInT1 - (in * *pPRT_in++);
                         pInT1++;
                     }
@@ -649,7 +649,7 @@ arm_status arm_mat_inverse_f64(const arm_matrix_instance_f64 * pSrc, arm_matrix_
                     for(j = 0u; j < numCols; j++)
                     {
                         /* Replace the element by the sum of that row
-                           and a multiple of the reference row  */
+                           and a multiple of the reference row */
                         *pOutT1 = *pOutT1 - (in * *pPRT_pDst++);
                         pOutT1++;
                     }

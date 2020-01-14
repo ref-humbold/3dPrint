@@ -102,7 +102,7 @@ void arm_var_f32(float32_t * pSrc, uint32_t blockSize, float32_t * pResult)
      ** a second loop below computes the remaining 1 to 3 samples. */
     while(blkCnt > 0u)
     {
-        /* C = (A[0] * A[0] + A[1] * A[1] + ... + A[blockSize-1] * A[blockSize-1])  */
+        /* C = (A[0] * A[0] + A[1] * A[1] + ... + A[blockSize-1] * A[blockSize-1]) */
         /* Compute Sum of squares of the input samples
          * and then store the result in a temporary variable, sum. */
         in = *pSrc++;

@@ -417,7 +417,7 @@ void arm_lms_f32(const arm_lms_instance_f32 * S, float32_t * pSrc, float32_t * p
     /* Points to the start of the pState buffer */
     pStateCurnt = S->pState;
 
-    /*  Copy (numTaps - 1u) samples  */
+    /*  Copy (numTaps - 1u) samples */
     tapCnt = (numTaps - 1u);
 
     /* Copy the data */

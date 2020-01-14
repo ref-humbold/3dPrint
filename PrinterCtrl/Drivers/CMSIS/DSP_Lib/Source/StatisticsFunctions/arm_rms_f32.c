@@ -91,7 +91,7 @@ void arm_rms_f32(float32_t * pSrc, uint32_t blockSize, float32_t * pResult)
     while(blkCnt > 0u)
     {
         /* C = A[0] * A[0] + A[1] * A[1] + A[2] * A[2] + ... + A[blockSize-1] * A[blockSize-1] */
-        /* Compute sum of the squares and then store the result in a temporary variable, sum  */
+        /* Compute sum of the squares and then store the result in a temporary variable, sum */
         in = *pSrc++;
         sum += in * in;
         in = *pSrc++;
@@ -121,7 +121,7 @@ void arm_rms_f32(float32_t * pSrc, uint32_t blockSize, float32_t * pResult)
     while(blkCnt > 0u)
     {
         /* C = A[0] * A[0] + A[1] * A[1] + A[2] * A[2] + ... + A[blockSize-1] * A[blockSize-1] */
-        /* Compute sum of the squares and then store the results in a temporary variable, sum  */
+        /* Compute sum of the squares and then store the results in a temporary variable, sum */
         in = *pSrc++;
         sum += in * in;
 

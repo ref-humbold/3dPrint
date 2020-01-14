@@ -87,8 +87,8 @@ void arm_conv_q31(q31_t * pSrcA, uint32_t srcALen, q31_t * pSrcB, uint32_t srcBL
     q31_t * pIn1; /* inputA pointer */
     q31_t * pIn2; /* inputB pointer */
     q31_t * pOut = pDst; /* output pointer */
-    q31_t * px; /* Intermediate inputA pointer  */
-    q31_t * py; /* Intermediate inputB pointer  */
+    q31_t * px; /* Intermediate inputA pointer */
+    q31_t * py; /* Intermediate inputB pointer */
     q31_t *pSrc1, *pSrc2; /* Intermediate pointers */
     q63_t sum; /* Accumulator */
     q63_t acc0, acc1, acc2; /* Accumulator */
