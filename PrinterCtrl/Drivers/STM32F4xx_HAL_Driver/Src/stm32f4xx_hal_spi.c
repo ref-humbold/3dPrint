@@ -355,10 +355,8 @@ HAL_StatusTypeDef HAL_SPI_Init(SPI_HandleTypeDef * hspi)
         hspi->TxCpltCallback = HAL_SPI_TxCpltCallback; /* Legacy weak TxCpltCallback */
         hspi->RxCpltCallback = HAL_SPI_RxCpltCallback; /* Legacy weak RxCpltCallback */
         hspi->TxRxCpltCallback = HAL_SPI_TxRxCpltCallback; /* Legacy weak TxRxCpltCallback */
-        hspi->TxHalfCpltCallback =
-                HAL_SPI_TxHalfCpltCallback; /* Legacy weak TxHalfCpltCallback */
-        hspi->RxHalfCpltCallback =
-                HAL_SPI_RxHalfCpltCallback; /* Legacy weak RxHalfCpltCallback */
+        hspi->TxHalfCpltCallback = HAL_SPI_TxHalfCpltCallback; /* Legacy weak TxHalfCpltCallback */
+        hspi->RxHalfCpltCallback = HAL_SPI_RxHalfCpltCallback; /* Legacy weak RxHalfCpltCallback */
         hspi->TxRxHalfCpltCallback =
                 HAL_SPI_TxRxHalfCpltCallback; /* Legacy weak TxRxHalfCpltCallback */
         hspi->ErrorCallback = HAL_SPI_ErrorCallback; /* Legacy weak ErrorCallback */
@@ -624,13 +622,11 @@ HAL_StatusTypeDef HAL_SPI_UnRegisterCallback(SPI_HandleTypeDef * hspi,
         switch(CallbackID)
         {
             case HAL_SPI_TX_COMPLETE_CB_ID:
-                hspi->TxCpltCallback =
-                        HAL_SPI_TxCpltCallback; /* Legacy weak TxCpltCallback */
+                hspi->TxCpltCallback = HAL_SPI_TxCpltCallback; /* Legacy weak TxCpltCallback */
                 break;
 
             case HAL_SPI_RX_COMPLETE_CB_ID:
-                hspi->RxCpltCallback =
-                        HAL_SPI_RxCpltCallback; /* Legacy weak RxCpltCallback */
+                hspi->RxCpltCallback = HAL_SPI_RxCpltCallback; /* Legacy weak RxCpltCallback */
                 break;
 
             case HAL_SPI_TX_RX_COMPLETE_CB_ID:

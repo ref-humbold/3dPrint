@@ -116,7 +116,7 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef * spiHandle)
 }
 
 /* USER CODE BEGIN 1 */
-void spi_send(SPI_HandleTypeDef * hspi, pinout * slave, const uint16_t data)
+void spi_send(SPI_HandleTypeDef * hspi, const pinout * slave, const uint16_t data)
 {
     uint8_t val[2] = {data >> 8, data & 0x00FF};
 
@@ -128,6 +128,7 @@ void spi_send(SPI_HandleTypeDef * hspi, pinout * slave, const uint16_t data)
         HAL_Delay(100);
     }
 
+    HAL_Delay(200);
     HAL_GPIO_WritePin(slave->gpio, slave->pin, GPIO_PIN_SET);
 }
 /* USER CODE END 1 */

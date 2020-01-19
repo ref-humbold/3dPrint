@@ -1,17 +1,21 @@
-# VERSION 8
+# VERSION 9
 
 AccessModifierOffset: -4
 AlignAfterOpenBracket: Align
 AlignConsecutiveAssignments: false
 AlignConsecutiveDeclarations: false
+AlignConsecutiveMacros: false
 AlignEscapedNewlines: DontAlign
 AlignOperands: true
 AlignTrailingComments: false
+AllowAllArgumentsOnNextLine: false
+AllowAllConstructorInitializersOnNextLine: false
 AllowAllParametersOfDeclarationOnNextLine: false
 AllowShortBlocksOnASingleLine: false
 AllowShortCaseLabelsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: None
 AllowShortIfStatementsOnASingleLine: false
+AllowShortLambdasOnASingleLine : true
 AllowShortLoopsOnASingleLine: false
 AlwaysBreakAfterReturnType: None
 AlwaysBreakBeforeMultilineStrings: false
@@ -37,10 +41,13 @@ ForEachMacros: []
 IncludeBlocks: Merge
 IncludeCategories:
   # C Standard library
-  - Regex: '^<cstdlib>'
+  - Regex: '^<cstdlib>|<stdlib.h>'
     Priority: 1
-  # C standard library
+  # C standard library (C++ style)
   - Regex: '^<c(std(arg|def|int|io)|assert|(u|w)char|ctype|errno|fenv|float|inttypes|limits|locale|math|setjmp|signal|string|time|wctype)>'
+    Priority: 2
+  # C standard library (C style)
+  - Regex: '^<(std(arg|def|int|io)|assert|(u|w)char|ctype|errno|fenv|float|inttypes|limits|locale|math|setjmp|signal|string|time|wctype)\.h>'
     Priority: 2
   # C++ standard library: input-output, exceptions, memory, threads
   - Regex: '^<(ios(fwd)?|(i|o|io|f|s)stream|streambuf|iomanip|exception|stdexcept|system_error|new|memory|atomic|thread|(shared_)?mutex|future|condition_variable)>'
@@ -60,6 +67,7 @@ IncludeCategories:
   # All custom headers
   - Regex: '^".*"'
     Priority: 8
+IncludeIsMainRegex: "$"
 IndentCaseLabels: true
 IndentPPDirectives: None
 IndentWidth: 4
@@ -69,11 +77,13 @@ MacroBlockBegin: ''
 MacroBlockEnd: ''
 MaxEmptyLinesToKeep: 1
 NamespaceIndentation: All
+NamespaceMacros: []
 PointerAlignment: Middle
 ReflowComments: false
 SortIncludes: true
 SortUsingDeclarations: true
 SpaceAfterCStyleCast: false
+SpaceAfterLogicalNot: false
 SpaceAfterTemplateKeyword: true
 SpaceBeforeAssignmentOperators: true
 SpaceBeforeCpp11BracedList: false
@@ -89,5 +99,7 @@ SpacesInContainerLiterals: false
 SpacesInParentheses: false
 SpacesInSquareBrackets: false
 Standard: Cpp11
+StatementMacros: []
 TabWidth: 4
+TypenameMacros: []
 UseTab: Never

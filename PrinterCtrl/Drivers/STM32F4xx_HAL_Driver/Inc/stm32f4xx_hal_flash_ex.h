@@ -157,12 +157,9 @@ extern "C"
 /** @defgroup FLASHEx_Voltage_Range FLASH Voltage Range
   * @{
   */
-#define FLASH_VOLTAGE_RANGE_1 \
-    0x00000000U /*!< Device operating range: 1.8V to 2.1V */
-#define FLASH_VOLTAGE_RANGE_2 \
-    0x00000001U /*!< Device operating range: 2.1V to 2.7V */
-#define FLASH_VOLTAGE_RANGE_3 \
-    0x00000002U /*!< Device operating range: 2.7V to 3.6V */
+#define FLASH_VOLTAGE_RANGE_1 0x00000000U /*!< Device operating range: 1.8V to 2.1V */
+#define FLASH_VOLTAGE_RANGE_2 0x00000001U /*!< Device operating range: 2.1V to 2.7V */
+#define FLASH_VOLTAGE_RANGE_3 0x00000002U /*!< Device operating range: 2.7V to 3.6V */
 #define FLASH_VOLTAGE_RANGE_4 \
     0x00000003U /*!< Device operating range: 2.7V to 3.6V + External Vpp */
 /**
@@ -701,8 +698,7 @@ extern "C"
   */
 #if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx) \
         || defined(STM32F469xx) || defined(STM32F479xx)
-#define OB_DUAL_BOOT_ENABLE \
-    ((uint8_t)0x10) /*!< Dual Bank Boot Enable */
+#define OB_DUAL_BOOT_ENABLE ((uint8_t)0x10) /*!< Dual Bank Boot Enable */
 #define OB_DUAL_BOOT_DISABLE \
     ((uint8_t)0x00) /*!< Dual Bank Boot Disable, always boot on User Flash */
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx|| STM32F439xx || STM32F469xx || STM32F479xx */

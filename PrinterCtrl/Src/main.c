@@ -124,10 +124,13 @@ int main(void)
     /* USER CODE BEGIN WHILE */
     while(1)
     {
-        dac_test();
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
+        dac_write(&hspi2, &DacPinX, 0x03C0);
+        HAL_Delay(5000);
+        dac_write(&hspi2, &DacPinX, 0x0510);
+        HAL_Delay(5000);
     }
     /* USER CODE END 3 */
 }
@@ -141,12 +144,10 @@ void SystemClock_Config(void)
     RCC_OscInitTypeDef RCC_OscInitStruct = {0};
     RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
-    /** Configure the main internal regulator output voltage 
-  */
+    /** Configure the main internal regulator output voltage */
     __HAL_RCC_PWR_CLK_ENABLE();
     __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
-    /** Initializes the CPU, AHB and APB busses clocks 
-  */
+    /** Initializes the CPU, AHB and APB busses clocks */
     RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
     RCC_OscInitStruct.HSIState = RCC_HSI_ON;
     RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
@@ -155,8 +156,7 @@ void SystemClock_Config(void)
     {
         Error_Handler();
     }
-    /** Initializes the CPU, AHB and APB busses clocks 
-  */
+    /** Initializes the CPU, AHB and APB busses clocks */
     RCC_ClkInitStruct.ClockType =
             RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
     RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;

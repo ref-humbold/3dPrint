@@ -1570,12 +1570,9 @@ extern "C"
 #define NVIC_USER_IRQ_OFFSET 16
 
 /* The following EXC_RETURN values are saved the LR on exception entry */
-#define EXC_RETURN_HANDLER \
-    (0xFFFFFFF1UL) /* return to Handler mode, uses MSP after return */
-#define EXC_RETURN_THREAD_MSP \
-    (0xFFFFFFF9UL) /* return to Thread mode, uses MSP after return */
-#define EXC_RETURN_THREAD_PSP \
-    (0xFFFFFFFDUL) /* return to Thread mode, uses PSP after return */
+#define EXC_RETURN_HANDLER (0xFFFFFFF1UL) /* return to Handler mode, uses MSP after return */
+#define EXC_RETURN_THREAD_MSP (0xFFFFFFF9UL) /* return to Thread mode, uses MSP after return */
+#define EXC_RETURN_THREAD_PSP (0xFFFFFFFDUL) /* return to Thread mode, uses PSP after return */
 
     /**
   \brief   Set Priority Grouping
@@ -1593,9 +1590,8 @@ extern "C"
                 (PriorityGroup & (uint32_t)0x07UL); /* only values 0..7 are used */
 
         reg_value = SCB->AIRCR; /* read old register configuration */
-        reg_value &=
-                ~((uint32_t)(SCB_AIRCR_VECTKEY_Msk
-                             | SCB_AIRCR_PRIGROUP_Msk)); /* clear bits to change */
+        reg_value &= ~((uint32_t)(SCB_AIRCR_VECTKEY_Msk
+                                  | SCB_AIRCR_PRIGROUP_Msk)); /* clear bits to change */
         reg_value = (reg_value | ((uint32_t)0x5FAUL << SCB_AIRCR_VECTKEY_Pos)
                      | (PriorityGroupTmp
                         << SCB_AIRCR_PRIGROUP_Pos)); /* Insert write key and priority group */

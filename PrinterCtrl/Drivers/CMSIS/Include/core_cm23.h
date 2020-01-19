@@ -1378,12 +1378,10 @@ extern "C"
 /* Special LR values for Secure/Non-Secure call handling and exception handling */
 
 /* Function Return Payload (from ARMv8-M Architecture Reference Manual) LR value on entry from Secure BLXNS */
-#define FNC_RETURN \
-    (0xFEFFFFFFUL) /* bit [0] ignored when processing a branch */
+#define FNC_RETURN (0xFEFFFFFFUL) /* bit [0] ignored when processing a branch */
 
 /* The following EXC_RETURN mask values are used to evaluate the LR on exception entry */
-#define EXC_RETURN_PREFIX \
-    (0xFF000000UL) /* bits [31:24] set to indicate an EXC_RETURN value */
+#define EXC_RETURN_PREFIX (0xFF000000UL) /* bits [31:24] set to indicate an EXC_RETURN value */
 #define EXC_RETURN_S \
     (0x00000040UL) /* bit [6] stack used to push registers: 0=Non-secure 1=Secure */
 #define EXC_RETURN_DCRS \
@@ -1399,8 +1397,7 @@ extern "C"
 
 /* Integrity Signature (from ARMv8-M Architecture Reference Manual) for exception context stacking */
 #if defined(__FPU_PRESENT) \
-        && (__FPU_PRESENT \
-            == 1U) /* Value for processors with floating-point extension: */
+        && (__FPU_PRESENT == 1U) /* Value for processors with floating-point extension: */
 #define EXC_INTEGRITY_SIGNATURE \
     (0xFEFA125AUL) /* bit [0] SFTC must match LR bit[4] EXC_RETURN_FTYPE */
 #else

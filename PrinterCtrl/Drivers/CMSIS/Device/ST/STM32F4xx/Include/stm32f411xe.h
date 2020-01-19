@@ -60,7 +60,7 @@ extern "C"
   */
 
 /**
-  * @brief Configuration of the Cortex-M4 Processor and Core Peripherals 
+  * @brief Configuration of the Cortex-M4 Processor and Core Peripherals
   */
 #define __CM4_REV 0x0001U /*!< Core revision r0p1 */
 #define __MPU_PRESENT 1U /*!< STM32F4XX provides an MPU */
@@ -77,30 +77,24 @@ extern "C"
   */
 
     /**
- * @brief STM32F4XX Interrupt Number Definition, according to the selected device 
- *        in @ref Library_configuration_section 
+ * @brief STM32F4XX Interrupt Number Definition, according to the selected device
+ *        in @ref Library_configuration_section
  */
     typedef enum
     {
         /******  Cortex-M4 Processor Exceptions Numbers ****************************************************************/
-        NonMaskableInt_IRQn =
-                -14, /*!< 2 Non Maskable Interrupt */
-        MemoryManagement_IRQn =
-                -12, /*!< 4 Cortex-M4 Memory Management Interrupt */
-        BusFault_IRQn =
-                -11, /*!< 5 Cortex-M4 Bus Fault Interrupt */
-        UsageFault_IRQn =
-                -10, /*!< 6 Cortex-M4 Usage Fault Interrupt */
+        NonMaskableInt_IRQn = -14, /*!< 2 Non Maskable Interrupt */
+        MemoryManagement_IRQn = -12, /*!< 4 Cortex-M4 Memory Management Interrupt */
+        BusFault_IRQn = -11, /*!< 5 Cortex-M4 Bus Fault Interrupt */
+        UsageFault_IRQn = -10, /*!< 6 Cortex-M4 Usage Fault Interrupt */
         SVCall_IRQn = -5, /*!< 11 Cortex-M4 SV Call Interrupt */
-        DebugMonitor_IRQn =
-                -4, /*!< 12 Cortex-M4 Debug Monitor Interrupt */
+        DebugMonitor_IRQn = -4, /*!< 12 Cortex-M4 Debug Monitor Interrupt */
         PendSV_IRQn = -2, /*!< 14 Cortex-M4 Pend SV Interrupt */
         SysTick_IRQn = -1, /*!< 15 Cortex-M4 System Tick Interrupt */
         /******  STM32 specific Interrupt Numbers **********************************************************************/
         WWDG_IRQn = 0, /*!< Window WatchDog Interrupt */
         PVD_IRQn = 1, /*!< PVD through EXTI Line detection Interrupt */
-        TAMP_STAMP_IRQn =
-                2, /*!< Tamper and TimeStamp interrupts through the EXTI line */
+        TAMP_STAMP_IRQn = 2, /*!< Tamper and TimeStamp interrupts through the EXTI line */
         RTC_WKUP_IRQn = 3, /*!< RTC Wakeup interrupt through the EXTI line */
         FLASH_IRQn = 4, /*!< FLASH global Interrupt */
         RCC_IRQn = 5, /*!< RCC global Interrupt */
@@ -109,26 +103,17 @@ extern "C"
         EXTI2_IRQn = 8, /*!< EXTI Line2 Interrupt */
         EXTI3_IRQn = 9, /*!< EXTI Line3 Interrupt */
         EXTI4_IRQn = 10, /*!< EXTI Line4 Interrupt */
-        DMA1_Stream0_IRQn =
-                11, /*!< DMA1 Stream 0 global Interrupt */
-        DMA1_Stream1_IRQn =
-                12, /*!< DMA1 Stream 1 global Interrupt */
-        DMA1_Stream2_IRQn =
-                13, /*!< DMA1 Stream 2 global Interrupt */
-        DMA1_Stream3_IRQn =
-                14, /*!< DMA1 Stream 3 global Interrupt */
-        DMA1_Stream4_IRQn =
-                15, /*!< DMA1 Stream 4 global Interrupt */
-        DMA1_Stream5_IRQn =
-                16, /*!< DMA1 Stream 5 global Interrupt */
-        DMA1_Stream6_IRQn =
-                17, /*!< DMA1 Stream 6 global Interrupt */
+        DMA1_Stream0_IRQn = 11, /*!< DMA1 Stream 0 global Interrupt */
+        DMA1_Stream1_IRQn = 12, /*!< DMA1 Stream 1 global Interrupt */
+        DMA1_Stream2_IRQn = 13, /*!< DMA1 Stream 2 global Interrupt */
+        DMA1_Stream3_IRQn = 14, /*!< DMA1 Stream 3 global Interrupt */
+        DMA1_Stream4_IRQn = 15, /*!< DMA1 Stream 4 global Interrupt */
+        DMA1_Stream5_IRQn = 16, /*!< DMA1 Stream 5 global Interrupt */
+        DMA1_Stream6_IRQn = 17, /*!< DMA1 Stream 6 global Interrupt */
         ADC_IRQn = 18, /*!< ADC1, ADC2 and ADC3 global Interrupts */
         EXTI9_5_IRQn = 23, /*!< External Line[9:5] Interrupts */
-        TIM1_BRK_TIM9_IRQn =
-                24, /*!< TIM1 Break interrupt and TIM9 global interrupt */
-        TIM1_UP_TIM10_IRQn =
-                25, /*!< TIM1 Update Interrupt and TIM10 global interrupt */
+        TIM1_BRK_TIM9_IRQn = 24, /*!< TIM1 Break interrupt and TIM9 global interrupt */
+        TIM1_UP_TIM10_IRQn = 25, /*!< TIM1 Update Interrupt and TIM10 global interrupt */
         TIM1_TRG_COM_TIM11_IRQn =
                 26, /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global interrupt */
         TIM1_CC_IRQn = 27, /*!< TIM1 Capture Compare Interrupt */
@@ -143,34 +128,22 @@ extern "C"
         SPI2_IRQn = 36, /*!< SPI2 global Interrupt */
         USART1_IRQn = 37, /*!< USART1 global Interrupt */
         USART2_IRQn = 38, /*!< USART2 global Interrupt */
-        EXTI15_10_IRQn =
-                40, /*!< External Line[15:10] Interrupts */
-        RTC_Alarm_IRQn =
-                41, /*!< RTC Alarm (A and B) through EXTI Line Interrupt */
-        OTG_FS_WKUP_IRQn =
-                42, /*!< USB OTG FS Wakeup through EXTI line interrupt */
-        DMA1_Stream7_IRQn =
-                47, /*!< DMA1 Stream7 Interrupt */
+        EXTI15_10_IRQn = 40, /*!< External Line[15:10] Interrupts */
+        RTC_Alarm_IRQn = 41, /*!< RTC Alarm (A and B) through EXTI Line Interrupt */
+        OTG_FS_WKUP_IRQn = 42, /*!< USB OTG FS Wakeup through EXTI line interrupt */
+        DMA1_Stream7_IRQn = 47, /*!< DMA1 Stream7 Interrupt */
         SDIO_IRQn = 49, /*!< SDIO global Interrupt */
         TIM5_IRQn = 50, /*!< TIM5 global Interrupt */
         SPI3_IRQn = 51, /*!< SPI3 global Interrupt */
-        DMA2_Stream0_IRQn =
-                56, /*!< DMA2 Stream 0 global Interrupt */
-        DMA2_Stream1_IRQn =
-                57, /*!< DMA2 Stream 1 global Interrupt */
-        DMA2_Stream2_IRQn =
-                58, /*!< DMA2 Stream 2 global Interrupt */
-        DMA2_Stream3_IRQn =
-                59, /*!< DMA2 Stream 3 global Interrupt */
-        DMA2_Stream4_IRQn =
-                60, /*!< DMA2 Stream 4 global Interrupt */
+        DMA2_Stream0_IRQn = 56, /*!< DMA2 Stream 0 global Interrupt */
+        DMA2_Stream1_IRQn = 57, /*!< DMA2 Stream 1 global Interrupt */
+        DMA2_Stream2_IRQn = 58, /*!< DMA2 Stream 2 global Interrupt */
+        DMA2_Stream3_IRQn = 59, /*!< DMA2 Stream 3 global Interrupt */
+        DMA2_Stream4_IRQn = 60, /*!< DMA2 Stream 4 global Interrupt */
         OTG_FS_IRQn = 67, /*!< USB OTG FS global Interrupt */
-        DMA2_Stream5_IRQn =
-                68, /*!< DMA2 Stream 5 global interrupt */
-        DMA2_Stream6_IRQn =
-                69, /*!< DMA2 Stream 6 global interrupt */
-        DMA2_Stream7_IRQn =
-                70, /*!< DMA2 Stream 7 global interrupt */
+        DMA2_Stream5_IRQn = 68, /*!< DMA2 Stream 5 global interrupt */
+        DMA2_Stream6_IRQn = 69, /*!< DMA2 Stream 6 global interrupt */
+        DMA2_Stream7_IRQn = 70, /*!< DMA2 Stream 7 global interrupt */
         USART6_IRQn = 71, /*!< USART6 global interrupt */
         I2C3_EV_IRQn = 72, /*!< I2C3 event interrupt */
         I2C3_ER_IRQn = 73, /*!< I2C3 error interrupt */
@@ -191,8 +164,8 @@ extern "C"
   * @{
   */
 
-    /** 
-  * @brief Analog to Digital Converter  
+    /**
+  * @brief Analog to Digital Converter
   */
 
     typedef struct
@@ -242,8 +215,8 @@ extern "C"
                              AND triple modes,                            Address offset: ADC1 base address + 0x308 */
     } ADC_Common_TypeDef;
 
-    /** 
-  * @brief CRC calculation unit 
+    /**
+  * @brief CRC calculation unit
   */
 
     typedef struct
@@ -255,7 +228,7 @@ extern "C"
         __IO uint32_t CR; /*!< CRC Control register,          Address offset: 0x08 */
     } CRC_TypeDef;
 
-    /** 
+    /**
   * @brief Debug MCU
   */
 
@@ -267,7 +240,7 @@ extern "C"
         __IO uint32_t APB2FZ; /*!< Debug MCU APB2 freeze register,   Address offset: 0x0C */
     } DBGMCU_TypeDef;
 
-    /** 
+    /**
   * @brief DMA Controller
   */
 
@@ -289,7 +262,7 @@ extern "C"
         __IO uint32_t HIFCR; /*!< DMA high interrupt flag clear register, Address offset: 0x0C */
     } DMA_TypeDef;
 
-    /** 
+    /**
   * @brief External Interrupt/Event Controller
   */
 
@@ -303,7 +276,7 @@ extern "C"
         __IO uint32_t PR; /*!< EXTI Pending register,                   Address offset: 0x14 */
     } EXTI_TypeDef;
 
-    /** 
+    /**
   * @brief FLASH Registers
   */
 
@@ -318,20 +291,16 @@ extern "C"
         __IO uint32_t OPTCR1; /*!< FLASH option control register 1, Address offset: 0x18 */
     } FLASH_TypeDef;
 
-    /** 
+    /**
   * @brief General Purpose I/O
   */
 
     typedef struct
     {
-        __IO uint32_t
-                MODER; /*!< GPIO port mode register,               Address offset: 0x00 */
-        __IO uint32_t
-                OTYPER; /*!< GPIO port output type register,        Address offset: 0x04 */
-        __IO uint32_t
-                OSPEEDR; /*!< GPIO port output speed register,       Address offset: 0x08 */
-        __IO uint32_t
-                PUPDR; /*!< GPIO port pull-up/pull-down register,  Address offset: 0x0C */
+        __IO uint32_t MODER; /*!< GPIO port mode register,               Address offset: 0x00 */
+        __IO uint32_t OTYPER; /*!< GPIO port output type register,        Address offset: 0x04 */
+        __IO uint32_t OSPEEDR; /*!< GPIO port output speed register,       Address offset: 0x08 */
+        __IO uint32_t PUPDR; /*!< GPIO port pull-up/pull-down register,  Address offset: 0x0C */
         __IO uint32_t IDR; /*!< GPIO port input data register,         Address offset: 0x10 */
         __IO uint32_t ODR; /*!< GPIO port output data register,        Address offset: 0x14 */
         __IO uint32_t BSRR; /*!< GPIO port bit set/reset register,      Address offset: 0x18 */
@@ -340,7 +309,7 @@ extern "C"
                 AFR[2]; /*!< GPIO alternate function registers,     Address offset: 0x20-0x24 */
     } GPIO_TypeDef;
 
-    /** 
+    /**
   * @brief System configuration controller
   */
 
@@ -352,13 +321,12 @@ extern "C"
                 PMC; /*!< SYSCFG peripheral mode configuration register,     Address offset: 0x04 */
         __IO uint32_t EXTICR
                 [4]; /*!< SYSCFG external interrupt configuration registers, Address offset: 0x08-0x14 */
-        uint32_t RESERVED
-                [2]; /*!< Reserved, 0x18-0x1C */
+        uint32_t RESERVED[2]; /*!< Reserved, 0x18-0x1C */
         __IO uint32_t
                 CMPCR; /*!< SYSCFG Compensation cell control register,         Address offset: 0x20 */
     } SYSCFG_TypeDef;
 
-    /** 
+    /**
   * @brief Inter-integrated Circuit Interface
   */
 
@@ -376,7 +344,7 @@ extern "C"
         __IO uint32_t FLTR; /*!< I2C FLTR register,          Address offset: 0x24 */
     } I2C_TypeDef;
 
-    /** 
+    /**
   * @brief Independent WATCHDOG
   */
 
@@ -388,7 +356,7 @@ extern "C"
         __IO uint32_t SR; /*!< IWDG Status register,    Address offset: 0x0C */
     } IWDG_TypeDef;
 
-    /** 
+    /**
   * @brief Power Control
   */
 
@@ -398,7 +366,7 @@ extern "C"
         __IO uint32_t CSR; /*!< PWR power control/status register, Address offset: 0x04 */
     } PWR_TypeDef;
 
-    /** 
+    /**
   * @brief Reset and Clock Control
   */
 
@@ -418,59 +386,51 @@ extern "C"
                 AHB2RSTR; /*!< RCC AHB2 peripheral reset register,                          Address offset: 0x14 */
         __IO uint32_t
                 AHB3RSTR; /*!< RCC AHB3 peripheral reset register,                          Address offset: 0x18 */
-        uint32_t
-                RESERVED0; /*!< Reserved, 0x1C */
+        uint32_t RESERVED0; /*!< Reserved, 0x1C */
         __IO uint32_t
                 APB1RSTR; /*!< RCC APB1 peripheral reset register,                          Address offset: 0x20 */
         __IO uint32_t
                 APB2RSTR; /*!< RCC APB2 peripheral reset register,                          Address offset: 0x24 */
-        uint32_t RESERVED1
-                [2]; /*!< Reserved, 0x28-0x2C */
+        uint32_t RESERVED1[2]; /*!< Reserved, 0x28-0x2C */
         __IO uint32_t
                 AHB1ENR; /*!< RCC AHB1 peripheral clock register,                          Address offset: 0x30 */
         __IO uint32_t
                 AHB2ENR; /*!< RCC AHB2 peripheral clock register,                          Address offset: 0x34 */
         __IO uint32_t
                 AHB3ENR; /*!< RCC AHB3 peripheral clock register,                          Address offset: 0x38 */
-        uint32_t
-                RESERVED2; /*!< Reserved, 0x3C */
+        uint32_t RESERVED2; /*!< Reserved, 0x3C */
         __IO uint32_t
                 APB1ENR; /*!< RCC APB1 peripheral clock enable register,                   Address offset: 0x40 */
         __IO uint32_t
                 APB2ENR; /*!< RCC APB2 peripheral clock enable register,                   Address offset: 0x44 */
-        uint32_t RESERVED3
-                [2]; /*!< Reserved, 0x48-0x4C */
+        uint32_t RESERVED3[2]; /*!< Reserved, 0x48-0x4C */
         __IO uint32_t
                 AHB1LPENR; /*!< RCC AHB1 peripheral clock enable in low power mode register, Address offset: 0x50 */
         __IO uint32_t
                 AHB2LPENR; /*!< RCC AHB2 peripheral clock enable in low power mode register, Address offset: 0x54 */
         __IO uint32_t
                 AHB3LPENR; /*!< RCC AHB3 peripheral clock enable in low power mode register, Address offset: 0x58 */
-        uint32_t
-                RESERVED4; /*!< Reserved, 0x5C */
+        uint32_t RESERVED4; /*!< Reserved, 0x5C */
         __IO uint32_t
                 APB1LPENR; /*!< RCC APB1 peripheral clock enable in low power mode register, Address offset: 0x60 */
         __IO uint32_t
                 APB2LPENR; /*!< RCC APB2 peripheral clock enable in low power mode register, Address offset: 0x64 */
-        uint32_t RESERVED5
-                [2]; /*!< Reserved, 0x68-0x6C */
+        uint32_t RESERVED5[2]; /*!< Reserved, 0x68-0x6C */
         __IO uint32_t
                 BDCR; /*!< RCC Backup domain control register,                          Address offset: 0x70 */
         __IO uint32_t
                 CSR; /*!< RCC clock control & status register,                         Address offset: 0x74 */
-        uint32_t RESERVED6
-                [2]; /*!< Reserved, 0x78-0x7C */
+        uint32_t RESERVED6[2]; /*!< Reserved, 0x78-0x7C */
         __IO uint32_t
                 SSCGR; /*!< RCC spread spectrum clock generation register,               Address offset: 0x80 */
         __IO uint32_t
                 PLLI2SCFGR; /*!< RCC PLLI2S configuration register,                           Address offset: 0x84 */
-        uint32_t RESERVED7
-                [1]; /*!< Reserved, 0x88 */
+        uint32_t RESERVED7[1]; /*!< Reserved, 0x88 */
         __IO uint32_t
                 DCKCFGR; /*!< RCC Dedicated Clocks configuration register,                 Address offset: 0x8C */
     } RCC_TypeDef;
 
-    /** 
+    /**
   * @brief Real-Time Clock
   */
 
@@ -514,8 +474,7 @@ extern "C"
                 ALRMASSR; /*!< RTC alarm A sub second register,                          Address offset: 0x44 */
         __IO uint32_t
                 ALRMBSSR; /*!< RTC alarm B sub second register,                          Address offset: 0x48 */
-        uint32_t
-                RESERVED7; /*!< Reserved, 0x4C */
+        uint32_t RESERVED7; /*!< Reserved, 0x4C */
         __IO uint32_t
                 BKP0R; /*!< RTC backup register 1,                                    Address offset: 0x50 */
         __IO uint32_t
@@ -558,7 +517,7 @@ extern "C"
                 BKP19R; /*!< RTC backup register 19,                                   Address offset: 0x9C */
     } RTC_TypeDef;
 
-    /** 
+    /**
   * @brief SD host Interface
   */
 
@@ -586,7 +545,7 @@ extern "C"
         __IO uint32_t FIFO; /*!< SDIO data FIFO register,        Address offset: 0x80 */
     } SDIO_TypeDef;
 
-    /** 
+    /**
   * @brief Serial Peripheral Interface
   */
 
@@ -612,7 +571,7 @@ extern "C"
                 I2SPR; /*!< SPI_I2S prescaler register,                         Address offset: 0x20 */
     } SPI_TypeDef;
 
-    /** 
+    /**
   * @brief TIM
   */
 
@@ -641,7 +600,7 @@ extern "C"
         __IO uint32_t OR; /*!< TIM option register,                 Address offset: 0x50 */
     } TIM_TypeDef;
 
-    /** 
+    /**
   * @brief Universal Synchronous Asynchronous Receiver Transmitter
   */
 
@@ -656,7 +615,7 @@ extern "C"
         __IO uint32_t GTPR; /*!< USART Guard time and prescaler register, Address offset: 0x18 */
     } USART_TypeDef;
 
-    /** 
+    /**
   * @brief Window WATCHDOG
   */
 
@@ -666,7 +625,7 @@ extern "C"
         __IO uint32_t CFR; /*!< WWDG Configuration register, Address offset: 0x04 */
         __IO uint32_t SR; /*!< WWDG Status register,        Address offset: 0x08 */
     } WWDG_TypeDef;
-    /** 
+    /**
   * @brief USB_OTG_Core_Registers
   */
     typedef struct
@@ -691,7 +650,7 @@ extern "C"
         __IO uint32_t DIEPTXF[0x0F]; /*!< dev Periodic Transmit FIFO */
     } USB_OTG_GlobalTypeDef;
 
-    /** 
+    /**
   * @brief USB_OTG_device_Registers
   */
     typedef struct
@@ -718,7 +677,7 @@ extern "C"
         __IO uint32_t DOUTEP1MSK; /*!< dedicated EP msk             884h */
     } USB_OTG_DeviceTypeDef;
 
-    /** 
+    /**
   * @brief USB_OTG_IN_Endpoint-Specific_Register
   */
     typedef struct
@@ -733,7 +692,7 @@ extern "C"
         uint32_t Reserved18; /*!< Reserved  900h+(ep_num*20h)+1Ch-900h+ (ep_num * 20h) + 1Ch */
     } USB_OTG_INEndpointTypeDef;
 
-    /** 
+    /**
   * @brief USB_OTG_OUT_Endpoint-Specific_Registers
   */
     typedef struct
@@ -754,7 +713,7 @@ extern "C"
                 [2]; /*!< Reserved B00h + (ep_num * 20h) + 18h - B00h + (ep_num * 20h) + 1Ch */
     } USB_OTG_OUTEndpointTypeDef;
 
-    /** 
+    /**
   * @brief USB_OTG_Host_Mode_Register_Structures
   */
     typedef struct
@@ -768,7 +727,7 @@ extern "C"
         __IO uint32_t HAINTMSK; /*!< Host All Channels Interrupt Mask     418h */
     } USB_OTG_HostTypeDef;
 
-    /** 
+    /**
   * @brief USB_OTG_Host_Channel_Specific_Registers
   */
     typedef struct
@@ -789,20 +748,13 @@ extern "C"
 /** @addtogroup Peripheral_memory_map
   * @{
   */
-#define FLASH_BASE \
-    0x08000000UL /*!< FLASH(up to 1 MB) base address in the alias region */
-#define SRAM1_BASE \
-    0x20000000UL /*!< SRAM1(128 KB) base address in the alias region */
-#define PERIPH_BASE \
-    0x40000000UL /*!< Peripheral base address in the alias region */
-#define SRAM1_BB_BASE \
-    0x22000000UL /*!< SRAM1(128 KB) base address in the bit-band region */
-#define PERIPH_BB_BASE \
-    0x42000000UL /*!< Peripheral base address in the bit-band region */
-#define BKPSRAM_BB_BASE \
-    0x42480000UL /*!< Backup SRAM(4 KB) base address in the bit-band region */
-#define FLASH_END \
-    0x0807FFFFUL /*!< FLASH end address */
+#define FLASH_BASE 0x08000000UL /*!< FLASH(up to 1 MB) base address in the alias region */
+#define SRAM1_BASE 0x20000000UL /*!< SRAM1(128 KB) base address in the alias region */
+#define PERIPH_BASE 0x40000000UL /*!< Peripheral base address in the alias region */
+#define SRAM1_BB_BASE 0x22000000UL /*!< SRAM1(128 KB) base address in the bit-band region */
+#define PERIPH_BB_BASE 0x42000000UL /*!< Peripheral base address in the bit-band region */
+#define BKPSRAM_BB_BASE 0x42480000UL /*!< Backup SRAM(4 KB) base address in the bit-band region */
+#define FLASH_END 0x0807FFFFUL /*!< FLASH end address */
 #define FLASH_OTP_BASE \
     0x1FFF7800UL /*!< Base address of : (up to 528 Bytes) embedded FLASH OTP Area */
 #define FLASH_OTP_END \
@@ -3871,8 +3823,7 @@ extern "C"
 #define I2C_SR2_GENCALL I2C_SR2_GENCALL_Msk /*!<General Call Address (Slave mode) */
 #define I2C_SR2_SMBDEFAULT_Pos (5U)
 #define I2C_SR2_SMBDEFAULT_Msk (0x1UL << I2C_SR2_SMBDEFAULT_Pos) /*!< 0x00000020 */
-#define I2C_SR2_SMBDEFAULT \
-    I2C_SR2_SMBDEFAULT_Msk /*!<SMBus Device Default Address (Slave mode) */
+#define I2C_SR2_SMBDEFAULT I2C_SR2_SMBDEFAULT_Msk /*!<SMBus Device Default Address (Slave mode) */
 #define I2C_SR2_SMBHOST_Pos (6U)
 #define I2C_SR2_SMBHOST_Msk (0x1UL << I2C_SR2_SMBHOST_Pos) /*!< 0x00000040 */
 #define I2C_SR2_SMBHOST I2C_SR2_SMBHOST_Msk /*!<SMBus Host Header (Slave mode) */
@@ -3890,8 +3841,7 @@ extern "C"
     I2C_CCR_CCR_Msk /*!<Clock Control Register in Fast/Standard mode (Master mode) */
 #define I2C_CCR_DUTY_Pos (14U)
 #define I2C_CCR_DUTY_Msk (0x1UL << I2C_CCR_DUTY_Pos) /*!< 0x00004000 */
-#define I2C_CCR_DUTY \
-    I2C_CCR_DUTY_Msk /*!<Fast Mode Duty Cycle */
+#define I2C_CCR_DUTY I2C_CCR_DUTY_Msk /*!<Fast Mode Duty Cycle */
 #define I2C_CCR_FS_Pos (15U)
 #define I2C_CCR_FS_Msk (0x1UL << I2C_CCR_FS_Pos) /*!< 0x00008000 */
 #define I2C_CCR_FS I2C_CCR_FS_Msk /*!<I2C Master Mode Selection */
@@ -3984,20 +3934,16 @@ extern "C"
 #define PWR_CR_DBP PWR_CR_DBP_Msk /*!< Disable Backup Domain write protection */
 #define PWR_CR_FPDS_Pos (9U)
 #define PWR_CR_FPDS_Msk (0x1UL << PWR_CR_FPDS_Pos) /*!< 0x00000200 */
-#define PWR_CR_FPDS \
-    PWR_CR_FPDS_Msk /*!< Flash power down in Stop mode */
+#define PWR_CR_FPDS PWR_CR_FPDS_Msk /*!< Flash power down in Stop mode */
 #define PWR_CR_LPLVDS_Pos (10U)
 #define PWR_CR_LPLVDS_Msk (0x1UL << PWR_CR_LPLVDS_Pos) /*!< 0x00000400 */
-#define PWR_CR_LPLVDS \
-    PWR_CR_LPLVDS_Msk /*!< Low Power Regulator Low Voltage in Deep Sleep mode */
+#define PWR_CR_LPLVDS PWR_CR_LPLVDS_Msk /*!< Low Power Regulator Low Voltage in Deep Sleep mode */
 #define PWR_CR_MRLVDS_Pos (11U)
 #define PWR_CR_MRLVDS_Msk (0x1UL << PWR_CR_MRLVDS_Pos) /*!< 0x00000800 */
-#define PWR_CR_MRLVDS \
-    PWR_CR_MRLVDS_Msk /*!< Main Regulator Low Voltage in Deep Sleep mode */
+#define PWR_CR_MRLVDS PWR_CR_MRLVDS_Msk /*!< Main Regulator Low Voltage in Deep Sleep mode */
 #define PWR_CR_ADCDC1_Pos (13U)
 #define PWR_CR_ADCDC1_Msk (0x1UL << PWR_CR_ADCDC1_Pos) /*!< 0x00002000 */
-#define PWR_CR_ADCDC1 \
-    PWR_CR_ADCDC1_Msk /*!< Refer to AN4073 on how to use this bit */
+#define PWR_CR_ADCDC1 PWR_CR_ADCDC1_Msk /*!< Refer to AN4073 on how to use this bit */
 #define PWR_CR_VOS_Pos (14U)
 #define PWR_CR_VOS_Msk (0x3UL << PWR_CR_VOS_Pos) /*!< 0x0000C000 */
 #define PWR_CR_VOS PWR_CR_VOS_Msk /*!< VOS[1:0] bits (Regulator voltage scaling output selection) */
@@ -5515,32 +5461,26 @@ extern "C"
 
 #define SDIO_CMD_WAITINT_Pos (8U)
 #define SDIO_CMD_WAITINT_Msk (0x1UL << SDIO_CMD_WAITINT_Pos) /*!< 0x00000100 */
-#define SDIO_CMD_WAITINT \
-    SDIO_CMD_WAITINT_Msk /*!<CPSM Waits for Interrupt Request */
+#define SDIO_CMD_WAITINT SDIO_CMD_WAITINT_Msk /*!<CPSM Waits for Interrupt Request */
 #define SDIO_CMD_WAITPEND_Pos (9U)
 #define SDIO_CMD_WAITPEND_Msk (0x1UL << SDIO_CMD_WAITPEND_Pos) /*!< 0x00000200 */
 #define SDIO_CMD_WAITPEND \
     SDIO_CMD_WAITPEND_Msk /*!<CPSM Waits for ends of data transfer (CmdPend internal signal) */
 #define SDIO_CMD_CPSMEN_Pos (10U)
 #define SDIO_CMD_CPSMEN_Msk (0x1UL << SDIO_CMD_CPSMEN_Pos) /*!< 0x00000400 */
-#define SDIO_CMD_CPSMEN \
-    SDIO_CMD_CPSMEN_Msk /*!<Command path state machine (CPSM) Enable bit */
+#define SDIO_CMD_CPSMEN SDIO_CMD_CPSMEN_Msk /*!<Command path state machine (CPSM) Enable bit */
 #define SDIO_CMD_SDIOSUSPEND_Pos (11U)
 #define SDIO_CMD_SDIOSUSPEND_Msk (0x1UL << SDIO_CMD_SDIOSUSPEND_Pos) /*!< 0x00000800 */
-#define SDIO_CMD_SDIOSUSPEND \
-    SDIO_CMD_SDIOSUSPEND_Msk /*!<SD I/O suspend command */
+#define SDIO_CMD_SDIOSUSPEND SDIO_CMD_SDIOSUSPEND_Msk /*!<SD I/O suspend command */
 #define SDIO_CMD_ENCMDCOMPL_Pos (12U)
 #define SDIO_CMD_ENCMDCOMPL_Msk (0x1UL << SDIO_CMD_ENCMDCOMPL_Pos) /*!< 0x00001000 */
-#define SDIO_CMD_ENCMDCOMPL \
-    SDIO_CMD_ENCMDCOMPL_Msk /*!<Enable CMD completion */
+#define SDIO_CMD_ENCMDCOMPL SDIO_CMD_ENCMDCOMPL_Msk /*!<Enable CMD completion */
 #define SDIO_CMD_NIEN_Pos (13U)
 #define SDIO_CMD_NIEN_Msk (0x1UL << SDIO_CMD_NIEN_Pos) /*!< 0x00002000 */
-#define SDIO_CMD_NIEN \
-    SDIO_CMD_NIEN_Msk /*!<Not Interrupt Enable */
+#define SDIO_CMD_NIEN SDIO_CMD_NIEN_Msk /*!<Not Interrupt Enable */
 #define SDIO_CMD_CEATACMD_Pos (14U)
 #define SDIO_CMD_CEATACMD_Msk (0x1UL << SDIO_CMD_CEATACMD_Pos) /*!< 0x00004000 */
-#define SDIO_CMD_CEATACMD \
-    SDIO_CMD_CEATACMD_Msk /*!<CE-ATA command */
+#define SDIO_CMD_CEATACMD SDIO_CMD_CEATACMD_Msk /*!<CE-ATA command */
 
 /*****************  Bit definition for SDIO_RESPCMD register  *****************/
 #define SDIO_RESPCMD_RESPCMD_Pos (0U)
@@ -5745,48 +5685,38 @@ extern "C"
 /******************  Bit definition for SDIO_MASK register  *******************/
 #define SDIO_MASK_CCRCFAILIE_Pos (0U)
 #define SDIO_MASK_CCRCFAILIE_Msk (0x1UL << SDIO_MASK_CCRCFAILIE_Pos) /*!< 0x00000001 */
-#define SDIO_MASK_CCRCFAILIE \
-    SDIO_MASK_CCRCFAILIE_Msk /*!<Command CRC Fail Interrupt Enable */
+#define SDIO_MASK_CCRCFAILIE SDIO_MASK_CCRCFAILIE_Msk /*!<Command CRC Fail Interrupt Enable */
 #define SDIO_MASK_DCRCFAILIE_Pos (1U)
 #define SDIO_MASK_DCRCFAILIE_Msk (0x1UL << SDIO_MASK_DCRCFAILIE_Pos) /*!< 0x00000002 */
-#define SDIO_MASK_DCRCFAILIE \
-    SDIO_MASK_DCRCFAILIE_Msk /*!<Data CRC Fail Interrupt Enable */
+#define SDIO_MASK_DCRCFAILIE SDIO_MASK_DCRCFAILIE_Msk /*!<Data CRC Fail Interrupt Enable */
 #define SDIO_MASK_CTIMEOUTIE_Pos (2U)
 #define SDIO_MASK_CTIMEOUTIE_Msk (0x1UL << SDIO_MASK_CTIMEOUTIE_Pos) /*!< 0x00000004 */
-#define SDIO_MASK_CTIMEOUTIE \
-    SDIO_MASK_CTIMEOUTIE_Msk /*!<Command TimeOut Interrupt Enable */
+#define SDIO_MASK_CTIMEOUTIE SDIO_MASK_CTIMEOUTIE_Msk /*!<Command TimeOut Interrupt Enable */
 #define SDIO_MASK_DTIMEOUTIE_Pos (3U)
 #define SDIO_MASK_DTIMEOUTIE_Msk (0x1UL << SDIO_MASK_DTIMEOUTIE_Pos) /*!< 0x00000008 */
-#define SDIO_MASK_DTIMEOUTIE \
-    SDIO_MASK_DTIMEOUTIE_Msk /*!<Data TimeOut Interrupt Enable */
+#define SDIO_MASK_DTIMEOUTIE SDIO_MASK_DTIMEOUTIE_Msk /*!<Data TimeOut Interrupt Enable */
 #define SDIO_MASK_TXUNDERRIE_Pos (4U)
 #define SDIO_MASK_TXUNDERRIE_Msk (0x1UL << SDIO_MASK_TXUNDERRIE_Pos) /*!< 0x00000010 */
-#define SDIO_MASK_TXUNDERRIE \
-    SDIO_MASK_TXUNDERRIE_Msk /*!<Tx FIFO UnderRun Error Interrupt Enable */
+#define SDIO_MASK_TXUNDERRIE SDIO_MASK_TXUNDERRIE_Msk /*!<Tx FIFO UnderRun Error Interrupt Enable */
 #define SDIO_MASK_RXOVERRIE_Pos (5U)
 #define SDIO_MASK_RXOVERRIE_Msk (0x1UL << SDIO_MASK_RXOVERRIE_Pos) /*!< 0x00000020 */
-#define SDIO_MASK_RXOVERRIE \
-    SDIO_MASK_RXOVERRIE_Msk /*!<Rx FIFO OverRun Error Interrupt Enable */
+#define SDIO_MASK_RXOVERRIE SDIO_MASK_RXOVERRIE_Msk /*!<Rx FIFO OverRun Error Interrupt Enable */
 #define SDIO_MASK_CMDRENDIE_Pos (6U)
 #define SDIO_MASK_CMDRENDIE_Msk (0x1UL << SDIO_MASK_CMDRENDIE_Pos) /*!< 0x00000040 */
 #define SDIO_MASK_CMDRENDIE \
     SDIO_MASK_CMDRENDIE_Msk /*!<Command Response Received Interrupt Enable */
 #define SDIO_MASK_CMDSENTIE_Pos (7U)
 #define SDIO_MASK_CMDSENTIE_Msk (0x1UL << SDIO_MASK_CMDSENTIE_Pos) /*!< 0x00000080 */
-#define SDIO_MASK_CMDSENTIE \
-    SDIO_MASK_CMDSENTIE_Msk /*!<Command Sent Interrupt Enable */
+#define SDIO_MASK_CMDSENTIE SDIO_MASK_CMDSENTIE_Msk /*!<Command Sent Interrupt Enable */
 #define SDIO_MASK_DATAENDIE_Pos (8U)
 #define SDIO_MASK_DATAENDIE_Msk (0x1UL << SDIO_MASK_DATAENDIE_Pos) /*!< 0x00000100 */
-#define SDIO_MASK_DATAENDIE \
-    SDIO_MASK_DATAENDIE_Msk /*!<Data End Interrupt Enable */
+#define SDIO_MASK_DATAENDIE SDIO_MASK_DATAENDIE_Msk /*!<Data End Interrupt Enable */
 #define SDIO_MASK_STBITERRIE_Pos (9U)
 #define SDIO_MASK_STBITERRIE_Msk (0x1UL << SDIO_MASK_STBITERRIE_Pos) /*!< 0x00000200 */
-#define SDIO_MASK_STBITERRIE \
-    SDIO_MASK_STBITERRIE_Msk /*!<Start Bit Error Interrupt Enable */
+#define SDIO_MASK_STBITERRIE SDIO_MASK_STBITERRIE_Msk /*!<Start Bit Error Interrupt Enable */
 #define SDIO_MASK_DBCKENDIE_Pos (10U)
 #define SDIO_MASK_DBCKENDIE_Msk (0x1UL << SDIO_MASK_DBCKENDIE_Pos) /*!< 0x00000400 */
-#define SDIO_MASK_DBCKENDIE \
-    SDIO_MASK_DBCKENDIE_Msk /*!<Data Block End Interrupt Enable */
+#define SDIO_MASK_DBCKENDIE SDIO_MASK_DBCKENDIE_Msk /*!<Data Block End Interrupt Enable */
 #define SDIO_MASK_CMDACTIE_Pos (11U)
 #define SDIO_MASK_CMDACTIE_Msk (0x1UL << SDIO_MASK_CMDACTIE_Pos) /*!< 0x00000800 */
 #define SDIO_MASK_CMDACTIE SDIO_MASK_CMDACTIE_Msk /*!<CCommand Acting Interrupt Enable */
@@ -5798,28 +5728,22 @@ extern "C"
 #define SDIO_MASK_RXACTIE SDIO_MASK_RXACTIE_Msk /*!<Data receive acting interrupt enabled */
 #define SDIO_MASK_TXFIFOHEIE_Pos (14U)
 #define SDIO_MASK_TXFIFOHEIE_Msk (0x1UL << SDIO_MASK_TXFIFOHEIE_Pos) /*!< 0x00004000 */
-#define SDIO_MASK_TXFIFOHEIE \
-    SDIO_MASK_TXFIFOHEIE_Msk /*!<Tx FIFO Half Empty interrupt Enable */
+#define SDIO_MASK_TXFIFOHEIE SDIO_MASK_TXFIFOHEIE_Msk /*!<Tx FIFO Half Empty interrupt Enable */
 #define SDIO_MASK_RXFIFOHFIE_Pos (15U)
 #define SDIO_MASK_RXFIFOHFIE_Msk (0x1UL << SDIO_MASK_RXFIFOHFIE_Pos) /*!< 0x00008000 */
-#define SDIO_MASK_RXFIFOHFIE \
-    SDIO_MASK_RXFIFOHFIE_Msk /*!<Rx FIFO Half Full interrupt Enable */
+#define SDIO_MASK_RXFIFOHFIE SDIO_MASK_RXFIFOHFIE_Msk /*!<Rx FIFO Half Full interrupt Enable */
 #define SDIO_MASK_TXFIFOFIE_Pos (16U)
 #define SDIO_MASK_TXFIFOFIE_Msk (0x1UL << SDIO_MASK_TXFIFOFIE_Pos) /*!< 0x00010000 */
-#define SDIO_MASK_TXFIFOFIE \
-    SDIO_MASK_TXFIFOFIE_Msk /*!<Tx FIFO Full interrupt Enable */
+#define SDIO_MASK_TXFIFOFIE SDIO_MASK_TXFIFOFIE_Msk /*!<Tx FIFO Full interrupt Enable */
 #define SDIO_MASK_RXFIFOFIE_Pos (17U)
 #define SDIO_MASK_RXFIFOFIE_Msk (0x1UL << SDIO_MASK_RXFIFOFIE_Pos) /*!< 0x00020000 */
-#define SDIO_MASK_RXFIFOFIE \
-    SDIO_MASK_RXFIFOFIE_Msk /*!<Rx FIFO Full interrupt Enable */
+#define SDIO_MASK_RXFIFOFIE SDIO_MASK_RXFIFOFIE_Msk /*!<Rx FIFO Full interrupt Enable */
 #define SDIO_MASK_TXFIFOEIE_Pos (18U)
 #define SDIO_MASK_TXFIFOEIE_Msk (0x1UL << SDIO_MASK_TXFIFOEIE_Pos) /*!< 0x00040000 */
-#define SDIO_MASK_TXFIFOEIE \
-    SDIO_MASK_TXFIFOEIE_Msk /*!<Tx FIFO Empty interrupt Enable */
+#define SDIO_MASK_TXFIFOEIE SDIO_MASK_TXFIFOEIE_Msk /*!<Tx FIFO Empty interrupt Enable */
 #define SDIO_MASK_RXFIFOEIE_Pos (19U)
 #define SDIO_MASK_RXFIFOEIE_Msk (0x1UL << SDIO_MASK_RXFIFOEIE_Pos) /*!< 0x00080000 */
-#define SDIO_MASK_RXFIFOEIE \
-    SDIO_MASK_RXFIFOEIE_Msk /*!<Rx FIFO Empty interrupt Enable */
+#define SDIO_MASK_RXFIFOEIE SDIO_MASK_RXFIFOEIE_Msk /*!<Rx FIFO Empty interrupt Enable */
 #define SDIO_MASK_TXDAVLIE_Pos (20U)
 #define SDIO_MASK_TXDAVLIE_Msk (0x1UL << SDIO_MASK_TXDAVLIE_Pos) /*!< 0x00100000 */
 #define SDIO_MASK_TXDAVLIE SDIO_MASK_TXDAVLIE_Msk /*!<Data available in Tx FIFO interrupt Enable */
@@ -6055,7 +5979,7 @@ extern "C"
 #define SYSCFG_EXTICR1_EXTI3_Msk (0xFUL << SYSCFG_EXTICR1_EXTI3_Pos) /*!< 0x0000F000 */
 #define SYSCFG_EXTICR1_EXTI3 SYSCFG_EXTICR1_EXTI3_Msk /*!<EXTI 3 configuration */
 /**
-  * @brief   EXTI0 configuration  
+  * @brief   EXTI0 configuration
   */
 #define SYSCFG_EXTICR1_EXTI0_PA 0x0000U /*!<PA[0] pin */
 #define SYSCFG_EXTICR1_EXTI0_PB 0x0001U /*!<PB[0] pin */
@@ -6065,7 +5989,7 @@ extern "C"
 #define SYSCFG_EXTICR1_EXTI0_PH 0x0007U /*!<PH[0] pin */
 
 /**
-  * @brief   EXTI1 configuration  
+  * @brief   EXTI1 configuration
   */
 #define SYSCFG_EXTICR1_EXTI1_PA 0x0000U /*!<PA[1] pin */
 #define SYSCFG_EXTICR1_EXTI1_PB 0x0010U /*!<PB[1] pin */
@@ -6075,7 +5999,7 @@ extern "C"
 #define SYSCFG_EXTICR1_EXTI1_PH 0x0070U /*!<PH[1] pin */
 
 /**
-  * @brief   EXTI2 configuration  
+  * @brief   EXTI2 configuration
   */
 #define SYSCFG_EXTICR1_EXTI2_PA 0x0000U /*!<PA[2] pin */
 #define SYSCFG_EXTICR1_EXTI2_PB 0x0100U /*!<PB[2] pin */
@@ -6085,7 +6009,7 @@ extern "C"
 #define SYSCFG_EXTICR1_EXTI2_PH 0x0700U /*!<PH[2] pin */
 
 /**
-  * @brief   EXTI3 configuration  
+  * @brief   EXTI3 configuration
   */
 #define SYSCFG_EXTICR1_EXTI3_PA 0x0000U /*!<PA[3] pin */
 #define SYSCFG_EXTICR1_EXTI3_PB 0x1000U /*!<PB[3] pin */
@@ -6109,7 +6033,7 @@ extern "C"
 #define SYSCFG_EXTICR2_EXTI7 SYSCFG_EXTICR2_EXTI7_Msk /*!<EXTI 7 configuration */
 
 /**
-  * @brief   EXTI4 configuration  
+  * @brief   EXTI4 configuration
   */
 #define SYSCFG_EXTICR2_EXTI4_PA 0x0000U /*!<PA[4] pin */
 #define SYSCFG_EXTICR2_EXTI4_PB 0x0001U /*!<PB[4] pin */
@@ -6119,7 +6043,7 @@ extern "C"
 #define SYSCFG_EXTICR2_EXTI4_PH 0x0007U /*!<PH[4] pin */
 
 /**
-  * @brief   EXTI5 configuration  
+  * @brief   EXTI5 configuration
   */
 #define SYSCFG_EXTICR2_EXTI5_PA 0x0000U /*!<PA[5] pin */
 #define SYSCFG_EXTICR2_EXTI5_PB 0x0010U /*!<PB[5] pin */
@@ -6129,7 +6053,7 @@ extern "C"
 #define SYSCFG_EXTICR2_EXTI5_PH 0x0070U /*!<PH[5] pin */
 
 /**
-  * @brief   EXTI6 configuration  
+  * @brief   EXTI6 configuration
   */
 #define SYSCFG_EXTICR2_EXTI6_PA 0x0000U /*!<PA[6] pin */
 #define SYSCFG_EXTICR2_EXTI6_PB 0x0100U /*!<PB[6] pin */
@@ -6139,7 +6063,7 @@ extern "C"
 #define SYSCFG_EXTICR2_EXTI6_PH 0x0700U /*!<PH[6] pin */
 
 /**
-  * @brief   EXTI7 configuration  
+  * @brief   EXTI7 configuration
   */
 #define SYSCFG_EXTICR2_EXTI7_PA 0x0000U /*!<PA[7] pin */
 #define SYSCFG_EXTICR2_EXTI7_PB 0x1000U /*!<PB[7] pin */
@@ -6163,7 +6087,7 @@ extern "C"
 #define SYSCFG_EXTICR3_EXTI11 SYSCFG_EXTICR3_EXTI11_Msk /*!<EXTI 11 configuration */
 
 /**
-  * @brief   EXTI8 configuration  
+  * @brief   EXTI8 configuration
   */
 #define SYSCFG_EXTICR3_EXTI8_PA 0x0000U /*!<PA[8] pin */
 #define SYSCFG_EXTICR3_EXTI8_PB 0x0001U /*!<PB[8] pin */
@@ -6173,7 +6097,7 @@ extern "C"
 #define SYSCFG_EXTICR3_EXTI8_PH 0x0007U /*!<PH[8] pin */
 
 /**
-  * @brief   EXTI9 configuration  
+  * @brief   EXTI9 configuration
   */
 #define SYSCFG_EXTICR3_EXTI9_PA 0x0000U /*!<PA[9] pin */
 #define SYSCFG_EXTICR3_EXTI9_PB 0x0010U /*!<PB[9] pin */
@@ -6183,7 +6107,7 @@ extern "C"
 #define SYSCFG_EXTICR3_EXTI9_PH 0x0070U /*!<PH[9] pin */
 
 /**
-  * @brief   EXTI10 configuration  
+  * @brief   EXTI10 configuration
   */
 #define SYSCFG_EXTICR3_EXTI10_PA 0x0000U /*!<PA[10] pin */
 #define SYSCFG_EXTICR3_EXTI10_PB 0x0100U /*!<PB[10] pin */
@@ -6193,7 +6117,7 @@ extern "C"
 #define SYSCFG_EXTICR3_EXTI10_PH 0x0700U /*!<PH[10] pin */
 
 /**
-  * @brief   EXTI11 configuration  
+  * @brief   EXTI11 configuration
   */
 #define SYSCFG_EXTICR3_EXTI11_PA 0x0000U /*!<PA[11] pin */
 #define SYSCFG_EXTICR3_EXTI11_PB 0x1000U /*!<PB[11] pin */
@@ -6217,7 +6141,7 @@ extern "C"
 #define SYSCFG_EXTICR4_EXTI15 SYSCFG_EXTICR4_EXTI15_Msk /*!<EXTI 15 configuration */
 
 /**
-  * @brief   EXTI12 configuration  
+  * @brief   EXTI12 configuration
   */
 #define SYSCFG_EXTICR4_EXTI12_PA 0x0000U /*!<PA[12] pin */
 #define SYSCFG_EXTICR4_EXTI12_PB 0x0001U /*!<PB[12] pin */
@@ -6227,7 +6151,7 @@ extern "C"
 #define SYSCFG_EXTICR4_EXTI12_PH 0x0007U /*!<PH[12] pin */
 
 /**
-  * @brief   EXTI13 configuration  
+  * @brief   EXTI13 configuration
   */
 #define SYSCFG_EXTICR4_EXTI13_PA 0x0000U /*!<PA[13] pin */
 #define SYSCFG_EXTICR4_EXTI13_PB 0x0010U /*!<PB[13] pin */
@@ -6237,7 +6161,7 @@ extern "C"
 #define SYSCFG_EXTICR4_EXTI13_PH 0x0070U /*!<PH[13] pin */
 
 /**
-  * @brief   EXTI14 configuration  
+  * @brief   EXTI14 configuration
   */
 #define SYSCFG_EXTICR4_EXTI14_PA 0x0000U /*!<PA[14] pin */
 #define SYSCFG_EXTICR4_EXTI14_PB 0x0100U /*!<PB[14] pin */
@@ -6247,7 +6171,7 @@ extern "C"
 #define SYSCFG_EXTICR4_EXTI14_PH 0x0700U /*!<PH[14] pin */
 
 /**
-  * @brief   EXTI15 configuration  
+  * @brief   EXTI15 configuration
   */
 #define SYSCFG_EXTICR4_EXTI15_PA 0x0000U /*!<PA[15] pin */
 #define SYSCFG_EXTICR4_EXTI15_PB 0x1000U /*!<PB[15] pin */
@@ -7273,8 +7197,7 @@ extern "C"
 /********************  Bit definition for USB_OTG_GOTGINT register  ********************/
 #define USB_OTG_GOTGINT_SEDET_Pos (2U)
 #define USB_OTG_GOTGINT_SEDET_Msk (0x1UL << USB_OTG_GOTGINT_SEDET_Pos) /*!< 0x00000004 */
-#define USB_OTG_GOTGINT_SEDET \
-    USB_OTG_GOTGINT_SEDET_Msk /*!< Session end detected */
+#define USB_OTG_GOTGINT_SEDET USB_OTG_GOTGINT_SEDET_Msk /*!< Session end detected */
 #define USB_OTG_GOTGINT_SRSSCHG_Pos (8U)
 #define USB_OTG_GOTGINT_SRSSCHG_Msk (0x1UL << USB_OTG_GOTGINT_SRSSCHG_Pos) /*!< 0x00000100 */
 #define USB_OTG_GOTGINT_SRSSCHG \
@@ -7285,16 +7208,13 @@ extern "C"
     USB_OTG_GOTGINT_HNSSCHG_Msk /*!< Host negotiation success status change */
 #define USB_OTG_GOTGINT_HNGDET_Pos (17U)
 #define USB_OTG_GOTGINT_HNGDET_Msk (0x1UL << USB_OTG_GOTGINT_HNGDET_Pos) /*!< 0x00020000 */
-#define USB_OTG_GOTGINT_HNGDET \
-    USB_OTG_GOTGINT_HNGDET_Msk /*!< Host negotiation detected */
+#define USB_OTG_GOTGINT_HNGDET USB_OTG_GOTGINT_HNGDET_Msk /*!< Host negotiation detected */
 #define USB_OTG_GOTGINT_ADTOCHG_Pos (18U)
 #define USB_OTG_GOTGINT_ADTOCHG_Msk (0x1UL << USB_OTG_GOTGINT_ADTOCHG_Pos) /*!< 0x00040000 */
-#define USB_OTG_GOTGINT_ADTOCHG \
-    USB_OTG_GOTGINT_ADTOCHG_Msk /*!< A-device timeout change */
+#define USB_OTG_GOTGINT_ADTOCHG USB_OTG_GOTGINT_ADTOCHG_Msk /*!< A-device timeout change */
 #define USB_OTG_GOTGINT_DBCDNE_Pos (19U)
 #define USB_OTG_GOTGINT_DBCDNE_Msk (0x1UL << USB_OTG_GOTGINT_DBCDNE_Pos) /*!< 0x00080000 */
-#define USB_OTG_GOTGINT_DBCDNE \
-    USB_OTG_GOTGINT_DBCDNE_Msk /*!< Debounce done */
+#define USB_OTG_GOTGINT_DBCDNE USB_OTG_GOTGINT_DBCDNE_Msk /*!< Debounce done */
 
 /********************  Bit definition for USB_OTG_DCTL register  ********************/
 #define USB_OTG_DCTL_RWUSIG_Pos (0U)
@@ -7414,8 +7334,7 @@ extern "C"
 #define USB_OTG_GUSBCFG_PHYLPCS USB_OTG_GUSBCFG_PHYLPCS_Msk /*!< PHY Low-power clock select */
 #define USB_OTG_GUSBCFG_ULPIFSLS_Pos (17U)
 #define USB_OTG_GUSBCFG_ULPIFSLS_Msk (0x1UL << USB_OTG_GUSBCFG_ULPIFSLS_Pos) /*!< 0x00020000 */
-#define USB_OTG_GUSBCFG_ULPIFSLS \
-    USB_OTG_GUSBCFG_ULPIFSLS_Msk /*!< ULPI FS/LS select */
+#define USB_OTG_GUSBCFG_ULPIFSLS USB_OTG_GUSBCFG_ULPIFSLS_Msk /*!< ULPI FS/LS select */
 #define USB_OTG_GUSBCFG_ULPIAR_Pos (18U)
 #define USB_OTG_GUSBCFG_ULPIAR_Msk (0x1UL << USB_OTG_GUSBCFG_ULPIAR_Pos) /*!< 0x00040000 */
 #define USB_OTG_GUSBCFG_ULPIAR USB_OTG_GUSBCFG_ULPIAR_Msk /*!< ULPI Auto-resume */
@@ -7424,8 +7343,7 @@ extern "C"
 #define USB_OTG_GUSBCFG_ULPICSM USB_OTG_GUSBCFG_ULPICSM_Msk /*!< ULPI Clock SuspendM */
 #define USB_OTG_GUSBCFG_ULPIEVBUSD_Pos (20U)
 #define USB_OTG_GUSBCFG_ULPIEVBUSD_Msk (0x1UL << USB_OTG_GUSBCFG_ULPIEVBUSD_Pos) /*!< 0x00100000 */
-#define USB_OTG_GUSBCFG_ULPIEVBUSD \
-    USB_OTG_GUSBCFG_ULPIEVBUSD_Msk /*!< ULPI External VBUS Drive */
+#define USB_OTG_GUSBCFG_ULPIEVBUSD USB_OTG_GUSBCFG_ULPIEVBUSD_Msk /*!< ULPI External VBUS Drive */
 #define USB_OTG_GUSBCFG_ULPIEVBUSI_Pos (21U)
 #define USB_OTG_GUSBCFG_ULPIEVBUSI_Msk (0x1UL << USB_OTG_GUSBCFG_ULPIEVBUSI_Pos) /*!< 0x00200000 */
 #define USB_OTG_GUSBCFG_ULPIEVBUSI \
@@ -7487,12 +7405,10 @@ extern "C"
 /********************  Bit definition for USB_OTG_DIEPMSK register  ********************/
 #define USB_OTG_DIEPMSK_XFRCM_Pos (0U)
 #define USB_OTG_DIEPMSK_XFRCM_Msk (0x1UL << USB_OTG_DIEPMSK_XFRCM_Pos) /*!< 0x00000001 */
-#define USB_OTG_DIEPMSK_XFRCM \
-    USB_OTG_DIEPMSK_XFRCM_Msk /*!< Transfer completed interrupt mask */
+#define USB_OTG_DIEPMSK_XFRCM USB_OTG_DIEPMSK_XFRCM_Msk /*!< Transfer completed interrupt mask */
 #define USB_OTG_DIEPMSK_EPDM_Pos (1U)
 #define USB_OTG_DIEPMSK_EPDM_Msk (0x1UL << USB_OTG_DIEPMSK_EPDM_Pos) /*!< 0x00000002 */
-#define USB_OTG_DIEPMSK_EPDM \
-    USB_OTG_DIEPMSK_EPDM_Msk /*!< Endpoint disabled interrupt mask */
+#define USB_OTG_DIEPMSK_EPDM USB_OTG_DIEPMSK_EPDM_Msk /*!< Endpoint disabled interrupt mask */
 #define USB_OTG_DIEPMSK_TOM_Pos (3U)
 #define USB_OTG_DIEPMSK_TOM_Msk (0x1UL << USB_OTG_DIEPMSK_TOM_Pos) /*!< 0x00000008 */
 #define USB_OTG_DIEPMSK_TOM \
@@ -7507,16 +7423,13 @@ extern "C"
     USB_OTG_DIEPMSK_INEPNMM_Msk /*!< IN token received with EP mismatch mask */
 #define USB_OTG_DIEPMSK_INEPNEM_Pos (6U)
 #define USB_OTG_DIEPMSK_INEPNEM_Msk (0x1UL << USB_OTG_DIEPMSK_INEPNEM_Pos) /*!< 0x00000040 */
-#define USB_OTG_DIEPMSK_INEPNEM \
-    USB_OTG_DIEPMSK_INEPNEM_Msk /*!< IN endpoint NAK effective mask */
+#define USB_OTG_DIEPMSK_INEPNEM USB_OTG_DIEPMSK_INEPNEM_Msk /*!< IN endpoint NAK effective mask */
 #define USB_OTG_DIEPMSK_TXFURM_Pos (8U)
 #define USB_OTG_DIEPMSK_TXFURM_Msk (0x1UL << USB_OTG_DIEPMSK_TXFURM_Pos) /*!< 0x00000100 */
-#define USB_OTG_DIEPMSK_TXFURM \
-    USB_OTG_DIEPMSK_TXFURM_Msk /*!< FIFO underrun mask */
+#define USB_OTG_DIEPMSK_TXFURM USB_OTG_DIEPMSK_TXFURM_Msk /*!< FIFO underrun mask */
 #define USB_OTG_DIEPMSK_BIM_Pos (9U)
 #define USB_OTG_DIEPMSK_BIM_Msk (0x1UL << USB_OTG_DIEPMSK_BIM_Pos) /*!< 0x00000200 */
-#define USB_OTG_DIEPMSK_BIM \
-    USB_OTG_DIEPMSK_BIM_Msk /*!< BNA interrupt mask */
+#define USB_OTG_DIEPMSK_BIM USB_OTG_DIEPMSK_BIM_Msk /*!< BNA interrupt mask */
 
 /********************  Bit definition for USB_OTG_HPTXSTS register  ********************/
 #define USB_OTG_HPTXSTS_PTXFSAVL_Pos (0U)
@@ -7557,117 +7470,94 @@ extern "C"
 /********************  Bit definition for USB_OTG_DOEPMSK register  ********************/
 #define USB_OTG_DOEPMSK_XFRCM_Pos (0U)
 #define USB_OTG_DOEPMSK_XFRCM_Msk (0x1UL << USB_OTG_DOEPMSK_XFRCM_Pos) /*!< 0x00000001 */
-#define USB_OTG_DOEPMSK_XFRCM \
-    USB_OTG_DOEPMSK_XFRCM_Msk /*!< Transfer completed interrupt mask */
+#define USB_OTG_DOEPMSK_XFRCM USB_OTG_DOEPMSK_XFRCM_Msk /*!< Transfer completed interrupt mask */
 #define USB_OTG_DOEPMSK_EPDM_Pos (1U)
 #define USB_OTG_DOEPMSK_EPDM_Msk (0x1UL << USB_OTG_DOEPMSK_EPDM_Pos) /*!< 0x00000002 */
-#define USB_OTG_DOEPMSK_EPDM \
-    USB_OTG_DOEPMSK_EPDM_Msk /*!< Endpoint disabled interrupt mask */
+#define USB_OTG_DOEPMSK_EPDM USB_OTG_DOEPMSK_EPDM_Msk /*!< Endpoint disabled interrupt mask */
 #define USB_OTG_DOEPMSK_AHBERRM_Pos (2U)
 #define USB_OTG_DOEPMSK_AHBERRM_Msk (0x1UL << USB_OTG_DOEPMSK_AHBERRM_Pos) /*!< 0x00000004 */
 #define USB_OTG_DOEPMSK_AHBERRM \
     USB_OTG_DOEPMSK_AHBERRM_Msk /*!< OUT transaction AHB Error interrupt mask */
 #define USB_OTG_DOEPMSK_STUPM_Pos (3U)
 #define USB_OTG_DOEPMSK_STUPM_Msk (0x1UL << USB_OTG_DOEPMSK_STUPM_Pos) /*!< 0x00000008 */
-#define USB_OTG_DOEPMSK_STUPM \
-    USB_OTG_DOEPMSK_STUPM_Msk /*!< SETUP phase done mask */
+#define USB_OTG_DOEPMSK_STUPM USB_OTG_DOEPMSK_STUPM_Msk /*!< SETUP phase done mask */
 #define USB_OTG_DOEPMSK_OTEPDM_Pos (4U)
 #define USB_OTG_DOEPMSK_OTEPDM_Msk (0x1UL << USB_OTG_DOEPMSK_OTEPDM_Pos) /*!< 0x00000010 */
 #define USB_OTG_DOEPMSK_OTEPDM \
     USB_OTG_DOEPMSK_OTEPDM_Msk /*!< OUT token received when endpoint disabled mask */
 #define USB_OTG_DOEPMSK_OTEPSPRM_Pos (5U)
 #define USB_OTG_DOEPMSK_OTEPSPRM_Msk (0x1UL << USB_OTG_DOEPMSK_OTEPSPRM_Pos) /*!< 0x00000020 */
-#define USB_OTG_DOEPMSK_OTEPSPRM \
-    USB_OTG_DOEPMSK_OTEPSPRM_Msk /*!< Status Phase Received mask */
+#define USB_OTG_DOEPMSK_OTEPSPRM USB_OTG_DOEPMSK_OTEPSPRM_Msk /*!< Status Phase Received mask */
 #define USB_OTG_DOEPMSK_B2BSTUP_Pos (6U)
 #define USB_OTG_DOEPMSK_B2BSTUP_Msk (0x1UL << USB_OTG_DOEPMSK_B2BSTUP_Pos) /*!< 0x00000040 */
 #define USB_OTG_DOEPMSK_B2BSTUP \
     USB_OTG_DOEPMSK_B2BSTUP_Msk /*!< Back-to-back SETUP packets received mask */
 #define USB_OTG_DOEPMSK_OPEM_Pos (8U)
 #define USB_OTG_DOEPMSK_OPEM_Msk (0x1UL << USB_OTG_DOEPMSK_OPEM_Pos) /*!< 0x00000100 */
-#define USB_OTG_DOEPMSK_OPEM \
-    USB_OTG_DOEPMSK_OPEM_Msk /*!< OUT packet error mask */
+#define USB_OTG_DOEPMSK_OPEM USB_OTG_DOEPMSK_OPEM_Msk /*!< OUT packet error mask */
 #define USB_OTG_DOEPMSK_BOIM_Pos (9U)
 #define USB_OTG_DOEPMSK_BOIM_Msk (0x1UL << USB_OTG_DOEPMSK_BOIM_Pos) /*!< 0x00000200 */
-#define USB_OTG_DOEPMSK_BOIM \
-    USB_OTG_DOEPMSK_BOIM_Msk /*!< BNA interrupt mask */
+#define USB_OTG_DOEPMSK_BOIM USB_OTG_DOEPMSK_BOIM_Msk /*!< BNA interrupt mask */
 #define USB_OTG_DOEPMSK_BERRM_Pos (12U)
 #define USB_OTG_DOEPMSK_BERRM_Msk (0x1UL << USB_OTG_DOEPMSK_BERRM_Pos) /*!< 0x00001000 */
-#define USB_OTG_DOEPMSK_BERRM \
-    USB_OTG_DOEPMSK_BERRM_Msk /*!< Babble error interrupt mask */
+#define USB_OTG_DOEPMSK_BERRM USB_OTG_DOEPMSK_BERRM_Msk /*!< Babble error interrupt mask */
 #define USB_OTG_DOEPMSK_NAKM_Pos (13U)
 #define USB_OTG_DOEPMSK_NAKM_Msk (0x1UL << USB_OTG_DOEPMSK_NAKM_Pos) /*!< 0x00002000 */
-#define USB_OTG_DOEPMSK_NAKM \
-    USB_OTG_DOEPMSK_NAKM_Msk /*!< OUT Packet NAK interrupt mask */
+#define USB_OTG_DOEPMSK_NAKM USB_OTG_DOEPMSK_NAKM_Msk /*!< OUT Packet NAK interrupt mask */
 #define USB_OTG_DOEPMSK_NYETM_Pos (14U)
 #define USB_OTG_DOEPMSK_NYETM_Msk (0x1UL << USB_OTG_DOEPMSK_NYETM_Pos) /*!< 0x00004000 */
-#define USB_OTG_DOEPMSK_NYETM \
-    USB_OTG_DOEPMSK_NYETM_Msk /*!< NYET interrupt mask */
+#define USB_OTG_DOEPMSK_NYETM USB_OTG_DOEPMSK_NYETM_Msk /*!< NYET interrupt mask */
 /********************  Bit definition for USB_OTG_GINTSTS register  ********************/
 #define USB_OTG_GINTSTS_CMOD_Pos (0U)
 #define USB_OTG_GINTSTS_CMOD_Msk (0x1UL << USB_OTG_GINTSTS_CMOD_Pos) /*!< 0x00000001 */
-#define USB_OTG_GINTSTS_CMOD \
-    USB_OTG_GINTSTS_CMOD_Msk /*!< Current mode of operation */
+#define USB_OTG_GINTSTS_CMOD USB_OTG_GINTSTS_CMOD_Msk /*!< Current mode of operation */
 #define USB_OTG_GINTSTS_MMIS_Pos (1U)
 #define USB_OTG_GINTSTS_MMIS_Msk (0x1UL << USB_OTG_GINTSTS_MMIS_Pos) /*!< 0x00000002 */
-#define USB_OTG_GINTSTS_MMIS \
-    USB_OTG_GINTSTS_MMIS_Msk /*!< Mode mismatch interrupt */
+#define USB_OTG_GINTSTS_MMIS USB_OTG_GINTSTS_MMIS_Msk /*!< Mode mismatch interrupt */
 #define USB_OTG_GINTSTS_OTGINT_Pos (2U)
 #define USB_OTG_GINTSTS_OTGINT_Msk (0x1UL << USB_OTG_GINTSTS_OTGINT_Pos) /*!< 0x00000004 */
-#define USB_OTG_GINTSTS_OTGINT \
-    USB_OTG_GINTSTS_OTGINT_Msk /*!< OTG interrupt */
+#define USB_OTG_GINTSTS_OTGINT USB_OTG_GINTSTS_OTGINT_Msk /*!< OTG interrupt */
 #define USB_OTG_GINTSTS_SOF_Pos (3U)
 #define USB_OTG_GINTSTS_SOF_Msk (0x1UL << USB_OTG_GINTSTS_SOF_Pos) /*!< 0x00000008 */
-#define USB_OTG_GINTSTS_SOF \
-    USB_OTG_GINTSTS_SOF_Msk /*!< Start of frame */
+#define USB_OTG_GINTSTS_SOF USB_OTG_GINTSTS_SOF_Msk /*!< Start of frame */
 #define USB_OTG_GINTSTS_RXFLVL_Pos (4U)
 #define USB_OTG_GINTSTS_RXFLVL_Msk (0x1UL << USB_OTG_GINTSTS_RXFLVL_Pos) /*!< 0x00000010 */
-#define USB_OTG_GINTSTS_RXFLVL \
-    USB_OTG_GINTSTS_RXFLVL_Msk /*!< RxFIFO nonempty */
+#define USB_OTG_GINTSTS_RXFLVL USB_OTG_GINTSTS_RXFLVL_Msk /*!< RxFIFO nonempty */
 #define USB_OTG_GINTSTS_NPTXFE_Pos (5U)
 #define USB_OTG_GINTSTS_NPTXFE_Msk (0x1UL << USB_OTG_GINTSTS_NPTXFE_Pos) /*!< 0x00000020 */
-#define USB_OTG_GINTSTS_NPTXFE \
-    USB_OTG_GINTSTS_NPTXFE_Msk /*!< Nonperiodic TxFIFO empty */
+#define USB_OTG_GINTSTS_NPTXFE USB_OTG_GINTSTS_NPTXFE_Msk /*!< Nonperiodic TxFIFO empty */
 #define USB_OTG_GINTSTS_GINAKEFF_Pos (6U)
 #define USB_OTG_GINTSTS_GINAKEFF_Msk (0x1UL << USB_OTG_GINTSTS_GINAKEFF_Pos) /*!< 0x00000040 */
 #define USB_OTG_GINTSTS_GINAKEFF \
     USB_OTG_GINTSTS_GINAKEFF_Msk /*!< Global IN nonperiodic NAK effective */
 #define USB_OTG_GINTSTS_BOUTNAKEFF_Pos (7U)
 #define USB_OTG_GINTSTS_BOUTNAKEFF_Msk (0x1UL << USB_OTG_GINTSTS_BOUTNAKEFF_Pos) /*!< 0x00000080 */
-#define USB_OTG_GINTSTS_BOUTNAKEFF \
-    USB_OTG_GINTSTS_BOUTNAKEFF_Msk /*!< Global OUT NAK effective */
+#define USB_OTG_GINTSTS_BOUTNAKEFF USB_OTG_GINTSTS_BOUTNAKEFF_Msk /*!< Global OUT NAK effective */
 #define USB_OTG_GINTSTS_ESUSP_Pos (10U)
 #define USB_OTG_GINTSTS_ESUSP_Msk (0x1UL << USB_OTG_GINTSTS_ESUSP_Pos) /*!< 0x00000400 */
-#define USB_OTG_GINTSTS_ESUSP \
-    USB_OTG_GINTSTS_ESUSP_Msk /*!< Early suspend */
+#define USB_OTG_GINTSTS_ESUSP USB_OTG_GINTSTS_ESUSP_Msk /*!< Early suspend */
 #define USB_OTG_GINTSTS_USBSUSP_Pos (11U)
 #define USB_OTG_GINTSTS_USBSUSP_Msk (0x1UL << USB_OTG_GINTSTS_USBSUSP_Pos) /*!< 0x00000800 */
-#define USB_OTG_GINTSTS_USBSUSP \
-    USB_OTG_GINTSTS_USBSUSP_Msk /*!< USB suspend */
+#define USB_OTG_GINTSTS_USBSUSP USB_OTG_GINTSTS_USBSUSP_Msk /*!< USB suspend */
 #define USB_OTG_GINTSTS_USBRST_Pos (12U)
 #define USB_OTG_GINTSTS_USBRST_Msk (0x1UL << USB_OTG_GINTSTS_USBRST_Pos) /*!< 0x00001000 */
-#define USB_OTG_GINTSTS_USBRST \
-    USB_OTG_GINTSTS_USBRST_Msk /*!< USB reset */
+#define USB_OTG_GINTSTS_USBRST USB_OTG_GINTSTS_USBRST_Msk /*!< USB reset */
 #define USB_OTG_GINTSTS_ENUMDNE_Pos (13U)
 #define USB_OTG_GINTSTS_ENUMDNE_Msk (0x1UL << USB_OTG_GINTSTS_ENUMDNE_Pos) /*!< 0x00002000 */
-#define USB_OTG_GINTSTS_ENUMDNE \
-    USB_OTG_GINTSTS_ENUMDNE_Msk /*!< Enumeration done */
+#define USB_OTG_GINTSTS_ENUMDNE USB_OTG_GINTSTS_ENUMDNE_Msk /*!< Enumeration done */
 #define USB_OTG_GINTSTS_ISOODRP_Pos (14U)
 #define USB_OTG_GINTSTS_ISOODRP_Msk (0x1UL << USB_OTG_GINTSTS_ISOODRP_Pos) /*!< 0x00004000 */
 #define USB_OTG_GINTSTS_ISOODRP \
     USB_OTG_GINTSTS_ISOODRP_Msk /*!< Isochronous OUT packet dropped interrupt */
 #define USB_OTG_GINTSTS_EOPF_Pos (15U)
 #define USB_OTG_GINTSTS_EOPF_Msk (0x1UL << USB_OTG_GINTSTS_EOPF_Pos) /*!< 0x00008000 */
-#define USB_OTG_GINTSTS_EOPF \
-    USB_OTG_GINTSTS_EOPF_Msk /*!< End of periodic frame interrupt */
+#define USB_OTG_GINTSTS_EOPF USB_OTG_GINTSTS_EOPF_Msk /*!< End of periodic frame interrupt */
 #define USB_OTG_GINTSTS_IEPINT_Pos (18U)
 #define USB_OTG_GINTSTS_IEPINT_Msk (0x1UL << USB_OTG_GINTSTS_IEPINT_Pos) /*!< 0x00040000 */
-#define USB_OTG_GINTSTS_IEPINT \
-    USB_OTG_GINTSTS_IEPINT_Msk /*!< IN endpoint interrupt */
+#define USB_OTG_GINTSTS_IEPINT USB_OTG_GINTSTS_IEPINT_Msk /*!< IN endpoint interrupt */
 #define USB_OTG_GINTSTS_OEPINT_Pos (19U)
 #define USB_OTG_GINTSTS_OEPINT_Msk (0x1UL << USB_OTG_GINTSTS_OEPINT_Pos) /*!< 0x00080000 */
-#define USB_OTG_GINTSTS_OEPINT \
-    USB_OTG_GINTSTS_OEPINT_Msk /*!< OUT endpoint interrupt */
+#define USB_OTG_GINTSTS_OEPINT USB_OTG_GINTSTS_OEPINT_Msk /*!< OUT endpoint interrupt */
 #define USB_OTG_GINTSTS_IISOIXFR_Pos (20U)
 #define USB_OTG_GINTSTS_IISOIXFR_Msk (0x1UL << USB_OTG_GINTSTS_IISOIXFR_Pos) /*!< 0x00100000 */
 #define USB_OTG_GINTSTS_IISOIXFR \
@@ -7679,28 +7569,22 @@ extern "C"
     USB_OTG_GINTSTS_PXFR_INCOMPISOOUT_Msk /*!< Incomplete periodic transfer */
 #define USB_OTG_GINTSTS_DATAFSUSP_Pos (22U)
 #define USB_OTG_GINTSTS_DATAFSUSP_Msk (0x1UL << USB_OTG_GINTSTS_DATAFSUSP_Pos) /*!< 0x00400000 */
-#define USB_OTG_GINTSTS_DATAFSUSP \
-    USB_OTG_GINTSTS_DATAFSUSP_Msk /*!< Data fetch suspended */
+#define USB_OTG_GINTSTS_DATAFSUSP USB_OTG_GINTSTS_DATAFSUSP_Msk /*!< Data fetch suspended */
 #define USB_OTG_GINTSTS_HPRTINT_Pos (24U)
 #define USB_OTG_GINTSTS_HPRTINT_Msk (0x1UL << USB_OTG_GINTSTS_HPRTINT_Pos) /*!< 0x01000000 */
-#define USB_OTG_GINTSTS_HPRTINT \
-    USB_OTG_GINTSTS_HPRTINT_Msk /*!< Host port interrupt */
+#define USB_OTG_GINTSTS_HPRTINT USB_OTG_GINTSTS_HPRTINT_Msk /*!< Host port interrupt */
 #define USB_OTG_GINTSTS_HCINT_Pos (25U)
 #define USB_OTG_GINTSTS_HCINT_Msk (0x1UL << USB_OTG_GINTSTS_HCINT_Pos) /*!< 0x02000000 */
-#define USB_OTG_GINTSTS_HCINT \
-    USB_OTG_GINTSTS_HCINT_Msk /*!< Host channels interrupt */
+#define USB_OTG_GINTSTS_HCINT USB_OTG_GINTSTS_HCINT_Msk /*!< Host channels interrupt */
 #define USB_OTG_GINTSTS_PTXFE_Pos (26U)
 #define USB_OTG_GINTSTS_PTXFE_Msk (0x1UL << USB_OTG_GINTSTS_PTXFE_Pos) /*!< 0x04000000 */
-#define USB_OTG_GINTSTS_PTXFE \
-    USB_OTG_GINTSTS_PTXFE_Msk /*!< Periodic TxFIFO empty */
+#define USB_OTG_GINTSTS_PTXFE USB_OTG_GINTSTS_PTXFE_Msk /*!< Periodic TxFIFO empty */
 #define USB_OTG_GINTSTS_CIDSCHG_Pos (28U)
 #define USB_OTG_GINTSTS_CIDSCHG_Msk (0x1UL << USB_OTG_GINTSTS_CIDSCHG_Pos) /*!< 0x10000000 */
-#define USB_OTG_GINTSTS_CIDSCHG \
-    USB_OTG_GINTSTS_CIDSCHG_Msk /*!< Connector ID status change */
+#define USB_OTG_GINTSTS_CIDSCHG USB_OTG_GINTSTS_CIDSCHG_Msk /*!< Connector ID status change */
 #define USB_OTG_GINTSTS_DISCINT_Pos (29U)
 #define USB_OTG_GINTSTS_DISCINT_Msk (0x1UL << USB_OTG_GINTSTS_DISCINT_Pos) /*!< 0x20000000 */
-#define USB_OTG_GINTSTS_DISCINT \
-    USB_OTG_GINTSTS_DISCINT_Msk /*!< Disconnect detected interrupt */
+#define USB_OTG_GINTSTS_DISCINT USB_OTG_GINTSTS_DISCINT_Msk /*!< Disconnect detected interrupt */
 #define USB_OTG_GINTSTS_SRQINT_Pos (30U)
 #define USB_OTG_GINTSTS_SRQINT_Msk (0x1UL << USB_OTG_GINTSTS_SRQINT_Pos) /*!< 0x40000000 */
 #define USB_OTG_GINTSTS_SRQINT \
@@ -7713,24 +7597,19 @@ extern "C"
 /********************  Bit definition for USB_OTG_GINTMSK register  ********************/
 #define USB_OTG_GINTMSK_MMISM_Pos (1U)
 #define USB_OTG_GINTMSK_MMISM_Msk (0x1UL << USB_OTG_GINTMSK_MMISM_Pos) /*!< 0x00000002 */
-#define USB_OTG_GINTMSK_MMISM \
-    USB_OTG_GINTMSK_MMISM_Msk /*!< Mode mismatch interrupt mask */
+#define USB_OTG_GINTMSK_MMISM USB_OTG_GINTMSK_MMISM_Msk /*!< Mode mismatch interrupt mask */
 #define USB_OTG_GINTMSK_OTGINT_Pos (2U)
 #define USB_OTG_GINTMSK_OTGINT_Msk (0x1UL << USB_OTG_GINTMSK_OTGINT_Pos) /*!< 0x00000004 */
-#define USB_OTG_GINTMSK_OTGINT \
-    USB_OTG_GINTMSK_OTGINT_Msk /*!< OTG interrupt mask */
+#define USB_OTG_GINTMSK_OTGINT USB_OTG_GINTMSK_OTGINT_Msk /*!< OTG interrupt mask */
 #define USB_OTG_GINTMSK_SOFM_Pos (3U)
 #define USB_OTG_GINTMSK_SOFM_Msk (0x1UL << USB_OTG_GINTMSK_SOFM_Pos) /*!< 0x00000008 */
-#define USB_OTG_GINTMSK_SOFM \
-    USB_OTG_GINTMSK_SOFM_Msk /*!< Start of frame mask */
+#define USB_OTG_GINTMSK_SOFM USB_OTG_GINTMSK_SOFM_Msk /*!< Start of frame mask */
 #define USB_OTG_GINTMSK_RXFLVLM_Pos (4U)
 #define USB_OTG_GINTMSK_RXFLVLM_Msk (0x1UL << USB_OTG_GINTMSK_RXFLVLM_Pos) /*!< 0x00000010 */
-#define USB_OTG_GINTMSK_RXFLVLM \
-    USB_OTG_GINTMSK_RXFLVLM_Msk /*!< Receive FIFO nonempty mask */
+#define USB_OTG_GINTMSK_RXFLVLM USB_OTG_GINTMSK_RXFLVLM_Msk /*!< Receive FIFO nonempty mask */
 #define USB_OTG_GINTMSK_NPTXFEM_Pos (5U)
 #define USB_OTG_GINTMSK_NPTXFEM_Msk (0x1UL << USB_OTG_GINTMSK_NPTXFEM_Pos) /*!< 0x00000020 */
-#define USB_OTG_GINTMSK_NPTXFEM \
-    USB_OTG_GINTMSK_NPTXFEM_Msk /*!< Nonperiodic TxFIFO empty mask */
+#define USB_OTG_GINTMSK_NPTXFEM USB_OTG_GINTMSK_NPTXFEM_Msk /*!< Nonperiodic TxFIFO empty mask */
 #define USB_OTG_GINTMSK_GINAKEFFM_Pos (6U)
 #define USB_OTG_GINTMSK_GINAKEFFM_Msk (0x1UL << USB_OTG_GINTMSK_GINAKEFFM_Pos) /*!< 0x00000040 */
 #define USB_OTG_GINTMSK_GINAKEFFM \
@@ -7741,40 +7620,32 @@ extern "C"
     USB_OTG_GINTMSK_GONAKEFFM_Msk /*!< Global OUT NAK effective mask */
 #define USB_OTG_GINTMSK_ESUSPM_Pos (10U)
 #define USB_OTG_GINTMSK_ESUSPM_Msk (0x1UL << USB_OTG_GINTMSK_ESUSPM_Pos) /*!< 0x00000400 */
-#define USB_OTG_GINTMSK_ESUSPM \
-    USB_OTG_GINTMSK_ESUSPM_Msk /*!< Early suspend mask */
+#define USB_OTG_GINTMSK_ESUSPM USB_OTG_GINTMSK_ESUSPM_Msk /*!< Early suspend mask */
 #define USB_OTG_GINTMSK_USBSUSPM_Pos (11U)
 #define USB_OTG_GINTMSK_USBSUSPM_Msk (0x1UL << USB_OTG_GINTMSK_USBSUSPM_Pos) /*!< 0x00000800 */
-#define USB_OTG_GINTMSK_USBSUSPM \
-    USB_OTG_GINTMSK_USBSUSPM_Msk /*!< USB suspend mask */
+#define USB_OTG_GINTMSK_USBSUSPM USB_OTG_GINTMSK_USBSUSPM_Msk /*!< USB suspend mask */
 #define USB_OTG_GINTMSK_USBRST_Pos (12U)
 #define USB_OTG_GINTMSK_USBRST_Msk (0x1UL << USB_OTG_GINTMSK_USBRST_Pos) /*!< 0x00001000 */
-#define USB_OTG_GINTMSK_USBRST \
-    USB_OTG_GINTMSK_USBRST_Msk /*!< USB reset mask */
+#define USB_OTG_GINTMSK_USBRST USB_OTG_GINTMSK_USBRST_Msk /*!< USB reset mask */
 #define USB_OTG_GINTMSK_ENUMDNEM_Pos (13U)
 #define USB_OTG_GINTMSK_ENUMDNEM_Msk (0x1UL << USB_OTG_GINTMSK_ENUMDNEM_Pos) /*!< 0x00002000 */
-#define USB_OTG_GINTMSK_ENUMDNEM \
-    USB_OTG_GINTMSK_ENUMDNEM_Msk /*!< Enumeration done mask */
+#define USB_OTG_GINTMSK_ENUMDNEM USB_OTG_GINTMSK_ENUMDNEM_Msk /*!< Enumeration done mask */
 #define USB_OTG_GINTMSK_ISOODRPM_Pos (14U)
 #define USB_OTG_GINTMSK_ISOODRPM_Msk (0x1UL << USB_OTG_GINTMSK_ISOODRPM_Pos) /*!< 0x00004000 */
 #define USB_OTG_GINTMSK_ISOODRPM \
     USB_OTG_GINTMSK_ISOODRPM_Msk /*!< Isochronous OUT packet dropped interrupt mask */
 #define USB_OTG_GINTMSK_EOPFM_Pos (15U)
 #define USB_OTG_GINTMSK_EOPFM_Msk (0x1UL << USB_OTG_GINTMSK_EOPFM_Pos) /*!< 0x00008000 */
-#define USB_OTG_GINTMSK_EOPFM \
-    USB_OTG_GINTMSK_EOPFM_Msk /*!< End of periodic frame interrupt mask */
+#define USB_OTG_GINTMSK_EOPFM USB_OTG_GINTMSK_EOPFM_Msk /*!< End of periodic frame interrupt mask */
 #define USB_OTG_GINTMSK_EPMISM_Pos (17U)
 #define USB_OTG_GINTMSK_EPMISM_Msk (0x1UL << USB_OTG_GINTMSK_EPMISM_Pos) /*!< 0x00020000 */
-#define USB_OTG_GINTMSK_EPMISM \
-    USB_OTG_GINTMSK_EPMISM_Msk /*!< Endpoint mismatch interrupt mask */
+#define USB_OTG_GINTMSK_EPMISM USB_OTG_GINTMSK_EPMISM_Msk /*!< Endpoint mismatch interrupt mask */
 #define USB_OTG_GINTMSK_IEPINT_Pos (18U)
 #define USB_OTG_GINTMSK_IEPINT_Msk (0x1UL << USB_OTG_GINTMSK_IEPINT_Pos) /*!< 0x00040000 */
-#define USB_OTG_GINTMSK_IEPINT \
-    USB_OTG_GINTMSK_IEPINT_Msk /*!< IN endpoints interrupt mask */
+#define USB_OTG_GINTMSK_IEPINT USB_OTG_GINTMSK_IEPINT_Msk /*!< IN endpoints interrupt mask */
 #define USB_OTG_GINTMSK_OEPINT_Pos (19U)
 #define USB_OTG_GINTMSK_OEPINT_Msk (0x1UL << USB_OTG_GINTMSK_OEPINT_Pos) /*!< 0x00080000 */
-#define USB_OTG_GINTMSK_OEPINT \
-    USB_OTG_GINTMSK_OEPINT_Msk /*!< OUT endpoints interrupt mask */
+#define USB_OTG_GINTMSK_OEPINT USB_OTG_GINTMSK_OEPINT_Msk /*!< OUT endpoints interrupt mask */
 #define USB_OTG_GINTMSK_IISOIXFRM_Pos (20U)
 #define USB_OTG_GINTMSK_IISOIXFRM_Msk (0x1UL << USB_OTG_GINTMSK_IISOIXFRM_Pos) /*!< 0x00100000 */
 #define USB_OTG_GINTMSK_IISOIXFRM \
@@ -7786,20 +7657,16 @@ extern "C"
     USB_OTG_GINTMSK_PXFRM_IISOOXFRM_Msk /*!< Incomplete periodic transfer mask */
 #define USB_OTG_GINTMSK_FSUSPM_Pos (22U)
 #define USB_OTG_GINTMSK_FSUSPM_Msk (0x1UL << USB_OTG_GINTMSK_FSUSPM_Pos) /*!< 0x00400000 */
-#define USB_OTG_GINTMSK_FSUSPM \
-    USB_OTG_GINTMSK_FSUSPM_Msk /*!< Data fetch suspended mask */
+#define USB_OTG_GINTMSK_FSUSPM USB_OTG_GINTMSK_FSUSPM_Msk /*!< Data fetch suspended mask */
 #define USB_OTG_GINTMSK_PRTIM_Pos (24U)
 #define USB_OTG_GINTMSK_PRTIM_Msk (0x1UL << USB_OTG_GINTMSK_PRTIM_Pos) /*!< 0x01000000 */
-#define USB_OTG_GINTMSK_PRTIM \
-    USB_OTG_GINTMSK_PRTIM_Msk /*!< Host port interrupt mask */
+#define USB_OTG_GINTMSK_PRTIM USB_OTG_GINTMSK_PRTIM_Msk /*!< Host port interrupt mask */
 #define USB_OTG_GINTMSK_HCIM_Pos (25U)
 #define USB_OTG_GINTMSK_HCIM_Msk (0x1UL << USB_OTG_GINTMSK_HCIM_Pos) /*!< 0x02000000 */
-#define USB_OTG_GINTMSK_HCIM \
-    USB_OTG_GINTMSK_HCIM_Msk /*!< Host channels interrupt mask */
+#define USB_OTG_GINTMSK_HCIM USB_OTG_GINTMSK_HCIM_Msk /*!< Host channels interrupt mask */
 #define USB_OTG_GINTMSK_PTXFEM_Pos (26U)
 #define USB_OTG_GINTMSK_PTXFEM_Msk (0x1UL << USB_OTG_GINTMSK_PTXFEM_Pos) /*!< 0x04000000 */
-#define USB_OTG_GINTMSK_PTXFEM \
-    USB_OTG_GINTMSK_PTXFEM_Msk /*!< Periodic TxFIFO empty mask */
+#define USB_OTG_GINTMSK_PTXFEM USB_OTG_GINTMSK_PTXFEM_Msk /*!< Periodic TxFIFO empty mask */
 #define USB_OTG_GINTMSK_CIDSCHGM_Pos (28U)
 #define USB_OTG_GINTMSK_CIDSCHGM_Msk (0x1UL << USB_OTG_GINTMSK_CIDSCHGM_Pos) /*!< 0x10000000 */
 #define USB_OTG_GINTMSK_CIDSCHGM \
@@ -8039,16 +7906,13 @@ extern "C"
 #define USB_OTG_DIEPEACHMSK1_TXFURM_Pos (8U)
 #define USB_OTG_DIEPEACHMSK1_TXFURM_Msk \
     (0x1UL << USB_OTG_DIEPEACHMSK1_TXFURM_Pos) /*!< 0x00000100 */
-#define USB_OTG_DIEPEACHMSK1_TXFURM \
-    USB_OTG_DIEPEACHMSK1_TXFURM_Msk /*!< FIFO underrun mask */
+#define USB_OTG_DIEPEACHMSK1_TXFURM USB_OTG_DIEPEACHMSK1_TXFURM_Msk /*!< FIFO underrun mask */
 #define USB_OTG_DIEPEACHMSK1_BIM_Pos (9U)
 #define USB_OTG_DIEPEACHMSK1_BIM_Msk (0x1UL << USB_OTG_DIEPEACHMSK1_BIM_Pos) /*!< 0x00000200 */
-#define USB_OTG_DIEPEACHMSK1_BIM \
-    USB_OTG_DIEPEACHMSK1_BIM_Msk /*!< BNA interrupt mask */
+#define USB_OTG_DIEPEACHMSK1_BIM USB_OTG_DIEPEACHMSK1_BIM_Msk /*!< BNA interrupt mask */
 #define USB_OTG_DIEPEACHMSK1_NAKM_Pos (13U)
 #define USB_OTG_DIEPEACHMSK1_NAKM_Msk (0x1UL << USB_OTG_DIEPEACHMSK1_NAKM_Pos) /*!< 0x00002000 */
-#define USB_OTG_DIEPEACHMSK1_NAKM \
-    USB_OTG_DIEPEACHMSK1_NAKM_Msk /*!< NAK interrupt mask */
+#define USB_OTG_DIEPEACHMSK1_NAKM USB_OTG_DIEPEACHMSK1_NAKM_Msk /*!< NAK interrupt mask */
 
 /********************  Bit definition for USB_OTG_HPRT register  ********************/
 #define USB_OTG_HPRT_PCSTS_Pos (0U)
@@ -8113,8 +7977,7 @@ extern "C"
     USB_OTG_DOEPEACHMSK1_EPDM_Msk /*!< Endpoint disabled interrupt mask */
 #define USB_OTG_DOEPEACHMSK1_TOM_Pos (3U)
 #define USB_OTG_DOEPEACHMSK1_TOM_Msk (0x1UL << USB_OTG_DOEPEACHMSK1_TOM_Pos) /*!< 0x00000008 */
-#define USB_OTG_DOEPEACHMSK1_TOM \
-    USB_OTG_DOEPEACHMSK1_TOM_Msk /*!< Timeout condition mask */
+#define USB_OTG_DOEPEACHMSK1_TOM USB_OTG_DOEPEACHMSK1_TOM_Msk /*!< Timeout condition mask */
 #define USB_OTG_DOEPEACHMSK1_ITTXFEMSK_Pos (4U)
 #define USB_OTG_DOEPEACHMSK1_ITTXFEMSK_Msk \
     (0x1UL << USB_OTG_DOEPEACHMSK1_ITTXFEMSK_Pos) /*!< 0x00000010 */
@@ -8133,34 +7996,28 @@ extern "C"
 #define USB_OTG_DOEPEACHMSK1_TXFURM_Pos (8U)
 #define USB_OTG_DOEPEACHMSK1_TXFURM_Msk \
     (0x1UL << USB_OTG_DOEPEACHMSK1_TXFURM_Pos) /*!< 0x00000100 */
-#define USB_OTG_DOEPEACHMSK1_TXFURM \
-    USB_OTG_DOEPEACHMSK1_TXFURM_Msk /*!< OUT packet error mask */
+#define USB_OTG_DOEPEACHMSK1_TXFURM USB_OTG_DOEPEACHMSK1_TXFURM_Msk /*!< OUT packet error mask */
 #define USB_OTG_DOEPEACHMSK1_BIM_Pos (9U)
 #define USB_OTG_DOEPEACHMSK1_BIM_Msk (0x1UL << USB_OTG_DOEPEACHMSK1_BIM_Pos) /*!< 0x00000200 */
-#define USB_OTG_DOEPEACHMSK1_BIM \
-    USB_OTG_DOEPEACHMSK1_BIM_Msk /*!< BNA interrupt mask */
+#define USB_OTG_DOEPEACHMSK1_BIM USB_OTG_DOEPEACHMSK1_BIM_Msk /*!< BNA interrupt mask */
 #define USB_OTG_DOEPEACHMSK1_BERRM_Pos (12U)
 #define USB_OTG_DOEPEACHMSK1_BERRM_Msk (0x1UL << USB_OTG_DOEPEACHMSK1_BERRM_Pos) /*!< 0x00001000 */
 #define USB_OTG_DOEPEACHMSK1_BERRM \
     USB_OTG_DOEPEACHMSK1_BERRM_Msk /*!< Bubble error interrupt mask */
 #define USB_OTG_DOEPEACHMSK1_NAKM_Pos (13U)
 #define USB_OTG_DOEPEACHMSK1_NAKM_Msk (0x1UL << USB_OTG_DOEPEACHMSK1_NAKM_Pos) /*!< 0x00002000 */
-#define USB_OTG_DOEPEACHMSK1_NAKM \
-    USB_OTG_DOEPEACHMSK1_NAKM_Msk /*!< NAK interrupt mask */
+#define USB_OTG_DOEPEACHMSK1_NAKM USB_OTG_DOEPEACHMSK1_NAKM_Msk /*!< NAK interrupt mask */
 #define USB_OTG_DOEPEACHMSK1_NYETM_Pos (14U)
 #define USB_OTG_DOEPEACHMSK1_NYETM_Msk (0x1UL << USB_OTG_DOEPEACHMSK1_NYETM_Pos) /*!< 0x00004000 */
-#define USB_OTG_DOEPEACHMSK1_NYETM \
-    USB_OTG_DOEPEACHMSK1_NYETM_Msk /*!< NYET interrupt mask */
+#define USB_OTG_DOEPEACHMSK1_NYETM USB_OTG_DOEPEACHMSK1_NYETM_Msk /*!< NYET interrupt mask */
 
 /********************  Bit definition for USB_OTG_HPTXFSIZ register  ********************/
 #define USB_OTG_HPTXFSIZ_PTXSA_Pos (0U)
 #define USB_OTG_HPTXFSIZ_PTXSA_Msk (0xFFFFUL << USB_OTG_HPTXFSIZ_PTXSA_Pos) /*!< 0x0000FFFF */
-#define USB_OTG_HPTXFSIZ_PTXSA \
-    USB_OTG_HPTXFSIZ_PTXSA_Msk /*!< Host periodic TxFIFO start address */
+#define USB_OTG_HPTXFSIZ_PTXSA USB_OTG_HPTXFSIZ_PTXSA_Msk /*!< Host periodic TxFIFO start address */
 #define USB_OTG_HPTXFSIZ_PTXFD_Pos (16U)
 #define USB_OTG_HPTXFSIZ_PTXFD_Msk (0xFFFFUL << USB_OTG_HPTXFSIZ_PTXFD_Pos) /*!< 0xFFFF0000 */
-#define USB_OTG_HPTXFSIZ_PTXFD \
-    USB_OTG_HPTXFSIZ_PTXFD_Msk /*!< Host periodic TxFIFO depth */
+#define USB_OTG_HPTXFSIZ_PTXFD USB_OTG_HPTXFSIZ_PTXFD_Msk /*!< Host periodic TxFIFO depth */
 
 /********************  Bit definition for USB_OTG_DIEPCTL register  ********************/
 #define USB_OTG_DIEPCTL_MPSIZ_Pos (0U)
@@ -8171,8 +8028,7 @@ extern "C"
 #define USB_OTG_DIEPCTL_USBAEP USB_OTG_DIEPCTL_USBAEP_Msk /*!< USB active endpoint */
 #define USB_OTG_DIEPCTL_EONUM_DPID_Pos (16U)
 #define USB_OTG_DIEPCTL_EONUM_DPID_Msk (0x1UL << USB_OTG_DIEPCTL_EONUM_DPID_Pos) /*!< 0x00010000 */
-#define USB_OTG_DIEPCTL_EONUM_DPID \
-    USB_OTG_DIEPCTL_EONUM_DPID_Msk /*!< Even/odd frame */
+#define USB_OTG_DIEPCTL_EONUM_DPID USB_OTG_DIEPCTL_EONUM_DPID_Msk /*!< Even/odd frame */
 #define USB_OTG_DIEPCTL_NAKSTS_Pos (17U)
 #define USB_OTG_DIEPCTL_NAKSTS_Msk (0x1UL << USB_OTG_DIEPCTL_NAKSTS_Pos) /*!< 0x00020000 */
 #define USB_OTG_DIEPCTL_NAKSTS USB_OTG_DIEPCTL_NAKSTS_Msk /*!< NAK status */
@@ -8202,8 +8058,7 @@ extern "C"
 #define USB_OTG_DIEPCTL_SD0PID_SEVNFRM_Pos (28U)
 #define USB_OTG_DIEPCTL_SD0PID_SEVNFRM_Msk \
     (0x1UL << USB_OTG_DIEPCTL_SD0PID_SEVNFRM_Pos) /*!< 0x10000000 */
-#define USB_OTG_DIEPCTL_SD0PID_SEVNFRM \
-    USB_OTG_DIEPCTL_SD0PID_SEVNFRM_Msk /*!< Set DATA0 PID */
+#define USB_OTG_DIEPCTL_SD0PID_SEVNFRM USB_OTG_DIEPCTL_SD0PID_SEVNFRM_Msk /*!< Set DATA0 PID */
 #define USB_OTG_DIEPCTL_SODDFRM_Pos (29U)
 #define USB_OTG_DIEPCTL_SODDFRM_Msk (0x1UL << USB_OTG_DIEPCTL_SODDFRM_Pos) /*!< 0x20000000 */
 #define USB_OTG_DIEPCTL_SODDFRM USB_OTG_DIEPCTL_SODDFRM_Msk /*!< Set odd frame */

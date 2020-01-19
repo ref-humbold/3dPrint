@@ -28,8 +28,8 @@ extern "C"
 #include "main.h"
 
 /* USER CODE BEGIN Includes */
-#include <stdint.h>
 #include <stdlib.h>
+#include <stdint.h>
     /* USER CODE END Includes */
 
     extern UART_HandleTypeDef huart2;

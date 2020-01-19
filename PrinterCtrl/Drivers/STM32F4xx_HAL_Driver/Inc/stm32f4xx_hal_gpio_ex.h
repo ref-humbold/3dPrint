@@ -52,14 +52,12 @@ extern "C"
 /**
   * @brief   AF 0 selection
   */
-#define GPIO_AF0_RTC_50Hz \
-    ((uint8_t)0x00) /* RTC_50Hz Alternate Function mapping */
+#define GPIO_AF0_RTC_50Hz ((uint8_t)0x00) /* RTC_50Hz Alternate Function mapping */
 #define GPIO_AF0_MCO ((uint8_t)0x00) /* MCO (MCO1 and MCO2) Alternate Function mapping */
 #define GPIO_AF0_TAMPER \
     ((uint8_t)0x00) /* TAMPER (TAMPER_1 and TAMPER_2) Alternate Function mapping */
 #define GPIO_AF0_SWJ ((uint8_t)0x00) /* SWJ (SWD and JTAG) Alternate Function mapping */
-#define GPIO_AF0_TRACE \
-    ((uint8_t)0x00) /* TRACE Alternate Function mapping */
+#define GPIO_AF0_TRACE ((uint8_t)0x00) /* TRACE Alternate Function mapping */
 
 /**
   * @brief   AF 1 selection
@@ -175,14 +173,12 @@ extern "C"
 /**
   * @brief   AF 0 selection
   */
-#define GPIO_AF0_RTC_50Hz \
-    ((uint8_t)0x00) /* RTC_50Hz Alternate Function mapping */
+#define GPIO_AF0_RTC_50Hz ((uint8_t)0x00) /* RTC_50Hz Alternate Function mapping */
 #define GPIO_AF0_MCO ((uint8_t)0x00) /* MCO (MCO1 and MCO2) Alternate Function mapping */
 #define GPIO_AF0_TAMPER \
     ((uint8_t)0x00) /* TAMPER (TAMPER_1 and TAMPER_2) Alternate Function mapping */
 #define GPIO_AF0_SWJ ((uint8_t)0x00) /* SWJ (SWD and JTAG) Alternate Function mapping */
-#define GPIO_AF0_TRACE \
-    ((uint8_t)0x00) /* TRACE Alternate Function mapping */
+#define GPIO_AF0_TRACE ((uint8_t)0x00) /* TRACE Alternate Function mapping */
 
 /**
   * @brief   AF 1 selection
@@ -294,14 +290,12 @@ extern "C"
 /**
   * @brief   AF 0 selection
   */
-#define GPIO_AF0_RTC_50Hz \
-    ((uint8_t)0x00) /* RTC_50Hz Alternate Function mapping */
+#define GPIO_AF0_RTC_50Hz ((uint8_t)0x00) /* RTC_50Hz Alternate Function mapping */
 #define GPIO_AF0_MCO ((uint8_t)0x00) /* MCO (MCO1 and MCO2) Alternate Function mapping */
 #define GPIO_AF0_TAMPER \
     ((uint8_t)0x00) /* TAMPER (TAMPER_1 and TAMPER_2) Alternate Function mapping */
 #define GPIO_AF0_SWJ ((uint8_t)0x00) /* SWJ (SWD and JTAG) Alternate Function mapping */
-#define GPIO_AF0_TRACE \
-    ((uint8_t)0x00) /* TRACE Alternate Function mapping */
+#define GPIO_AF0_TRACE ((uint8_t)0x00) /* TRACE Alternate Function mapping */
 
 /**
   * @brief   AF 1 selection
@@ -404,14 +398,12 @@ extern "C"
 /**
   * @brief   AF 0 selection
   */
-#define GPIO_AF0_RTC_50Hz \
-    ((uint8_t)0x00) /* RTC_50Hz Alternate Function mapping */
+#define GPIO_AF0_RTC_50Hz ((uint8_t)0x00) /* RTC_50Hz Alternate Function mapping */
 #define GPIO_AF0_MCO ((uint8_t)0x00) /* MCO (MCO1 and MCO2) Alternate Function mapping */
 #define GPIO_AF0_TAMPER \
     ((uint8_t)0x00) /* TAMPER (TAMPER_1 and TAMPER_2) Alternate Function mapping */
 #define GPIO_AF0_SWJ ((uint8_t)0x00) /* SWJ (SWD and JTAG) Alternate Function mapping */
-#define GPIO_AF0_TRACE \
-    ((uint8_t)0x00) /* TRACE Alternate Function mapping */
+#define GPIO_AF0_TRACE ((uint8_t)0x00) /* TRACE Alternate Function mapping */
 
 /**
   * @brief   AF 1 selection
@@ -505,14 +497,12 @@ extern "C"
 /**
   * @brief   AF 0 selection
   */
-#define GPIO_AF0_RTC_50Hz \
-    ((uint8_t)0x00) /* RTC_50Hz Alternate Function mapping */
+#define GPIO_AF0_RTC_50Hz ((uint8_t)0x00) /* RTC_50Hz Alternate Function mapping */
 #define GPIO_AF0_MCO ((uint8_t)0x00) /* MCO (MCO1 and MCO2) Alternate Function mapping */
 #define GPIO_AF0_TAMPER \
     ((uint8_t)0x00) /* TAMPER (TAMPER_1 and TAMPER_2) Alternate Function mapping */
 #define GPIO_AF0_SWJ ((uint8_t)0x00) /* SWJ (SWD and JTAG) Alternate Function mapping */
-#define GPIO_AF0_TRACE \
-    ((uint8_t)0x00) /* TRACE Alternate Function mapping */
+#define GPIO_AF0_TRACE ((uint8_t)0x00) /* TRACE Alternate Function mapping */
 
 /**
   * @brief   AF 1 selection
@@ -596,14 +586,12 @@ extern "C"
 /**
   * @brief   AF 0 selection
   */
-#define GPIO_AF0_RTC_50Hz \
-    ((uint8_t)0x00) /* RTC_50Hz Alternate Function mapping */
+#define GPIO_AF0_RTC_50Hz ((uint8_t)0x00) /* RTC_50Hz Alternate Function mapping */
 #define GPIO_AF0_MCO ((uint8_t)0x00) /* MCO (MCO1 and MCO2) Alternate Function mapping */
 #define GPIO_AF0_TAMPER \
     ((uint8_t)0x00) /* TAMPER (TAMPER_1 and TAMPER_2) Alternate Function mapping */
 #define GPIO_AF0_SWJ ((uint8_t)0x00) /* SWJ (SWD and JTAG) Alternate Function mapping */
-#define GPIO_AF0_TRACE \
-    ((uint8_t)0x00) /* TRACE Alternate Function mapping */
+#define GPIO_AF0_TRACE ((uint8_t)0x00) /* TRACE Alternate Function mapping */
 
 /**
   * @brief   AF 1 selection
@@ -709,12 +697,10 @@ extern "C"
 /**
   * @brief   AF 0 selection
   */
-#define GPIO_AF0_RTC_50Hz \
-    ((uint8_t)0x00) /* RTC_50Hz Alternate Function mapping */
+#define GPIO_AF0_RTC_50Hz ((uint8_t)0x00) /* RTC_50Hz Alternate Function mapping */
 #define GPIO_AF0_MCO ((uint8_t)0x00) /* MCO (MCO1 and MCO2) Alternate Function mapping */
 #define GPIO_AF0_SWJ ((uint8_t)0x00) /* SWJ (SWD and JTAG) Alternate Function mapping */
-#define GPIO_AF0_TRACE \
-    ((uint8_t)0x00) /* TRACE Alternate Function mapping */
+#define GPIO_AF0_TRACE ((uint8_t)0x00) /* TRACE Alternate Function mapping */
 
 /**
   * @brief   AF 1 selection
@@ -843,14 +829,12 @@ extern "C"
 /**
   * @brief   AF 0 selection
   */
-#define GPIO_AF0_RTC_50Hz \
-    ((uint8_t)0x00) /* RTC_50Hz Alternate Function mapping */
+#define GPIO_AF0_RTC_50Hz ((uint8_t)0x00) /* RTC_50Hz Alternate Function mapping */
 #define GPIO_AF0_MCO ((uint8_t)0x00) /* MCO (MCO1 and MCO2) Alternate Function mapping */
 #define GPIO_AF0_TAMPER \
     ((uint8_t)0x00) /* TAMPER (TAMPER_1 and TAMPER_2) Alternate Function mapping */
 #define GPIO_AF0_SWJ ((uint8_t)0x00) /* SWJ (SWD and JTAG) Alternate Function mapping */
-#define GPIO_AF0_TRACE \
-    ((uint8_t)0x00) /* TRACE Alternate Function mapping */
+#define GPIO_AF0_TRACE ((uint8_t)0x00) /* TRACE Alternate Function mapping */
 
 /**
   * @brief   AF 1 selection
@@ -938,14 +922,12 @@ extern "C"
 /**
   * @brief   AF 0 selection
   */
-#define GPIO_AF0_RTC_50Hz \
-    ((uint8_t)0x00) /* RTC_50Hz Alternate Function mapping */
+#define GPIO_AF0_RTC_50Hz ((uint8_t)0x00) /* RTC_50Hz Alternate Function mapping */
 #define GPIO_AF0_MCO ((uint8_t)0x00) /* MCO (MCO1 and MCO2) Alternate Function mapping */
 #define GPIO_AF0_TAMPER \
     ((uint8_t)0x00) /* TAMPER (TAMPER_1 and TAMPER_2) Alternate Function mapping */
 #define GPIO_AF0_SWJ ((uint8_t)0x00) /* SWJ (SWD and JTAG) Alternate Function mapping */
-#define GPIO_AF0_TRACE \
-    ((uint8_t)0x00) /* TRACE Alternate Function mapping */
+#define GPIO_AF0_TRACE ((uint8_t)0x00) /* TRACE Alternate Function mapping */
 
 /**
   * @brief   AF 1 selection
@@ -1015,14 +997,12 @@ extern "C"
 /**
   * @brief   AF 0 selection
   */
-#define GPIO_AF0_RTC_50Hz \
-    ((uint8_t)0x00) /* RTC_50Hz Alternate Function mapping */
+#define GPIO_AF0_RTC_50Hz ((uint8_t)0x00) /* RTC_50Hz Alternate Function mapping */
 #define GPIO_AF0_MCO ((uint8_t)0x00) /* MCO (MCO1 and MCO2) Alternate Function mapping */
 #define GPIO_AF0_TAMPER \
     ((uint8_t)0x00) /* TAMPER (TAMPER_1 and TAMPER_2) Alternate Function mapping */
 #define GPIO_AF0_SWJ ((uint8_t)0x00) /* SWJ (SWD and JTAG) Alternate Function mapping */
-#define GPIO_AF0_TRACE \
-    ((uint8_t)0x00) /* TRACE Alternate Function mapping */
+#define GPIO_AF0_TRACE ((uint8_t)0x00) /* TRACE Alternate Function mapping */
 
 /**
   * @brief   AF 1 selection
@@ -1140,14 +1120,12 @@ extern "C"
 /**
   * @brief   AF 0 selection
   */
-#define GPIO_AF0_RTC_50Hz \
-    ((uint8_t)0x00) /* RTC_50Hz Alternate Function mapping */
+#define GPIO_AF0_RTC_50Hz ((uint8_t)0x00) /* RTC_50Hz Alternate Function mapping */
 #define GPIO_AF0_MCO ((uint8_t)0x00) /* MCO (MCO1 and MCO2) Alternate Function mapping */
 #define GPIO_AF0_TAMPER \
     ((uint8_t)0x00) /* TAMPER (TAMPER_1 and TAMPER_2) Alternate Function mapping */
 #define GPIO_AF0_SWJ ((uint8_t)0x00) /* SWJ (SWD and JTAG) Alternate Function mapping */
-#define GPIO_AF0_TRACE \
-    ((uint8_t)0x00) /* TRACE Alternate Function mapping */
+#define GPIO_AF0_TRACE ((uint8_t)0x00) /* TRACE Alternate Function mapping */
 
 /**
   * @brief   AF 1 selection

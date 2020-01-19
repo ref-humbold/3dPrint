@@ -136,10 +136,8 @@ extern "C"
         __IO uint32_t ErrorCode; /*!< SPI Error code */
 
 #if(USE_HAL_SPI_REGISTER_CALLBACKS == 1U)
-        void (*TxCpltCallback)(
-                struct __SPI_HandleTypeDef * hspi); /*!< SPI Tx Completed callback */
-        void (*RxCpltCallback)(
-                struct __SPI_HandleTypeDef * hspi); /*!< SPI Rx Completed callback */
+        void (*TxCpltCallback)(struct __SPI_HandleTypeDef * hspi); /*!< SPI Tx Completed callback */
+        void (*RxCpltCallback)(struct __SPI_HandleTypeDef * hspi); /*!< SPI Rx Completed callback */
         void (*TxRxCpltCallback)(
                 struct __SPI_HandleTypeDef * hspi); /*!< SPI TxRx Completed callback */
         void (*TxHalfCpltCallback)(
@@ -148,12 +146,9 @@ extern "C"
                 struct __SPI_HandleTypeDef * hspi); /*!< SPI Rx Half Completed callback */
         void (*TxRxHalfCpltCallback)(
                 struct __SPI_HandleTypeDef * hspi); /*!< SPI TxRx Half Completed callback */
-        void (*ErrorCallback)(
-                struct __SPI_HandleTypeDef * hspi); /*!< SPI Error callback */
-        void (*AbortCpltCallback)(
-                struct __SPI_HandleTypeDef * hspi); /*!< SPI Abort callback */
-        void (*MspInitCallback)(
-                struct __SPI_HandleTypeDef * hspi); /*!< SPI Msp Init callback */
+        void (*ErrorCallback)(struct __SPI_HandleTypeDef * hspi); /*!< SPI Error callback */
+        void (*AbortCpltCallback)(struct __SPI_HandleTypeDef * hspi); /*!< SPI Abort callback */
+        void (*MspInitCallback)(struct __SPI_HandleTypeDef * hspi); /*!< SPI Msp Init callback */
         void (*MspDeInitCallback)(
                 struct __SPI_HandleTypeDef * hspi); /*!< SPI Msp DeInit callback */
 

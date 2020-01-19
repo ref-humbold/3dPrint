@@ -70,8 +70,7 @@ extern "C"
         uint32_t LSIState; /*!< The new state of the LSI.
                                       This parameter can be a value of @ref RCC_LSI_Config */
 
-        RCC_PLLInitTypeDef
-                PLL; /*!< PLL structure parameters */
+        RCC_PLLInitTypeDef PLL; /*!< PLL structure parameters */
     } RCC_OscInitTypeDef;
 
     /**

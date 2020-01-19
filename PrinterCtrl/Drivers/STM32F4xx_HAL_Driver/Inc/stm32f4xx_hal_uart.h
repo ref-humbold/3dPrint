@@ -185,19 +185,16 @@ extern "C"
                 struct __UART_HandleTypeDef * huart); /*!< UART Rx Half Complete Callback */
         void (*RxCpltCallback)(
                 struct __UART_HandleTypeDef * huart); /*!< UART Rx Complete Callback */
-        void (*ErrorCallback)(
-                struct __UART_HandleTypeDef * huart); /*!< UART Error Callback */
+        void (*ErrorCallback)(struct __UART_HandleTypeDef * huart); /*!< UART Error Callback */
         void (*AbortCpltCallback)(
                 struct __UART_HandleTypeDef * huart); /*!< UART Abort Complete Callback */
         void (*AbortTransmitCpltCallback)(
                 struct __UART_HandleTypeDef * huart); /*!< UART Abort Transmit Complete Callback */
         void (*AbortReceiveCpltCallback)(
                 struct __UART_HandleTypeDef * huart); /*!< UART Abort Receive Complete Callback */
-        void (*WakeupCallback)(
-                struct __UART_HandleTypeDef * huart); /*!< UART Wakeup Callback */
+        void (*WakeupCallback)(struct __UART_HandleTypeDef * huart); /*!< UART Wakeup Callback */
 
-        void (*MspInitCallback)(
-                struct __UART_HandleTypeDef * huart); /*!< UART Msp Init callback */
+        void (*MspInitCallback)(struct __UART_HandleTypeDef * huart); /*!< UART Msp Init callback */
         void (*MspDeInitCallback)(
                 struct __UART_HandleTypeDef * huart); /*!< UART Msp DeInit callback */
 #endif /* USE_HAL_UART_REGISTER_CALLBACKS */

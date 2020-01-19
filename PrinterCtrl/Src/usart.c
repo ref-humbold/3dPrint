@@ -103,8 +103,6 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef * uartHandle)
 }
 
 /* USER CODE BEGIN 1 */
-const int uart_delay = 500;
-
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef * huart)
 {
 }
@@ -118,7 +116,7 @@ void uart_send(UART_HandleTypeDef * huart, const uint16_t data)
     uint8_t val[2] = {data >> 8, data & 0x00FF};
 
     HAL_UART_Transmit_IT(huart, val, 2);
-    HAL_Delay(uart_delay);
+    HAL_Delay(200);
 }
 
 void uart_receive(UART_HandleTypeDef * huart, uint16_t * data)
@@ -126,7 +124,7 @@ void uart_receive(UART_HandleTypeDef * huart, uint16_t * data)
     uint8_t val[2] = {0xFF, 0xFF};
 
     HAL_UART_Receive_IT(huart, val, 2);
-    HAL_Delay(uart_delay);
+    HAL_Delay(200);
 
     *data = (val[0] << 8) | val[1];
 }
