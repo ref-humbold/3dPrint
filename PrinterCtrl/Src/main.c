@@ -118,7 +118,6 @@ int main(void)
     MX_USART2_UART_Init();
     MX_SPI2_Init();
     /* USER CODE BEGIN 2 */
-    laser_on();
     /* USER CODE END 2 */
 
     /* Infinite loop */
@@ -128,10 +127,7 @@ int main(void)
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
-        dac_write(&hspi2, &DacPinX, 0x03C0);
-        HAL_Delay(50);
-        dac_write(&hspi2, &DacPinX, 0x0510);
-        HAL_Delay(50);
+        dac_test();
     }
     /* USER CODE END 3 */
 }
