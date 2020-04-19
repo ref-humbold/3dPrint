@@ -41,9 +41,9 @@ void parameters::parse(int argc, char * argv[])
         if(arg.substr(arg.size() - 6, arg.size()) != ".gcode"s)
             throw params_exception("Expected *.gcode file, got "s + arg);
 
-        files.push_back(arg);
+        filename = arg;
     }
 
-    if(files.empty())
+    if(filename == "")
         throw params_exception("No *.gcode files specified");
 }

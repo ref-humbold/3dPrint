@@ -17,7 +17,7 @@ enum uart_code : uint16_t
     Acknowledge = 0xA000,
     BeginTransmit = 0xB000,
     Connect = 0xC000,
-    Debug = 0xD000,
+    DataExpected = 0xD000,
     EndTransmit = 0xE000,
     Failure = 0xF000
 };

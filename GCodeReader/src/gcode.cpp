@@ -11,8 +11,7 @@ int main(int argc, char * argv[])
 {
     parameters params(argc, argv);
     uart_ctrl uart(params.port());
-
-    instruction_list list = parse(params.file(0));
+    instruction_list list = parse(params.file());
     auto iterator = list.iter();
 
     uart.send(Connect);
@@ -20,22 +19,24 @@ int main(int argc, char * argv[])
 
     while(!iterator.empty())
     {
-        auto msg = iterator->to_message();
+        auto message = iterator->to_message();
 
+        uart.expect_receive(DataExpected);
         uart.send(BeginTransmit);
-        uart.send(static_cast<uint16_t>(msg.size()));
+        uart.send(static_cast<uint16_t>(message.size()));
 
-        for(auto m : msg)
+        for(auto m : message)
             uart.send(m);
 
         uart.send(EndTransmit);
-        uart.expect_receive(Acknowledge);
 
         uint16_t data_received = uart.receive();
 
-        if(data_received != msg.size())
-            std::cerr << "Sent " << msg.size() << "frames, printer received " << data_received
+        if(data_received != message.size())
+            std::cerr << "Sent " << message.size() << "frames, printer received " << data_received
                       << "\n";
+
+        uart.expect_receive(Acknowledge);
 
         ++iterator;
     }

@@ -1,20 +1,20 @@
 #include "instruction_list.hpp"
 
-void instruction_list::add(const std::map<char, int> & m)
+void instruction_list::add(const std::map<char, int> & arguments)
 {
     if(begin_list != nullptr && end_list == nullptr)
         return;
 
     if(begin_list == nullptr)
     {
-        auto * instr = instruction_factory(m, vec(0, 0));
+        auto * instr = instruction_factory(arguments, vec(0, 0));
 
         begin_list = instr;
         end_list = begin_list;
     }
     else
     {
-        auto * instr = instruction_factory(m, end_list->to_point);
+        auto * instr = instruction_factory(arguments, end_list->to_point);
 
         end_list->next = instr;
         end_list = end_list->next;

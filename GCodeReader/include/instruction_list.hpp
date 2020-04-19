@@ -58,7 +58,7 @@ public:
         return instruction_iterator(begin_list);
     }
 
-    void add(const std::map<char, int> & m);
+    void add(const std::map<char, int> & arguments);
 
     friend std::ostream & operator<<(std::ostream & os, const instruction_list & list);
 

@@ -3,6 +3,7 @@
 
 #include <cstdlib>
 #include <cmath>
+#include <cstdint>
 #include <iostream>
 #include <map>
 #include <string>
@@ -32,17 +33,17 @@ struct comparator
 class instruction
 {
 public:
-    explicit instruction(const std::map<char, int> & m, const vec & from)
+    explicit instruction(const std::map<char, int> & arguments, const vec & from)
         : from_point{from}, to_point{from}, next{nullptr}
     {
-        for(const auto & c : m)
-            if(c.first == 'G' || c.first == 'M')
-                type = c;
+        for(const auto & arg : arguments)
+            if(arg.first == 'G' || arg.first == 'M')
+                type = std::make_pair(static_cast<uint16_t>(arg.first), arg.second);
             else
-                args.insert(c);
+                args.emplace(static_cast<uint16_t>(arg.first), arg.second);
 
-        if(m.find('X') != m.end() && m.find('Y') != m.end())
-            to_point = vec(m.at('X'), m.at('Y'));
+        if(arguments.find('X') != arguments.end() && arguments.find('Y') != arguments.end())
+            to_point = vec(arguments.at('X'), arguments.at('Y'));
     }
 
     std::string get_type() const
@@ -59,8 +60,8 @@ public:
     instruction * next;
 
 protected:
-    std::pair<char, int> type;
-    std::map<char, int, comparator> args;
+    std::pair<uint16_t, int> type;
+    std::map<uint16_t, int, comparator> args;
 };
 
 std::ostream & operator<<(std::ostream & os, const instruction & instr);
@@ -68,19 +69,19 @@ std::ostream & operator<<(std::ostream & os, const instruction & instr);
 class circle_instruction : public instruction
 {
 public:
-    explicit circle_instruction(const std::map<char, int> & m, const vec & from)
-        : instruction(m, from)
+    explicit circle_instruction(const std::map<char, int> & arguments, const vec & from)
+        : instruction(arguments, from)
     {
         vec middle = count_middle();
 
-        args.emplace('I', round(middle.x));
-        args.emplace('J', round(middle.y));
+        args.emplace(static_cast<uint16_t>('I'), round(middle.x));
+        args.emplace(static_cast<uint16_t>('J'), round(middle.y));
     }
 
 private:
     vec count_middle();
 };
 
-instruction * instruction_factory(const std::map<char, int> & m, const vec & from);
+instruction * instruction_factory(const std::map<char, int> & arguments, const vec & from);
 
 #endif

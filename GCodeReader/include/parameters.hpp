@@ -16,36 +16,26 @@ public:
 class parameters
 {
 public:
-    parameters(int argc, char * argv[]) : dev_port{""}, files{}
+    parameters(int argc, char * argv[]) : dev_port{""}, filename{}
     {
         parse(argc, argv);
     }
 
     ~parameters() = default;
 
-    std::string port()
+    const std::string & port()
     {
         return dev_port;
     }
 
-    std::string file(size_t i)
+    const std::string & file()
     {
-        return files.at(i);
-    }
-
-    std::vector<std::string>::const_iterator files_begin()
-    {
-        return files.cbegin();
-    }
-
-    std::vector<std::string>::const_iterator files_end()
-    {
-        return files.cend();
+        return filename;
     }
 
 private:
     void parse(int argc, char * argv[]);
 
     std::string dev_port;
-    std::vector<std::string> files;
+    std::string filename;
 };

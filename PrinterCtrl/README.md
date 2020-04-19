@@ -1,5 +1,5 @@
 # PrinterCtrl
-STM32F411 Nucleo board controller
+Controller of STM32F411 Nucleo board in 3D printer
 
 -----
 
