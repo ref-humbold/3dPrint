@@ -4,9 +4,13 @@
 #include <cstdlib>
 #include <exception>
 #include <stdexcept>
+#include <string>
+#include <gtest/gtest.h>
 #include "uart_ctrl.hpp"
 
-void uart_1_test(const std::string & port)
+std::string port;
+
+TEST(UartTest, connect)
 {
     uart_ctrl uart(port);
 
@@ -14,7 +18,7 @@ void uart_1_test(const std::string & port)
     uart.assert_receive(Connect);
 };
 
-void uart_2_test(const std::string & port)
+TEST(UartTest, sendAndReceiveData)
 {
     uart_ctrl uart(port);
     uint16_t data = 0x1234;
@@ -27,12 +31,19 @@ void uart_2_test(const std::string & port)
     uart.assert_receive(Acknowledge);
 };
 
-void uart_3_test(const std::string & port)
+TEST(UartTest, sendDataExpected_WhenAcknowlegeExpected)
 {
     uart_ctrl uart(port);
 
     uart.send(DataExpected);
     uart.assert_receive(Failure);
 };
+
+int main(int argc, char * argv[])
+{
+    ::testing::InitGoogleTest(&argc, argv);
+    port = argv[1];
+    return RUN_ALL_TESTS();
+}
 
 #endif
