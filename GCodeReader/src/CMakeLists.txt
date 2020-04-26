@@ -11,11 +11,8 @@ set(SOURCES
     "uart_ctrl.cpp"
     "vec.cpp")
 
-# TESTS
-include(CTest)
-
 # OUTPUT
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin")
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/dist")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${EXE_OUTPUT_DIR}")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${LIB_OUTPUT_DIR}")
 add_library(gcodeLib SHARED ${SOURCES})
 add_executable(gcode ${SOURCES})
