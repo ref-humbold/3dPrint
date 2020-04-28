@@ -1,3 +1,6 @@
+#ifndef PARAMETERS_HPP_
+#define PARAMETERS_HPP_
+
 #include <cstdlib>
 #include <exception>
 #include <stdexcept>
@@ -19,6 +22,7 @@ public:
     parameters(int argc, char * argv[]) : dev_port{""}, filename{}
     {
         parse(argc, argv);
+        validate();
     }
 
     ~parameters() = default;
@@ -35,7 +39,10 @@ public:
 
 private:
     void parse(int argc, char * argv[]);
+    void validate();
 
     std::string dev_port;
     std::string filename;
 };
+
+#endif

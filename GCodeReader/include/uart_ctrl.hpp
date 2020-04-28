@@ -1,5 +1,5 @@
-#ifndef _USART_HPP_
-#define _USART_HPP_
+#ifndef UART_HPP_
+#define UART_HPP_
 
 #include <cstdlib>
 #include <cerrno>

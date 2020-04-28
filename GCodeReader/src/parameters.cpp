@@ -31,19 +31,18 @@ void parameters::parse(int argc, char * argv[])
         option = getopt(argc, argv, optstring.c_str());
     }
 
+    if(argc > optind)
+        filename = std::string(argv[optind]);
+}
+
+void parameters::validate()
+{
     if(dev_port.empty())
         throw params_exception("Missing option -P, no port specified"s);
 
-    for(int i = optind; i < argc; ++i)
-    {
-        std::string arg = std::string(argv[i]);
-
-        if(arg.substr(arg.size() - 6, arg.size()) != ".gcode"s)
-            throw params_exception("Expected *.gcode file, got "s + arg);
-
-        filename = arg;
-    }
-
     if(filename == "")
         throw params_exception("No *.gcode files specified");
+
+    if(filename.substr(filename.size() - 6, filename.size()) != ".gcode"s)
+        throw params_exception("Expected *.gcode file, got "s + filename);
 }
