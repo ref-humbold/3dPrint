@@ -1,20 +1,24 @@
 #include "commands.h"
 
-void send_to_dac(point * p)
+point currentPoint = {.x = 0, .y = 0};
+
+void send_to_dac(point pt)
 {
-    dac_write(&hspi2, &DacPinX, p->x);
-    dac_write(&hspi2, &DacPinY, p->y);
+    dac_write(&hspi2, &DacPinX, pt.x);
+    dac_write(&hspi2, &DacPinY, pt.y);
 }
 
-void move(point * p)
+void move(point pt)
 {
     laser_off();
-    send_to_dac(p);
+    send_to_dac(pt);
     laser_on();
+    currentPoint = pt;
 }
 
-void linear(point * p)
+void draw_line(point pt)
 {
     laser_on();
-    send_to_dac(p);
+    send_to_dac(pt);
+    currentPoint = pt;
 }

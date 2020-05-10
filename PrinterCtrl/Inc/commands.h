@@ -14,9 +14,10 @@ extern "C"
         uint8_t y;
     } point;
 
-    void send_to_dac(point * p);
-    void move(point * p);
-    void linear(point * p);
+    extern point currentPoint;
+
+    void move(point pt);
+    void draw_line(point pt);
 
 #ifdef __cplusplus
 }
