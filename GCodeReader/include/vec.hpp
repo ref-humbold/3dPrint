@@ -3,7 +3,6 @@
 
 #include <cstdlib>
 #include <cmath>
-#include <algorithm>
 
 struct vec
 {
@@ -22,15 +21,21 @@ public:
     }
 
     void operator+=(const vec & v);
+    void operator-=(const vec & v);
     void operator*=(double c);
+    void operator/=(double c);
 
     double x;
     double y;
 };
 
+vec operator-(vec v);
 vec operator+(vec v1, const vec & v2);
+vec operator-(vec v1, const vec & v2);
 vec operator*(vec v, double c);
 vec operator*(double c, vec v);
+vec operator/(vec v, double c);
+vec operator/(double c, vec v);
 bool operator==(const vec & v1, const vec & v2);
 bool operator!=(const vec & v1, const vec & v2);
 

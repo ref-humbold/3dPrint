@@ -1,4 +1,5 @@
 #include "instructions.hpp"
+#include <algorithm>
 
 // region instruction
 
@@ -8,9 +9,10 @@ std::vector<uint16_t> instruction::to_message() const
 
     message.push_back((type.first << 8U) | type.second);
 
-    std::transform(args.begin(), args.end(), std::back_inserter(message), [](auto argument) {
-        return (argument.first << 8U) | static_cast<uint8_t>(argument.second);
-    });
+    std::transform(arguments.begin(), arguments.end(), std::back_inserter(message),
+                   [](auto argument) {
+                       return (argument.first << 8U) | static_cast<uint8_t>(argument.second);
+                   });
 
     return message;
 }
@@ -19,7 +21,7 @@ std::ostream & operator<<(std::ostream & os, const instruction & instr)
 {
     os << "{ " << static_cast<char>(instr.type.first) << instr.type.second;
 
-    for(const auto & a : instr.args)
+    for(const auto & a : instr.arguments)
         os << " " << static_cast<char>(a.first) << a.second;
 
     os << " }";
@@ -30,22 +32,43 @@ std::ostream & operator<<(std::ostream & os, const instruction & instr)
 // endregion
 // region circle_instruction
 
+circle_instruction::middle_direction circle_instruction::get_direction()
+{
+    if(type.second == 2)
+        return arguments.at(static_cast<uint16_t>('R')) >= 0 ? middle_direction::Right
+                                                             : middle_direction::Left;
+
+    return arguments.at(static_cast<uint16_t>('R')) >= 0 ? middle_direction::Left
+                                                         : middle_direction::Right;
+}
+
 vec circle_instruction::count_middle()
 {
-    uint16_t r16 = static_cast<uint16_t>('R');
+    uint16_t radius = static_cast<uint16_t>('R');
 
     if(from_point == to_point)
         return from_point;
 
-    double dl = hypot((from_point.x - to_point.x) / 2, (from_point.y - to_point.y) / 2);
-    vec h = (type.second == 2 && args.at(r16) >= 0) || (type.second == 3 && args.at(r16) < 0)
-                    ? vec(-(from_point.y - to_point.y) / 2, (from_point.x - to_point.x) / 2)
-                    : vec((from_point.y - to_point.y) / 2, -(from_point.x - to_point.x) / 2);
+    vec path_centre = (from_point + to_point) / 2;
+    vec middle_axis;
 
-    h *= (sqrt(args.at(r16) - dl) * sqrt(args.at(r16) + dl) / dl);
-    args[r16] = std::abs(args.at(r16));
+    switch(get_direction())
+    {
+        case middle_direction::Left:
+            middle_axis = vec(-path_centre.y, path_centre.x);
+            break;
 
-    return h + vec((from_point.x + to_point.x) / 2, (from_point.y + to_point.y) / 2);
+        case middle_direction::Right:
+            middle_axis = vec(path_centre.y, path_centre.x);
+            break;
+    }
+
+    double required_length = sqrt(arguments.at(radius) - path_centre.length())
+                             * sqrt(arguments.at(radius) + path_centre.length());
+    middle_axis *= required_length / path_centre.length();
+    arguments[radius] = std::abs(arguments.at(radius));
+
+    return path_centre + middle_axis;
 }
 
 // endregion

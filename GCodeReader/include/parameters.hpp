@@ -5,7 +5,6 @@
 #include <exception>
 #include <stdexcept>
 #include <string>
-#include <vector>
 #include <unistd.h>
 
 class params_exception : public std::logic_error
@@ -19,13 +18,11 @@ public:
 class parameters
 {
 public:
-    parameters(int argc, char * argv[]) : dev_port{""}, filename{}
+    parameters(int argc, char * argv[]) : dev_port{""}, filename{""}
     {
         parse(argc, argv);
         validate();
     }
-
-    ~parameters() = default;
 
     const std::string & port()
     {

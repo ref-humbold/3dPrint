@@ -40,7 +40,7 @@ public:
             if(arg.first == 'G' || arg.first == 'M')
                 type = std::make_pair(static_cast<uint16_t>(arg.first), arg.second);
             else
-                args.emplace(static_cast<uint16_t>(arg.first), arg.second);
+                this->arguments.emplace(static_cast<uint16_t>(arg.first), arg.second);
 
         if(arguments.find('X') != arguments.end() && arguments.find('Y') != arguments.end())
             to_point = vec(arguments.at('X'), arguments.at('Y'));
@@ -61,7 +61,7 @@ public:
 
 protected:
     std::pair<uint16_t, int> type;
-    std::map<uint16_t, int, comparator> args;
+    std::map<uint16_t, int, comparator> arguments;
 };
 
 std::ostream & operator<<(std::ostream & os, const instruction & instr);
@@ -74,12 +74,19 @@ public:
     {
         vec middle = count_middle();
 
-        args.emplace(static_cast<uint16_t>('I'), round(middle.x));
-        args.emplace(static_cast<uint16_t>('J'), round(middle.y));
+        this->arguments.emplace(static_cast<uint16_t>('I'), round(middle.x));
+        this->arguments.emplace(static_cast<uint16_t>('J'), round(middle.y));
     }
 
 private:
+    enum class middle_direction : int
+    {
+        Left,
+        Right
+    };
+
     vec count_middle();
+    middle_direction get_direction();
 };
 
 instruction * instruction_factory(const std::map<char, int> & arguments, const vec & from);

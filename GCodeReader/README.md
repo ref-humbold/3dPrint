@@ -3,6 +3,16 @@ GCode instructions sender to STM32F411 Nucleo board
 
 -----
 
+## GCode commands
+
+`G0 Xx Yy` - move laser to point `(x, y)`
+`G1 Xx Yy` - draw line to point `(x, y)`
+`G2 Xx Yy Rr` - draw circle with radius `r` clockwise to point `(x, y)`
+`G3 Xx Yy Rr` - draw circle with radius `r` counterclockwise to point `(x, y)`
+
+
+-----
+
 ## Connection schema
 
 1. GCodeReader ---- *Connect* ---------------------> PrinterCtrl
