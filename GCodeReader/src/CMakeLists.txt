@@ -2,14 +2,11 @@ cmake_minimum_required(VERSION 3.10)
 
 # SOURCES
 set(SOURCES
-    "file_reader.cpp"
-    "gcode.cpp"
-    "instruction_list.cpp"
-    "instructions.cpp"
-    "parameters.cpp"
-    "parser.cpp"
-    "uart_ctrl.cpp"
-    "vec.cpp")
+    file_reader.cpp
+    gcode.cpp
+    parameters.cpp
+    uart_ctrl.cpp
+    vec.cpp)
 
 # OUTPUT
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${EXE_OUTPUT_DIR}")

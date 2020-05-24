@@ -14,11 +14,13 @@ void move(point pt)
     send_to_dac(pt);
     laser_on();
     currentPoint = pt;
+    HAL_Delay(200);
 }
 
-void draw_line(point pt)
+void draw(point pt)
 {
     laser_on();
     send_to_dac(pt);
     currentPoint = pt;
+    HAL_Delay(200);
 }

@@ -1,9 +1,4 @@
-#ifndef USART_TEST_HPP_
-#define USART_TEST_HPP_
-
 #include <cstdlib>
-#include <exception>
-#include <stdexcept>
 #include <string>
 #include <gtest/gtest.h>
 #include "uart_ctrl.hpp"
@@ -45,5 +40,3 @@ int main(int argc, char * argv[])
     port = argv[1];
     return RUN_ALL_TESTS();
 }
-
-#endif

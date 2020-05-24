@@ -17,7 +17,7 @@ extern "C"
     extern point currentPoint;
 
     void move(point pt);
-    void draw_line(point pt);
+    void draw(point pt);
 
 #ifdef __cplusplus
 }

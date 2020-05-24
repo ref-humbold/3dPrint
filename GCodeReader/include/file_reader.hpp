@@ -41,6 +41,8 @@ public:
 
 private:
     FILE * desc;
+
+    std::string trim(std::string line);
 };
 
 #endif

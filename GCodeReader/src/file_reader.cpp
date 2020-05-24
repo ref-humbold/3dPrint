@@ -26,5 +26,17 @@ std::string file_reader::get_line()
     if(res == nullptr && ferror(desc))
         throw std::logic_error(strerror(errno));
 
-    return std::string(line);
+    std::string line_str(line);
+    int comment_index = line_str.find_first_of(";");
+
+    return trim(line_str.substr(0, comment_index));
+}
+
+std::string file_reader::trim(std::string line)
+{
+    std::string chars = " \t\n\r";
+
+    line.erase(0, line.find_first_not_of(chars));
+    line.erase(line.find_last_not_of(chars) + 1);
+    return line;
 }
