@@ -1,4 +1,5 @@
 #include "vec.hpp"
+#include <cmath>
 
 void vec::operator+=(const vec & v)
 {

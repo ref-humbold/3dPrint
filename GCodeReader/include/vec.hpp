@@ -2,7 +2,6 @@
 #define VEC_HPP_
 
 #include <cstdlib>
-#include <cmath>
 
 struct vec
 {
