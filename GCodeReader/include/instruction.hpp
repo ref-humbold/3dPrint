@@ -3,6 +3,7 @@
 
 #include <cstdlib>
 #include <cinttypes>
+#include <map>
 #include <string>
 #include <vector>
 
@@ -14,12 +15,12 @@ public:
     }
 
     std::vector<uint16_t> get_message();
-    void add_argument(char code, size_t value);
+    void add_argument(char code, int value);
 
 private:
-    std::vector<std::pair<char, size_t>> arguments;
+    std::map<char, int> arguments;
 };
 
-std::vector<std::string> split(const std::string & line);
+instruction parse_line(const std::string & line);
 
 #endif
