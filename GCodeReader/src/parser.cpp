@@ -36,5 +36,29 @@ std::vector<printer_instruction> convert(const gcode_instruction & instruction)
 {
     std::vector<printer_instruction> instructions;
 
+    switch(instruction.get_argument_at('G'))
+    {
+        case 0:
+        case 1:
+        {
+            printer_instruction instr(std::to_string(instruction.get_line_number()));
+
+            for(const auto & argument : instruction)
+                instr.add_argument(argument);
+
+            instructions.push_back(instr);
+            break;
+        }
+
+        case 2:
+        case 3:
+        {
+            std::pair<uint16_t, uint16_t> middle;
+        }
+
+        default:
+            break;
+    }
+
     return instructions;
 }

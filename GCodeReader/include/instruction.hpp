@@ -13,22 +13,22 @@ public:
     {
     }
 
-    size_t get_line_number()
+    size_t get_line_number() const
     {
         return line_number;
     }
 
-    int get_argument_at(char code)
+    int get_argument_at(char code) const
     {
         return arguments.at(code);
     }
 
-    std::map<char, int>::const_iterator cbegin()
+    std::map<char, int>::const_iterator begin() const
     {
         return arguments.cbegin();
     }
 
-    std::map<char, int>::const_iterator cend()
+    std::map<char, int>::const_iterator end() const
     {
         return arguments.cend();
     }
@@ -50,17 +50,17 @@ public:
     {
     }
 
-    const std::string & get_identifier()
+    const std::string & get_identifier() const
     {
         return identifier;
     }
 
-    std::vector<uint16_t>::const_iterator cbegin()
+    std::vector<uint16_t>::const_iterator begin() const
     {
         return message.cbegin();
     }
 
-    std::vector<uint16_t>::const_iterator cend()
+    std::vector<uint16_t>::const_iterator end() const
     {
         return message.cend();
     }
