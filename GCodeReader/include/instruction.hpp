@@ -3,8 +3,19 @@
 
 #include <cstdlib>
 #include <cinttypes>
+#include <iostream>
 #include <map>
 #include <vector>
+
+struct point
+{
+    uint16_t x;
+    uint16_t y;
+
+    point() : x{0}, y{0}
+    {
+    }
+};
 
 class gcode_instruction
 {
@@ -46,7 +57,8 @@ private:
 class printer_instruction
 {
 public:
-    explicit printer_instruction(const std::string & identifier) : identifier{identifier}
+    explicit printer_instruction(const std::string & identifier, point start_pos)
+        : start_pos{start_pos}, identifier{identifier}
     {
     }
 
@@ -65,15 +77,18 @@ public:
         return message.cend();
     }
 
-    void add_argument(std::pair<char, int> argument)
-    {
-        message.push_back(static_cast<uint16_t>(argument.first));
-        message.push_back(static_cast<uint16_t>(argument.second));
-    }
+    void add_argument(const std::pair<char, int> & argument);
+
+    point start_pos;
+    point end_pos;
 
 private:
     std::string identifier;
     std::vector<uint16_t> message;
 };
+
+std::ostream & operator<<(std::ostream & os, const gcode_instruction & instruction);
+
+std::ostream & operator<<(std::ostream & os, const printer_instruction & instruction);
 
 #endif

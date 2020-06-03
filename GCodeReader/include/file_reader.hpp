@@ -40,9 +40,9 @@ public:
     static const size_t MAX_LINE_LENGTH = 128;
 
 private:
-    FILE * desc;
-
     std::string trim(std::string line);
+
+    FILE * desc;
 };
 
 #endif

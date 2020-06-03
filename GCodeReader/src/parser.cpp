@@ -1,6 +1,36 @@
 #include "parser.hpp"
+#include <algorithm>
 
-std::vector<std::string> split(const std::string & line, const std::string & delimiters)
+using namespace std::string_literals;
+
+void parser::parse()
+{
+    std::string line = reader.get_line();
+
+    for(int i = 1; line != "\0"s; ++i)
+    {
+        if(line.size() > 0)
+        {
+            gcode_instruction gcode = parse_line(line, i);
+
+            gcode_instructions.push_back(gcode);
+        }
+
+        line = reader.get_line();
+    }
+
+    point position;
+
+    for(const auto & instr : gcode_instructions)
+    {
+        std::vector<printer_instruction> printer = convert(instr, position);
+
+        position = printer.back().end_pos;
+        std::copy(printer.begin(), printer.end(), std::back_inserter(printer_instructions));
+    }
+}
+
+std::vector<std::string> parser::split(const std::string & line, const std::string & delimiters)
 {
     std::vector<std::string> result;
     size_t begin_pos = 0;
@@ -21,18 +51,19 @@ std::vector<std::string> split(const std::string & line, const std::string & del
     return result;
 }
 
-gcode_instruction parse_line(const std::string & line, size_t line_number)
+gcode_instruction parser::parse_line(const std::string & line, size_t line_number)
 {
     gcode_instruction instruction(line_number);
     std::vector<std::string> split_line = split(line, " \t");
 
-    for(const auto & arg : split_line)
+    std::for_each(split_line.begin(), split_line.end(), [&](const std::string & arg) {
         instruction.add_argument(arg.at(0), std::stoi(arg.substr(1)));
-
+    });
     return instruction;
 }
 
-std::vector<printer_instruction> convert(const gcode_instruction & instruction)
+std::vector<printer_instruction> parser::convert(const gcode_instruction & instruction,
+                                                 const point & start)
 {
     std::vector<printer_instruction> instructions;
 
@@ -41,11 +72,11 @@ std::vector<printer_instruction> convert(const gcode_instruction & instruction)
         case 0:
         case 1:
         {
-            printer_instruction instr(std::to_string(instruction.get_line_number()));
+            printer_instruction instr(std::to_string(instruction.get_line_number()), start);
 
-            for(const auto & argument : instruction)
-                instr.add_argument(argument);
-
+            std::for_each(
+                    instruction.begin(), instruction.end(),
+                    [&](const std::pair<char, int> argument) { instr.add_argument(argument); });
             instructions.push_back(instr);
             break;
         }

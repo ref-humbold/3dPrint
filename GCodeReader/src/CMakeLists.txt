@@ -4,6 +4,7 @@ cmake_minimum_required(VERSION 3.10)
 set(SOURCES
     file_reader.cpp
     gcode.cpp
+    instruction.cpp
     parameters.cpp
     parser.cpp
     uart_ctrl.cpp
