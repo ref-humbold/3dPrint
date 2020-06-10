@@ -6,16 +6,7 @@
 #include <iostream>
 #include <map>
 #include <vector>
-
-struct point
-{
-    uint16_t x;
-    uint16_t y;
-
-    point() : x{0}, y{0}
-    {
-    }
-};
+#include "vec.hpp"
 
 class gcode_instruction
 {
@@ -57,8 +48,8 @@ private:
 class printer_instruction
 {
 public:
-    explicit printer_instruction(const std::string & identifier, point start_pos)
-        : start_pos{start_pos}, identifier{identifier}
+    explicit printer_instruction(const std::string & identifier, vec start_pos)
+        : start_pos{start_pos.grid()}, identifier{identifier}
     {
     }
 
@@ -79,8 +70,8 @@ public:
 
     void add_argument(const std::pair<char, int> & argument);
 
-    point start_pos;
-    point end_pos;
+    std::pair<uint16_t, uint16_t> start_pos;
+    std::pair<uint16_t, uint16_t> end_pos;
 
 private:
     std::string identifier;

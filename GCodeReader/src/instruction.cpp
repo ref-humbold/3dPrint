@@ -3,10 +3,10 @@
 void printer_instruction::add_argument(const std::pair<char, int> & argument)
 {
     if(argument.first == 'X')
-        end_pos.x = static_cast<uint16_t>(argument.second);
+        end_pos.first = static_cast<uint16_t>(argument.second);
 
     if(argument.first == 'Y')
-        end_pos.y = static_cast<uint16_t>(argument.second);
+        end_pos.second = static_cast<uint16_t>(argument.second);
 
     message.push_back(static_cast<uint16_t>(argument.first));
     message.push_back(static_cast<uint16_t>(argument.second));

@@ -2,11 +2,12 @@
 #define VEC_HPP_
 
 #include <cstdlib>
+#include <cinttypes>
 #include <cmath>
+#include <utility>
 
 struct vec
 {
-public:
     vec() : x{0}, y{0}
     {
     }
@@ -15,9 +16,18 @@ public:
     {
     }
 
+    explicit vec(const std::pair<double, double> & pair) : x{pair.first}, y{pair.second}
+    {
+    }
+
     double length() const
     {
         return hypot(x, y);
+    }
+
+    std::pair<uint16_t, uint16_t> grid() const
+    {
+        return std::make_pair(static_cast<uint16_t>(round(x)), static_cast<uint16_t>(round(y)));
     }
 
     void operator+=(const vec & v);
