@@ -12,10 +12,12 @@
 class parser
 {
 private:
-    enum class middle_place
+    enum class arc_type
     {
-        Left,
-        Right
+        ClockwiseLeft,
+        ClockwiseRight,
+        CounterClockwiseLeft,
+        CounterClockwiseRight
     };
 
 public:
@@ -36,13 +38,15 @@ public:
     void parse();
 
 private:
-    middle_place extract_middle_place(const gcode_instruction & instruction);
+    arc_type extract_arc_type(const gcode_instruction & instruction);
     std::vector<std::string> split(const std::string & line, const std::string & delimiters);
     gcode_instruction parse_line(const std::string & line, size_t line_number);
-    vec count_middle(const gcode_instruction & instruction, const vec & start);
+    vec count_middle(const vec & start, const vec & end, double radius, arc_type type);
     std::vector<printer_instruction> convert(const gcode_instruction & instruction,
                                              const vec & start);
 
+    const double Pi = atan2(0, -1);
+    const int AngleStep = 5;
     file_reader reader;
     std::vector<gcode_instruction> gcode_instructions;
     std::vector<printer_instruction> printer_instructions;

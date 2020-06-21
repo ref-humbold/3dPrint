@@ -1,5 +1,15 @@
 #include "vec.hpp"
 
+bool operator==(const grid & g1, const grid & g2)
+{
+    return g1.x == g2.x && g1.y == g2.y;
+}
+
+bool operator!=(const grid & g1, const grid & g2)
+{
+    return !(g1 == g2);
+}
+
 void vec::operator+=(const vec & v)
 {
     this->x += v.x;

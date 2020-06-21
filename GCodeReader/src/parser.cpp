@@ -3,12 +3,14 @@
 
 using namespace std::string_literals;
 
-parser::middle_place parser::extract_middle_place(const gcode_instruction & instruction)
+parser::arc_type parser::extract_arc_type(const gcode_instruction & instruction)
 {
     if(instruction.get_argument_at('G') == 2)
-        return instruction.get_argument_at('R') >= 0 ? middle_place::Right : middle_place::Left;
+        return instruction.get_argument_at('R') >= 0 ? arc_type::ClockwiseRight
+                                                     : arc_type::ClockwiseLeft;
 
-    return instruction.get_argument_at('R') >= 0 ? middle_place::Left : middle_place::Right;
+    return instruction.get_argument_at('R') >= 0 ? arc_type::CounterClockwiseLeft
+                                                 : arc_type::CounterClockwiseRight;
 }
 
 void parser::parse()
@@ -70,21 +72,20 @@ gcode_instruction parser::parse_line(const std::string & line, size_t line_numbe
     return instruction;
 }
 
-vec parser::count_middle(const gcode_instruction & instruction, const vec & start)
+vec parser::count_middle(const vec & start, const vec & end, double radius, arc_type type)
 {
-    vec end(instruction.get_argument_at('X'), instruction.get_argument_at('Y'));
-    double radius = std::abs(instruction.get_argument_at('R'));
-    middle_place place = extract_middle_place(instruction);
     vec path_centre = (start + end) / 2;
     vec middle_axis;
 
-    switch(place)
+    switch(type)
     {
-        case middle_place::Left:
+        case arc_type::ClockwiseLeft:
+        case arc_type::CounterClockwiseLeft:
             middle_axis = vec(-path_centre.y, path_centre.x);
             break;
 
-        case middle_place::Right:
+        case arc_type::ClockwiseRight:
+        case arc_type::CounterClockwiseRight:
             middle_axis = vec(path_centre.y, path_centre.x);
             break;
     }
@@ -99,7 +100,11 @@ vec parser::count_middle(const gcode_instruction & instruction, const vec & star
 std::vector<printer_instruction> parser::convert(const gcode_instruction & instruction,
                                                  const vec & start)
 {
-    std::vector<printer_instruction> instructions;
+    std::vector<printer_instruction> print_instructions;
+    vec end(instruction.get_argument_at('X'), instruction.get_argument_at('Y'));
+
+    if(start == end)
+        return print_instructions;
 
     switch(instruction.get_argument_at('G'))
     {
@@ -111,19 +116,68 @@ std::vector<printer_instruction> parser::convert(const gcode_instruction & instr
             std::for_each(
                     instruction.begin(), instruction.end(),
                     [&](const std::pair<char, int> argument) { instr.add_argument(argument); });
-            instructions.push_back(instr);
+            print_instructions.push_back(instr);
             break;
         }
 
         case 2:
         case 3:
         {
-            vec middle = count_middle(instruction, start);
+            double radius = abs(instruction.get_argument_at('R'));
+            arc_type type = extract_arc_type(instruction);
+            vec middle = count_middle(start, end, radius, type);
+            double start_angle = acos((start - middle).x);
+            double end_angle = acos((end - middle).x);
+
+            switch(type)
+            {
+                case arc_type::ClockwiseLeft:
+                case arc_type::ClockwiseRight:
+                {
+                    int previous_angle = start_angle;
+                    int next_angle = floor(start_angle / AngleStep) * AngleStep;
+
+                    end_angle = end_angle > start_angle ? end_angle - 2 * Pi : end_angle;
+
+                    while(next_angle > end_angle)
+                    {
+                        // prevoius_angle -> next_angle
+
+                        previous_angle = next_angle;
+                        next_angle -= AngleStep;
+                    }
+
+                    // prevoius_angle -> end_angle
+                    break;
+                }
+
+                case arc_type::CounterClockwiseLeft:
+                case arc_type::CounterClockwiseRight:
+                {
+                    int previous_angle = start_angle;
+                    int next_angle = ceil(start_angle / AngleStep) * AngleStep;
+
+                    end_angle = end_angle < start_angle ? end_angle + 2 * Pi : end_angle;
+
+                    while(next_angle < end_angle)
+                    {
+                        // prevoius_angle -> next_angle
+
+                        previous_angle = next_angle;
+                        next_angle += AngleStep;
+                    }
+
+                    // prevoius_angle -> end_angle
+                    break;
+                }
+            }
+
+            break;
         }
 
         default:
             break;
     }
 
-    return instructions;
+    return print_instructions;
 }

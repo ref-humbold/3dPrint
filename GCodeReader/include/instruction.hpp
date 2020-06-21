@@ -49,7 +49,7 @@ class printer_instruction
 {
 public:
     explicit printer_instruction(const std::string & identifier, vec start_pos)
-        : start_pos{start_pos.grid()}, identifier{identifier}
+        : start_pos{start_pos.to_grid()}, identifier{identifier}
     {
     }
 
@@ -70,8 +70,8 @@ public:
 
     void add_argument(const std::pair<char, int> & argument);
 
-    std::pair<uint16_t, uint16_t> start_pos;
-    std::pair<uint16_t, uint16_t> end_pos;
+    grid start_pos;
+    grid end_pos;
 
 private:
     std::string identifier;

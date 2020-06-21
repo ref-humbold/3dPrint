@@ -6,6 +6,20 @@
 #include <cmath>
 #include <utility>
 
+struct grid
+{
+    grid() : x{0}, y{0}
+    {
+    }
+
+    grid(uint8_t x, uint8_t y) : x{x}, y{y}
+    {
+    }
+
+    uint8_t x;
+    uint8_t y;
+};
+
 struct vec
 {
     vec() : x{0}, y{0}
@@ -16,7 +30,7 @@ struct vec
     {
     }
 
-    explicit vec(const std::pair<double, double> & pair) : x{pair.first}, y{pair.second}
+    explicit vec(const grid & g) : x{static_cast<double>(g.x)}, y{static_cast<double>(g.y)}
     {
     }
 
@@ -25,9 +39,9 @@ struct vec
         return hypot(x, y);
     }
 
-    std::pair<uint16_t, uint16_t> grid() const
+    grid to_grid() const
     {
-        return std::make_pair(static_cast<uint16_t>(round(x)), static_cast<uint16_t>(round(y)));
+        return grid(static_cast<uint8_t>(round(x)), static_cast<uint8_t>(round(y)));
     }
 
     void operator+=(const vec & v);
@@ -38,6 +52,9 @@ struct vec
     double x;
     double y;
 };
+
+bool operator==(const grid & g1, const grid & g2);
+bool operator!=(const grid & g1, const grid & g2);
 
 vec operator-(vec v);
 vec operator+(vec v1, const vec & v2);
