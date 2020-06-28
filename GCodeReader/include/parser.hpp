@@ -9,7 +9,29 @@
 #include "instruction.hpp"
 #include "vec.hpp"
 
-class parser
+class gcode_parser
+{
+public:
+    explicit gcode_parser(const std::string & filename) : reader{file_reader(filename)}
+    {
+    }
+
+    std::vector<gcode_instruction> get_instructions()
+    {
+        return gcode_instructions;
+    }
+
+    void parse();
+
+private:
+    std::vector<std::string> split(const std::string & line, const std::string & delimiters);
+    gcode_instruction parse_line(const std::string & line, size_t line_number);
+
+    file_reader reader;
+    std::vector<gcode_instruction> gcode_instructions;
+};
+
+class printer_parser
 {
 private:
     enum class arc_type
@@ -21,16 +43,13 @@ private:
     };
 
 public:
-    explicit parser(const std::string & filename) : reader{file_reader(filename)}
+    explicit printer_parser(const std::vector<gcode_instruction> & gcode_instructions,
+                            vec start = vec(0, 0))
+        : start_position{start}, gcode_instructions{gcode_instructions}
     {
     }
 
-    std::vector<gcode_instruction> get_gcode_instructions()
-    {
-        return gcode_instructions;
-    }
-
-    std::vector<printer_instruction> get_printer_instructions()
+    std::vector<printer_instruction> get_instructions()
     {
         return printer_instructions;
     }
@@ -39,15 +58,15 @@ public:
 
 private:
     arc_type extract_arc_type(const gcode_instruction & instruction);
-    std::vector<std::string> split(const std::string & line, const std::string & delimiters);
-    gcode_instruction parse_line(const std::string & line, size_t line_number);
     vec count_middle(const vec & start, const vec & end, double radius, arc_type type);
     std::vector<printer_instruction> convert(const gcode_instruction & instruction,
                                              const vec & start);
+    printer_instruction move_on_arc(const std::string & identifier, const vec & previous_point,
+                                    const grid & next_point);
 
     const double Pi = atan2(0, -1);
     const int AngleStep = 5;
-    file_reader reader;
+    vec start_position;
     std::vector<gcode_instruction> gcode_instructions;
     std::vector<printer_instruction> printer_instructions;
 };

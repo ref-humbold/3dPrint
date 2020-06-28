@@ -8,6 +8,8 @@
 #include <vector>
 #include "vec.hpp"
 
+#pragma region gcode_instruction
+
 class gcode_instruction
 {
 public:
@@ -40,10 +42,20 @@ public:
         arguments.emplace(code, value);
     }
 
+    friend bool operator==(const gcode_instruction & g1, const gcode_instruction & g2);
+    friend bool operator!=(const gcode_instruction & g1, const gcode_instruction & g2);
+
 private:
     size_t line_number;
     std::map<char, int> arguments;
 };
+
+bool operator==(const gcode_instruction & g1, const gcode_instruction & g2);
+bool operator!=(const gcode_instruction & g1, const gcode_instruction & g2);
+std::ostream & operator<<(std::ostream & os, const gcode_instruction & instruction);
+
+#pragma endregion
+#pragma region gcode_instruction
 
 class printer_instruction
 {
@@ -70,6 +82,9 @@ public:
 
     void add_argument(const std::pair<char, int> & argument);
 
+    friend bool operator==(const printer_instruction & p1, const printer_instruction & p2);
+    friend bool operator!=(const printer_instruction & p1, const printer_instruction & p2);
+
     grid start_pos;
     grid end_pos;
 
@@ -78,8 +93,10 @@ private:
     std::vector<uint16_t> message;
 };
 
-std::ostream & operator<<(std::ostream & os, const gcode_instruction & instruction);
-
+bool operator==(const printer_instruction & p1, const printer_instruction & p2);
+bool operator!=(const printer_instruction & p1, const printer_instruction & p2);
 std::ostream & operator<<(std::ostream & os, const printer_instruction & instruction);
+
+#pragma endregion
 
 #endif

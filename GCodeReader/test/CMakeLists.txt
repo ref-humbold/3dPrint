@@ -11,6 +11,7 @@ find_package(Threads REQUIRED)
 # SOURCES
 set(SOURCES
     file_reader_test.cpp
+    printer_parser_test.cpp
     uart_test.cpp)
 
 # OUTPUT
