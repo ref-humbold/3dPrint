@@ -14,7 +14,7 @@ std::ostream & operator<<(std::ostream & os, const gcode_instruction & instructi
 {
     os << "[: " << instruction.get_line_number() << " / ";
 
-    for(const auto & arg : instruction)
+    for(auto && arg : instruction)
         os << arg.first << arg.second << " ";
 
     os << ":]";
@@ -45,11 +45,12 @@ bool operator!=(const printer_instruction & p1, const printer_instruction & p2)
 
 std::ostream & operator<<(std::ostream & os, const printer_instruction & instruction)
 {
-    os << "{: " << instruction.get_identifier() << " / ";
+    os << "{: " << instruction.get_identifier() << " / " << instruction.start_pos << " -> "
+       << instruction.end_pos << " / " << std::hex;
 
-    for(const auto & arg : instruction)
-        os << std::hex << arg << " ";
+    for(auto && arg : instruction)
+        os << arg << " ";
 
-    os << ":}";
+    os << std::dec << ":}";
     return os;
 }

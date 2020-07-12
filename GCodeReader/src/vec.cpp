@@ -1,14 +1,6 @@
 #include "vec.hpp"
 
-bool operator==(const grid & g1, const grid & g2)
-{
-    return g1.x == g2.x && g1.y == g2.y;
-}
-
-bool operator!=(const grid & g1, const grid & g2)
-{
-    return !(g1 == g2);
-}
+#pragma region vec
 
 void vec::operator+=(const vec & v)
 {
@@ -89,3 +81,30 @@ bool operator!=(const vec & v1, const vec & v2)
 {
     return !(v1 == v2);
 }
+
+std::ostream & operator<<(std::ostream & os, const vec & v)
+{
+    os << "[| " << v.x << ", " << v.y << " |]";
+    return os;
+}
+
+#pragma endregion
+#pragma region grid
+
+bool operator==(const grid & g1, const grid & g2)
+{
+    return g1.x == g2.x && g1.y == g2.y;
+}
+
+bool operator!=(const grid & g1, const grid & g2)
+{
+    return !(g1 == g2);
+}
+
+std::ostream & operator<<(std::ostream & os, const grid & g)
+{
+    os << "(| " << static_cast<int>(g.x) << ", " << static_cast<int>(g.y) << " |)";
+    return os;
+}
+
+#pragma endregion

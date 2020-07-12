@@ -61,7 +61,7 @@ class printer_instruction
 {
 public:
     explicit printer_instruction(const std::string & identifier, vec start_pos)
-        : start_pos{start_pos.to_grid()}, identifier{identifier}
+        : start_pos{start_pos}, identifier{identifier}
     {
     }
 

@@ -36,10 +36,10 @@ class printer_parser
 private:
     enum class arc_type
     {
-        ClockwiseLeft,
-        ClockwiseRight,
-        CounterClockwiseLeft,
-        CounterClockwiseRight
+        ClockwiseLeftSide,
+        ClockwiseRightSide,
+        CounterClockwiseLeftSide,
+        CounterClockwiseRightSide
     };
 
 public:
@@ -65,7 +65,7 @@ private:
                                     const grid & next_point);
 
     const double Pi = atan2(0, -1);
-    const int AngleStep = 5;
+    const int AngleStep = Pi / 36.0;
     vec start_position;
     std::vector<gcode_instruction> gcode_instructions;
     std::vector<printer_instruction> printer_instructions;
