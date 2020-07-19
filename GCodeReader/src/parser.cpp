@@ -71,7 +71,7 @@ void printer_parser::parse()
     }
 }
 
-printer_parser::arc_type printer_parser::extract_arc_type(const gcode_instruction & instruction)
+arc_type printer_parser::extract_arc_type(const gcode_instruction & instruction)
 {
     if(instruction.get_argument_at('G') == 2)
         return instruction.get_argument_at('R') >= 0 ? arc_type::ClockwiseRightSide
@@ -79,31 +79,6 @@ printer_parser::arc_type printer_parser::extract_arc_type(const gcode_instructio
 
     return instruction.get_argument_at('R') >= 0 ? arc_type::CounterClockwiseLeftSide
                                                  : arc_type::CounterClockwiseRightSide;
-}
-
-vec printer_parser::count_middle(const vec & start, const vec & end, double radius, arc_type type)
-{
-    vec path_centre = (start + end) / 2;
-    vec middle_axis;
-
-    switch(type)
-    {
-        case arc_type::ClockwiseLeftSide:
-        case arc_type::CounterClockwiseLeftSide:
-            middle_axis = vec(-path_centre.y, path_centre.x);
-            break;
-
-        case arc_type::ClockwiseRightSide:
-        case arc_type::CounterClockwiseRightSide:
-            middle_axis = vec(path_centre.y, path_centre.x);
-            break;
-    }
-
-    double required_length =
-            sqrt(radius - path_centre.length()) * sqrt(radius + path_centre.length());
-
-    middle_axis *= required_length / path_centre.length();
-    return path_centre + middle_axis;
 }
 
 std::vector<printer_instruction> printer_parser::convert(const gcode_instruction & instruction,
@@ -132,14 +107,14 @@ std::vector<printer_instruction> printer_parser::convert(const gcode_instruction
         case 2:
         case 3:
         {
-            auto generate_id = [&](int line_number, double radians) {
-                return std::to_string(line_number) + "_" + std::to_string(radians * 180 / Pi);
+            auto generate_id = [&](int line_number, double degrees) {
+                return std::to_string(line_number) + "_" + std::to_string(degrees);
             };
-            double radius = std::abs(instruction.get_argument_at('R'));
+
             arc_type type = extract_arc_type(instruction);
-            vec middle = count_middle(start, end, radius, type);
-            double start_angle = std::acos((start - middle).x / radius);
-            double end_angle = std::acos((end - middle).x / radius);
+            arc arc_(start, end, std::abs(instruction.get_argument_at('R')), type);
+            double start_degrees = arc_.degrees(arc_.start_point());
+            double end_degrees = arc_.degrees(arc_.end_point());
 
             switch(type)
             {
@@ -147,24 +122,23 @@ std::vector<printer_instruction> printer_parser::convert(const gcode_instruction
                 case arc_type::ClockwiseRightSide:
                 {
                     vec previous_point = start;
-                    int next_angle = (std::ceil(start_angle / AngleStep) - 1) * AngleStep;
+                    int next_degrees = (std::ceil(start_degrees / DegreesStep) - 1) * DegreesStep;
 
-                    end_angle = end_angle > start_angle ? end_angle - 2 * Pi : end_angle;
+                    end_degrees = end_degrees > start_degrees ? end_degrees - 360.0 : end_degrees;
 
-                    while(next_angle > end_angle)
+                    while(next_degrees > end_degrees)
                     {
-                        vec next_point =
-                                vec(radius * std::cos(next_angle), radius * std::sin(next_angle));
+                        vec next_point = arc_.point(next_degrees);
 
-                        print_instructions.push_back(
-                                move_on_arc(generate_id(instruction.get_line_number(), next_angle),
-                                            previous_point, grid(next_point)));
+                        print_instructions.push_back(move_on_arc(
+                                generate_id(instruction.get_line_number(), next_degrees),
+                                previous_point, grid(next_point)));
                         previous_point = next_point;
-                        next_angle -= AngleStep;
+                        next_degrees -= DegreesStep;
                     }
 
                     print_instructions.push_back(
-                            move_on_arc(generate_id(instruction.get_line_number(), end_angle),
+                            move_on_arc(generate_id(instruction.get_line_number(), end_degrees),
                                         previous_point, grid(end)));
                     break;
                 }
@@ -173,26 +147,25 @@ std::vector<printer_instruction> printer_parser::convert(const gcode_instruction
                 case arc_type::CounterClockwiseRightSide:
                 {
                     vec previous_point = start;
-                    int next_angle = (std::floor(start_angle / AngleStep) + 1) * AngleStep;
+                    int next_degrees = (std::floor(start_degrees / DegreesStep) + 1) * DegreesStep;
 
-                    end_angle = end_angle < start_angle ? end_angle + 2 * Pi : end_angle;
+                    end_degrees = end_degrees < start_degrees ? end_degrees + 360.0 : end_degrees;
 
-                    while(next_angle < end_angle)
+                    while(next_degrees < end_degrees)
                     {
-                        vec next_point =
-                                vec(radius * std::cos(next_angle), radius * std::sin(next_angle));
+                        vec next_point = arc_.point(next_degrees);
 
                         print_instructions.push_back(
                                 move_on_arc(std::to_string(instruction.get_line_number()) + "_"
-                                                    + std::to_string(next_angle),
+                                                    + std::to_string(next_degrees),
                                             previous_point, grid(next_point)));
                         previous_point = next_point;
-                        next_angle += AngleStep;
+                        next_degrees += DegreesStep;
                     }
 
                     print_instructions.push_back(
                             move_on_arc(std::to_string(instruction.get_line_number()) + "_"
-                                                + std::to_string(end_angle),
+                                                + std::to_string(end_degrees),
                                         previous_point, grid(end)));
                     break;
                 }

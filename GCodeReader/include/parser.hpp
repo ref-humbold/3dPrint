@@ -5,6 +5,7 @@
 #include <cinttypes>
 #include <string>
 #include <vector>
+#include "arc.hpp"
 #include "file_reader.hpp"
 #include "instruction.hpp"
 #include "vec.hpp"
@@ -33,15 +34,6 @@ private:
 
 class printer_parser
 {
-private:
-    enum class arc_type
-    {
-        ClockwiseLeftSide,
-        ClockwiseRightSide,
-        CounterClockwiseLeftSide,
-        CounterClockwiseRightSide
-    };
-
 public:
     explicit printer_parser(const std::vector<gcode_instruction> & gcode_instructions,
                             vec start = vec(0, 0))
@@ -58,14 +50,12 @@ public:
 
 private:
     arc_type extract_arc_type(const gcode_instruction & instruction);
-    vec count_middle(const vec & start, const vec & end, double radius, arc_type type);
     std::vector<printer_instruction> convert(const gcode_instruction & instruction,
                                              const vec & start);
     printer_instruction move_on_arc(const std::string & identifier, const vec & previous_point,
                                     const grid & next_point);
 
-    const double Pi = atan2(0, -1);
-    const int AngleStep = Pi / 36.0;
+    const double DegreesStep = 5.0;
     vec start_position;
     std::vector<gcode_instruction> gcode_instructions;
     std::vector<printer_instruction> printer_instructions;

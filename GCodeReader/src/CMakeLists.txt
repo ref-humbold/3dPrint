@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 
 # SOURCES
 set(SOURCES
+    arc.cpp
     file_reader.cpp
     gcode.cpp
     instruction.cpp
