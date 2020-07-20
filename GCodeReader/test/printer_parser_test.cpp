@@ -68,6 +68,25 @@ TEST(PrinterParserTest, parse_whenG1_thenSingleG1Instruction)
     EXPECT_EQ(std::vector<printer_instruction>({expected}), test_object.get_instructions());
 }
 
+TEST(PrinterParserTest, parse_whenG2WithPositiveRadius_thenG1InstructionsAlongArc)
+{
+    // given
+    std::vector<vec> points = {vec(139, 108), vec(139, 107), vec(140, 103), vec(140, 100),
+                               vec(140, 97),  vec(139, 93),  vec(139, 92)};
+    gcode_instruction g2(0);
+    g2.add_argument('G', 2);
+    g2.add_argument('X', points.back().x);
+    g2.add_argument('Y', points.back().y);
+    g2.add_argument('R', 40);
+
+    std::vector<printer_instruction> expected = moves(points, true);
+    printer_parser test_object(std::vector<gcode_instruction>({g2}), points[0]);
+    // when
+    test_object.parse();
+    // then
+    EXPECT_EQ(expected, test_object.get_instructions());
+}
+
 TEST(PrinterParserTest, parse_whenG3WithPositiveRadius_thenG1InstructionsAlongArc)
 {
     // given
