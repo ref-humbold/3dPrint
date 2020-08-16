@@ -3,7 +3,7 @@
 
 using namespace std::string_literals;
 
-void connect(const uart_ctrl & uart)
+void start_connection(const uart_ctrl & uart)
 {
     uart.send(Connect);
     uart.assert_receive(Connect);
@@ -14,7 +14,7 @@ void send_message(const uart_ctrl & uart, const printer_instruction & instr)
     uart.send(BeginTransmit);
     uart.send(instr.size());
 
-    for(auto msg : instr)
+    for(auto && msg : instr)
         uart.send(msg);
 
     uart.send(EndTransmit);

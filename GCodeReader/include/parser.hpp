@@ -10,19 +10,26 @@
 #include "instruction.hpp"
 #include "vec.hpp"
 
-class gcode_parser
+template <typename T>
+struct parser
+{
+    virtual std::vector<T> get_instructions() = 0;
+    virtual void parse() = 0;
+};
+
+class gcode_parser : public parser<gcode_instruction>
 {
 public:
     explicit gcode_parser(const std::string & filename) : reader{file_reader(filename)}
     {
     }
 
-    std::vector<gcode_instruction> get_instructions()
+    std::vector<gcode_instruction> get_instructions() override
     {
         return gcode_instructions;
     }
 
-    void parse();
+    void parse() override;
 
 private:
     std::vector<std::string> split(const std::string & line, const std::string & delimiters);
@@ -32,7 +39,7 @@ private:
     std::vector<gcode_instruction> gcode_instructions;
 };
 
-class printer_parser
+class printer_parser : public parser<printer_instruction>
 {
 public:
     explicit printer_parser(const std::vector<gcode_instruction> & gcode_instructions,
@@ -41,12 +48,12 @@ public:
     {
     }
 
-    std::vector<printer_instruction> get_instructions()
+    std::vector<printer_instruction> get_instructions() override
     {
         return printer_instructions;
     }
 
-    void parse();
+    void parse() override;
 
 private:
     arc_type extract_arc_type(const gcode_instruction & instruction);
