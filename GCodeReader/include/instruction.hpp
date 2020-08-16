@@ -70,6 +70,11 @@ public:
         return identifier;
     }
 
+    size_t size() const
+    {
+        return message.size();
+    }
+
     std::vector<uint16_t>::const_iterator begin() const
     {
         return message.cbegin();

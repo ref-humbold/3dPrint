@@ -23,7 +23,7 @@ For `G2` and `G3`:
 3. GCodeReader <---------------- *DataExpected* ---- PrinterCtrl
 4. GCodeReader ---- *BeginTransmit* ---------------> PrinterCtrl
 5. GCodeReader ---- *message.size* ----------------> PrinterCtrl
-6. GCodeReader ---- *message.item* ----------------> PrinterCtrl
+6. GCodeReader ---- *message.item...* -------------> PrinterCtrl
 7. GCodeReader ---- *EndTransmit* -----------------> PrinterCtrl
 8. GCodeReader <--------------- *received.size* ---- PrinterCtrl
 9. GCodeReader <----------------- *Acknowledge* ---- PrinterCtrl

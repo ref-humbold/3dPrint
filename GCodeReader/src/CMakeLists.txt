@@ -6,6 +6,7 @@ set(SOURCES
     file_reader.cpp
     gcode.cpp
     instruction.cpp
+    messaging.cpp
     parameters.cpp
     parser.cpp
     uart_ctrl.cpp

@@ -47,10 +47,10 @@ public:
     uart_ctrl & operator=(const uart_ctrl &) = delete;
     uart_ctrl & operator=(uart_ctrl &&) = default;
 
-    void send(uint16_t data);
-    uint16_t receive();
-    void expect_receive(uint16_t expected);
-    void assert_receive(uint16_t expected);
+    void send(uint16_t data) const;
+    uint16_t receive() const;
+    void expect_receive(uint16_t expected) const;
+    void assert_receive(uint16_t expected) const;
 
 private:
     int device;
