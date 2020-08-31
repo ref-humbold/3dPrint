@@ -21,9 +21,13 @@ void send_message(const uart_ctrl & uart, const printer_instruction & instr)
 
     size_t received_size = uart.receive();
 
-    uart.assert_receive(Acknowledge);
-
-    if(received_size != instr.size())
-        throw uart_error("Sent "s + std::to_string(instr.size()) + " packs, received "s
-                         + std::to_string(received_size));
+    try
+    {
+        uart.assert_receive(Acknowledge);
+    }
+    catch(const failure_message &)
+    {
+        std::cerr << "Sent " << instr.size() << " packs, received " << received_size;
+        throw;
+    }
 }

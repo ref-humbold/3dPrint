@@ -55,7 +55,7 @@ IncludeCategories:
   - Regex: '^<(algorithm|array|bitset|deque|iterator|(forward_|initializer_)?list|(unordered_)?map|queue|(unordered_)?set|stack|string|tuple|vector)>'
     Priority: 4
   # C++ standard library: utilities, numerics, types
-  - Regex: '^<(complex|chrono|functional|limits|locale|numeric|random|ratio|regex|type(info|index|_traits)|valarray)>'
+  - Regex: '^<(complex|chrono|functional|limits|locale|numeric|random|ratio|regex|type(info|index|_traits)|utility|valarray)>'
     Priority: 5
   # All other headers (C++ style)
   - Regex: '^<.*>'

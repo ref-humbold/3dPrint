@@ -19,8 +19,13 @@ uint16_t uart_ctrl::receive() const
     if(res < 0)
         throw uart_error("READ ERROR: "s + strerror(errno));
 
-    return static_cast<uint16_t>(static_cast<uint16_t>(recv_data[0]) << 8U)
-           | static_cast<uint16_t>(recv_data[1]);
+    uint16_t data = static_cast<uint16_t>(static_cast<uint16_t>(recv_data[0]) << 8U)
+                    | static_cast<uint16_t>(recv_data[1]);
+
+    if(data == Failure)
+        throw failure_message();
+
+    return data;
 }
 
 void uart_ctrl::expect_receive(uint16_t expected) const

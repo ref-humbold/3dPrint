@@ -30,6 +30,14 @@ public:
     }
 };
 
+class failure_message : public std::runtime_error
+{
+public:
+    failure_message() : std::runtime_error("Received 'Failure' message")
+    {
+    }
+};
+
 class uart_ctrl
 {
 public:
