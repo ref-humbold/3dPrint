@@ -1,5 +1,23 @@
 #include "messaging.h"
 
+command cmd = {.cmd = NULL, .size = 0};
+
+void clear_command()
+{
+    if(cmd.cmd != NULL)
+    {
+        free(cmd.cmd);
+        cmd.size = 0;
+    }
+}
+
+void init_command(size_t size)
+{
+    clear_command();
+    cmd.cmd = malloc(size);
+    cmd.size = size;
+}
+
 void start_messaging()
 {
     uart_expect_receive(&huart2, Connect);
@@ -14,8 +32,7 @@ size_t receive_command()
     uart_send(&huart2, DataExpected);
     uart_expect_receive(&huart2, BeginTransmit);
     uart_receive(&huart2, &size);
-
-    command = malloc(size);
+    init_command(size);
 
     do
     {
@@ -23,7 +40,7 @@ size_t receive_command()
 
         if(data != EndTransmit)
         {
-            command[index] = data;
+            cmd.cmd[index] = data;
             ++index;
         }
     } while(data != EndTransmit || index >= size);
@@ -35,5 +52,5 @@ size_t receive_command()
     else
         uart_send(&huart2, Failure);
 
-    return index;
+    return size;
 }

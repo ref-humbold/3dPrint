@@ -8,8 +8,16 @@ extern "C"
 #include "spi.h"
 #include "usart.h"
 
-    extern uint8_t * command;
+    typedef struct
+    {
+        uint8_t * cmd;
+        size_t size;
+    } command;
 
+    extern command cmd;
+
+    void clear_command();
+    void init_command(size_t size);
     void start_messaging();
     size_t receive_command();
 
