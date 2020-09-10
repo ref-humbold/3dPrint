@@ -43,29 +43,31 @@ IncludeCategories:
   - Regex: '^<cstdlib>|<stdlib.h>'
     Priority: 1
   # C standard library (C++ style)
-  - Regex: '^<c(std(arg|def|int|io)|assert|(u|w)char|ctype|errno|fenv|float|inttypes|limits|locale|math|setjmp|signal|string|time|wctype)>'
+  - Regex: '^<c(std(arg|def|int|io)|assert|(u|w)char|ctype|errno|fenv|float|inttypes|limits|locale
+      |math|setjmp|signal|string|time|wctype)>'
     Priority: 2
   # C standard library (C style)
-  - Regex: '^<(std(arg|def|int|io)|assert|(u|w)char|ctype|errno|fenv|float|inttypes|limits|locale|math|setjmp|signal|string|time|wctype)\.h>'
+  - Regex: '^<(std(arg|def|int|io)|assert|(u|w)char|ctype|errno|fenv|float|inttypes|limits|locale
+      |math|setjmp|signal|string|time|wctype)\.h>'
     Priority: 2
-  # C++ standard library: input-output, exceptions, memory, threads
-  - Regex: '^<(ios(fwd)?|(i|o|io|f|s)stream|streambuf|iomanip|exception|stdexcept|system_error|new|memory|atomic|thread|(shared_)?mutex|future|condition_variable)>'
+  # C++ standard library
+  - Regex: '^<(
+      ios(fwd)?|(i|o|io|f|s)stream|streambuf|iomanip|exception|stdexcept|system_error|new|memory
+      |atomic|thread|(shared_)?mutex|future|condition_variable|algorithm|array|bitset|deque|iterator
+      |(forward_|initializer_)?list|(unordered_)?map|queue|(unordered_)?set|stack|string|tuple|vector
+      |complex|chrono|functional|limits|locale|numeric|random|ratio|regex|type(info|index|_traits)
+      |utility|valarray
+    )>'
     Priority: 3
-  # C++ standard library: algorithms, containers, strings
-  - Regex: '^<(algorithm|array|bitset|deque|iterator|(forward_|initializer_)?list|(unordered_)?map|queue|(unordered_)?set|stack|string|tuple|vector)>'
-    Priority: 4
-  # C++ standard library: utilities, numerics, types
-  - Regex: '^<(complex|chrono|functional|limits|locale|numeric|random|ratio|regex|type(info|index|_traits)|utility|valarray)>'
-    Priority: 5
   # All other headers (C++ style)
   - Regex: '^<.*>'
-    Priority: 6
+    Priority: 4
   # All other headers (C style)
   - Regex: '^<.*\.(h|hpp)>'
-    Priority: 7
+    Priority: 5
   # All custom headers
   - Regex: '^".*"'
-    Priority: 8
+    Priority: 6
 IncludeIsMainRegex: '$'
 IndentCaseLabels: true
 IndentPPDirectives: None

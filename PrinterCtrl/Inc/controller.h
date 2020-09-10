@@ -18,9 +18,7 @@ extern "C"
      * data [lower 12 bits of uint16_t]
      */
     void dac_write(SPI_HandleTypeDef * hspi, const pinout * device, uint16_t data);
-
     void laser_on();
-
     void laser_off();
 
 #ifdef __cplusplus

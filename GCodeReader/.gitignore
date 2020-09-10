@@ -1,5 +1,5 @@
 # [ C / C++ ]
-# C++ / CMake output
+# C / C++ / CMake output
 bin/
 build/
 dist/
@@ -7,3 +7,7 @@ dist/
 # Visual Studio Code
 .vscode
 *.code-workspace
+
+# CLion
+.idea
+cmake-build-debug/
