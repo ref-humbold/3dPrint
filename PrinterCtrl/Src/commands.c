@@ -24,3 +24,7 @@ void draw(point pt)
     currentPoint = pt;
     HAL_Delay(200);
 }
+
+void run(command * cmd)
+{
+}

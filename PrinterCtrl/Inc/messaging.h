@@ -8,12 +8,6 @@ extern "C"
 #include "spi.h"
 #include "usart.h"
 
-    typedef struct
-    {
-        uint8_t * cmd;
-        size_t size;
-    } command;
-
     extern command cmd;
 
     void clear_command();

@@ -27,8 +27,8 @@ extern "C"
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
-/* USER CODE BEGIN Includes */
-#include <inttypes.h>
+    /* USER CODE BEGIN Includes */
+
     /* USER CODE END Includes */
 
     extern SPI_HandleTypeDef hspi2;

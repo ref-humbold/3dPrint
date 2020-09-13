@@ -53,7 +53,8 @@ extern "C"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <inttypes.h>
+#include <stdlib.h>
+#include <stdint.h>
     /* USER CODE END Includes */
 
     /* Exported types ------------------------------------------------------------*/
@@ -63,6 +64,18 @@ extern "C"
         GPIO_TypeDef * gpio;
         uint16_t pin;
     } pinout;
+
+    typedef struct
+    {
+        uint8_t x;
+        uint8_t y;
+    } point;
+
+    typedef struct
+    {
+        uint8_t * cmd;
+        size_t size;
+    } command;
     /* USER CODE END ET */
 
     /* Exported constants --------------------------------------------------------*/

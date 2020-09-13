@@ -27,9 +27,8 @@ extern "C"
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
-/* USER CODE BEGIN Includes */
-#include <stdlib.h>
-#include <stdint.h>
+    /* USER CODE BEGIN Includes */
+
     /* USER CODE END Includes */
 
     extern UART_HandleTypeDef huart2;

@@ -8,16 +8,11 @@ extern "C"
 #include "controller.h"
 #include "spi.h"
 
-    typedef struct
-    {
-        uint8_t x;
-        uint8_t y;
-    } point;
-
     extern point currentPoint;
 
     void move(point pt);
     void draw(point pt);
+    void run(command * cmd);
 
 #ifdef __cplusplus
 }
