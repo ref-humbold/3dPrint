@@ -25,6 +25,44 @@ void draw(point pt)
     HAL_Delay(200);
 }
 
-void run(command * cmd)
+void run(command cmd)
 {
+    size_t i;
+    int g = -1;
+    point pt = {.x = 0, .y = 0};
+
+    for(i = 0; i < cmd.size; i += 2)
+    {
+        switch(cmd.cmd[i])
+        {
+            case 'G':
+                g = cmd.cmd[i + 1];
+                break;
+
+            case 'X':
+                pt.x = cmd.cmd[i + 1];
+                break;
+
+            case 'Y':
+                pt.y = cmd.cmd[i + 1];
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    switch(g)
+    {
+        case 0:
+            move(pt);
+            break;
+
+        case 1:
+            draw(pt);
+            break;
+
+        default:
+            break;
+    }
 }

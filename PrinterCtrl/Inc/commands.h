@@ -12,7 +12,7 @@ extern "C"
 
     void move(point pt);
     void draw(point pt);
-    void run(command * cmd);
+    void run(command cmd);
 
 #ifdef __cplusplus
 }
