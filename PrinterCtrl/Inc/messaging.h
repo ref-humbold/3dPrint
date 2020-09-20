@@ -5,7 +5,7 @@ extern "C"
 {
 #endif
 
-#include "usart.h"
+#include "main.h"
 
     extern command cmd;
 

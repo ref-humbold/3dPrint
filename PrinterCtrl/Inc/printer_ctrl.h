@@ -5,9 +5,6 @@ extern "C"
 {
 #endif
 
-#include "commands.h"
-#include "messaging.h"
-
     void run_init();
     void run_loop();
 

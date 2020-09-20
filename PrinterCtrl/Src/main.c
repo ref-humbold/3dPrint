@@ -42,8 +42,9 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "gpio.h"
-#include "messaging.h"
+#include "printer_ctrl.h"
 #include "spi.h"
+#include "usart.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -118,7 +119,7 @@ int main(void)
     MX_USART2_UART_Init();
     MX_SPI2_Init();
     /* USER CODE BEGIN 2 */
-    start_messaging();
+    run_init();
     /* USER CODE END 2 */
 
     /* Infinite loop */
@@ -128,8 +129,7 @@ int main(void)
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
-        // size_t command_size = receive_command();
-        dac_test();
+        run_loop();
     }
     /* USER CODE END 3 */
 }

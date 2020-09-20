@@ -1,4 +1,6 @@
 #include "printer_ctrl.h"
+#include "commands.h"
+#include "messaging.h"
 
 void run_init()
 {

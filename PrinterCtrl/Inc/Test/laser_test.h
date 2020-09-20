@@ -1,7 +1,7 @@
 #ifndef __laser_test_H
 #define __laser_test_H
 
-#include "controller.h"
+#include "commands.h"
 #include "gpio.h"
 #include "main.h"
 

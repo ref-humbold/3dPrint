@@ -1,4 +1,5 @@
 #include "messaging.h"
+#include "usart.h"
 
 void clear_command(command * cmd)
 {
