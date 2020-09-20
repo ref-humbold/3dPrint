@@ -5,15 +5,14 @@ extern "C"
 {
 #endif
 
-#include "spi.h"
 #include "usart.h"
 
     extern command cmd;
 
-    void clear_command();
-    void init_command(size_t size);
+    void clear_command(command * cmd);
+    command init_command(size_t size);
     void start_messaging();
-    size_t receive_command();
+    command receive_command();
 
 #ifdef __cplusplus
 }

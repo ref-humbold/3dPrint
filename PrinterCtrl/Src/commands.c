@@ -25,7 +25,7 @@ void draw(point pt)
     HAL_Delay(200);
 }
 
-void run(command cmd)
+void execute(command cmd)
 {
     size_t i;
     int g = -1;

@@ -6,13 +6,12 @@ extern "C"
 #endif
 
 #include "controller.h"
-#include "spi.h"
 
     extern point currentPoint;
 
     void move(point pt);
     void draw(point pt);
-    void run(command cmd);
+    void execute(command cmd);
 
 #ifdef __cplusplus
 }

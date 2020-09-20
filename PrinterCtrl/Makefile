@@ -61,6 +61,7 @@ Src/commands.c \
 Src/controller.c \
 Src/gpio.c \
 Src/messaging.c \
+Src/printer_ctrl.c \
 Src/spi.c \
 Src/usart.c
 

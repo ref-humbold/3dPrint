@@ -1,21 +1,21 @@
 #include "messaging.h"
 
-command cmd = {.cmd = NULL, .size = 0};
-
-void clear_command()
+void clear_command(command * cmd)
 {
-    if(cmd.cmd != NULL)
+    if(cmd->cmd != NULL)
     {
-        free(cmd.cmd);
-        cmd.size = 0;
+        free(cmd->cmd);
+        cmd->size = 0;
     }
 }
 
-void init_command(size_t size)
+command init_command(size_t size)
 {
-    clear_command();
+    command cmd;
+
     cmd.cmd = malloc(size);
     cmd.size = size;
+    return cmd;
 }
 
 void start_messaging()
@@ -24,7 +24,7 @@ void start_messaging()
     uart_send(&huart2, Connect);
 }
 
-size_t receive_command()
+command receive_command()
 {
     uint16_t size, data;
     size_t index = 0;
@@ -32,7 +32,8 @@ size_t receive_command()
     uart_send(&huart2, DataExpected);
     uart_expect_receive(&huart2, BeginTransmit);
     uart_receive(&huart2, &size);
-    init_command(size);
+
+    command cmd = init_command(size);
 
     do
     {
@@ -52,5 +53,5 @@ size_t receive_command()
     else
         uart_send(&huart2, Failure);
 
-    return size;
+    return cmd;
 }
