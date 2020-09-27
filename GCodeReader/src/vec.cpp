@@ -84,7 +84,7 @@ bool operator!=(const vec & v1, const vec & v2)
 
 std::ostream & operator<<(std::ostream & os, const vec & v)
 {
-    os << "[| " << v.x << ", " << v.y << " |]";
+    os << "Vec[ " << v.x << ", " << v.y << " ]";
     return os;
 }
 
@@ -103,7 +103,7 @@ bool operator!=(const grid & g1, const grid & g2)
 
 std::ostream & operator<<(std::ostream & os, const grid & g)
 {
-    os << "(| " << static_cast<int>(g.x) << ", " << static_cast<int>(g.y) << " |)";
+    os << "Grid[ " << static_cast<int>(g.x) << ", " << static_cast<int>(g.y) << " ]";
     return os;
 }
 

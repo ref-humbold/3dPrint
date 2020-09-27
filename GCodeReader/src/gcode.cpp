@@ -14,14 +14,18 @@ int main(int argc, char * argv[])
     uart_ctrl uart(params.port());
     gcode_parser gcode_p(params.file());
 
+    std::cerr << params << "\n";
     gcode_p.parse();
 
-    printer_parser printer_p(gcode_p.get_instructions());
+    std::cerr << "Parsing...\n";
+    printer_parser printer_p(gcode_p.instructions());
 
     printer_p.parse();
+
+    std::cerr << "UART connect...\n";
     start_connection(uart);
 
-    for(auto && instr : printer_p.get_instructions())
+    for(auto && instr : printer_p.instructions())
         send_message(uart, instr);
 
     return 0;

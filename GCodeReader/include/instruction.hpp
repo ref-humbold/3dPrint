@@ -1,8 +1,8 @@
 #ifndef INSTRUCTION_HPP_
 #define INSTRUCTION_HPP_
 
-#include <cstdlib>
 #include <cinttypes>
+#include <cstdlib>
 #include <iostream>
 #include <map>
 #include <vector>
@@ -13,16 +13,16 @@
 class gcode_instruction
 {
 public:
-    explicit gcode_instruction(size_t line_number) : line_number{line_number}
+    explicit gcode_instruction(size_t line_number) : line_number_{line_number}
     {
     }
 
-    size_t get_line_number() const
+    size_t line_number() const
     {
-        return line_number;
+        return line_number_;
     }
 
-    int get_argument_at(char code) const
+    int argument_at(char code) const
     {
         return arguments.at(code);
     }
@@ -46,7 +46,7 @@ public:
     friend bool operator!=(const gcode_instruction & g1, const gcode_instruction & g2);
 
 private:
-    size_t line_number;
+    size_t line_number_;
     std::map<char, int> arguments;
 };
 
@@ -60,14 +60,14 @@ std::ostream & operator<<(std::ostream & os, const gcode_instruction & instructi
 class printer_instruction
 {
 public:
-    explicit printer_instruction(const std::string & identifier, vec start_pos)
-        : start_pos{start_pos}, identifier{identifier}
+    printer_instruction(const std::string & identifier, const vec & start_pos)
+        : start_pos{start_pos}, identifier_{identifier}
     {
     }
 
-    const std::string & get_identifier() const
+    const std::string & identifier() const
     {
-        return identifier;
+        return identifier_;
     }
 
     size_t size() const
@@ -94,7 +94,7 @@ public:
     grid end_pos;
 
 private:
-    std::string identifier;
+    std::string identifier_;
     std::vector<uint16_t> message;
 };
 

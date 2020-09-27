@@ -3,6 +3,7 @@
 
 #include <cstdlib>
 #include <exception>
+#include <iostream>
 #include <stdexcept>
 #include <string>
 #include <unistd.h>
@@ -18,28 +19,30 @@ public:
 class parameters
 {
 public:
-    parameters(int argc, char * argv[]) : dev_port{""}, filename{""}
+    parameters(int argc, char * argv[]) : port_{""}, file_{""}
     {
         parse(argc, argv);
         validate();
     }
 
-    const std::string & port()
+    const std::string & port() const
     {
-        return dev_port;
+        return port_;
     }
 
-    const std::string & file()
+    const std::string & file() const
     {
-        return filename;
+        return file_;
     }
 
 private:
     void parse(int argc, char * argv[]);
     void validate();
 
-    std::string dev_port;
-    std::string filename;
+    std::string port_;
+    std::string file_;
 };
+
+std::ostream & operator<<(std::ostream & os, const parameters & p);
 
 #endif

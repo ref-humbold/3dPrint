@@ -66,40 +66,43 @@ void printer_parser::parse()
     {
         std::vector<printer_instruction> printer = convert(instr, position);
 
-        position = vec(printer.back().end_pos);
-        std::copy(printer.begin(), printer.end(), std::back_inserter(printer_instructions));
+        if(!printer.empty())
+        {
+            position = vec(printer.back().end_pos);
+            std::copy(printer.begin(), printer.end(), std::back_inserter(printer_instructions));
+        }
     }
 }
 
 arc_type printer_parser::extract_arc_type(const gcode_instruction & instruction)
 {
-    if(instruction.get_argument_at('G') == 2)
-        return instruction.get_argument_at('R') >= 0 ? arc_type::ClockwiseRightSide
-                                                     : arc_type::ClockwiseLeftSide;
+    if(instruction.argument_at('G') == 2)
+        return instruction.argument_at('R') >= 0 ? arc_type::ClockwiseRightSide
+                                                 : arc_type::ClockwiseLeftSide;
 
-    return instruction.get_argument_at('R') >= 0 ? arc_type::CounterClockwiseLeftSide
-                                                 : arc_type::CounterClockwiseRightSide;
+    return instruction.argument_at('R') >= 0 ? arc_type::CounterClockwiseLeftSide
+                                             : arc_type::CounterClockwiseRightSide;
 }
 
 std::vector<printer_instruction> printer_parser::convert(const gcode_instruction & instruction,
                                                          const vec & start)
 {
     std::vector<printer_instruction> print_instructions;
-    vec end(instruction.get_argument_at('X'), instruction.get_argument_at('Y'));
+    vec end(instruction.argument_at('X'), instruction.argument_at('Y'));
 
     if(start == end)
         return print_instructions;
 
-    switch(instruction.get_argument_at('G'))
+    switch(instruction.argument_at('G'))
     {
         case 0:
         case 1:
         {
-            printer_instruction instr(std::to_string(instruction.get_line_number()), start);
+            printer_instruction instr(std::to_string(instruction.line_number()), start);
 
             std::for_each(
                     instruction.begin(), instruction.end(),
-                    [&](const std::pair<char, int> argument) { instr.add_argument(argument); });
+                    [&](const std::pair<char, int> & argument) { instr.add_argument(argument); });
             print_instructions.push_back(instr);
             break;
         }
@@ -112,7 +115,7 @@ std::vector<printer_instruction> printer_parser::convert(const gcode_instruction
             };
 
             arc_type type = extract_arc_type(instruction);
-            arc arc_(start, end, std::abs(instruction.get_argument_at('R')), type);
+            arc arc_(start, end, std::abs(instruction.argument_at('R')), type);
             double start_degrees = arc_.degrees(arc_.start_point());
             double end_degrees = arc_.degrees(arc_.end_point());
 
@@ -130,15 +133,15 @@ std::vector<printer_instruction> printer_parser::convert(const gcode_instruction
                     {
                         vec next_point = arc_.point(next_degrees);
 
-                        print_instructions.push_back(move_on_arc(
-                                generate_id(instruction.get_line_number(), next_degrees),
-                                previous_point, grid(next_point)));
+                        print_instructions.push_back(
+                                move_on_arc(generate_id(instruction.line_number(), next_degrees),
+                                            previous_point, grid(next_point)));
                         previous_point = next_point;
                         next_degrees -= DegreesStep;
                     }
 
                     print_instructions.push_back(
-                            move_on_arc(generate_id(instruction.get_line_number(), end_degrees),
+                            move_on_arc(generate_id(instruction.line_number(), end_degrees),
                                         previous_point, grid(end)));
                     break;
                 }
@@ -156,7 +159,7 @@ std::vector<printer_instruction> printer_parser::convert(const gcode_instruction
                         vec next_point = arc_.point(next_degrees);
 
                         print_instructions.push_back(
-                                move_on_arc(std::to_string(instruction.get_line_number()) + "_"
+                                move_on_arc(std::to_string(instruction.line_number()) + "_"
                                                     + std::to_string(next_degrees),
                                             previous_point, grid(next_point)));
                         previous_point = next_point;
@@ -164,7 +167,7 @@ std::vector<printer_instruction> printer_parser::convert(const gcode_instruction
                     }
 
                     print_instructions.push_back(
-                            move_on_arc(std::to_string(instruction.get_line_number()) + "_"
+                            move_on_arc(std::to_string(instruction.line_number()) + "_"
                                                 + std::to_string(end_degrees),
                                         previous_point, grid(end)));
                     break;

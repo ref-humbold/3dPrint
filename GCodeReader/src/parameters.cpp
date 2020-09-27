@@ -14,7 +14,7 @@ void parameters::parse(int argc, char * argv[])
         switch(option)
         {
             case 'P':
-                dev_port = optarg;
+                port_ = optarg;
                 break;
 
             case '?':
@@ -32,17 +32,26 @@ void parameters::parse(int argc, char * argv[])
     }
 
     if(argc > optind)
-        filename = std::string(argv[optind]);
+        file_ = std::string(argv[optind]);
 }
 
 void parameters::validate()
 {
-    if(dev_port.empty())
+    if(port_.empty())
         throw params_exception("Missing option -P, no port specified"s);
 
-    if(filename == "")
-        throw params_exception("No *.gcode files specified");
+    if(file_ == "")
+        throw params_exception("No *.gcode files specified"s);
 
-    if(filename.substr(filename.size() - 6, filename.size()) != ".gcode"s)
-        throw params_exception("Expected *.gcode file, got "s + filename);
+    if(file_.substr(file_.size() - 6, file_.size()) != ".gcode"s)
+        throw params_exception("Expected *.gcode file, got "s + file_);
+}
+
+std::ostream & operator<<(std::ostream & os, const parameters & p)
+{
+    os << "Parameters { ";
+    os << "Port: " << p.port() << ", ";
+    os << "File: " << p.file();
+    os << " }";
+    return os;
 }

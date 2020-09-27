@@ -1,9 +1,9 @@
 #ifndef VEC_HPP_
 #define VEC_HPP_
 
-#include <cstdlib>
 #include <cinttypes>
 #include <cmath>
+#include <cstdlib>
 #include <iostream>
 #include <utility>
 
@@ -11,11 +11,7 @@
 
 struct vec
 {
-    vec() : x{0}, y{0}
-    {
-    }
-
-    vec(double x, double y) : x{x}, y{y}
+    explicit vec(double x = 0, double y = 0) : x{x}, y{y}
     {
     }
 

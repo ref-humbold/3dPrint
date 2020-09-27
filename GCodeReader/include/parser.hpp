@@ -1,8 +1,8 @@
 #ifndef PARSER_HPP_
 #define PARSER_HPP_
 
-#include <cstdlib>
 #include <cinttypes>
+#include <cstdlib>
 #include <string>
 #include <vector>
 #include "arc.hpp"
@@ -13,7 +13,7 @@
 template <typename T>
 struct parser
 {
-    virtual std::vector<T> get_instructions() = 0;
+    virtual std::vector<T> instructions() = 0;
     virtual void parse() = 0;
 };
 
@@ -24,7 +24,7 @@ public:
     {
     }
 
-    std::vector<gcode_instruction> get_instructions() override
+    std::vector<gcode_instruction> instructions() override
     {
         return gcode_instructions;
     }
@@ -48,7 +48,7 @@ public:
     {
     }
 
-    std::vector<printer_instruction> get_instructions() override
+    std::vector<printer_instruction> instructions() override
     {
         return printer_instructions;
     }
