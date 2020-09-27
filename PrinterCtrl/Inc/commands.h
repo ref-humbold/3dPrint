@@ -7,12 +7,18 @@ extern "C"
 
 #include "main.h"
 #include "spi.h"
+#include "usart.h"
 
+    extern command cmd;
     extern point currentPoint;
     extern const uint8_t DacConfig;
     extern const pinout LaserPin;
     extern const pinout DacPinX;
     extern const pinout DacPinY;
+
+    command init_command(size_t size);
+    void clear_command(command * cmd);
+    command read_command();
 
     /**
      * MCP 4921 Digital-Analog Converter

@@ -1,15 +1,16 @@
 #include "printer_ctrl.h"
 #include "commands.h"
-#include "messaging.h"
+#include "usart.h"
 
 void run_init()
 {
-    start_messaging();
+    laser_off();
+    start_connection();
 }
 
 void run_loop()
 {
-    command cmd = receive_command();
+    command cmd = read_command();
     execute(cmd);
     clear_command(&cmd);
 }

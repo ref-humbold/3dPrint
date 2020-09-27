@@ -59,7 +59,6 @@ Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c \
 Src/system_stm32f4xx.c \
 Src/commands.c \
 Src/gpio.c \
-Src/messaging.c \
 Src/printer_ctrl.c \
 Src/spi.c \
 Src/usart.c

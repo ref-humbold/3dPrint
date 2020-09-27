@@ -148,6 +148,12 @@ void uart_assert_receive(UART_HandleTypeDef * huart, const uint16_t expected)
     if(data != expected)
         uart_send(huart, Failure);
 }
+
+void start_connection()
+{
+    uart_expect_receive(&huart2, Connect);
+    uart_send(&huart2, Connect);
+}
 /* USER CODE END 1 */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
