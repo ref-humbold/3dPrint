@@ -119,7 +119,9 @@ int main(void)
     MX_USART2_UART_Init();
     MX_SPI2_Init();
     /* USER CODE BEGIN 2 */
+#ifndef TEST
     run_init();
+#endif
     /* USER CODE END 2 */
 
     /* Infinite loop */
@@ -129,7 +131,11 @@ int main(void)
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
+#ifndef TEST
         run_loop();
+#endif
+
+        dac_test();
     }
     /* USER CODE END 3 */
 }
