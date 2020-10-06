@@ -50,7 +50,6 @@
 /* USER CODE BEGIN Includes */
 #ifdef TEST
 #include "Test/dac_test.h"
-#include "Test/galvo_test.h"
 #include "Test/laser_test.h"
 #include "Test/usart_test.h"
 #endif
