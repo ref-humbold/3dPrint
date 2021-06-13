@@ -21,27 +21,28 @@
 #define __SPI_H__
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
-/* USER CODE BEGIN Includes */
+    /* USER CODE BEGIN Includes */
 
-/* USER CODE END Includes */
+    /* USER CODE END Includes */
 
-extern SPI_HandleTypeDef hspi2;
+    extern SPI_HandleTypeDef hspi2;
 
-/* USER CODE BEGIN Private defines */
+    /* USER CODE BEGIN Private defines */
 
-/* USER CODE END Private defines */
+    /* USER CODE END Private defines */
 
-void MX_SPI2_Init(void);
+    void MX_SPI2_Init(void);
 
-/* USER CODE BEGIN Prototypes */
+    /* USER CODE BEGIN Prototypes */
     void spi_send(SPI_HandleTypeDef * hspi, const pinout * slave, const uint16_t data);
-/* USER CODE END Prototypes */
+    /* USER CODE END Prototypes */
 
 #ifdef __cplusplus
 }
