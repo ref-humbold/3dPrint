@@ -14,29 +14,13 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT 2017 STMicroelectronics</center></h2>
+  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.</center></h2>
   *
-  * Redistribution and use in source and binary forms, with or without modification,
-  * are permitted provided that the following conditions are met:
-  *   1. Redistributions of source code must retain the above copyright notice,
-  *      this list of conditions and the following disclaimer.
-  *   2. Redistributions in binary form must reproduce the above copyright notice,
-  *      this list of conditions and the following disclaimer in the documentation
-  *      and/or other materials provided with the distribution.
-  *   3. Neither the name of STMicroelectronics nor the names of its contributors
-  *      may be used to endorse or promote products derived from this software
-  *      without specific prior written permission.
-  *
-  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-  * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-  * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-  * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  * This software component is licensed by ST under BSD 3-Clause license,
+  * the "License"; You may not use this file except in compliance with the
+  * License. You may obtain a copy of the License at:
+  *                        opensource.org/licenses/BSD-3-Clause
   *
   ******************************************************************************
   */
@@ -156,92 +140,92 @@ g_pfnVectors:
   .word  SysTick_Handler
 
   /* External Interrupts */
-  .word     WWDG_IRQHandler                   /* Window WatchDog */
+  .word     WWDG_IRQHandler                   /* Window WatchDog              */
   .word     PVD_IRQHandler                    /* PVD through EXTI Line detection */
   .word     TAMP_STAMP_IRQHandler             /* Tamper and TimeStamps through the EXTI line */
   .word     RTC_WKUP_IRQHandler               /* RTC Wakeup through the EXTI line */
-  .word     FLASH_IRQHandler                  /* FLASH */
-  .word     RCC_IRQHandler                    /* RCC */
-  .word     EXTI0_IRQHandler                  /* EXTI Line0 */
-  .word     EXTI1_IRQHandler                  /* EXTI Line1 */
-  .word     EXTI2_IRQHandler                  /* EXTI Line2 */
-  .word     EXTI3_IRQHandler                  /* EXTI Line3 */
-  .word     EXTI4_IRQHandler                  /* EXTI Line4 */
-  .word     DMA1_Stream0_IRQHandler           /* DMA1 Stream 0 */
-  .word     DMA1_Stream1_IRQHandler           /* DMA1 Stream 1 */
-  .word     DMA1_Stream2_IRQHandler           /* DMA1 Stream 2 */
-  .word     DMA1_Stream3_IRQHandler           /* DMA1 Stream 3 */
-  .word     DMA1_Stream4_IRQHandler           /* DMA1 Stream 4 */
-  .word     DMA1_Stream5_IRQHandler           /* DMA1 Stream 5 */
-  .word     DMA1_Stream6_IRQHandler           /* DMA1 Stream 6 */
-  .word     ADC_IRQHandler                    /* ADC1, ADC2 and ADC3s */
-  .word     0               				  /* Reserved */
-  .word     0              					  /* Reserved */
-  .word     0                                 /* Reserved */
-  .word     0                                 /* Reserved */
-  .word     EXTI9_5_IRQHandler                /* External Line[9:5]s */
-  .word     TIM1_BRK_TIM9_IRQHandler          /* TIM1 Break and TIM9 */
-  .word     TIM1_UP_TIM10_IRQHandler          /* TIM1 Update and TIM10 */
+  .word     FLASH_IRQHandler                  /* FLASH                        */
+  .word     RCC_IRQHandler                    /* RCC                          */
+  .word     EXTI0_IRQHandler                  /* EXTI Line0                   */
+  .word     EXTI1_IRQHandler                  /* EXTI Line1                   */
+  .word     EXTI2_IRQHandler                  /* EXTI Line2                   */
+  .word     EXTI3_IRQHandler                  /* EXTI Line3                   */
+  .word     EXTI4_IRQHandler                  /* EXTI Line4                   */
+  .word     DMA1_Stream0_IRQHandler           /* DMA1 Stream 0                */
+  .word     DMA1_Stream1_IRQHandler           /* DMA1 Stream 1                */
+  .word     DMA1_Stream2_IRQHandler           /* DMA1 Stream 2                */
+  .word     DMA1_Stream3_IRQHandler           /* DMA1 Stream 3                */
+  .word     DMA1_Stream4_IRQHandler           /* DMA1 Stream 4                */
+  .word     DMA1_Stream5_IRQHandler           /* DMA1 Stream 5                */
+  .word     DMA1_Stream6_IRQHandler           /* DMA1 Stream 6                */
+  .word     ADC_IRQHandler                    /* ADC1, ADC2 and ADC3s         */
+  .word     0               				  /* Reserved                      */
+  .word     0              					  /* Reserved                     */
+  .word     0                                 /* Reserved                     */
+  .word     0                                 /* Reserved                     */
+  .word     EXTI9_5_IRQHandler                /* External Line[9:5]s          */
+  .word     TIM1_BRK_TIM9_IRQHandler          /* TIM1 Break and TIM9          */
+  .word     TIM1_UP_TIM10_IRQHandler          /* TIM1 Update and TIM10        */
   .word     TIM1_TRG_COM_TIM11_IRQHandler     /* TIM1 Trigger and Commutation and TIM11 */
-  .word     TIM1_CC_IRQHandler                /* TIM1 Capture Compare */
-  .word     TIM2_IRQHandler                   /* TIM2 */
-  .word     TIM3_IRQHandler                   /* TIM3 */
-  .word     TIM4_IRQHandler                   /* TIM4 */
-  .word     I2C1_EV_IRQHandler                /* I2C1 Event */
-  .word     I2C1_ER_IRQHandler                /* I2C1 Error */
-  .word     I2C2_EV_IRQHandler                /* I2C2 Event */
-  .word     I2C2_ER_IRQHandler                /* I2C2 Error */
-  .word     SPI1_IRQHandler                   /* SPI1 */
-  .word     SPI2_IRQHandler                   /* SPI2 */
-  .word     USART1_IRQHandler                 /* USART1 */
-  .word     USART2_IRQHandler                 /* USART2 */
-  .word     0               				  /* Reserved */
-  .word     EXTI15_10_IRQHandler              /* External Line[15:10]s */
+  .word     TIM1_CC_IRQHandler                /* TIM1 Capture Compare         */
+  .word     TIM2_IRQHandler                   /* TIM2                         */
+  .word     TIM3_IRQHandler                   /* TIM3                         */
+  .word     TIM4_IRQHandler                   /* TIM4                         */
+  .word     I2C1_EV_IRQHandler                /* I2C1 Event                   */
+  .word     I2C1_ER_IRQHandler                /* I2C1 Error                   */
+  .word     I2C2_EV_IRQHandler                /* I2C2 Event                   */
+  .word     I2C2_ER_IRQHandler                /* I2C2 Error                   */
+  .word     SPI1_IRQHandler                   /* SPI1                         */
+  .word     SPI2_IRQHandler                   /* SPI2                         */
+  .word     USART1_IRQHandler                 /* USART1                       */
+  .word     USART2_IRQHandler                 /* USART2                       */
+  .word     0               				  /* Reserved                       */
+  .word     EXTI15_10_IRQHandler              /* External Line[15:10]s        */
   .word     RTC_Alarm_IRQHandler              /* RTC Alarm (A and B) through EXTI Line */
   .word     OTG_FS_WKUP_IRQHandler            /* USB OTG FS Wakeup through EXTI line */
   .word     0                                 /* Reserved     				  */
   .word     0                                 /* Reserved       			  */
   .word     0                                 /* Reserved 					  */
-  .word     0                                 /* Reserved */
-  .word     DMA1_Stream7_IRQHandler           /* DMA1 Stream7 */
-  .word     0                                 /* Reserved */
-  .word     SDIO_IRQHandler                   /* SDIO */
-  .word     TIM5_IRQHandler                   /* TIM5 */
-  .word     SPI3_IRQHandler                   /* SPI3 */
-  .word     0                                 /* Reserved */
-  .word     0                                 /* Reserved */
-  .word     0                                 /* Reserved */
-  .word     0                                 /* Reserved */
-  .word     DMA2_Stream0_IRQHandler           /* DMA2 Stream 0 */
-  .word     DMA2_Stream1_IRQHandler           /* DMA2 Stream 1 */
-  .word     DMA2_Stream2_IRQHandler           /* DMA2 Stream 2 */
-  .word     DMA2_Stream3_IRQHandler           /* DMA2 Stream 3 */
-  .word     DMA2_Stream4_IRQHandler           /* DMA2 Stream 4 */
-  .word     0                    			  /* Reserved */
-  .word     0              					  /* Reserved */
-  .word     0              					  /* Reserved */
-  .word     0             					  /* Reserved */
-  .word     0              					  /* Reserved */
-  .word     0              					  /* Reserved */
-  .word     OTG_FS_IRQHandler                 /* USB OTG FS */
-  .word     DMA2_Stream5_IRQHandler           /* DMA2 Stream 5 */
-  .word     DMA2_Stream6_IRQHandler           /* DMA2 Stream 6 */
-  .word     DMA2_Stream7_IRQHandler           /* DMA2 Stream 7 */
-  .word     USART6_IRQHandler                 /* USART6 */
-  .word     I2C3_EV_IRQHandler                /* I2C3 event */
-  .word     I2C3_ER_IRQHandler                /* I2C3 error */
-  .word     0                                 /* Reserved */
-  .word     0                                 /* Reserved */
-  .word     0                                 /* Reserved */
-  .word     0                                 /* Reserved */
-  .word     0                                 /* Reserved */
-  .word     0                                 /* Reserved */
-  .word     0                                 /* Reserved */
-  .word     FPU_IRQHandler                    /* FPU */
-  .word     0                                 /* Reserved */
-  .word     0                                 /* Reserved */
-  .word     SPI4_IRQHandler                   /* SPI4 */
-  .word     SPI5_IRQHandler                   /* SPI5 */
+  .word     0                                 /* Reserved                     */
+  .word     DMA1_Stream7_IRQHandler           /* DMA1 Stream7                 */
+  .word     0                                 /* Reserved                     */
+  .word     SDIO_IRQHandler                   /* SDIO                         */
+  .word     TIM5_IRQHandler                   /* TIM5                         */
+  .word     SPI3_IRQHandler                   /* SPI3                         */
+  .word     0                                 /* Reserved                     */
+  .word     0                                 /* Reserved                     */
+  .word     0                                 /* Reserved                     */
+  .word     0                                 /* Reserved                     */
+  .word     DMA2_Stream0_IRQHandler           /* DMA2 Stream 0                */
+  .word     DMA2_Stream1_IRQHandler           /* DMA2 Stream 1                */
+  .word     DMA2_Stream2_IRQHandler           /* DMA2 Stream 2                */
+  .word     DMA2_Stream3_IRQHandler           /* DMA2 Stream 3                */
+  .word     DMA2_Stream4_IRQHandler           /* DMA2 Stream 4                */
+  .word     0                    			  /* Reserved                     */
+  .word     0              					  /* Reserved                     */
+  .word     0              					  /* Reserved                     */
+  .word     0             					  /* Reserved                     */
+  .word     0              					  /* Reserved                     */
+  .word     0              					  /* Reserved                     */
+  .word     OTG_FS_IRQHandler                 /* USB OTG FS                   */
+  .word     DMA2_Stream5_IRQHandler           /* DMA2 Stream 5                */
+  .word     DMA2_Stream6_IRQHandler           /* DMA2 Stream 6                */
+  .word     DMA2_Stream7_IRQHandler           /* DMA2 Stream 7                */
+  .word     USART6_IRQHandler                 /* USART6                       */
+  .word     I2C3_EV_IRQHandler                /* I2C3 event                   */
+  .word     I2C3_ER_IRQHandler                /* I2C3 error                   */
+  .word     0                                 /* Reserved                     */
+  .word     0                                 /* Reserved                     */
+  .word     0                                 /* Reserved                     */
+  .word     0                                 /* Reserved                     */
+  .word     0                                 /* Reserved                     */
+  .word     0                                 /* Reserved                     */
+  .word     0                                 /* Reserved                     */
+  .word     FPU_IRQHandler                    /* FPU                          */
+  .word     0                                 /* Reserved                     */
+  .word     0                                 /* Reserved                     */
+  .word     SPI4_IRQHandler                   /* SPI4                         */
+  .word     SPI5_IRQHandler                   /* SPI5                         */
 
 /*******************************************************************************
 *
