@@ -4,14 +4,14 @@
 #include "messaging.hpp"
 #include "parameters.hpp"
 #include "parser.hpp"
-#include "uart_ctrl.hpp"
+#include "usart_ctrl.hpp"
 
 using namespace std::string_literals;
 
 int main(int argc, char * argv[])
 {
     parameters params(argc, argv);
-    uart_ctrl uart(params.port());
+    usart_ctrl uart(params.port());
     gcode_parser gcode_p(params.file());
 
     std::cerr << params << "\n";

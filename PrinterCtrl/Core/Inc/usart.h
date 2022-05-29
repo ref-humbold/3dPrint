@@ -35,7 +35,7 @@ extern "C"
     extern UART_HandleTypeDef huart2;
 
     /* USER CODE BEGIN Private defines */
-    enum uart_code
+    enum usart_code
     {
         Acknowledge = 0xA000,
         BeginTransmit = 0xB000,
@@ -52,10 +52,10 @@ extern "C"
     void HAL_UART_TxCpltCallback(UART_HandleTypeDef * huart);
     void HAL_UART_RxCpltCallback(UART_HandleTypeDef * huart);
 
-    void uart_send(UART_HandleTypeDef * huart, const uint16_t data);
-    void uart_receive(UART_HandleTypeDef * huart, uint16_t * data);
-    void uart_expect_receive(UART_HandleTypeDef * huart, const uint16_t expected);
-    void uart_assert_receive(UART_HandleTypeDef * huart, const uint16_t expected);
+    void usart_send(UART_HandleTypeDef * huart, const uint16_t data);
+    void usart_receive(UART_HandleTypeDef * huart, uint16_t * data);
+    void usart_expect_receive(UART_HandleTypeDef * huart, const uint16_t expected);
+    void usart_assert_receive(UART_HandleTypeDef * huart, const uint16_t expected);
     void start_connection();
     /* USER CODE END Prototypes */
 

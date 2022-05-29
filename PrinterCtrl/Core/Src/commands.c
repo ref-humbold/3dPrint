@@ -28,15 +28,15 @@ command read_command()
     uint16_t size, data;
     size_t index = 0;
 
-    uart_send(&huart2, DataExpected);
-    uart_expect_receive(&huart2, BeginTransmit);
-    uart_receive(&huart2, &size);
+    usart_send(&huart2, DataExpected);
+    usart_expect_receive(&huart2, BeginTransmit);
+    usart_receive(&huart2, &size);
 
     command cmd = init_command(size);
 
     do
     {
-        uart_receive(&huart2, &data);
+        usart_receive(&huart2, &data);
 
         if(data != EndTransmit)
         {
@@ -45,12 +45,12 @@ command read_command()
         }
     } while(data != EndTransmit || index >= size);
 
-    uart_send(&huart2, index);
+    usart_send(&huart2, index);
 
     if(index == size)
-        uart_send(&huart2, Acknowledge);
+        usart_send(&huart2, Acknowledge);
     else
-        uart_send(&huart2, Failure);
+        usart_send(&huart2, Failure);
 
     return cmd;
 }

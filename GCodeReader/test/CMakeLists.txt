@@ -12,7 +12,7 @@ find_package(Threads REQUIRED)
 set(SOURCES
     file_reader_test.cpp
     printer_parser_test.cpp
-    uart_test.cpp)
+    usart_test.cpp)
 
 # OUTPUT
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${EXE_OUTPUT_DIR}/test")

@@ -3,13 +3,13 @@
 
 using namespace std::string_literals;
 
-void start_connection(const uart_ctrl & uart)
+void start_connection(const usart_ctrl & uart)
 {
     uart.send(Connect);
     uart.assert_receive(Connect);
 }
 
-void send_message(const uart_ctrl & uart, const printer_instruction & instr)
+void send_message(const usart_ctrl & uart, const printer_instruction & instr)
 {
     uart.send(BeginTransmit);
     uart.send(instr.size());

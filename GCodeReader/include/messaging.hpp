@@ -3,10 +3,10 @@
 
 #include <cstdlib>
 #include "instruction.hpp"
-#include "uart_ctrl.hpp"
+#include "usart_ctrl.hpp"
 
-void start_connection(const uart_ctrl & uart);
+void start_connection(const usart_ctrl & uart);
 
-void send_message(const uart_ctrl & uart, const printer_instruction & instr);
+void send_message(const usart_ctrl & uart, const printer_instruction & instr);
 
 #endif

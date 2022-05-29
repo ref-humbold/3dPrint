@@ -109,7 +109,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef * huart)
 {
 }
 
-void uart_send(UART_HandleTypeDef * huart, const uint16_t data)
+void usart_send(UART_HandleTypeDef * huart, const uint16_t data)
 {
     uint8_t val[2] = {data >> 8, data & 0x00FF};
 
@@ -117,7 +117,7 @@ void uart_send(UART_HandleTypeDef * huart, const uint16_t data)
     HAL_Delay(200);
 }
 
-void uart_receive(UART_HandleTypeDef * huart, uint16_t * data)
+void usart_receive(UART_HandleTypeDef * huart, uint16_t * data)
 {
     uint8_t val[2] = {0xFF, 0xFF};
 
@@ -127,30 +127,30 @@ void uart_receive(UART_HandleTypeDef * huart, uint16_t * data)
     *data = (val[0] << 8) | val[1];
 }
 
-void uart_expect_receive(UART_HandleTypeDef * huart, const uint16_t expected)
+void usart_expect_receive(UART_HandleTypeDef * huart, const uint16_t expected)
 {
     uint16_t data;
 
     do
     {
-        uart_receive(huart, &data);
+        usart_receive(huart, &data);
     } while(data != expected);
 }
 
-void uart_assert_receive(UART_HandleTypeDef * huart, const uint16_t expected)
+void usart_assert_receive(UART_HandleTypeDef * huart, const uint16_t expected)
 {
     uint16_t data;
 
-    uart_receive(huart, &data);
+    usart_receive(huart, &data);
 
     if(data != expected)
-        uart_send(huart, Failure);
+        usart_send(huart, Failure);
 }
 
 void start_connection()
 {
-    uart_expect_receive(&huart2, Connect);
-    uart_send(&huart2, Connect);
+    usart_expect_receive(&huart2, Connect);
+    usart_send(&huart2, Connect);
 }
 /* USER CODE END 1 */
 

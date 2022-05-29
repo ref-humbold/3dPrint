@@ -1,9 +1,9 @@
-#ifndef UART_HPP_
-#define UART_HPP_
+#ifndef USART_HPP_
+#define USART_HPP_
 
-#include <cstdlib>
 #include <cerrno>
 #include <cinttypes>
+#include <cstdlib>
 #include <cstring>
 #include <exception>
 #include <iostream>
@@ -12,7 +12,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-enum uart_code : uint16_t
+enum usart_code : uint16_t
 {
     Acknowledge = 0xA000,
     BeginTransmit = 0xB000,
@@ -22,10 +22,10 @@ enum uart_code : uint16_t
     Failure = 0xF000
 };
 
-class uart_error : public std::runtime_error
+class usart_error : public std::runtime_error
 {
 public:
-    explicit uart_error(const std::string & s) : std::runtime_error(s)
+    explicit usart_error(const std::string & s) : std::runtime_error(s)
     {
     }
 };
@@ -38,22 +38,22 @@ public:
     }
 };
 
-class uart_ctrl
+class usart_ctrl
 {
 public:
-    explicit uart_ctrl(const std::string & port) : device{open(port.c_str(), O_RDWR | O_NOCTTY)}
+    explicit usart_ctrl(const std::string & port) : device{open(port.c_str(), O_RDWR | O_NOCTTY)}
     {
     }
 
-    ~uart_ctrl()
+    ~usart_ctrl()
     {
         close(device);
     }
 
-    uart_ctrl(const uart_ctrl &) = delete;
-    uart_ctrl(uart_ctrl &&) = default;
-    uart_ctrl & operator=(const uart_ctrl &) = delete;
-    uart_ctrl & operator=(uart_ctrl &&) = default;
+    usart_ctrl(const usart_ctrl &) = delete;
+    usart_ctrl(usart_ctrl &&) = default;
+    usart_ctrl & operator=(const usart_ctrl &) = delete;
+    usart_ctrl & operator=(usart_ctrl &&) = default;
 
     void send(uint16_t data) const;
     uint16_t receive() const;

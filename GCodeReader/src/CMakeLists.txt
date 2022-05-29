@@ -9,7 +9,7 @@ set(SOURCES
     messaging.cpp
     parameters.cpp
     parser.cpp
-    uart_ctrl.cpp
+    usart_ctrl.cpp
     vec.cpp)
 
 # OUTPUT
