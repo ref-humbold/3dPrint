@@ -41,7 +41,7 @@ extern "C"
     void MX_SPI2_Init(void);
 
     /* USER CODE BEGIN Prototypes */
-    void spi_send(SPI_HandleTypeDef * hspi, const pinout * slave, const uint16_t data);
+    void spi_send(SPI_HandleTypeDef * hspi, const pinout * device, const uint16_t data);
     /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

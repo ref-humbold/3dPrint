@@ -1,56 +1,61 @@
-# VERSION 11
+# VERSION 13
 
 AccessModifierOffset: -4
 AlignAfterOpenBracket: Align
-AlignConsecutiveAssignments: false
-AlignConsecutiveBitFields: false
-AlignConsecutiveDeclarations: false
-AlignConsecutiveMacros: false
+AlignArrayOfStructures: None
+AlignConsecutiveAssignments: None
+AlignConsecutiveBitFields: None
+AlignConsecutiveDeclarations: None
+AlignConsecutiveMacros: None
 AlignEscapedNewlines: DontAlign
 AlignOperands: Align
 AlignTrailingComments: false
 AllowAllArgumentsOnNextLine: true
-AllowAllConstructorInitializersOnNextLine: true
+AllowAllConstructorInitializersOnNextLine: true #14 deprecated
 AllowAllParametersOfDeclarationOnNextLine: true
-AllowShortBlocksOnASingleLine: false
+AllowShortBlocksOnASingleLine: Never
 AllowShortCaseLabelsOnASingleLine: false
 AllowShortEnumsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: None
 AllowShortIfStatementsOnASingleLine: Never
 AllowShortLambdasOnASingleLine: All
 AllowShortLoopsOnASingleLine: false
-AlwaysBreakAfterDefinitionReturnType: None
+AlwaysBreakAfterDefinitionReturnType: None #14 deprecated
 AlwaysBreakAfterReturnType: None
 AlwaysBreakBeforeMultilineStrings: false
 AlwaysBreakTemplateDeclarations: Yes
 BinPackArguments: true
 BinPackParameters: true
+BitFieldColonSpacing: Both
 BreakBeforeBinaryOperators: NonAssignment
 BreakBeforeBraces: Allman
+BreakBeforeConceptDeclarations: true
+#15 BreakBeforeConceptDeclarations: Always
 BreakBeforeTernaryOperators: true
 BreakConstructorInitializers: BeforeColon
 BreakInheritanceList: BeforeColon
 BreakStringLiterals: false
 ColumnLimit: 100
-CommentPragmas: ''
 CompactNamespaces: false
-ConstructorInitializerAllOnOneLineOrOnePerLine: true
+ConstructorInitializerAllOnOneLineOrOnePerLine: true #14 deprecated
 ConstructorInitializerIndentWidth: 4
 ContinuationIndentWidth: 8
 Cpp11BracedListStyle: true
 DeriveLineEnding: false
 DerivePointerAlignment: false
+EmptyLineAfterAccessModifier: Never
+EmptyLineBeforeAccessModifier: Always
 FixNamespaceComments: false
 IncludeBlocks: Merge
 IncludeCategories:
   # C standard library (C++ style)
-  - Regex: '^<c(assert|ctype|errno|fenv|float|inttypes|limits|locale|math|setjmp|signal|stdarg|stddef|stdint|stdio|stdlib|string|time|uchar|wchar|wctype)>'
+  - Regex: "^<c(assert|ctype|errno|fenv|float|inttypes|limits|locale|math|setjmp|signal|stdarg|stddef|stdint|stdio|stdlib|string|time|uchar|wchar|wctype)>"
     Priority: 1
   # C standard library (C style)
   - Regex: '^<(assert|complex|ctype|errno|fenv|float|inttypes|limits|locale|math|setjmp|signal|stdarg|stdbool|stddef|stdint|stdio|stdlib|string|tgmath|time|uchar|wchar|wctype)\.h>'
     Priority: 1
   # Standard headers (C++ style)
-  - Regex: '^<[a-z_]+>'
+  - Regex: "^<[a-z_]+>"
     Priority: 2
   # Standard headers (C style)
   - Regex: '^<[a-z_]+\.(h|hpp)>'
@@ -59,34 +64,46 @@ IncludeCategories:
   - Regex: '^<.+\.(h|hpp)>'
     Priority: 5
   # All other headers (C++ style)
-  - Regex: '^<.+>'
+  - Regex: "^<.+>"
     Priority: 4
   # All custom headers
   - Regex: '^".+"'
     Priority: 6
-IncludeIsMainRegex: '$'
-IncludeIsMainSourceRegex: '$'
+IncludeIsMainRegex: "$"
+IncludeIsMainSourceRegex: "$"
+IndentAccessModifiers: false
 IndentCaseBlocks: true
 IndentCaseLabels: true
 IndentExternBlock: NoIndent
 IndentGotoLabels: false
 IndentPPDirectives: None
+IndentRequires: true
+#15 IndentRequiresClause: true
 IndentWidth: 4
 IndentWrappedFunctionNames: true
+#15 InsertBraces: false
 InsertTrailingCommas: None
 KeepEmptyLinesAtTheStartOfBlocks: false
-MacroBlockBegin: ''
-MacroBlockEnd: ''
+LambdaBodyIndentation: Signature
 MaxEmptyLinesToKeep: 1
 NamespaceIndentation: All
+PPIndentWidth: 0
+#14 PackConstructorInitializers: NextLine
 PointerAlignment: Middle
+#14 QualifierAlignment: Leave
+ReferenceAlignment: Pointer
 ReflowComments: false
-SortIncludes: true
+#15 RequiresClausePosition: OwnLine
+#14 SeparateDefinitionBlocks: Always
+ShortNamespaceLines: 1
+SortIncludes: CaseSensitive
 SortUsingDeclarations: true
 SpaceAfterCStyleCast: false
 SpaceAfterLogicalNot: false
 SpaceAfterTemplateKeyword: true
+SpaceAroundPointerQualifiers: Default
 SpaceBeforeAssignmentOperators: true
+SpaceBeforeCaseColon: false
 SpaceBeforeCpp11BracedList: false
 SpaceBeforeCtorInitializerColon: true
 SpaceBeforeInheritanceColon: true
@@ -98,9 +115,13 @@ SpaceInEmptyParentheses: false
 SpacesBeforeTrailingComments: 2
 SpacesInAngles: false
 SpacesInCStyleCastParentheses: false
+SpacesInConditionalStatement: false
 SpacesInContainerLiterals: false
+SpacesInLineCommentPrefix:
+  Minimum: 1
+  Maximum: 1
 SpacesInParentheses: false
 SpacesInSquareBrackets: false
-Standard: Cpp11
+Standard: c++17
 TabWidth: 4
 UseTab: Never

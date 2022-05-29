@@ -61,9 +61,9 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef * spiHandle)
         __HAL_RCC_GPIOC_CLK_ENABLE();
         __HAL_RCC_GPIOB_CLK_ENABLE();
         /**SPI2 GPIO Configuration
-    PC3     ------> SPI2_MOSI
-    PB10     ------> SPI2_SCK
-    */
+        PC3     ------> SPI2_MOSI
+        PB10     ------> SPI2_SCK
+        */
         GPIO_InitStruct.Pin = GPIO_PIN_3;
         GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
         GPIO_InitStruct.Pull = GPIO_NOPULL;
@@ -98,9 +98,9 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef * spiHandle)
         __HAL_RCC_SPI2_CLK_DISABLE();
 
         /**SPI2 GPIO Configuration
-    PC3     ------> SPI2_MOSI
-    PB10     ------> SPI2_SCK
-    */
+        PC3     ------> SPI2_MOSI
+        PB10     ------> SPI2_SCK
+        */
         HAL_GPIO_DeInit(GPIOC, GPIO_PIN_3);
 
         HAL_GPIO_DeInit(GPIOB, GPIO_PIN_10);
@@ -114,11 +114,11 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef * spiHandle)
 }
 
 /* USER CODE BEGIN 1 */
-void spi_send(SPI_HandleTypeDef * hspi, const pinout * slave, const uint16_t data)
+void spi_send(SPI_HandleTypeDef * hspi, const pinout * device, const uint16_t data)
 {
     uint8_t val[2] = {data >> 8, data & 0x00FF};
 
-    HAL_GPIO_WritePin(slave->gpio, slave->pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(device->gpio, device->pin, GPIO_PIN_RESET);
     HAL_SPI_Transmit_IT(hspi, val, 2);
 
     while(HAL_SPI_GetState(hspi) != HAL_SPI_STATE_READY)
@@ -127,7 +127,7 @@ void spi_send(SPI_HandleTypeDef * hspi, const pinout * slave, const uint16_t dat
     }
 
     HAL_Delay(200);
-    HAL_GPIO_WritePin(slave->gpio, slave->pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(device->gpio, device->pin, GPIO_PIN_SET);
 }
 /* USER CODE END 1 */
 
