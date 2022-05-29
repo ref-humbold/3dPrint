@@ -1,7 +1,7 @@
 #ifndef ___dac_test_H
 #define ___dac_test_H
 
-#include "commands.h"
+#include "devices.h"
 #include "gpio.h"
 #include "main.h"
 #include "usart.h"

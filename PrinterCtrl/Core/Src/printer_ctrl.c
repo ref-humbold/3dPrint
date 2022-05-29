@@ -1,5 +1,6 @@
 #include "printer_ctrl.h"
 #include "commands.h"
+#include "devices.h"
 #include "usart.h"
 
 void run_init()
