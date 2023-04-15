@@ -1,7 +1,4 @@
-# [ C / C++ ]
-# C / GNU Make output
 build/
 
-# Visual Studio Code
 .vscode
 *.code-workspace

@@ -1,13 +1,8 @@
-# [ C / C++ ]
-# C / C++ / CMake output
-bin/
 build/
-dist/
+buildOut/
 
-# Visual Studio Code
 .vscode
 *.code-workspace
 
-# CLion
 .idea
 cmake-build-debug/
