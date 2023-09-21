@@ -1,0 +1,23 @@
+Small Laser Data:
+  URL: https://www.aliexpress.com/item/32962980856.html
+  wave length: 405 nm
+  power: 1500 mW
+  input voltage:
+    minimal: 3.7 V
+    maximal: 5 V
+  pinout:
+    - VCC
+    - GND
+  focal length:
+    minimal: 5 cm
+    maximal: 10 cm
+
+Big Laser Data:
+  URL: https://www.aliexpress.com/item/32958287809.html
+  wave length: 405 nm
+  power: 500 mW
+  input voltage: 12 V
+  pinout:
+    - VCC
+    - GND
+    - PWM

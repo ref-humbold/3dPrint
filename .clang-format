@@ -1,4 +1,4 @@
-# VERSION 14
+# VERSION 16
 
 AccessModifierOffset: -4
 AlignAfterOpenBracket: Align
@@ -9,9 +9,12 @@ AlignConsecutiveDeclarations: None
 AlignConsecutiveMacros: None
 AlignEscapedNewlines: DontAlign
 AlignOperands: Align
-AlignTrailingComments: false
+AlignTrailingComments:
+  Kind: Never
+  OverEmptyLines: 0
 AllowAllArgumentsOnNextLine: false
 AllowAllParametersOfDeclarationOnNextLine: false
+#18 AllowBreakBeforeNoexceptSpecifier: OnlyWithParen
 AllowShortBlocksOnASingleLine: Never
 AllowShortCaseLabelsOnASingleLine: false
 AllowShortEnumsOnASingleLine: false
@@ -25,10 +28,10 @@ AlwaysBreakTemplateDeclarations: Yes
 BinPackArguments: true
 BinPackParameters: false
 BitFieldColonSpacing: Both
+BreakAfterAttributes: Always
 BreakBeforeBinaryOperators: NonAssignment
 BreakBeforeBraces: Allman
-BreakBeforeConceptDeclarations: true
-#15 BreakBeforeConceptDeclarations: Always
+BreakBeforeConceptDeclarations: Always
 BreakBeforeTernaryOperators: true
 BreakConstructorInitializers: BeforeColon
 BreakInheritanceList: BeforeColon
@@ -74,12 +77,18 @@ IndentCaseLabels: true
 IndentExternBlock: NoIndent
 IndentGotoLabels: false
 IndentPPDirectives: None
-IndentRequires: true
-#15 IndentRequiresClause: true
+IndentRequiresClause: true
 IndentWidth: 4
 IndentWrappedFunctionNames: true
-#15 InsertBraces: false
+InsertBraces: false
+InsertNewlineAtEOF: true
 InsertTrailingCommas: None
+IntegerLiteralSeparator:
+  Binary: 4
+  Decimal: 3
+  DecimalMinDigits: 7
+  Hex: -1
+#17 KeepEmptyLinesAtEOF: false
 KeepEmptyLinesAtTheStartOfBlocks: false
 LambdaBodyIndentation: Signature
 MaxEmptyLinesToKeep: 1
@@ -90,11 +99,12 @@ PointerAlignment: Middle
 QualifierAlignment: Leave
 ReferenceAlignment: Pointer
 ReflowComments: false
-#15 RequiresClausePosition: OwnLine
+RequiresClausePosition: OwnLine
+RequiresExpressionIndentation: OuterScope
 SeparateDefinitionBlocks: Always
 ShortNamespaceLines: 1
 SortIncludes: CaseSensitive
-SortUsingDeclarations: true
+SortUsingDeclarations: Lexicographic
 SpaceAfterCStyleCast: false
 SpaceAfterLogicalNot: false
 SpaceAfterTemplateKeyword: true
@@ -117,6 +127,7 @@ SpacesInContainerLiterals: false
 SpacesInLineCommentPrefix:
   Minimum: 1
   Maximum: 1
+#17 SpacesInParens: Never
 SpacesInParentheses: false
 SpacesInSquareBrackets: false
 Standard: c++17
