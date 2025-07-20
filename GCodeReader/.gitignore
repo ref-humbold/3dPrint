@@ -1,8 +1,0 @@
-build/
-buildOut/
-
-.vscode
-*.code-workspace
-
-.idea
-cmake-build-debug/

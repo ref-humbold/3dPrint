@@ -1,47 +1,60 @@
-# VERSION 16
+# VERSION 19
+Language: Cpp
+Standard: c++17
+LineEnding: DeriveLF
 
 AccessModifierOffset: -4
-AlignAfterOpenBracket: Align
+AlignAfterOpenBracket: DontAlign
 AlignArrayOfStructures: None
 AlignConsecutiveAssignments: None
 AlignConsecutiveBitFields: None
 AlignConsecutiveDeclarations: None
 AlignConsecutiveMacros: None
+AlignConsecutiveShortCaseStatements:
+  Enabled: false
 AlignEscapedNewlines: DontAlign
 AlignOperands: Align
 AlignTrailingComments:
   Kind: Never
   OverEmptyLines: 0
 AllowAllArgumentsOnNextLine: false
-AllowAllParametersOfDeclarationOnNextLine: false
-#18 AllowBreakBeforeNoexceptSpecifier: OnlyWithParen
+AllowAllParametersOfDeclarationOnNextLine: true
+AllowBreakBeforeNoexceptSpecifier: OnlyWithParen
 AllowShortBlocksOnASingleLine: Never
+AllowShortCaseExpressionOnASingleLine: true
 AllowShortCaseLabelsOnASingleLine: false
+AllowShortCompoundRequirementOnASingleLine: true
 AllowShortEnumsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: None
 AllowShortIfStatementsOnASingleLine: Never
 AllowShortLambdasOnASingleLine: All
 AllowShortLoopsOnASingleLine: false
-AlwaysBreakAfterReturnType: None
+#20 AllowShortNamespacesOnASingleLine: false
 AlwaysBreakBeforeMultilineStrings: false
-AlwaysBreakTemplateDeclarations: Yes
 BinPackArguments: true
-BinPackParameters: false
+#21 BinPackLongBracedList: true
+BinPackParameters: false #20 OnePerLine
 BitFieldColonSpacing: Both
+BracedInitializerIndentWidth: 4
+BreakAdjacentStringLiterals: false
 BreakAfterAttributes: Always
+BreakAfterReturnType: ExceptShortType
 BreakBeforeBinaryOperators: NonAssignment
+#20 BreakBinaryOperations: Never
 BreakBeforeBraces: Allman
 BreakBeforeConceptDeclarations: Always
+#21 BreakBeforeTemplateCloser: true
 BreakBeforeTernaryOperators: true
 BreakConstructorInitializers: BeforeColon
+BreakFunctionDefinitionParameters: false
 BreakInheritanceList: BeforeColon
 BreakStringLiterals: false
+BreakTemplateDeclarations: Yes
 ColumnLimit: 100
 CompactNamespaces: false
 ConstructorInitializerIndentWidth: 4
 ContinuationIndentWidth: 8
 Cpp11BracedListStyle: true
-DeriveLineEnding: false
 DerivePointerAlignment: false
 EmptyLineAfterAccessModifier: Never
 EmptyLineBeforeAccessModifier: Always
@@ -60,12 +73,12 @@ IncludeCategories:
   # Standard headers (C style)
   - Regex: '^<[a-z_]+\.(h|hpp)>'
     Priority: 3
-  # All other headers (C style)
-  - Regex: '^<.+\.(h|hpp)>'
-    Priority: 5
   # All other headers (C++ style)
   - Regex: "^<.+>"
     Priority: 4
+  # All other headers (C style)
+  - Regex: '^<.+\.(h|hpp)>'
+    Priority: 5
   # All custom headers
   - Regex: '^".+"'
     Priority: 6
@@ -74,6 +87,7 @@ IncludeIsMainSourceRegex: "$"
 IndentAccessModifiers: false
 IndentCaseBlocks: true
 IndentCaseLabels: true
+#20 IndentExportBlock: false
 IndentExternBlock: NoIndent
 IndentGotoLabels: false
 IndentPPDirectives: None
@@ -88,9 +102,12 @@ IntegerLiteralSeparator:
   Decimal: 3
   DecimalMinDigits: 7
   Hex: -1
-#17 KeepEmptyLinesAtEOF: false
-KeepEmptyLinesAtTheStartOfBlocks: false
+KeepEmptyLines:
+  AtEndOfFile: false
+  AtStartOfBlock: false
+  AtStartOfFile: false
 LambdaBodyIndentation: Signature
+MainIncludeChar: Quote
 MaxEmptyLinesToKeep: 1
 NamespaceIndentation: All
 PPIndentWidth: 0
@@ -99,6 +116,7 @@ PointerAlignment: Middle
 QualifierAlignment: Leave
 ReferenceAlignment: Pointer
 ReflowComments: false
+#20 RemoveEmptyLinesInUnwrappedLines: true
 RequiresClausePosition: OwnLine
 RequiresExpressionIndentation: OuterScope
 SeparateDefinitionBlocks: Always
@@ -114,22 +132,26 @@ SpaceBeforeCaseColon: false
 SpaceBeforeCpp11BracedList: false
 SpaceBeforeCtorInitializerColon: true
 SpaceBeforeInheritanceColon: true
-SpaceBeforeParens: Never
+SpaceBeforeParens: Custom
+SpaceBeforeParensOptions:
+  AfterControlStatements: false
+  AfterFunctionDeclarationName: false
+  AfterFunctionDefinitionName: false
+  AfterOverloadedOperator: false
+  AfterPlacementOperator: false
+  AfterRequiresInClause: true
+  AfterRequiresInExpression: true
 SpaceBeforeRangeBasedForLoopColon: true
 SpaceBeforeSquareBrackets: false
 SpaceInEmptyBlock: false
-SpaceInEmptyParentheses: false
 SpacesBeforeTrailingComments: 2
 SpacesInAngles: Never
-SpacesInCStyleCastParentheses: false
-SpacesInConditionalStatement: false
 SpacesInContainerLiterals: false
 SpacesInLineCommentPrefix:
   Minimum: 1
   Maximum: 1
-#17 SpacesInParens: Never
-SpacesInParentheses: false
+SpacesInParens: Never
 SpacesInSquareBrackets: false
-Standard: c++17
 TabWidth: 4
 UseTab: Never
+#20 WrapNamespaceBodyWithEmptyLines: false
